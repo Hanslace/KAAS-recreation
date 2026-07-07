@@ -12,6 +12,9 @@
   --color-foreground: var(--foreground);
   --color-brand: var(--brand);
   --color-brand-dark: var(--brand-dark);
+  --text-heading: clamp(6vh,6vh,6vh);
+  --text-sub-text: clamp(2vh,2vh,3vh);
+  --text-label: clamp(1.5vh,2vh,2vh);
   --font-sans: var(--font-urbanist);
 }
 
