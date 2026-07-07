@@ -5,50 +5,62 @@ import { ComponentPropsWithRef } from "react";
 
 type BaseProps = {
   children: React.ReactNode;
+  className?: string;
+  type?: "button" | "submit" | "reset"; // 1. Enforce strict button types globally here
 };
 
-// Extends native link or button props depending on the presence of an href
-type AuthButtonProps = BaseProps &
-  (
-    | ({ href: string; disabled?: boolean } & ComponentPropsWithRef<typeof Link>)
-    | ({ href?: never; disabled?: boolean } & ComponentPropsWithRef<"button">)
-  );
+type LinkButtonProps = {
+  href: string;
+  disabled?: boolean;
+} & Omit<ComponentPropsWithRef<typeof Link>, "href" | "className" | "type">; // 2. Omit conflicting type definitions
+
+type NormalButtonProps = {
+  href?: never;
+  disabled?: boolean;
+} & Omit<ComponentPropsWithRef<"button">, "className" | "type">; // 3. Omit conflicting type definitions
+
+type AuthButtonProps = BaseProps & (LinkButtonProps | NormalButtonProps);
 
 export default function AuthButton({
   children,
-  type = "button",
+  type = "button", // 4. This now perfectly matches the literal union type
   href,
   disabled,
   className = "",
   ...props
 }: AuthButtonProps) {
-  // Shared structural, gradient, hover, active, and state styles
   const baseStyles = `flex h-[7.5vh] w-full items-center justify-center rounded-2xl bg-gradient-to-r from-brand to-brand-dark text-sub-text font-bold text-white shadow-md transition duration-300 ${
     disabled
       ? "pointer-events-none opacity-50 shadow-none"
       : "hover:-translate-y-1 hover:shadow-xl active:scale-95 cursor-pointer"
   } ${className}`;
 
-  // Renders Next.js Link layout if href is passed down
   if (href) {
+    const linkProps = props as Omit<
+      ComponentPropsWithRef<typeof Link>,
+      "href" | "className" | "type"
+    >;
+
     return (
-      <Link 
-        href={disabled ? "#" : href} 
-        className={baseStyles} 
-        {...(props as ComponentPropsWithRef<typeof Link>)}
+      <Link
+        href={disabled ? "#" : href}
+        className={baseStyles}
+        aria-disabled={disabled}
+        {...linkProps}
       >
         {children}
       </Link>
     );
   }
 
-  // Fallback to normal HTML form button execution block
+  const buttonProps = props as Omit<ComponentPropsWithRef<"button">, "className" | "type">;
+
   return (
     <button
-      type={type}
+      type={type} // Error fully resolved
       disabled={disabled}
       className={baseStyles}
-      {...(props as ComponentPropsWithRef<"button">)}
+      {...buttonProps}
     >
       {children}
     </button>
