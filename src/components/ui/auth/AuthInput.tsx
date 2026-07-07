@@ -48,8 +48,8 @@ export const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>(
             {icon && (
               <Icon
                 icon={icon}
-                width={31}
-                height={31}
+                width={24}
+                height={24}
                 className={`mr-8 shrink-0 ${error ? "text-red-500" : "text-brand"}`}
               />
             )}
