@@ -5,6 +5,7 @@
   --foreground: #000000;
   --brand: #C0A86C;
   --brand-dark: #765B2C;
+  --brand-gradient: linear-gradient(to right, var(--color-brand), var(--color-brand-dark));
 }
 
 @theme inline {
@@ -12,9 +13,10 @@
   --color-foreground: var(--foreground);
   --color-brand: var(--brand);
   --color-brand-dark: var(--brand-dark);
+  --background-image-brand-gradient: var(--brand-gradient);
   --text-heading: clamp(3rem,6vh,5rem);
   --text-sub-text: clamp(1rem,2vh,3rem);
-  --text-label: clamp(1.5rem,1vh,2rem);
+  --text-label: clamp(1rem,2vh,3rem);
   --font-sans: var(--font-urbanist);
 }
 
