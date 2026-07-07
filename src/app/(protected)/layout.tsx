@@ -25,12 +25,12 @@ export default function Layout({ children }: DashboardLayoutProps) {
   ];
 
   return (
-    <div className="flex h-screen  font-sans antialiased text-white">
+    <div className="flex min-h-screen  font-sans antialiased text-white">
       
       {/* ========================================================================= */}
       {/* SIDEBAR                                                                   */}
       {/* ========================================================================= */}
-      <aside className="w-[20vw]  min-w-[240px] bg-black flex flex-col">
+      <aside className="lg:w-[20vw] md:w-[30vw] overflow-hidden bg-black flex flex-col">
      
           
           {/* KAAS Branding Header Logo Area */}
@@ -47,7 +47,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
 
           <div className='flex flex-col p-10 flex-1 justify-between'>
           {/* Nav Item Menu Stack */}
-            <nav className="space-y-1.5 w-full">
+            <nav className="space-y-1.5 ">
               {sidebarLinks.map((link) => {
                 // Check if current route is active
                 const isActive = pathname === link.href;
@@ -62,10 +62,10 @@ export default function Layout({ children }: DashboardLayoutProps) {
                         : ''
                       }`}
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center overflow-hidden gap-3">
                       {/* Iconify integration for menu links */}
                       <Icon icon={link.icon} className="w-5 h-5" />
-                      <span>{link.name}</span>
+                      <span className=''>{link.name}</span>
                     </div>
                     
                     {link.hasSubmenu && (
@@ -78,7 +78,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
             </nav>
             
 
-            <Link href="/login"  className='w-[7vw] p-3 inline-flex items-center justify-center gap-2 rounded-md bg-brand-gradient text-sub-text ' >
+            <Link href="/login"  className='w-[7vw] min-w-fit p-3 inline-flex items-center justify-center gap-2 rounded-md bg-brand-gradient text-sub-text ' >
               {/* Fixed: Iconify integration for the logout button icon */}
               <Icon icon="majesticons:logout-half-circle" className="w-5 h-5" />
               Logout
@@ -93,12 +93,12 @@ export default function Layout({ children }: DashboardLayoutProps) {
       <div className="flex-1 flex flex-col min-w-0">
         
         {/* TOP NAVBAR */}
-        <header className="h-[12vh] bg-white flex items-center justify-between px-10 relative after:absolute after:bottom-0 after:left-10  after:w-[calc(100%-80px)] after:h-[3px] after:bg-gray-100">
+        <header className="h-fit overflow-hidden bg-white flex items-center justify-between p-10 relative after:absolute after:bottom-0 after:left-10  after:w-[calc(100%-80px)] after:h-[3px] after:bg-gray-100">
 
           
           {/* Greeting Welcome Segment */}
           <div>
-            <h1 className="text-heading font-bold text-gray-900 tracking-tight">
+            <h1 className="text-heading font-bold text-black tracking-tight">
               Welcome Back, Admin!
             </h1>
           </div>
