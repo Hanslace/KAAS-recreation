@@ -1,16 +1,17 @@
-import { redirect } from 'next/dist/server/api-utils';
 import React from 'react';
 
+interface BackButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  onBack?: () => void;
+}
 
-
-export const BackButton: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = ({ 
-  
+export const BackButton: React.FC<BackButtonProps> = ({ 
+  onBack, 
   className = '', 
   ...props 
 }) => {
   return (
     <button
-      onClick={() => redirect('/login')}
+      onClick={onBack}
       className={`inline-flex items-center gap-3 group font-sans cursor-pointer focus:outline-none select-none ${className}`}
       aria-label="Go back"
       {...props}

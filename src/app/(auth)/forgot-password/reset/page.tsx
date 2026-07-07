@@ -1,3 +1,98 @@
-export default function BlankPage() {
-  return null;
+'use client';
+
+import React from 'react';
+import { useForm, SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { useRouter } from "next/navigation";
+
+import AuthInput from "@/components/ui/auth/AuthInput";
+import BackButton from "@/components/ui/auth/BackButton";
+import AuthButton from "@/components/ui/auth/AuthButton";
+
+// 1. Define the Schema for Resetting Password with matching requirements
+const resetPasswordSchema = z
+  .object({
+    password: z
+      .string()
+      .min(8, "Password must be at least 8 characters long"),
+    confirmPassword: z
+      .string()
+      .min(1, "Please confirm your password"),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords do not match",
+    path: ["confirmPassword"], // Sets the error specifically on the confirmPassword field
+  });
+
+type ResetPasswordFormValues = z.infer<typeof resetPasswordSchema>;
+
+export default function ResetPasswordPage() {
+  const router = useRouter();
+
+  // 2. React Hook Form Initialization
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting, isValid },
+  } = useForm<ResetPasswordFormValues>({
+    resolver: zodResolver(resetPasswordSchema),
+    mode: "onChange",
+  });
+
+  // 3. Submission Handler Function
+  const onSubmit: SubmitHandler<ResetPasswordFormValues> = async (data) => {
+    try {
+      console.log("Submitting New Password Data:", data.password);
+      // Example: await api.auth.updatePassword(data.password);
+      
+      // Redirect straight to login once password update succeeds
+      router.push(`/login`);
+    } catch (error) {
+      console.error("Failed to update password:", error);
+    }
+  };
+
+  return (
+    <>
+      {/* Back button directs user back to the OTP screen if they need to check it */}
+      <BackButton onBack={() => router.push('/forgot-password/otp')} />
+
+      <h1 className="mb-2 text-heading font-bold text-brand mt-6">
+        Reset Password
+      </h1>
+
+      <p className="mb-10 text-sub-text text-black/50">
+        Please type your new password
+      </p>
+
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6">
+        <AuthInput
+          label="New Password"
+          type="password"
+          placeholder="Enter new password"
+          icon="iconoir:lock" // Updated to lock icon
+          error={errors.password?.message}
+          {...register("password")}
+        />
+
+        <AuthInput
+          label="Confirm Password"
+          type="password"
+          placeholder="Confirm new password"
+          icon="iconoir:lock" // Updated to lock icon
+          error={errors.confirmPassword?.message}
+          {...register("confirmPassword")}
+        />
+
+        <AuthButton 
+          type="submit" 
+          disabled={isSubmitting || !isValid}
+          className="w-full"
+        >
+          {isSubmitting ? "Saving..." : "Save"}
+        </AuthButton>
+      </form>
+    </>
+  );
 }
