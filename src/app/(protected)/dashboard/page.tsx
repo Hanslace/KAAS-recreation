@@ -1,7 +1,7 @@
 'use client';
 
 import AnalyticsCard from '@/components/shared/AnalyticsCard'; // Adjust path based on where you created the card
-import mockData from '@/data/dashboardData.json';
+import mockData from '@/data.json';
 import { Icon } from '@iconify/react';
 import { 
   ResponsiveContainer, 

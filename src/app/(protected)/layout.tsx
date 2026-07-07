@@ -18,9 +18,9 @@ export default function Layout({ children }: DashboardLayoutProps) {
   const [expandedMenu, setExpandedMenu] = useState<string | null>('Pilot Car Management');
 
   const sidebarLinks = [
-    { name: 'Dashboard', href: '/dashboard', icon: 'solar:widget-4-linear', hasSubmenu: false },
-    { name: 'Bookings', href: '/bookings', icon: 'solar:calendar-minimalistic-linear', hasSubmenu: false },
-    { name: 'Carriers Management', href: '/carriers', icon: 'solar:bus-linear', hasSubmenu: false },
+    { name: 'Dashboard', href: '/dashboard', icon: 'ic:baseline-home', hasSubmenu: false },
+    { name: 'Bookings', href: '/bookings', icon: 'uis:calendar', hasSubmenu: false },
+    { name: 'Carriers Management', href: '/carrier-management', icon: 'fa6-solid:truck-moving', hasSubmenu: false },
     { 
       name: 'Pilot Car Management', 
       href: '/pilot-cars', 
@@ -32,9 +32,9 @@ export default function Layout({ children }: DashboardLayoutProps) {
         { name: 'Individual Drivers', href: '/pilot-car-management/individual-drivers' }
       ]
     },
-    { name: 'Subscription', href: '/subscription', icon: 'solar:card-transfer-linear', hasSubmenu: false },
-    { name: 'Support', href: '/support', icon: 'solar:chat-square-call-linear', hasSubmenu: false },
-    { name: 'Settings', href: '/settings', icon: 'solar:settings-linear', hasSubmenu: false },
+    { name: 'Subscription', href: '/subscriptions', icon: 'material-symbols:subscriptions', hasSubmenu: false },
+    { name: 'Support', href: '/support', icon: 'fluent:person-support-32-filled', hasSubmenu: false },
+    { name: 'Settings', href: '/settings', icon: 'material-symbols:settings', hasSubmenu: false },
   ];
 
   return (

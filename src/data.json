@@ -1,0 +1,161 @@
+{
+  "analytics": {
+    "pilotCars": {
+      "total": 512,
+      "label": "Total Pilot Cars",
+      "backgroundColor": "bg-[#C4A46E]",
+      "icon": "ph:car-fill"
+    },
+    "carriers": {
+      "total": 256,
+      "label": "Total Carriers",
+      "backgroundColor": "bg-[#FFB703]",
+      "icon": "fa6-solid:truck-moving"
+    },
+    "bookings": {
+      "total": 190,
+      "label": "Total Bookings",
+      "backgroundColor": "bg-[#2196F3]",
+      "icon": "uis:calendar"
+    },
+    "approvals": {
+      "total": 25,
+      "label": "Approval Request",
+      "backgroundColor": "bg-[#9747FF]",
+      "icon": "solar:document-validate-linear"
+    }
+  },
+  "bookingMetrics": {
+    "total": {
+      "total": 35,
+      "label": "Total Bookings",
+      "backgroundColor": "bg-[#C4A46E]",
+      "icon": "uis:calendar"
+    },
+    "pending": {
+      "total": 3,
+      "label": "Pending Bookings",
+      "backgroundColor": "bg-[#FFB703]",
+      "icon": "uis:calendar"
+    },
+    "upcoming": {
+      "total": 10,
+      "label": "Upcoming Bookings",
+      "backgroundColor": "bg-[#007FFF]",
+      "icon": "uis:calendar"
+    },
+    "ongoing": {
+      "total": 10,
+      "label": "Ongoing Bookings",
+      "backgroundColor": "bg-[#A040FF]",
+      "icon": "uis:calendar"
+    },
+    "completed": {
+      "total": 7,
+      "label": "Completed Bookings",
+      "backgroundColor": "bg-[#4CAF50]",
+      "icon": "uis:calendar"
+    },
+    "cancelled": {
+      "total": 5,
+      "label": "Cancelled Bookings",
+      "backgroundColor": "bg-[#FF3B00]",
+      "icon": "uis:calendar"
+    }
+  },
+    "bookingsList": [
+    {
+      "id": 1,
+      "price": "$625",
+      "status": "Pending",
+      "imageUrl": "https://unsplash.com",
+      "companyLogoUrl": "https://unsplash.com",
+      "companyName": "ABC Logistics LLC",
+      "rating": 4.8,
+      "reviewCount": 124,
+      "dateTime": "Mar 16, 2026 | 12:00 PM",
+      "pickupLocation": "NY, Kellogg Rd New Hartford, 44",
+      "dropoffLocation": "53C, 14th street, Empire state, USA",
+      "distanceAway": "2.5 km away"
+    },
+    {
+      "id": 2,
+      "price": "$740",
+      "status": "Upcoming",
+      "imageUrl": "https://unsplash.com",
+      "companyLogoUrl": "https://unsplash.com",
+      "companyName": "USA Heavy Haul Carriers",
+      "rating": 4.9,
+      "reviewCount": 98,
+      "dateTime": "Mar 18, 2026 | 09:30 AM",
+      "pickupLocation": "TX, Industrial Blvd Dallas, 12",
+      "dropoffLocation": "104B, Westheimer Rd, Houston, USA",
+      "distanceAway": "4.1 km away"
+    },
+    {
+      "id": 3,
+      "price": "$510",
+      "status": "Ongoing",
+      "imageUrl": "https://unsplash.com",
+      "companyLogoUrl": "https://unsplash.com",
+      "companyName": "Prime Carrier Services",
+      "rating": 4.7,
+      "reviewCount": 210,
+      "dateTime": "Mar 16, 2026 | 02:15 PM",
+      "pickupLocation": "CA, Lincoln Highway San Jose, 88",
+      "dropoffLocation": "720A, Broadway St, Los Angeles, USA",
+      "distanceAway": "1.8 km away"
+    },
+    {
+      "id": 4,
+      "price": "$890",
+      "status": "Completed",
+      "imageUrl": "https://unsplash.com",
+      "companyLogoUrl": "https://unsplash.com",
+      "companyName": "Apex Freight Lines",
+      "rating": 5.0,
+      "reviewCount": 64,
+      "dateTime": "Mar 12, 2026 | 11:00 AM",
+      "pickupLocation": "IL, Michigan Ave Chicago, 405",
+      "dropoffLocation": "12C, Corporate Parkway, Aurora, USA",
+      "distanceAway": "12.0 km away"
+    },
+    {
+      "id": 5,
+      "price": "$630",
+      "status": "Cancelled",
+      "imageUrl": "https://unsplash.com",
+      "companyLogoUrl": "https://unsplash.com",
+      "companyName": "National Transit Group",
+      "rating": 4.5,
+      "reviewCount": 182,
+      "dateTime": "Mar 14, 2026 | 04:00 PM",
+      "pickupLocation": "FL, Atlantic Blvd Jacksonville, 77",
+      "dropoffLocation": "904, Ocean Drive, Miami, USA",
+      "distanceAway": "8.5 km away"
+    },
+    {
+      "id": 6,
+      "price": "$675",
+      "status": "Reschedule",
+      "imageUrl": "https://unsplash.com",
+      "companyLogoUrl": "https://unsplash.com",
+      "companyName": "Vanguard Hauling",
+      "rating": 4.8,
+      "reviewCount": 143,
+      "dateTime": "Mar 20, 2026 | 01:00 PM",
+      "pickupLocation": "GA, Peachtree St Atlanta, 210",
+      "dropoffLocation": "55K, Riverfront Way, Savannah, USA",
+      "distanceAway": "3.2 km away"
+    }
+  ],
+  "chartData": [
+    { "day": "1", "pilotCars": 7, "carriers": 12 },
+    { "day": "5", "pilotCars": 11, "carriers": 9 },
+    { "day": "10", "pilotCars": 8, "carriers": 12 },
+    { "day": "15", "pilotCars": 16, "carriers": 14 },
+    { "day": "20", "pilotCars": 15, "carriers": 8 },
+    { "day": "25", "pilotCars": 18, "carriers": 12 },
+    { "day": "30", "pilotCars": 12, "carriers": 8 }
+  ]
+}
