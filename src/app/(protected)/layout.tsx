@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Icon } from '@iconify/react'; // Import Iconify component
+import { Icon } from '@iconify/react'; 
 import Image from 'next/image';
 
 interface DashboardLayoutProps {
@@ -12,8 +12,9 @@ interface DashboardLayoutProps {
 
 export default function Layout({ children }: DashboardLayoutProps) {
   const pathname = usePathname();
+  // State to manage mobile sidebar visibility
+  const [isOpen, setIsOpen] = useState(false);
 
-  // Navigation config updated to use custom Iconify icon string tokens
   const sidebarLinks = [
     { name: 'Dashboard', href: '/dashboard', icon: 'solar:widget-4-linear', hasSubmenu: false },
     { name: 'Bookings', href: '/bookings', icon: 'solar:calendar-minimalistic-linear', hasSubmenu: false },
@@ -25,64 +26,73 @@ export default function Layout({ children }: DashboardLayoutProps) {
   ];
 
   return (
-    <div className="flex min-h-screen  font-sans antialiased text-white">
+    <div className="flex h-screen w-screen overflow-hidden font-sans antialiased ">
       
       {/* ========================================================================= */}
-      {/* SIDEBAR                                                                   */}
+      {/* MOBILE BACKDROP OVERLAY                                                   */}
       {/* ========================================================================= */}
-      <aside className="lg:w-[20vw] md:w-[30vw] overflow-hidden bg-black flex flex-col">
-     
+      {isOpen && (
+        <div 
+          className="fixed inset-0 z-40 bg-black/50 lg:hidden" 
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
+      <aside className={`
+        fixed inset-y-0 left-0 z-50 flex flex-col h-full bg-black transition-transform duration-300 text-white ease-in-out
+        w-fit   lg:static lg:translate-x-0
+        ${isOpen ? 'translate-x-0' : '-translate-x-full'}
+      `}>
           
           {/* KAAS Branding Header Logo Area */}
-          <div className="  flex flex-col p-15 items-center justify-center ">
+          <div className="flex flex-col p-15 items-center justify-center ">
               <Image
                 src="/logo.png"
                 alt="Kaas Logo"
                 width={520}
                 height={220}
                 priority
-                className="h-auto w-full max-w-[520px] object-contain"
+                className="h-auto w-full max-w-[180px] lg:max-w-[520px] object-contain"
               />
           </div>
 
-          <div className='flex flex-col p-10 flex-1 justify-between'>
-          {/* Nav Item Menu Stack */}
-            <nav className="space-y-1.5 ">
+          {/* Scrollable Container for Navigation Menu Links */}
+          <div className='flex flex-col px-10 pb-10 flex-1 justify-between overflow-y-auto min-h-0'>
+            <nav className="space-y-1.5">
               {sidebarLinks.map((link) => {
-                // Check if current route is active
                 const isActive = pathname === link.href;
 
                 return (
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`group w-full flex items-center justify-between p-3 px-5  rounded-md text-sub-text font-medium transition-all duration-150 ease-in-out
-                      ${isActive 
-                        ? 'bg-brand-gradient font-semibold' 
-                        : ''
-                      }`}
+                    onClick={() => setIsOpen(false)} // Close menu on link click (mobile)
+                    className={`group w-full flex items-center justify-between p-3 px-5 rounded-md text-sub-text font-medium transition-all duration-150 ease-in-out
+                      ${isActive ? 'bg-brand-gradient font-semibold' : 'hover:bg-zinc-900'}`}
                   >
                     <div className="flex items-center overflow-hidden gap-3">
-                      {/* Iconify integration for menu links */}
                       <Icon icon={link.icon} className="w-5 h-5" />
-                      <span className=''>{link.name}</span>
+                      <span>{link.name}</span>
                     </div>
                     
                     {link.hasSubmenu && (
-                      /* Iconify integration for menu chevrons */
-                      <Icon icon="solar:alt-arrow-right-linear" className="w-8 h-8" />
+                      <Icon icon="solar:alt-arrow-right-linear" className="w-5 h-5" />
                     )}
                   </Link>
                 );
               })}
             </nav>
             
-
-            <Link href="/login"  className='w-[7vw] min-w-fit p-3 inline-flex items-center justify-center gap-2 rounded-md bg-brand-gradient text-sub-text ' >
-              {/* Fixed: Iconify integration for the logout button icon */}
-              <Icon icon="majesticons:logout-half-circle" className="w-5 h-5" />
-              Logout
-            </Link>
+            {/* Logout Action Button Footer */}
+            <div className="pt-4 shrink-0">
+              <Link 
+                href="/login"  
+                className='w-fit  p-3 px-5 inline-flex items-center justify-center gap-2 rounded-md bg-brand-gradient text-sub-text font-medium'
+              >
+                <Icon icon="majesticons:logout-half-circle" className="w-5 h-5" />
+                Logout
+              </Link>
+            </div>
           </div>
 
       </aside>
@@ -90,41 +100,46 @@ export default function Layout({ children }: DashboardLayoutProps) {
       {/* ========================================================================= */}
       {/* MAIN DASHBOARD CONTENT AREA                                               */}
       {/* ========================================================================= */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
         
         {/* TOP NAVBAR */}
-        <header className="h-fit overflow-hidden bg-white flex items-center justify-between p-10 relative after:absolute after:bottom-0 after:left-10  after:w-[calc(100%-80px)] after:h-[3px] after:bg-gray-100">
-
+         <header className="h-fit overflow-hidden bg-white flex items-center justify-between px-10 py-5 relative after:absolute after:bottom-0 after:left-10 after:w-[calc(100%-80px)] after:h-[3px] after:bg-gray-100">
           
-          {/* Greeting Welcome Segment */}
-          <div>
-            <h1 className="text-heading font-bold text-black tracking-tight">
+          {/* Greeting Segment + Mobile Trigger Burger Icon */}
+          <div className="flex items-center gap-4">
+            <button
+              type="button"
+              className="p-2 text-black lg:hidden hover:bg-gray-100 rounded-lg focus:outline-none"
+              onClick={() => setIsOpen(true)}
+              aria-label="Open sidebar"
+            >
+              <Icon icon="solar:hamburger-menu-linear" className="w-6 h-6" />
+            </button>
+
+            <h1 className="text-xl lg:text-heading font-bold text-black tracking-tight hidden sm:block">
               Welcome Back, Admin!
             </h1>
           </div>
 
           {/* User Interface Context Blocks (Notification & Profile) */}
-          <div className="flex items-center gap-10">
+          <div className="flex items-center gap-6 lg:gap-10">
             
-            {/* Soft Circular Alert Container */}
             <button 
               type="button" 
-              className="p-2.5 rounded-xl bg-brand/20 text-brand hover:bg-orange-50 transition-colors focus:outline-none relative"
+              className="p-2.5 rounded-xl bg-brand/20 text-brand hover:bg-orange-50 transition-colors focus:outline-none"
               aria-label="View notifications"
             >
-              {/* Iconify integration for the notification bell */}
               <Icon icon="solar:bell-bing-bold-duotone" className="w-6 h-6" />
-              {/* Optional Active Unread Counter Pulse Dot */}
             </button>
 
             {/* Profile Avatar Card Wrapper */}
-            <div className="flex items-center gap-3  text-label rounded-xl ">
+            <div className="flex items-center gap-3 text-label rounded-xl">
               <img 
-                src="https://images.unsplash.com/photo-1783095627526-25c08072893f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxM3x8fGVufDB8fHx8fA%3D%3D" 
-                alt="Admin Profile Avatar Picture" 
-                className="w-16 h-16 rounded-xl object-cover border border-gray-200 shadow-sm"
+                src="https://images.unsplash.com/photo-1783095627526-25c08072893f?w=900&auto=format&fit=crop&q=60" 
+                alt="Admin Profile Avatar" 
+                className=" w-16 h-16 rounded-xl object-cover border border-gray-200 shadow-sm"
               />
-              <div className="flex flex-col text-left">
+              <div className="hidden md:flex flex-col text-left">
                 <span className=" font-bold text-gray-900 leading-tight">
                   Admin
                 </span>
