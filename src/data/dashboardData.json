@@ -1,0 +1,37 @@
+{
+  "analytics": {
+    "pilotCars": {
+      "total": 512,
+      "label": "Total Pilot Cars",
+      "backgroundColor": "bg-[#C4A46E]",
+      "icon": "solar:car-linear"
+    },
+    "carriers": {
+      "total": 256,
+      "label": "Total Carriers",
+      "backgroundColor": "bg-[#FFB703]",
+      "icon": "solar:bus-linear"
+    },
+    "bookings": {
+      "total": 190,
+      "label": "Total Bookings",
+      "backgroundColor": "bg-[#2196F3]",
+      "icon": "solar:calendar-minimalistic-linear"
+    },
+    "approvals": {
+      "total": 25,
+      "label": "Approval Request",
+      "backgroundColor": "bg-[#9747FF]",
+      "icon": "solar:document-validate-linear"
+    }
+  },
+  "chartData": [
+    { "month": "Jan", "pilotCars": 35, "carriers": 20 },
+    { "month": "Feb", "pilotCars": 42, "carriers": 22 },
+    { "month": "Mar", "pilotCars": 55, "carriers": 25 },
+    { "month": "Apr", "pilotCars": 68, "carriers": 30 },
+    { "month": "May", "pilotCars": 74, "carriers": 35 },
+    { "month": "Jun", "pilotCars": 85, "carriers": 44 },
+    { "month": "Jul", "pilotCars": 153, "carriers": 80 }
+  ]
+}

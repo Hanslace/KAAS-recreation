@@ -19,6 +19,7 @@
 
   /* Map the utilities to global raw CSS variables */
   --text-heading: var(--heading-size);
+  --text-sub-heading: var(--sub-heading-size);
   --text-sub-text: var(--sub-text-size);
   --text-label: var(--label-size);
 }
@@ -27,6 +28,7 @@
 :root {
   /* Default Mobile Sizing */
   --heading-size: 1rem;     /* ~28px */
+  --sub-heading-size: 1rem;
   --sub-text-size: 0.5rem;   /* ~14px */
   --label-size: 0.5rem;      /* ~14px */
 }
@@ -35,8 +37,9 @@
 @media (width >= 768px) {
   :root {
     --heading-size: 2rem;     /* ~28px */
-  --sub-text-size: 0.875rem;   /* ~14px */
-  --label-size: 0.875rem;        /* ~16px */
+    --sub-heading-size: 1.25rem;
+    --sub-text-size: 0.875rem;   /* ~14px */
+    --label-size: 0.875rem;        /* ~16px */
   }
 }
 
@@ -44,6 +47,7 @@
 @media (width >= 1024px) {
   :root {
     --heading-size: 2.5rem;    /* ~40px */
+    --sub-heading-size: 1.5rem;
     --sub-text-size: 0.875rem;     /* ~16px */
     --label-size: 0.875rem;     /* ~18px */
   }
@@ -52,6 +56,7 @@
 @media (width >= 1440px) {
   :root {
     --heading-size: 3.5rem;    /* ~56px */
+    --sub-heading-size: 1.75rem;
     --sub-text-size: 1.125rem; /* ~18px */
     --label-size: 1rem;    /* ~18px */
   }

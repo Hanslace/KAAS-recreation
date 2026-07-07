@@ -14,12 +14,24 @@ export default function Layout({ children }: DashboardLayoutProps) {
   const pathname = usePathname();
   // State to manage mobile sidebar visibility
   const [isOpen, setIsOpen] = useState(false);
+  // State to track which menu item's submenu is currently open
+  const [expandedMenu, setExpandedMenu] = useState<string | null>('Pilot Car Management');
 
   const sidebarLinks = [
     { name: 'Dashboard', href: '/dashboard', icon: 'solar:widget-4-linear', hasSubmenu: false },
     { name: 'Bookings', href: '/bookings', icon: 'solar:calendar-minimalistic-linear', hasSubmenu: false },
     { name: 'Carriers Management', href: '/carriers', icon: 'solar:bus-linear', hasSubmenu: false },
-    { name: 'Pilot Car Management', href: '/pilot-cars', icon: 'ph:car-fill', hasSubmenu: true },
+    { 
+      name: 'Pilot Car Management', 
+      href: '/pilot-cars', 
+      icon: 'ph:car-fill', 
+      hasSubmenu: true,
+      submenuItems: [
+        { name: 'Managers', href: '/pilot-car-management/managers' },
+        { name: 'Company Drivers', href: '/pilot-car-management/company-drivers' },
+        { name: 'Individual Drivers', href: '/pilot-car-management/individual-drivers' }
+      ]
+    },
     { name: 'Subscription', href: '/subscription', icon: 'solar:card-transfer-linear', hasSubmenu: false },
     { name: 'Support', href: '/support', icon: 'solar:chat-square-call-linear', hasSubmenu: false },
     { name: 'Settings', href: '/settings', icon: 'solar:settings-linear', hasSubmenu: false },
@@ -52,7 +64,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
                 width={520}
                 height={220}
                 priority
-                className="h-auto w-full max-w-[180px] lg:max-w-[520px] object-contain"
+                className="h-auto w-full max-w-[15rem] object-contain"
               />
           </div>
 
@@ -60,25 +72,60 @@ export default function Layout({ children }: DashboardLayoutProps) {
           <div className='flex flex-col px-10 pb-10 flex-1 justify-between overflow-y-auto min-h-0'>
             <nav className="space-y-1.5">
               {sidebarLinks.map((link) => {
-                const isActive = pathname === link.href;
+                const isSubmenuActive = link.submenuItems?.some(sub => pathname === sub.href);
+                const isActive = pathname === link.href || isSubmenuActive;
+                const isExpanded = expandedMenu === link.name;
 
                 return (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)} // Close menu on link click (mobile)
-                    className={`group w-full flex items-center justify-between p-3 px-5 rounded-md text-sub-text font-medium transition-all duration-150 ease-in-out
-                      ${isActive ? 'bg-brand-gradient font-semibold' : 'hover:bg-zinc-900'}`}
-                  >
-                    <div className="flex items-center overflow-hidden gap-3">
-                      <Icon icon={link.icon} className="w-5 h-5" />
-                      <span>{link.name}</span>
-                    </div>
-                    
-                    {link.hasSubmenu && (
-                      <Icon icon="solar:alt-arrow-right-linear" className="w-5 h-5" />
+                  <div key={link.name} className="w-full flex flex-col">
+                    <Link
+                      href={link.href}
+                      onClick={(e) => {
+                        if (link.hasSubmenu) {
+                          e.preventDefault(); // Stop navigation if submenu exists
+                          setExpandedMenu(isExpanded ? null : link.name);
+                        } else {
+                          setIsOpen(false); // Close menu on link click (mobile)
+                        }
+                      }}
+                      className={`group w-full flex items-center justify-between p-3 px-5 rounded-md text-sub-text font-medium transition-all duration-150 ease-in-out
+                        ${isActive ? 'bg-brand-gradient font-semibold' : 'hover:bg-zinc-900'}`}
+                    >
+                      <div className="flex items-center overflow-hidden gap-3">
+                        <Icon icon={link.icon} className="w-5 h-5" />
+                        <span>{link.name}</span>
+                      </div>
+                      
+                      {link.hasSubmenu && (
+                        <Icon 
+                          icon="solar:alt-arrow-right-linear" 
+                          className={`w-5 h-5 transition-transform duration-200 ${isExpanded ? 'rotate-90' : ''}`} 
+                        />
+                      )}
+                    </Link>
+
+                    {/* Submenu rendering logic */}
+                    {link.hasSubmenu && isExpanded && link.submenuItems && (
+                      <div className="flex flex-col  mt-1 space-y-1">
+                        {link.submenuItems.map((subItem) => {
+                          const isSubActive = pathname === subItem.href;
+                          return (
+                            <Link
+                              key={subItem.name}
+                              href={subItem.href}
+                              onClick={() => setIsOpen(false)}
+                              className={`w-full p-2.5 px-4 rounded-md text-sm font-medium transition-colors text-left
+                                ${isSubActive 
+                                  ? ' bg-brand/40 font-semibold' 
+                                  : ' hover:text-gray'}`}
+                            >
+                              {subItem.name}
+                            </Link>
+                          );
+                        })}
+                      </div>
                     )}
-                  </Link>
+                  </div>
                 );
               })}
             </nav>
