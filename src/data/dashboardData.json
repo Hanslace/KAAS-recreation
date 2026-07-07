@@ -26,12 +26,12 @@
     }
   },
   "chartData": [
-    { "month": "Jan", "pilotCars": 35, "carriers": 20 },
-    { "month": "Feb", "pilotCars": 42, "carriers": 22 },
-    { "month": "Mar", "pilotCars": 55, "carriers": 25 },
-    { "month": "Apr", "pilotCars": 68, "carriers": 30 },
-    { "month": "May", "pilotCars": 74, "carriers": 35 },
-    { "month": "Jun", "pilotCars": 85, "carriers": 44 },
-    { "month": "Jul", "pilotCars": 153, "carriers": 80 }
+    { "day": "1", "pilotCars": 7, "carriers": 12 },
+    { "day": "5", "pilotCars": 11, "carriers": 9 },
+    { "day": "10", "pilotCars": 8, "carriers": 12 },
+    { "day": "15", "pilotCars": 16, "carriers": 14 },
+    { "day": "20", "pilotCars": 15, "carriers": 8 },
+    { "day": "25", "pilotCars": 18, "carriers": 12 },
+    { "day": "30", "pilotCars": 12, "carriers": 8 }
   ]
 }
