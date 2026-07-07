@@ -18,7 +18,7 @@ export default function LoginLayout({
             className="object-cover"
           />
 
-          <div className="absolute inset-0 bg-black/70" />
+          <div className="absolute inset-0 bg-black/75" />
 
           <div className="absolute inset-0 flex items-center justify-center px-10">
             <Image
@@ -33,7 +33,7 @@ export default function LoginLayout({
         </div>
 
         {/* Right Column */}
-        <div className="flex w-full items-center justify-center px-6 py-14">
+        <div className=" w-full m-auto  lg:max-w-[33vw] p-10">
           {children}
         </div>
       </section>

@@ -33,13 +33,13 @@ export const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>(
       <div className="relative w-full flex flex-col gap-1.5">
         <div className="relative w-full">
           {/* Floating Label */}
-          <label className="absolute -top-2 left-8 z-10 bg-white px-2 text-label font-normal leading-none text-black">
+          <label className="absolute -top-2 left-4 z-10 bg-white px-2 text-label font-normal leading-none text-black">
             {label}
           </label>
 
           {/* Input Box */}
           <div
-            className={`flex h-[7.5vh] w-full items-center rounded-[14px] border border-2 shadow-[0_18px_45px_rgba(0,0,0,0.12)] bg-white px-10 transition-colors duration-200 focus-within:border-3 ${
+            className={`flex h-[7.5vh] w-full items-center rounded-xl border border-1 shadow-[0_18px_45px_rgba(0,0,0,0.12)] bg-white px-5 text-black/50 transition-colors duration-200 focus-within:border-1 focus-within:text-brand ${
               error
                 ? "border-red-500 focus-within:border-red-500"
                 : "border-black/50 focus-within:border-brand"
@@ -50,7 +50,7 @@ export const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>(
                 icon={icon}
                 width={24}
                 height={24}
-                className={`mr-8 shrink-0 ${error ? "text-red-500" : "text-brand"}`}
+                className={`mr-4 shrink-0 ${error ? "text-red-500" : ""}`}
               />
             )}
 

@@ -29,7 +29,7 @@ export default function AuthButton({
   className = "",
   ...props
 }: AuthButtonProps) {
-  const baseStyles = `flex h-[7.5vh] w-full items-center justify-center rounded-2xl bg-gradient-to-r from-brand to-brand-dark text-sub-text font-bold text-white shadow-md transition duration-300 ${
+  const baseStyles = `flex h-[7.5vh] w-full items-center justify-center rounded-xl bg-gradient-to-r from-brand to-brand-dark text-sub-text font-bold text-white shadow-md transition duration-300 ${
     disabled
       ? "pointer-events-none opacity-50 shadow-none"
       : "hover:-translate-y-1 hover:shadow-xl active:scale-95 cursor-pointer"

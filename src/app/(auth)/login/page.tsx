@@ -55,7 +55,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="w-full lg:max-w-[35vw] p-5">
+    <div className="">
       <h1 className="mb-3 text-heading font-bold text-brand">
         Welcome Back!
       </h1>
