@@ -57,7 +57,7 @@ export default function Page() {
       {filteredBookings.length > 0 ? (
         <div className="grid sm:px-[4rem] grid-cols-1 lg:px-0 lg:grid-cols-2 2xl:grid-cols-3 gap-6 py-5">
           {filteredBookings.map((card) => (
-            <LogisticsCard key={card.id} {...card} />
+            <LogisticsCard key={card.id} booking={card} />
           ))}
         </div>
       ) : (

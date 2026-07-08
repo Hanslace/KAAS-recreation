@@ -7,7 +7,7 @@ import * as z from "zod";
 import { useRouter } from "next/navigation";
 
 import AuthInput from "@/components/ui/auth/AuthInput";
-import BackButton from "@/components/ui/auth/BackButton";
+import BackButton from "@/components/ui/BackButton";
 import AuthButton from "@/components/ui/auth/AuthButton";
 import AuthHeading from '@/components/ui/auth/AuthHeading';
 import AuthSubHeading from '@/components/ui/auth/AuthSubHeading';
@@ -58,7 +58,7 @@ export default function ResetPasswordPage() {
   return (
     <>
       {/* Back button directs user back to the OTP screen if they need to check it */}
-      <BackButton onBack={() => router.push('/forgot-password/otp')} />
+        <BackButton href="/forgot-password/otp">Back</BackButton>
 
       <AuthHeading text="Reset Password"/>
 

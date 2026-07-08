@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useRouter } from "next/navigation";
 
-import BackButton from "@/components/ui/auth/BackButton";
+import BackButton from "@/components/ui/BackButton";
 import AuthButton from "@/components/ui/auth/AuthButton";
 import AuthHeading from '@/components/ui/auth/AuthHeading';
 import AuthSubHeading from '@/components/ui/auth/AuthSubHeading';
@@ -130,7 +130,9 @@ export default function OtpPage() {
   return (
     <div className="flex flex-col items-center justify-center max-h-screen p-4">
       <div className="w-full max-w-md flex flex-col items-start">
-        <BackButton onBack={() => router.push('/forgot-password')} className="mb-8" />
+                  <BackButton href="/forgot-password">Back</BackButton>
+          
+          
 
         <AuthHeading text="Enter OTP"/>
           

@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 import AuthInput from "@/components/ui/auth/AuthInput";
-import BackButton from "@/components/ui/auth/BackButton";
+import BackButton from "@/components/ui/BackButton";
 import { useRouter } from "next/navigation";
 import AuthButton from "@/components/ui/auth/AuthButton";
 import AuthHeading from "@/components/ui/auth/AuthHeading";
@@ -50,7 +50,7 @@ export default function Page() {
 
   return (
     <>
-      <BackButton onBack={() => router.push('/login')} />
+      <BackButton href="/login">Back</BackButton>
 
       <AuthHeading text="Forgot Password" />
         
