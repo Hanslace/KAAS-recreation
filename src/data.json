@@ -200,29 +200,8 @@
         "logoUrl": "/images/company-logo.png",
         "name": "Patriot Escort Services",
         "rating": 4.8,
-        "reviewCount": 124,
-        "drivers": [
-          {
-            "name": "Chance Korsgaard",
-            "role": "Front Escort",
-            "imageUrl": "https://i.pravatar.cc/120?img=11"
-          },
-          {
-            "name": "Leo Septimus",
-            "role": "Left Escort",
-            "imageUrl": "https://i.pravatar.cc/120?img=12"
-          },
-          {
-            "name": "Omar Passaquindici Arcand",
-            "role": "Right Escort",
-            "imageUrl": "https://i.pravatar.cc/120?img=13"
-          },
-          {
-            "name": "Alfredo Vaccaro",
-            "role": "Left Escort",
-            "imageUrl": "https://i.pravatar.cc/120?img=14"
-          }
-        ]
+        "reviewCount": 124
+
       }
     },
     {
@@ -432,6 +411,7 @@
       "slug": "abc-logistics-6",
       "price": "$675",
       "status": "Reschedule",
+      "reason" :  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
       "imageUrl": "/images/truck.jpg",
       "companyLogoUrl": "/images/company-logo.png",
       "companyName": "Vanguard Hauling",
@@ -462,24 +442,7 @@
         "logoUrl": "/images/company-logo.png",
         "name": "Southeast Pilot Car Services",
         "rating": 4.8,
-        "reviewCount": 143,
-        "drivers": [
-          {
-            "name": "Derek Lawson",
-            "role": "Front Escort",
-            "imageUrl": "https://i.pravatar.cc/120?img=61"
-          },
-          {
-            "name": "Mason Hart",
-            "role": "Left Escort",
-            "imageUrl": "https://i.pravatar.cc/120?img=62"
-          },
-          {
-            "name": "Oliver Grant",
-            "role": "High Pool",
-            "imageUrl": "https://i.pravatar.cc/120?img=63"
-          }
-        ]
+        "reviewCount": 143
       }
     }
   ]
