@@ -20,7 +20,7 @@ export default function AnalyticsCard({
 }: AnalyticsCardProps) {
   return (
     <div 
-      className={`flex items-center gap-5 p-6 rounded-xl text-white w-full ${backgroundColor}`}
+      className={`flex items-center gap-5 p-[1.5rem] rounded-xl text-white w-full ${backgroundColor}`}
     >
       {/* Translucent white icon circle wrapper */}
       <div className={`flex items-center justify-center w-16 h-16 rounded-full bg-white/40 shrink-0`}>
@@ -29,10 +29,10 @@ export default function AnalyticsCard({
 
       {/* Numerical metric and label content data container */}
       <div className="flex flex-col text-left justify-center min-w-0">
-        <span className="text-3xl font-bold leading-tight tracking-tight truncate">
+        <span className="text-[1.5rem] font-bold leading-tight tracking-tight truncate">
           {value}
         </span>
-        <span className="text-sm font-medium opacity-80 leading-snug truncate">
+        <span className="text-[0.875rem] font-medium opacity-80 leading-snug ">
           {label}
         </span>
       </div>

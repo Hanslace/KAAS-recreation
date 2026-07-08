@@ -32,7 +32,7 @@ export default function Page() {
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-6 gap-6">
         {Object.entries(data.bookingMetrics).map(([key, item]) => (
           <AnalyticsCard 
             key={key}
@@ -55,7 +55,7 @@ export default function Page() {
 
       {/* Grid rendering the runtime filtered array */}
       {filteredBookings.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 py-5">
+        <div className="grid sm:px-[4rem] grid-cols-1 lg:px-0 lg:grid-cols-2 2xl:grid-cols-3 gap-6 py-5">
           {filteredBookings.map((card) => (
             <LogisticsCard key={card.id} {...card} />
           ))}

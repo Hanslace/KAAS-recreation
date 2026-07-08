@@ -44,7 +44,7 @@ export default function Page() {
       
       <div  className="space-y-5">
       <div>
-        <h2 className="text-sub-heading font-bold text-black tracking-tight">
+        <h2 className="text-[2.5rem] font-bold text-black tracking-tight">
           Dashboard
         </h2>
       </div>
@@ -73,7 +73,7 @@ export default function Page() {
       {/* CHART HEADER CONTROLS SECTION                                             */}
       {/* ========================================================================= */}
       <div className="flex items-center justify-between w-full">
-        <h3 className="text-sub-heading font-bold text-black tracking-tight">
+        <h3 className="text-[2.5rem] font-bold text-black tracking-tight">
           Pilot Car & Carriers
         </h3>
 

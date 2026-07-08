@@ -51,7 +51,7 @@ export default function LogisticsCard({
       {/* ========================================================================= */}
       {/* HERO IMAGE CONTAINER COVER AREA                                           */}
       {/* ========================================================================= */}
-      <div className="relative w-full h-48 rounded-2xl overflow-hidden shrink-0 group">
+      <div className="relative w-full h-[15rem] rounded-2xl overflow-hidden shrink-0 group">
         <img 
           src={imageUrl} 
           alt={`${companyName} truck layout`}
@@ -59,7 +59,7 @@ export default function LogisticsCard({
         />
         
         {/* Floating Price Overlap Tag */}
-        <span className="absolute top-4 left-4  backdrop-blur-md px-3 py-1 rounded-xl text-lg font-bold text-white tracking-tight">
+        <span className="absolute top-4 left-4  backdrop-blur-md px-3 py-1 rounded-xl text-[1.8rem] font-bold text-white tracking-tight">
           {price}
         </span>
 
@@ -82,7 +82,7 @@ export default function LogisticsCard({
             className="w-10 h-10 rounded-full object-cover shadow-sm bg-black border border-gray-100 shrink-0"
           />
           <div className="flex flex-col min-w-0">
-            <h4 className="text-base font-bold text-gray-900 tracking-tight leading-tight truncate">
+            <h4 className="text-[1.5rem] font-bold text-gray-900 tracking-tight leading-tight truncate">
               {companyName}
             </h4>
             
@@ -93,18 +93,18 @@ export default function LogisticsCard({
                   <Icon key={i} icon="solar:star-bold" className="w-3 h-3" />
                 ))}
               </div>
-              <span className="text-xs font-bold text-black ml-1">{rating}</span>
-              <span className="text-xs text-brand">| {reviewCount} Reviews</span>
+              <span className="text-[1rem] font-bold text-black ml-1">{rating}</span>
+              <span className="text-[1rem]  text-brand">| {reviewCount} Reviews</span>
             </div>
           </div>
         </div>
 
         {/* Operational Metrics Sublist Frame */}
-        <div className="space-y-2 text-xs font-medium text-gray-500 pt-1 border-t border-gray-100/50">
+        <div className="space-y-2 text-[0.875rem] font-medium text-gray-500 pt-1 border-t border-gray-100/50">
           
           {/* Appointment Data Record */}
           <div className="flex items-start gap-2.5">
-            <Icon icon="solar:calendar-linear" className="w-5 h-5 text-[#C4A46E] shrink-0 mt-0.5" />
+            <Icon icon="uil:calendar" className="w-5 h-5 text-[#C4A46E] shrink-0 mt-0.5" />
             <div className="min-w-0">
               <span className="font-bold text-gray-900">Date & Time: </span>
               <span className="text-gray-500">{dateTime}</span>
@@ -132,8 +132,8 @@ export default function LogisticsCard({
         </div>
 
         {/* Dynamic Spatial Distance Radius Axis Indicator */}
-        <div className="flex items-center gap-1.5 text-xs font-semibold text-[#C4A46E] pt-2 border-t border-gray-100/30 mt-auto">
-          <Icon icon="boxicons:location-filled" className="w-5 h-5" />
+        <div className="flex items-center gap-1.5 text-[0.875rem] font-semibold text-black pt-2 border-t border-gray-100/30 mt-auto">
+          <Icon icon="boxicons:location-filled" className="w-6 h-6 text-brand" />
           <span>{distanceAway}</span>
         </div>
 

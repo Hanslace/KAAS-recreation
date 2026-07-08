@@ -32,12 +32,12 @@ export default function FiltersHeader({
   searchPlaceholder = "Search here"
 }: FiltersHeaderProps) {
   return (
-    <div className="flex flex-col gap-4 py-5 sm:flex-row sm:items-center sm:justify-between w-full bg-white  rounded-xl ">
+    <div className="flex flex-col items-center gap-4  2xl:flex-row 2xl:items-center 2xl:justify-between w-full bg-white  rounded-md ">
       
       {/* ========================================================================= */}
       {/* FILTER BUTTON TABS BAR STACK                                               */}
       {/* ========================================================================= */}
-      <div className="flex items-center gap-2 overflow-x-auto min-w-0 pb-1 sm:pb-0 scrollbar-none">
+      <div className="flex items-center gap-2 overflow-x-auto min-w-0 pb-1 scrollbar-none">
         {options.map((option) => {
           const isActive = activeTabId === option.id;
           return (
@@ -45,10 +45,10 @@ export default function FiltersHeader({
               key={option.id}
               type="button"
               onClick={() => onTabChange(option.id)}
-              className={`shrink-0 px-4 py-2 text-xs font-semibold rounded-lg transition-all duration-150 tracking-tight
+              className={`shrink-0 px-4 py-2 text-[0.8rem] font-semibold rounded-lg transition-all duration-150 tracking-tight
                 ${isActive 
                   ? 'bg-brand-gradient text-white shadow-sm' 
-                  : 'bg-[#FAF6EE] text-[#C4A46E] hover:bg-[#F3EAD7]'
+                  : 'bg-brand/20 text-brand hover:bg-brand/40'
                 }`}
             >
               {option.label}
@@ -60,7 +60,7 @@ export default function FiltersHeader({
       {/* ========================================================================= */}
       {/* INPUT SEARCH BAR SLOT RECEPTACLE CONTAINER                                 */}
       {/* ========================================================================= */}
-      <div className="relative w-full sm:max-w-xs md:max-w-sm shrink-0">
+      <div className="relative w-full  max-w-[30rem] shrink-0">
         <span className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
           <Icon icon="solar:magnifer-linear" className="w-4 h-4 text-gray-400" />
         </span>
@@ -69,7 +69,7 @@ export default function FiltersHeader({
           value={searchValue}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder={searchPlaceholder}
-          className="w-full pl-11 pr-4 py-2.5 text-sm bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none  shadow-lg  focus:border-[#C4A46E] focus:ring-1 focus:ring-[#C4A46E] transition-all"
+          className="w-full pl-11 pr-4 py-2.5 text-[1rem] bg-white rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none  shadow-lg  focus:border-[#C4A46E] focus:ring-1 focus:ring-[#C4A46E] transition-all"
         />
       </div>
 

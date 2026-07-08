@@ -15,7 +15,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
   // State to manage mobile sidebar visibility
   const [isOpen, setIsOpen] = useState(false);
   // State to track which menu item's submenu is currently open
-  const [expandedMenu, setExpandedMenu] = useState<string | null>('Pilot Car Management');
+  const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
 
   const sidebarLinks = [
     { name: 'Dashboard', href: '/dashboard', icon: 'ic:baseline-home', hasSubmenu: false },
@@ -88,7 +88,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
                           setIsOpen(false); // Close menu on link click (mobile)
                         }
                       }}
-                      className={`group w-full flex items-center justify-between p-3 px-5 rounded-md text-sub-text font-medium transition-all duration-150 ease-in-out
+                      className={`group w-full flex items-center justify-between p-3 px-5 rounded-md text-[1.1rem] font-medium transition-all duration-150 ease-in-out
                         ${isActive ? 'bg-brand-gradient font-semibold' : 'hover:bg-zinc-900'}`}
                     >
                       <div className="flex items-center overflow-hidden gap-3">
@@ -150,7 +150,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
       <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
         
         {/* TOP NAVBAR */}
-         <header className="h-fit overflow-hidden bg-white flex items-center justify-between px-10 py-5 relative after:absolute after:bottom-0 after:left-10 after:w-[calc(100%-80px)] after:h-[3px] after:bg-gray-100">
+         <header className="h-fit gap-6 overflow-hidden bg-white flex items-center justify-between p-5 md:p-10 relative after:absolute after:bottom-0 after:left-10 after:w-[calc(100%-80px)] after:h-[3px] after:bg-gray-100">
           
           {/* Greeting Segment + Mobile Trigger Burger Icon */}
           <div className="flex items-center gap-4">
@@ -160,10 +160,20 @@ export default function Layout({ children }: DashboardLayoutProps) {
               onClick={() => setIsOpen(true)}
               aria-label="Open sidebar"
             >
-              <Icon icon="solar:hamburger-menu-linear" className="w-6 h-6" />
+              <Icon icon="solar:hamburger-menu-linear" className="w-8 h-8" />
             </button>
+            <div className="flex flex-col lg:hidden items-center justify-center ">
+              <Image
+                src="/logo.png"
+                alt="Kaas Logo"
+                width={520}
+                height={220}
+                priority
+                className="h-auto w-full max-w-[10rem] object-contain"
+              />
+          </div>
 
-            <h1 className="text-xl lg:text-heading font-bold text-black tracking-tight hidden sm:block">
+            <h1 className="text-xl lg:text-heading font-bold text-black tracking-tight hidden md:block">
               Welcome Back, Admin!
             </h1>
           </div>
@@ -171,20 +181,20 @@ export default function Layout({ children }: DashboardLayoutProps) {
           {/* User Interface Context Blocks (Notification & Profile) */}
           <div className="flex items-center gap-6 lg:gap-10">
             
-            <button 
-              type="button" 
-              className="p-2.5 rounded-xl bg-brand/20 text-brand hover:bg-orange-50 transition-colors focus:outline-none"
+            <Link
+              href="/notifications"
+              className="p-2.5 rounded-xl bg-brand/20 text-brand hover:bg-orange-50 transition-colors focus:outline-none inline-flex items-center justify-center"
               aria-label="View notifications"
             >
               <Icon icon="solar:bell-bing-bold-duotone" className="w-6 h-6" />
-            </button>
+            </Link>
 
             {/* Profile Avatar Card Wrapper */}
-            <div className="flex items-center gap-3 text-label rounded-xl">
+            <div className="flex items-center gap-3 min-h-16 min-w-16 text-label rounded-xl">
               <img 
                 src="https://images.unsplash.com/photo-1783095627526-25c08072893f?w=900&auto=format&fit=crop&q=60" 
                 alt="Admin Profile Avatar" 
-                className=" w-16 h-16 rounded-xl object-cover border border-gray-200 shadow-sm"
+                className="w-11 md:w-16 h-auto aspect-square rounded-xl object-cover border border-gray-200 shadow-sm"
               />
               <div className="hidden md:flex flex-col text-left">
                 <span className=" font-bold text-gray-900 leading-tight">
@@ -197,10 +207,15 @@ export default function Layout({ children }: DashboardLayoutProps) {
             </div>
 
           </div>
+     
         </header>
+        <h1 className="text-xl px-10 lg:text-heading font-bold text-black tracking-tight  md:hidden">
+              Welcome Back, Admin!
+            </h1>
 
         {/* PRIMARY VIEW CONTENT VIEWPORT SLOT */}
-        <main className="flex-1 overflow-y-auto p-10">
+        <main className="flex-1 overflow-y-auto p-5 md:p-10">
+          
           {children}
         </main>
 
