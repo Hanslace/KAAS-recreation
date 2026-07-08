@@ -40,7 +40,7 @@ export default function Page() {
   const maxVal = Math.max(...chartData.map(d => Math.max(d.pilotCars, d.carriers)));
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 ">
       
       <div  className="space-y-5">
       <div>
