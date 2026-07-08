@@ -33,7 +33,7 @@ export const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>(
       <div className="relative w-full flex flex-col gap-1.5">
         <div className="relative w-full">
           {/* Floating Label */}
-          <label className="absolute -top-2 left-4 z-10 bg-white px-2 text-label font-normal leading-none text-black">
+          <label className="absolute -top-[6px] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1 text-[0.875rem] font-normal leading-none text-black">
             {label}
           </label>
 
@@ -59,7 +59,7 @@ export const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>(
               type={inputType}
               placeholder={placeholder}
               {...props}
-              className={`w-full bg-transparent text-sub-text font-light text-black/70 outline-none placeholder:text-black/35 ${
+              className={`w-full bg-transparent text-[1rem] font-light text-black/70 outline-none placeholder:text-black/35 ${
                 inputType === "password"
                   ? "[:not(:placeholder-shown)]:tracking-[0.3em]"
                   : ""

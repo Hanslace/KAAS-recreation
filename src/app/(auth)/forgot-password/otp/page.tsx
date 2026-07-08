@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation";
 
 import BackButton from "@/components/ui/auth/BackButton";
 import AuthButton from "@/components/ui/auth/AuthButton";
+import AuthHeading from '@/components/ui/auth/AuthHeading';
+import AuthSubHeading from '@/components/ui/auth/AuthSubHeading';
 
 const otpSchema = z.object({
   otp: z
@@ -126,17 +128,16 @@ export default function OtpPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4">
+    <div className="flex flex-col items-center justify-center max-h-screen p-4">
       <div className="w-full max-w-md flex flex-col items-start">
         <BackButton onBack={() => router.push('/forgot-password')} className="mb-8" />
 
-        <h1 className="mb-2 text-heading font-bold tracking-tight text-brand">
-          Enter OTP
-        </h1>
-
-        <p className="mb-10 text-sub-text text-black/50">
-          Please enter OTP sent to your email
-        </p>
+        <AuthHeading text="Enter OTP"/>
+          
+      
+        <AuthSubHeading>Please enter OTP sent to your email</AuthSubHeading>
+          
+     
 
         <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-8 flex flex-col items-center">
           

@@ -9,6 +9,8 @@ import AuthInput from "@/components/ui/auth/AuthInput";
 import BackButton from "@/components/ui/auth/BackButton";
 import { useRouter } from "next/navigation";
 import AuthButton from "@/components/ui/auth/AuthButton";
+import AuthHeading from "@/components/ui/auth/AuthHeading";
+import AuthSubHeading from "@/components/ui/auth/AuthSubHeading";
 
 
 const forgotPasswordSchema = z.object({
@@ -50,13 +52,13 @@ export default function Page() {
     <>
       <BackButton onBack={() => router.push('/login')} />
 
-      <h1 className="mb-2 text-heading font-bold text-brand">
-        Forgot Password
-      </h1>
+      <AuthHeading text="Forgot Password" />
+        
 
-      <p className="mb-10 text-sub-text text-black/50">
-        Please enter your email to reset your password
-      </p>
+
+      <AuthSubHeading>Please enter your email to reset your password</AuthSubHeading>
+        
+   
 
         <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6">
           <AuthInput

@@ -7,7 +7,7 @@ export default function LoginLayout({
 }) {
   return (
     <main className="min-h-screen w-full ">
-      <section className="grid min-h-screen w-full grid-cols-1 lg:grid-cols-2">
+      <section className="lg:grid min-h-screen w-full flex flex-col lg:grid-cols-2">
         {/* Left Image */}
         <div className="relative hidden w-full lg:block">
           <Image
@@ -32,8 +32,20 @@ export default function LoginLayout({
           </div>
         </div>
 
+        <div className="lg:hidden mt-20  flex items-center justify-center ">
+            <Image
+              src="/logo.png"
+              alt="Kaas Logo"
+              width={520}
+              height={220}
+              priority
+              className="h-auto w-full max-w-[300px] object-contain"
+            />
+          </div>
+
         {/* Right Column */}
-        <div className=" w-full m-auto  lg:max-w-[33vw] p-10">
+        <div className=" w-full lg:m-auto  lg:max-w-[33vw] p-10">
+          
           {children}
         </div>
       </section>

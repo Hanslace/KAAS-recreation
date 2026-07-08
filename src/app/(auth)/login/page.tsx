@@ -6,6 +6,8 @@ import * as z from "zod";
 import { useRouter } from "next/navigation"; // Import the router for programmatic navigation
 import AuthInput from "@/components/ui/auth/AuthInput";
 import AuthButton from "@/components/ui/auth/AuthButton";
+import AuthHeading from "@/components/ui/auth/AuthHeading";
+import AuthSubHeading from "@/components/ui/auth/AuthSubHeading";
 
 // Define schema validation rules
 const loginSchema = z.object({
@@ -56,13 +58,12 @@ export default function LoginPage() {
 
   return (
     <div className="">
-      <h1 className="mb-3 text-heading font-bold text-brand">
-        Welcome Back!
-      </h1>
+      <AuthHeading text="Welcome Back!"/>
+        
+      
 
-      <p className="mb-10 text-sub-text text-black/50">
-        Please enter your credentials
-      </p>
+      <AuthSubHeading>Please enter your credentials</AuthSubHeading>
+
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
 

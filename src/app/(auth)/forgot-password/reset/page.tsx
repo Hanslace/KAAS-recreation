@@ -9,6 +9,8 @@ import { useRouter } from "next/navigation";
 import AuthInput from "@/components/ui/auth/AuthInput";
 import BackButton from "@/components/ui/auth/BackButton";
 import AuthButton from "@/components/ui/auth/AuthButton";
+import AuthHeading from '@/components/ui/auth/AuthHeading';
+import AuthSubHeading from '@/components/ui/auth/AuthSubHeading';
 
 // 1. Define the Schema for Resetting Password with matching requirements
 const resetPasswordSchema = z
@@ -58,13 +60,10 @@ export default function ResetPasswordPage() {
       {/* Back button directs user back to the OTP screen if they need to check it */}
       <BackButton onBack={() => router.push('/forgot-password/otp')} />
 
-      <h1 className="mb-2 text-heading font-bold text-brand mt-6">
-        Reset Password
-      </h1>
+      <AuthHeading text="Reset Password"/>
 
-      <p className="mb-10 text-sub-text text-black/50">
-        Please type your new password
-      </p>
+      <AuthSubHeading>Please type your new password</AuthSubHeading>
+     
 
       <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6">
         <AuthInput
