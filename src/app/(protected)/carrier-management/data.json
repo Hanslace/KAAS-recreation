@@ -1,0 +1,102 @@
+{
+  "filters": [
+    {
+      "id": "all",
+      "label": "All"
+    },
+    {
+      "id": "pending",
+      "label": "Pending"
+    },
+    {
+      "id": "cancelled",
+      "label": "Cancelled"
+    },
+    {
+      "id": "approved",
+      "label": "Approved"
+    }
+  ],
+  "tableData": [
+    {
+      "id": 1,
+      "slug": "abc-logistics-1",
+      "name": "ABC Logistics LLC",
+      "email": "abclogistics.llc@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Pending",
+      "logoUrl": "/images/company-logo.png"
+    },
+    {
+      "id": 2,
+      "slug": "abc-logistics-2",
+      "name": "ABC Logistics LLC",
+      "email": "abclogistics.llc@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Cancelled",
+      "logoUrl": "/images/company-logo.png"
+    },
+    {
+      "id": 3,
+      "slug": "abc-logistics-3",
+      "name": "ABC Logistics LLC",
+      "email": "abclogistics.llc@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Approved",
+      "logoUrl": "/images/company-logo.png"
+    },
+    {
+      "id": 4,
+      "slug": "abc-logistics-4",
+      "name": "ABC Logistics LLC",
+      "email": "abclogistics.llc@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Pending",
+      "logoUrl": "/images/company-logo.png"
+    },
+    {
+      "id": 5,
+      "slug": "abc-logistics-5",
+      "name": "ABC Logistics LLC",
+      "email": "abclogistics.llc@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Cancelled",
+      "logoUrl": "/images/company-logo.png"
+    },
+    {
+      "id": 6,
+      "slug": "abc-logistics-6",
+      "name": "ABC Logistics LLC",
+      "email": "abclogistics.llc@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Approved",
+      "logoUrl": "/images/company-logo.png"
+    },
+    {
+      "id": 7,
+      "slug": "abc-logistics-7",
+      "name": "ABC Logistics LLC",
+      "email": "abclogistics.llc@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Pending",
+      "logoUrl": "/images/company-logo.png"
+    },
+    {
+      "id": 8,
+      "slug": "abc-logistics-8",
+      "name": "ABC Logistics LLC",
+      "email": "abclogistics.llc@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Cancelled",
+      "logoUrl": "/images/company-logo.png"
+    }
+  ]
+}
