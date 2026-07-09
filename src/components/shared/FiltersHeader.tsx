@@ -37,7 +37,7 @@ export default function FiltersHeader({
       {/* ========================================================================= */}
       {/* FILTER BUTTON TABS BAR STACK                                               */}
       {/* ========================================================================= */}
-      <div className="flex items-center gap-2 overflow-x-auto min-w-0 pb-1 scrollbar-none">
+      <div className="flex flex-wrap items-center gap-2  min-w-0 pb-1 ">
         {options.map((option) => {
           const isActive = activeTabId === option.id;
           return (

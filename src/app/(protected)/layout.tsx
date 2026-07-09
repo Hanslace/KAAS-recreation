@@ -227,12 +227,11 @@ export default function Layout({ children }: DashboardLayoutProps) {
           </div>
      
         </header>
-        <h1 className="text-xl px-[2.5rem] lg:text-heading font-bold text-black tracking-tight  md:hidden">
-              Welcome Back, Admin!
-            </h1>
+     
 
         {/* PRIMARY VIEW CONTENT VIEWPORT SLOT */}
         <main className="overflow-y-auto p-[2.5rem]">
+          
           
           {children}
         </main>
