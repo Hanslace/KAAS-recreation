@@ -168,7 +168,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
       <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
         
         {/* TOP NAVBAR */}
-         <header className="h-auto min-h-max gap-6 overflow-hidden bg-white flex items-center justify-between p-[2.5rem] relative after:absolute after:bottom-0 after:left-10 after:w-[calc(100%-80px)] after:h-[3px] after:bg-gray-100">
+         <header className="h-auto min-h-max gap-6 overflow-hidden bg-white flex items-center justify-between p-[1.5rem] lg:p-[2.5rem] relative after:absolute after:bottom-0 after:left-10 after:w-[calc(100%-80px)] after:h-[3px] after:bg-gray-100">
           
           {/* Greeting Segment + Mobile Trigger Burger Icon */}
           <div className="flex items-center gap-4">
