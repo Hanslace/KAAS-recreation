@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import ConfirmationModal from '@/components/shared/ConfirmationModal';
 import { Icon } from '@iconify/react'; 
 import Image from 'next/image';
 
@@ -12,6 +13,18 @@ interface DashboardLayoutProps {
 
 export default function Layout({ children }: DashboardLayoutProps) {
   const pathname = usePathname();
+  const router = useRouter();
+  const [logoutModalOpen, setLogoutModalOpen] = useState(false);
+
+  const handleLogoutConfirm = () => {
+    setLogoutModalOpen(false);
+    setIsOpen(false);
+
+    // Clear auth/session here later if needed
+    // localStorage.removeItem('token');
+
+    router.push('/login');
+  };
   // State to manage mobile sidebar visibility
   const [isOpen, setIsOpen] = useState(false);
   // State to track which menu item's submenu is currently open
@@ -147,13 +160,14 @@ export default function Layout({ children }: DashboardLayoutProps) {
             
             {/* Logout Action Button Footer */}
             <div className="shrink-0">
-              <Link 
-                href="/login"  
-                className='w-fit  p-3 px-5 inline-flex items-center justify-center gap-2 rounded-md bg-brand-gradient text-sub-text font-medium'
+              <button
+                type="button"
+                onClick={() => setLogoutModalOpen(true)}
+                className="w-fit p-3 px-5 inline-flex items-center justify-center gap-2 rounded-md bg-brand-gradient text-sub-text font-medium"
               >
                 <Icon icon="majesticons:logout-half-circle" className="w-5 h-5" />
                 Logout
-              </Link>
+              </button>
             </div>
           
 
@@ -235,6 +249,16 @@ export default function Layout({ children }: DashboardLayoutProps) {
         </main>
 
       </div>
+      <ConfirmationModal
+        open={logoutModalOpen}
+        icon="majesticons:logout-half-circle"
+        title="Logout!"
+        description="Are you sure you want to logout your account?"
+        cancelText="No"
+        confirmText="Yes"
+        onCancel={() => setLogoutModalOpen(false)}
+        onConfirm={handleLogoutConfirm}
+      />
     </div>
   );
 }
