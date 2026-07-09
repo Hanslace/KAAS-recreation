@@ -37,6 +37,20 @@ export default function Layout({ children }: DashboardLayoutProps) {
     { name: 'Settings', href: '/settings', icon: 'material-symbols:settings', hasSubmenu: false },
   ];
 
+  const isPathActive = (href: string) => {
+    const cleanHref = href.replace(/\/$/, '') || '/';
+    const cleanPathname = pathname.replace(/\/$/, '') || '/';
+
+    if (cleanHref === '/') {
+      return cleanPathname === '/';
+    }
+
+    return (
+      cleanPathname === cleanHref ||
+      cleanPathname.startsWith(`${cleanHref}/`)
+    );
+  };
+
   return (
     <div className="flex h-screen w-screen overflow-hidden font-sans antialiased ">
       
@@ -72,9 +86,13 @@ export default function Layout({ children }: DashboardLayoutProps) {
           <div className='flex flex-col px-10 pb-10 flex-1 justify-between overflow-y-auto min-h-0'>
             <nav className="space-y-1.5">
               {sidebarLinks.map((link) => {
-                const isSubmenuActive = link.submenuItems?.some(sub => pathname === sub.href);
-                const isActive = pathname === link.href || isSubmenuActive;
-                const isExpanded = expandedMenu === link.name;
+                const isSubmenuActive = link.submenuItems?.some((sub) =>
+                  isPathActive(sub.href)
+                );
+
+                const isActive = isPathActive(link.href) || isSubmenuActive;
+
+                const isExpanded = expandedMenu === link.name || isSubmenuActive;
 
                 return (
                   <div key={link.name} className="w-full flex flex-col">
@@ -108,7 +126,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
                     {link.hasSubmenu && isExpanded && link.submenuItems && (
                       <div className="flex flex-col  mt-1 space-y-1">
                         {link.submenuItems.map((subItem) => {
-                          const isSubActive = pathname === subItem.href;
+                          const isSubActive = isPathActive(subItem.href);
                           return (
                             <Link
                               key={subItem.name}
