@@ -1,34 +1,52 @@
 import BackButton from "@/components/ui/BackButton"
-import BrandButton from "@/components/ui/BrandButton";
-import BrandPill from "@/components/ui/BrandPill";
-import Image from "next/image";
-import VehicleCard from "@/components/shared/VehicleCard"; 
 import vehicles from '@/data/trucks.json';
-import bookings from '@/data/data.json'
-import carrierData from "@/data/carriers.json";
 import { notFound } from "next/navigation";
-import BookingsGrid from "@/components/shared/BookingsGrid";
+
 
 // Assuming VehicleCard is stored here
 
 interface PageProps {
-  params: Promise<{ carrierId: string }>;
+  params: Promise<{ truckid: string }>;
+}
+
+
+interface InfoRowProps {
+  label: string;
+  value: string;
+}
+
+function InfoRow({ label, value }: InfoRowProps) {
+  return (
+    <div className="py-[1.5rem] px-[0.5rem] relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[3px] after:bg-gray-100">
+      <p className="tracking-tight text-black font-bold">
+        {label}
+      </p>
+      <p className="tracking-tight text-brand">
+        {value}
+      </p>
+    </div>
+  );
 }
 
 export default async function Page({ params }: PageProps) {
-  // Correctly await the params promise to extract your ID
-  const { carrierId } = await params;
-  
-  const currentCarrier = carrierData.tableData.find(
-    (item) => item.slug === carrierId
-  );
 
-  // 3. Fallback to 404 page if someone enters an invalid URL slug
-  if (!currentCarrier) {
+  const { truckid } = await params;
+
+  const vehicle = vehicles.find((v) => v.slug === truckid);
+  if (!vehicle) {
     notFound();
   }
 
-  const status = currentCarrier.status;
+
+  const detailFields = [
+    { label: "Truck Name", value: vehicle.name },
+    { label: "MC Number", value: vehicle.mcNumber },
+    { label: "DOT Number", value: vehicle.dotNumber },
+    { label: "License Plate Number", value: vehicle.licensePlate },
+    { label: "Registration Number", value: vehicle.registrationNumber || "REG-TX-98213476" },
+    { label: "VIN Number", value: vehicle.vinNumber || "1HGCM82633A123456" },
+  ];
+
 
   return (
     <>
@@ -40,48 +58,40 @@ export default async function Page({ params }: PageProps) {
       </div>
       <div className=" xl:h-[calc(80vh-11rem)] overflow-y-auto rounded-2xl mt-[1.5rem]  p-[1.5rem] gap-[2rem] w-full h-full shadow-lg ">
         
-            <h2 className="text-[1.75rem] font-bold text-black tracking-tight">
-              Truck Info
-            </h2>
+        <h2 className="text-[1.75rem] font-bold text-black tracking-tight">
+          Truck Info
+        </h2>
        
 
-        <div className="flex gap-3 py-[1.5rem] relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[3px] after:bg-gray-100">
-     
-          <div className="flex flex-col items-center justify-center ">
-            <Image
-              src="/images/company-logo.png"
-              alt="ABC Logistics LLC"
-              width={520}
-              height={220}
-              priority
-              className="h-auto w-full rounded-full max-h-[6rem] object-contain"
+        <img
+            src="/images/truck.jpg"
+            alt={`truck `}
+            className="max-h-[10rem] h-full aspect-[9/2.5] object-cover rounded-xl transition-transform duration-300 group-hover:scale-105 brightness-60"
+          />
+
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6">
+          {detailFields.map((field, index) => (
+            <InfoRow 
+              key={index} 
+              label={field.label} 
+              value={field.value} 
             />
+          ))}
         </div>
 
-          <div className="flex flex-col gap-2">
-              <h3 className="text-[1.75rem] font-bold text-black tracking-tight">
-                ABC Logistics LLC
-              </h3>
-              <p className="tracking-tight text-black/50"> 
-                abcllogisticsas@gmail.com
-              </p>
-              <p className="tracking-tight text-black/50"> 
-                0321 3213233
-              </p>
+        <h2 className="text-[1.75rem] font-bold text-black tracking-tight">
+              Liability:
+            </h2>
 
+            <div className=" w-fit flex flex-col gap-5">
+              <p className="text-brand font-bold">Important docs</p>
+            <img
+            src="/images/liability-doc.jpg"
+            alt={`truck `}
+            className="max-h-[7rem] h-full aspect-[6/6.5] object-cover rounded-xl transition-transform duration-300 group-hover:scale-105 brightness-60"
+          />
           </div>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
-          <div className=" py-[1.5rem] px-[0.5rem]  relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[3px] after:bg-gray-100">
-              <p className="tracking-tight text-black font-bold"> 
-                Address
-              </p>
-              <p className="tracking-tight text-brand"> 
-                53C, 14th street, emire state USA
-              </p>
-          </div>
-        </div>
 
  
 

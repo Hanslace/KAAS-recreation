@@ -1,0 +1,118 @@
+{
+  "filters": [
+    {
+      "id": "all",
+      "label": "All"
+    },
+    {
+      "id": "pending",
+      "label": "Pending"
+    },
+    {
+      "id": "cancelled",
+      "label": "Cancelled"
+    },
+    {
+      "id": "approved",
+      "label": "Approved"
+    }
+  ],
+  "tableData": [
+    {
+      "id": 1,
+      "slug": "mike-smith-1",
+      "name": "Mike Smith",
+      "logo": "/images/user-avatar.png",
+      "email": "mike.smith@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "driverId": "DRV-00001",
+      "company": "Patriot Escort Services",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Pending"
+    },
+    {
+      "id": 2,
+      "slug": "mike-smith-2",
+      "name": "Mike Smith",
+      "logo": "/images/user-avatar.png",
+      "email": "mike.smith@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "driverId": "DRV-00001",
+      "company": "Patriot Escort Services",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Cancelled"
+    },
+    {
+      "id": 3,
+      "slug": "mike-smith-3",
+      "name": "Mike Smith",
+      "logo": "/images/user-avatar.png",
+      "email": "mike.smith@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "driverId": "DRV-00001",
+      "company": "Patriot Escort Services",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Approved"
+    },
+    {
+      "id": 4,
+      "slug": "mike-smith-4",
+      "name": "Mike Smith",
+      "logo": "/images/user-avatar.png",
+      "email": "mike.smith@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "driverId": "DRV-00001",
+      "company": "Patriot Escort Services",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Pending"
+    },
+    {
+      "id": 5,
+      "slug": "mike-smith-5",
+      "name": "Mike Smith",
+      "logo": "/images/user-avatar.png",
+      "email": "mike.smith@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "driverId": "DRV-00001",
+      "company": "Patriot Escort Services",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Cancelled"
+    },
+    {
+      "id": 6,
+      "slug": "mike-smith-6",
+      "name": "Mike Smith",
+      "logo": "/images/user-avatar.png",
+      "email": "mike.smith@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "driverId": "DRV-00001",
+      "company": "Patriot Escort Services",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Approved"
+    },
+    {
+      "id": 7,
+      "slug": "mike-smith-7",
+      "name": "Mike Smith",
+      "logo": "/images/user-avatar.png",
+      "email": "mike.smith@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "driverId": "DRV-00001",
+      "company": "Patriot Escort Services",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Pending"
+    },
+    {
+      "id": 8,
+      "slug": "mike-smith-8",
+      "name": "Mike Smith",
+      "logo": "/images/user-avatar.png",
+      "email": "mike.smith@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "driverId": "DRV-00001",
+      "company": "Patriot Escort Services",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Cancelled"
+    }
+  ]
+}

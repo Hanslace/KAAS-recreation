@@ -1,0 +1,118 @@
+{
+  "filters": [
+    {
+      "id": "all",
+      "label": "All"
+    },
+    {
+      "id": "pending",
+      "label": "Pending"
+    },
+    {
+      "id": "cancelled",
+      "label": "Cancelled"
+    },
+    {
+      "id": "approved",
+      "label": "Approved"
+    }
+  ],
+  "tableData": [
+    {
+      "id": 1,
+      "slug": "james-anderson-1",
+      "name": "James Anderson",
+      "logo": "/images/user-avatar.png",
+      "email": "james.anderson@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "MC-845672",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Pending"
+    },
+    {
+      "id": 2,
+      "slug": "james-anderson-2",
+      "name": "James Anderson",
+      "logo": "/images/user-avatar.png",
+      "email": "james.anderson@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "MC-845672",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Cancelled"
+    },
+    {
+      "id": 3,
+      "slug": "james-anderson-3",
+      "name": "James Anderson",
+      "logo": "/images/user-avatar.png",
+      "email": "james.anderson@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "MC-845672",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Approved"
+    },
+    {
+      "id": 4,
+      "slug": "james-anderson-4",
+      "name": "James Anderson",
+      "logo": "/images/user-avatar.png",
+      "email": "james.anderson@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "MC-845672",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Pending"
+    },
+    {
+      "id": 5,
+      "slug": "james-anderson-5",
+      "name": "James Anderson",
+      "logo": "/images/user-avatar.png",
+      "email": "james.anderson@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "MC-845672",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Cancelled"
+    },
+    {
+      "id": 6,
+      "slug": "james-anderson-6",
+      "name": "James Anderson",
+      "logo": "/images/user-avatar.png",
+      "email": "james.anderson@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "MC-845672",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Approved"
+    },
+    {
+      "id": 7,
+      "slug": "james-anderson-7",
+      "name": "James Anderson",
+      "logo": "/images/user-avatar.png",
+      "email": "james.anderson@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "MC-845672",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Pending"
+    },
+    {
+      "id": 8,
+      "slug": "james-anderson-8",
+      "name": "James Anderson",
+      "logo": "/images/user-avatar.png",
+      "email": "james.anderson@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "MC-845672",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Cancelled"
+    }
+  ]
+}
