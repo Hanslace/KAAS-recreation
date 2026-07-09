@@ -64,27 +64,23 @@ export default function Layout({ children }: DashboardLayoutProps) {
         />
       )}
 
-      <aside className={`
-        fixed inset-y-0 left-0 z-50 flex flex-col h-full bg-black transition-transform duration-300 text-white ease-in-out
+      <aside className={`max-w-[17rem] xs:max-w-[20rem] lg:max-w-[15rem]  xl:max-w-[22.5rem] 2xl:max-w-[25rem]
+        fixed inset-y-0 left-0 z-50 flex flex-col h-full bg-black transition-transform duration-300 text-white ease-in-out p-[1.5rem] xl:p-[2rem] gap-5
         w-fit   lg:static lg:translate-x-0
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
           
           {/* KAAS Branding Header Logo Area */}
-          <div className="flex flex-col p-15 items-center justify-center ">
-              <Image
-                src="/logo.png"
-                alt="Kaas Logo"
-                width={520}
-                height={220}
-                priority
-                className="h-auto w-full max-w-[15rem] object-contain"
-              />
-          </div>
+    
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className=" aspect-[9/5] px-5 object-contain transition-transform duration-300 group-hover:scale-105 "
+          />
 
           {/* Scrollable Container for Navigation Menu Links */}
-          <div className='flex flex-col px-10 pb-10 flex-1 justify-between overflow-y-auto min-h-0'>
-            <nav className="space-y-1.5">
+          <div className='flex flex-col  py-10 flex-1  overflow-y-auto min-h-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
+            <nav className="space-y-1.5 ">
               {sidebarLinks.map((link) => {
                 const isSubmenuActive = link.submenuItems?.some((sub) =>
                   isPathActive(sub.href)
@@ -106,7 +102,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
                           setIsOpen(false); // Close menu on link click (mobile)
                         }
                       }}
-                      className={`group w-full flex items-center justify-between p-3 px-5 rounded-md text-[1.1rem] font-medium transition-all duration-150 ease-in-out
+                      className={`group w-full flex items-center justify-between p-3 px-5 rounded-md text-[0.8rem] xl:text-[1.1rem] font-medium transition-all duration-150 ease-in-out
                         ${isActive ? 'bg-brand-gradient font-semibold' : 'hover:bg-zinc-900'}`}
                     >
                       <div className="flex items-center overflow-hidden gap-3">
@@ -147,9 +143,10 @@ export default function Layout({ children }: DashboardLayoutProps) {
                 );
               })}
             </nav>
+            </div>
             
             {/* Logout Action Button Footer */}
-            <div className="pt-4 shrink-0">
+            <div className="shrink-0">
               <Link 
                 href="/login"  
                 className='w-fit  p-3 px-5 inline-flex items-center justify-center gap-2 rounded-md bg-brand-gradient text-sub-text font-medium'
@@ -158,7 +155,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
                 Logout
               </Link>
             </div>
-          </div>
+          
 
       </aside>
 
@@ -191,7 +188,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
               />
           </div>
 
-            <h1 className="text-[2rem] 2xl:text-[3rem] font-bold text-black tracking-tight hidden md:block">
+            <h1 className="text-[1rem] lg:text-[2rem] 2xl:text-[3rem] font-bold text-black tracking-tight hidden md:block">
               Welcome Back, Admin!
             </h1>
           </div>
@@ -208,17 +205,18 @@ export default function Layout({ children }: DashboardLayoutProps) {
             </Link>
 
             {/* Profile Avatar Card Wrapper */}
-            <div className="flex items-center gap-3 min-h-16 min-w-16 text-label rounded-xl">
+            <div className="flex items-center gap-3 min-h-16 min-w-16 text-[1rem] 2xl:text-[1.5rem] rounded-xl">
               <img 
                 src="https://images.unsplash.com/photo-1783095627526-25c08072893f?w=900&auto=format&fit=crop&q=60" 
                 alt="Admin Profile Avatar" 
                 className="w-11 md:w-16 h-auto aspect-square rounded-xl object-cover border border-gray-200 shadow-sm"
               />
-              <div className="hidden md:flex flex-col text-left">
-                <span className=" font-bold text-gray-900 leading-tight">
+              <div className="hidden md:flex flex-col text-left min-w-0 max-w-[12rem]">
+                <span className="font-bold text-gray-900 leading-tight truncate">
                   Admin
                 </span>
-                <span className=" text-gray-400">
+                {/* Replaced overflow-x-auto with truncate to clip long emails cleanly */}
+                <span className="text-gray-400 truncate" title="admin.admin@gmail.com">
                   admin.admin@gmail.com
                 </span>
               </div>

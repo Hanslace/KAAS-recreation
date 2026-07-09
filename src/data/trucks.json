@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "thunder-freight",
+    "name": "Thunder Freight",
+    "imageUrl": "/images/truck.jpg",
+    "mcNumber": "MC-845672",
+    "dotNumber": "USDOT 2983745",
+    "licensePlate": "CDL-A TX 5678901",
+    "registrationNumber": "REG-TX-9821476",
+    "vinNumber": "IHGCMB2633AI23456",
+    "liability": {
+      "title": "Important Docs",
+      "imageUrl": "/images/liability-doc.jpg"
+    }
+  },
+  {
+    "slug": "road-king",
+    "name": "Road King",
+    "imageUrl": "/images/truck.jpg",
+    "mcNumber": "MC-845672",
+    "dotNumber": "USDOT 2983745",
+    "licensePlate": "CDL-A TX 5678901",
+    "registrationNumber": "REG-TX-9821476",
+    "vinNumber": "IHGCMB2633AI23456",
+    "liability": {
+      "title": "Important Docs",
+      "imageUrl": "/images/liability-doc.jpg"
+    }
+  }
+]

@@ -16,51 +16,24 @@
   --color-brand-dark: var(--brand-dark);
   --background-image-brand-gradient: var(--brand-gradient);
   --font-sans: var(--font-urbanist);
-
-  /* Map the utilities to global raw CSS variables */
-  --text-heading: var(--heading-size);
-  --text-sub-heading: var(--sub-heading-size);
-  --text-sub-text: var(--sub-text-size);
-  --text-label: var(--label-size);
+  
 }
 
-/* 2. Set the responsive values safely using standard CSS media queries */
-:root {
-  /* Default Mobile Sizing */
-  --heading-size: 1rem;     /* ~28px */
-  --sub-heading-size: 1rem;
-  --sub-text-size: 0.5rem;   /* ~14px */
-  --label-size: 0.5rem;      /* ~14px */
+@theme {
+  /* Clear the rem-based defaults */
+  --breakpoint-*: initial; 
+
+  /* Redefine everything consistently in pixels */
+  --breakpoint-2xs: 20rem;
+  --breakpoint-xs: 23.3rem;
+  --breakpoint-sm: 26.5rem;    /* 640px / 16 */
+  --breakpoint-md: 48rem;    /* 768px / 16 */
+  --breakpoint-lg: 64rem;    /* 1024px / 16 */
+  --breakpoint-xl: 90rem;    /* 1280px / 16 */
+  --breakpoint-2xl: 160rem;  /* 1600px / 16 */
 }
 
-/* Tablet screens (768px and up) */
-@media (width >= 768px) {
-  :root {
-    --heading-size: 2rem;     /* ~28px */
-    --sub-heading-size: 1.25rem;
-    --sub-text-size: 0.875rem;   /* ~14px */
-    --label-size: 0.875rem;        /* ~16px */
-  }
-}
 
-/* Desktop screens (1024px and up) */
-@media (width >= 1024px) {
-  :root {
-    --heading-size: 2.5rem;    /* ~40px */
-    --sub-heading-size: 1.5rem;
-    --sub-text-size: 0.875rem;     /* ~16px */
-    --label-size: 0.875rem;     /* ~18px */
-  }
-}
-
-@media (width >= 1440px) {
-  :root {
-    --heading-size: 3.5rem;    /* ~56px */
-    --sub-heading-size: 1.75rem;
-    --sub-text-size: 1.125rem; /* ~18px */
-    --label-size: 1rem;    /* ~18px */
-  }
-}
 
 body {
   background: var(--background);

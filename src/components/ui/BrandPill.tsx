@@ -8,7 +8,7 @@ type BrandPillProps = {
 export default function BrandPill({ children, className = "" }: BrandPillProps) {
   return (
     <span
-      className={`inline-flex items-center justify-center rounded-full border border-brand bg-brand/30 px-[1rem] py-[0.45rem] text-[0.85rem] font-medium text-brand ${className}`}
+      className={`flex items-center justify-center rounded-full border border-brand bg-brand/30 px-[0.8rem] h-[2rem] text-[0.85rem] font-medium text-brand ${className}`}
     >
       {children}
     </span>

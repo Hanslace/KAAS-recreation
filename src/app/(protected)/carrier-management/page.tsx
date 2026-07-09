@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react';
 import FiltersHeader from '@/components/shared/FiltersHeader';
 import DataTable from '@/components/shared/DataTable';
-import data from './data.json';
+import data from '@/data/carriers.json';
 
 export default function Page() {
   const [activeTabId, setActiveTabId] = useState('all');

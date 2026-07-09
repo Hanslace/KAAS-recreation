@@ -39,7 +39,7 @@ export default function LoginLayout({
               width={520}
               height={220}
               priority
-              className="h-auto w-full max-w-[300px] object-contain"
+              className="h-auto w-full max-w-[15rem] object-contain"
             />
           </div>
 

@@ -1,5 +1,5 @@
 import BackButton from "@/components/ui/BackButton";
-import data from "@/data.json"
+import data from "@/data/data.json"
 import { Icon } from "@iconify/react";
 
 

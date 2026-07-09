@@ -2,9 +2,9 @@
 
 import AnalyticsCard from "@/components/shared/AnalyticsCard";
 import FiltersHeader from "@/components/shared/FiltersHeader";
-import LogisticsCard from "@/components/shared/LogisticsCard";
-import data from '@/data.json';
-import React, { useState } from 'react';
+import data from '@/data/data.json';
+import  { useState } from 'react';
+import BookingsGrid from "@/components/shared/BookingsGrid";
 
 export default function Page() {
   const [activeTab, setActiveTab] = useState('all');
@@ -32,7 +32,7 @@ export default function Page() {
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-2  md:grid-cols-3 2xl:grid-cols-6 gap-6">
+      <div className="grid grid-cols-2  md:grid-cols-3 min-[100rem]:grid-cols-6 gap-6">
         {Object.entries(data.bookingMetrics).map(([key, item]) => (
           <AnalyticsCard 
             key={key}
@@ -55,11 +55,8 @@ export default function Page() {
 
       {/* Grid rendering the runtime filtered array */}
       {filteredBookings.length > 0 ? (
-        <div className="grid sm:px-[4rem] grid-cols-2 lg:px-0 lg:grid-cols-2 2xl:grid-cols-3 gap-6 py-5">
-          {filteredBookings.map((card) => (
-            <LogisticsCard key={card.id} booking={card} />
-          ))}
-        </div>
+        <BookingsGrid bookingsList={filteredBookings}/>
+        
       ) : (
         /* Zero Results Empty Feedback Banner */
         <div className="flex flex-col items-center justify-center py-16 text-center bg-white border border-gray-100 rounded-2xl shadow-sm">

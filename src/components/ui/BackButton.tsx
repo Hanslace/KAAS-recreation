@@ -37,7 +37,7 @@ export const BackButton: React.FC<BackButtonProps> = ({
         </svg>
       </div>
 
-      <span className="font-bold text-black text-[2rem]  tracking-tight">
+      <span className="font-bold text-black text-[1.5rem] md:text-[2rem]  tracking-tight">
         {children}
       </span>
     </Link>

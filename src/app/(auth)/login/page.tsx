@@ -89,7 +89,7 @@ export default function LoginPage() {
         />
 
         <div className="flex items-center justify-between">
-          <label className="flex items-center gap-2 text-label text-black cursor-pointer select-none">
+          <label className="flex items-center gap-2 text-[0.8rem]  xs:text-[0.9rem] xl:text-[1rem] text-black cursor-pointer select-none">
             <input 
               type="checkbox" 
               className="peer sr-only" 
@@ -116,7 +116,7 @@ export default function LoginPage() {
 
           <a
             type="button"
-            className="text-label font-medium text-brand transition hover:text-brand-dark"
+            className="text-[0.8rem]  xs:text-[0.9rem] xl:text-[1rem] font-medium text-brand transition hover:text-brand-dark"
             href={"/forgot-password"}
           >
             Forgot Password?

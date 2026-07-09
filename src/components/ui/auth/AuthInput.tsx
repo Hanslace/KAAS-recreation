@@ -33,7 +33,7 @@ export const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>(
       <div className="relative w-full flex flex-col gap-1.5">
         <div className="relative w-full">
           {/* Floating Label */}
-          <label className="absolute -top-[6px] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1 text-[0.875rem] font-normal leading-none text-black">
+          <label className="absolute -top-[6px] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1 text-[0.7rem] lg:text-[0.8rem] xl:text-[0.875rem] font-normal leading-none text-black">
             {label}
           </label>
 

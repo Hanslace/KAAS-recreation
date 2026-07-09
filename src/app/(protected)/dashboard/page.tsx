@@ -1,7 +1,7 @@
 'use client';
 
 import AnalyticsCard from '@/components/shared/AnalyticsCard'; // Adjust path based on where you created the card
-import mockData from '@/data.json';
+import mockData from '@/data/data.json';
 import { Icon } from '@iconify/react';
 import { 
   ResponsiveContainer, 
@@ -52,7 +52,7 @@ export default function Page() {
       {/* ========================================================================= */}
       {/* METRIC ANALYTICS GRID MARGIN                                              */}
       {/* ========================================================================= */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2  lg:grid-cols-4 gap-6">
         {Object.entries(analytics).map(([key, item]) => (
           <AnalyticsCard 
             key={key}

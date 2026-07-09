@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Icon } from '@iconify/react';
 
-export interface LogisticsCardData {
+export interface BookingsCardData {
   price: string;
   status: 'Reschedule' | 'Cancelled' | 'Completed' | string;
   slug: string;
@@ -19,11 +19,11 @@ export interface LogisticsCardData {
   distanceAway: string;
 }
 
-interface LogisticsCardProps {
-  booking: LogisticsCardData;
+interface BookingsCardProps {
+  booking: BookingsCardData;
 }
 
-export default function LogisticsCard({ booking }: LogisticsCardProps) {
+export default function BookingsCard({ booking }: BookingsCardProps) {
   return (
     <Link
       href={`/bookings/${booking.slug}`}
