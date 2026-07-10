@@ -32,19 +32,20 @@ export default function LoginLayout({
           </div>
         </div>
 
-        <div className="lg:hidden mt-20  flex items-center justify-center ">
+        
+
+        {/* Right Column */}
+        <div className=" w-full lg:m-auto space-y-10 lg:max-w-[33vw] p-10">
+          <div className="lg:hidden mt-20  flex items-center justify-center ">
             <Image
               src="/logo.png"
               alt="Kaas Logo"
               width={520}
               height={220}
               priority
-              className="h-auto w-full max-w-[15rem] object-contain"
+              className="h-auto w-full max-w-[13rem] object-contain"
             />
           </div>
-
-        {/* Right Column */}
-        <div className=" w-full lg:m-auto  lg:max-w-[33vw] p-10">
           
           {children}
         </div>
