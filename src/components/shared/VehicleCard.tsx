@@ -1,72 +1,105 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
+import { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-export interface VehicleCardData {
+interface BaseVehicleCardData {
   slug: string;
   name: string;
   imageUrl: string;
-  mcNumber: string;
-  dotNumber: string;
-  licensePlate: string;
 }
 
-interface VehicleCardProps {
-  vehicle: VehicleCardData;
-  basePath: string; // Dynamic path prop added here (e.g., "/vehicles", "/fleet")
+type ReservedVehicleKeys = keyof BaseVehicleCardData | 'id';
+
+export interface VehicleCardField<
+  T extends BaseVehicleCardData = BaseVehicleCardData,
+> {
+  label: string;
+  accessKey: Exclude<keyof T, ReservedVehicleKeys>;
+  render?: (value: T[keyof T], vehicle: T) => ReactNode;
+}
+
+interface VehicleCardProps<T extends BaseVehicleCardData> {
+  vehicle: T;
+  basePath: string;
+  fields: VehicleCardField<T>[];
   className?: string;
 }
 
-export default function VehicleCard({ vehicle, basePath, className = '' }: VehicleCardProps) {
-  // Cleans trailing slashes from basePath if present to avoid dual slashes like "//"
-  const cleanBasePath = basePath.endsWith('/') ? basePath.slice(0, -1) : basePath;
+function displayValue(value: unknown): ReactNode {
+  if (value === null || value === undefined || value === '') {
+    return 'N/A';
+  }
+
+  if (
+    typeof value === 'string' ||
+    typeof value === 'number' ||
+    typeof value === 'boolean'
+  ) {
+    return String(value);
+  }
+
+  return 'N/A';
+}
+
+export default function VehicleCard<T extends BaseVehicleCardData>({
+  vehicle,
+  basePath,
+  fields,
+  className = '',
+}: VehicleCardProps<T>) {
+  const cleanBasePath =
+    basePath.length > 1 && basePath.endsWith('/')
+      ? basePath.slice(0, -1)
+      : basePath;
 
   return (
     <Link
       href={`${cleanBasePath}/${vehicle.slug}`}
-      className="block w-full focus:outline-none "
+      className="block w-full focus:outline-none"
       aria-label={`View vehicle details for ${vehicle.name}`}
     >
       <div
         className={twMerge(
-          "w-full flex flex-col rounded-[24px] p-[1rem] md:p-[1.25rem] shadow-xl border bg-white border-gray-100 transition-all duration-300 ease-in-out hover:shadow-2xl",
-          className
+          'flex w-full flex-col rounded-[24px] border border-gray-100 bg-white p-4 shadow-xl transition-all duration-300 ease-in-out hover:shadow-2xl md:p-5',
+          className,
         )}
       >
-        {/* Vehicle Image Container */}
-        <div className="relative aspect-[9/5] rounded-2xl overflow-hidden shrink-0 bg-gray-900 group">
+        <div className="group relative aspect-[9/5] shrink-0 overflow-hidden rounded-2xl bg-gray-900">
           <img
             src={vehicle.imageUrl}
             alt={vehicle.name}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 brightness-75"
+            className="h-full w-full object-cover brightness-75 transition-transform duration-300 group-hover:scale-105"
           />
         </div>
 
-        {/* Content Section */}
         <div className="mt-4 flex flex-col space-y-2.5 text-left">
-          {/* Title */}
-          <h3 className="text-[1rem] md:text-[1.5rem] font-bold text-gray-900 tracking-tight leading-tight truncate">
+          <h3 className="truncate text-[1rem] font-bold leading-tight tracking-tight text-gray-900 md:text-[1.5rem]">
             {vehicle.name}
           </h3>
 
-          {/* Details Metadata List */}
-          <div className="space-y-1.5 text-[0.7rem] md:text-[0.875rem] font-medium pt-1">
-            <div className=" break-words">
-              <span className="font-bold text-gray-900">MC Number: </span>
-              <span className="text-gray-500 font-normal">{vehicle.mcNumber}</span>
-            </div>
+          <div className="space-y-1.5 pt-1 text-[0.7rem] font-medium md:text-[0.875rem]">
+            {fields.map((field) => {
+              const value = vehicle[field.accessKey];
 
-            <div className=" break-words">
-              <span className="font-bold text-gray-900">Dot Number: </span>
-              <span className="text-gray-500 font-normal">{vehicle.dotNumber}</span>
-            </div>
+              return (
+                <div
+                  key={String(field.accessKey)}
+                  className="break-words"
+                >
+                  <span className="font-bold text-gray-900">
+                    {field.label}:{' '}
+                  </span>
 
-            <div className=" break-words">
-              <span className="font-bold text-gray-900">License Plate Number: </span>
-              <span className="text-gray-500 font-normal">{vehicle.licensePlate}</span>
-            </div>
+                  <span className="font-normal text-gray-500">
+                    {field.render
+                      ? field.render(value, vehicle)
+                      : displayValue(value)}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

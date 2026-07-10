@@ -4,6 +4,7 @@ import BrandPill from '@/components/ui/BrandPill';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import CloseButton from './_components/CloseButton';
+import InfoCell from '@/components/ui/InfoCell';
 
 
 interface PageProps {
@@ -51,19 +52,7 @@ const supportTickets = [
   },
 ];
 
-function InfoRow({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="relative px-2 py-[1.5rem] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-gray-100">
-      <p className="text-[0.95rem] font-bold tracking-tight text-black">
-        {label}
-      </p>
 
-      <p className="mt-1 text-[0.9rem] leading-snug tracking-tight text-brand">
-        {value}
-      </p>
-    </div>
-  );
-}
 
 
 
@@ -139,7 +128,7 @@ export default async function SupportDetailsPage({ params }: PageProps) {
 
         <div className="grid grid-cols-1 gap-x-10 md:grid-cols-2 xl:grid-cols-[1fr_1fr_2fr]">
           {detailFields.map((field) => (
-            <InfoRow key={field.label} label={field.label} value={field.value} />
+            <InfoCell key={field.label} label={field.label} value={field.value} />
           ))}
         </div>
 

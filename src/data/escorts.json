@@ -1,0 +1,28 @@
+{
+  "escorts": [
+    {
+      "id": 1,
+      "slug": "falcon-hauler-1",
+      "name": "Falcon Hauler",
+      "imageUrl": "/images/car.jpg",
+      "escortType": "Front Escort",
+      "licensePlate": "TX-7H2K9L",
+      "vinNumber": "1FTFW1ET4EFA12345",
+      "registrationNumber": "REG-TX-9821476",
+      "mcNumber": "MC-00001",
+      "dotNumber": "01234567"
+    },
+    {
+      "id": 2,
+      "slug": "falcon-hauler-2",
+      "name": "Falcon Hauler",
+      "imageUrl": "/images/car.jpg",
+      "registrationNumber": "REG-TX-9821476",
+      "escortType": "Front Escort",
+      "licensePlate": "TX-8J4M2P",
+      "vinNumber": "1FTFW1ET4EFA67890",
+      "mcNumber": "MC-00002",
+      "dotNumber": "07654321"
+    }
+  ]
+}

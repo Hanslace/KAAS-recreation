@@ -1,87 +1,72 @@
 
-import VehicleCard from "@/components/shared/VehicleCard"; 
-import vehicles from '@/data/trucks.json';
 import bookings from '@/data/data.json'
-import managerData from "@/data/managers.json";
+import drivers from "@/data/company-drivers.json";
 import { notFound } from "next/navigation";
 import BookingsGrid from "@/components/shared/BookingsGrid";
 import InfoGrid from "@/components/shared/InfoGrid";
 import DetailsLayout from "@/components/DetailsLayout";
-import Image from "next/image";
 import AttachmentImage from "@/components/ui/AttachmentImage";
 
+// Assuming VehicleCard is stored here
 
 interface PageProps {
-  params: Promise<{ managerid: string }>;
+  params: Promise<{ driverid: string }>;
 }
 
 export default async function Page({ params }: PageProps) {
+  const { driverid } = await params;
   
-  // Correctly await the params promise to extract your ID
-  const { managerid } = await params;
-  
-  const currentManager = managerData.tableData.find(
-    (item) => item.slug === managerid
+  const currentDriver = drivers.tableData.find(
+    (item) => item.slug === driverid
   );
 
-  // 3. Fallback to 404 page if someone enters an invalid URL managerid
-  if (!currentManager) {
+  // 3. Fallback to 404 page if someone enters an invalid URL driverid
+  if (!currentDriver) {
     return(notFound());
   }
 
-  const status = currentManager.status;
+  const status = currentDriver.status;
 
   return (
     <>
       <DetailsLayout
-        slugName={currentManager.slug}
-        status={currentManager.status}
+        slugName={currentDriver.slug}
+        status={currentDriver.status}
         companyName="ABC Logistics LLC"
         email="abcllogisticsas@gmail.com"
         phone="0321 3213233"
         logoSrc="/images/company-logo.png"
-        manager={true}
       >
 
       <InfoGrid
-          fields={[
-            {
-              label: 'Address',
-              value: '53C, 14th Street, Empire State, USA',
-            },
-          ]}
-        />
-
-      <InfoGrid
-        heading="Company Info"
         fields={[
           {
-            label: 'MC Number',
-            value: 'MC-00001',
+            label: 'Company Name',
+            value: 'Patriot Escort Services',
           },
           {
-            label: 'DOT Number',
-            value: '01234567',
+            label: 'Escort Name',
+            value: 'Falcon Hauler',
+          },
+          {
+            label: 'Escort Type',
+            value: 'Front Escort',
+          },
+          {
+            label: 'Driver ID',
+            value: 'DRV-00001',
+          },
+          {
+            label: 'Address',
+            value: '53C, 14th Street, Empire State, USA',
           },
         ]}
       />
 
-      <div className="mt-8 grid grid-cols-1 gap-8 border-b border-gray-100 pb-8 md:grid-cols-4">
-        <div>
-          <h3 className="mb-4 text-[1.25rem] font-bold tracking-tight text-black">
-            Insurance:
-          </h3>
-
-          <div className="flex flex-wrap items-start gap-4">
-            <AttachmentImage
-              src="/images/liability-doc.jpg"
-              alt="Insurance document"
-            />
-          </div>
-        </div>
-
-        <div>
-          <h3 className="mb-4 text-[1.25rem] font-bold tracking-tight text-black">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+        {/* License */}
+        <div className="border-b-[3px] border-gray-100 pb-5">
+          <h3 className="mb-5 text-[1.4rem] font-bold tracking-tight text-black">
             License:
           </h3>
 
@@ -98,25 +83,25 @@ export default async function Page({ params }: PageProps) {
           </div>
         </div>
 
-        <div>
-          <h3 className="mb-4 text-[1.25rem] font-bold tracking-tight text-black">
-            Certificate:
+        {/* Certification */}
+        <div className="border-b-[3px] border-gray-100 pb-5">
+          <h3 className="mb-5 text-[1.4rem] font-bold tracking-tight text-black">
+            Certification:
           </h3>
 
           <div className="flex flex-wrap items-start gap-4">
             <AttachmentImage
               src="/images/permit-1.jpg"
-              alt="Carrier certificate"
+              alt="Driver certification"
             />
 
             <AttachmentImage
               src="/images/permit-2.jpg"
-              alt="Training certificate"
+              alt="Training certification"
             />
           </div>
         </div>
       </div>
-
 
       { status === "Cancelled" && (
         <div className="">
@@ -133,32 +118,8 @@ export default async function Page({ params }: PageProps) {
         </div>
       )}
 
-      <InfoGrid
-        heading="Fares Info"
-        fields={[
-          {
-            label: 'Per Day',
-            value: '$600',
-          },
-          {
-            label: 'Per Mile',
-            value: '$2.5',
-          },
-          {
-            label: 'Overnight',
-            value: '$800',
-          },
-          {
-            label: 'Custom',
-            value: '$200',
-          },
-        ]}
-      />
-
-      
-
       { status === "Approved" &&
-     
+        <>
 
         <div className="mt-8 flex flex-col gap-4">
           <h2 className="text-[1.75rem] font-bold text-black tracking-tight">
@@ -177,7 +138,7 @@ export default async function Page({ params }: PageProps) {
                   </div>
                 )}
         </div>
-    }
+        </>}
 
       </DetailsLayout>
     </>

@@ -2,6 +2,7 @@ import BackButton from "@/components/ui/BackButton"
 import vehicles from '@/data/trucks.json';
 import { notFound } from "next/navigation";
 import InfoCell from "@/components/ui/InfoCell"
+import InfoGrid from "@/components/shared/InfoGrid";
 
 // Assuming VehicleCard is stored here
 
@@ -54,15 +55,7 @@ export default async function Page({ params }: PageProps) {
           />
 
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6">
-          {detailFields.map((field, index) => (
-            <InfoCell 
-              key={index} 
-              label={field.label} 
-              value={field.value} 
-            />
-          ))}
-        </div>
+        <InfoGrid fields={detailFields} />
 
         <h2 className="text-[1.75rem] font-bold text-black tracking-tight">
               Liability:

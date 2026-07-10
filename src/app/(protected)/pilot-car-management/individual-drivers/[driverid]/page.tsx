@@ -1,74 +1,64 @@
 
-import VehicleCard from "@/components/shared/VehicleCard"; 
-import vehicles from '@/data/trucks.json';
 import bookings from '@/data/data.json'
-import managerData from "@/data/managers.json";
+import drivers from "@/data/individual-drivers.json";
 import { notFound } from "next/navigation";
 import BookingsGrid from "@/components/shared/BookingsGrid";
 import InfoGrid from "@/components/shared/InfoGrid";
 import DetailsLayout from "@/components/DetailsLayout";
-import Image from "next/image";
 import AttachmentImage from "@/components/ui/AttachmentImage";
 
+// Assuming VehicleCard is stored here
 
 interface PageProps {
-  params: Promise<{ managerid: string }>;
+  params: Promise<{ driverid: string }>;
 }
 
 export default async function Page({ params }: PageProps) {
+  const { driverid } = await params;
   
-  // Correctly await the params promise to extract your ID
-  const { managerid } = await params;
-  
-  const currentManager = managerData.tableData.find(
-    (item) => item.slug === managerid
+  const currentDriver = drivers.tableData.find(
+    (item) => item.slug === driverid
   );
 
-  // 3. Fallback to 404 page if someone enters an invalid URL managerid
-  if (!currentManager) {
+  // 3. Fallback to 404 page if someone enters an invalid URL driverid
+  if (!currentDriver) {
     return(notFound());
   }
 
-  const status = currentManager.status;
+  const status = currentDriver.status;
 
   return (
     <>
       <DetailsLayout
-        slugName={currentManager.slug}
-        status={currentManager.status}
+        slugName={currentDriver.slug}
+        status={currentDriver.status}
         companyName="ABC Logistics LLC"
         email="abcllogisticsas@gmail.com"
         phone="0321 3213233"
         logoSrc="/images/company-logo.png"
-        manager={true}
       >
 
       <InfoGrid
-          fields={[
-            {
-              label: 'Address',
-              value: '53C, 14th Street, Empire State, USA',
-            },
-          ]}
-        />
-
-      <InfoGrid
-        heading="Company Info"
         fields={[
           {
+            label: 'Address',
+            value: '53C, 14th Street, Empire State, USA',
+          },
+          {
             label: 'MC Number',
-            value: 'MC-00001',
+            value: 'MC-845672',
           },
           {
             label: 'DOT Number',
-            value: '01234567',
+            value: 'USDOT 2983745',
           },
         ]}
       />
 
-      <div className="mt-8 grid grid-cols-1 gap-8 border-b border-gray-100 pb-8 md:grid-cols-4">
-        <div>
-          <h3 className="mb-4 text-[1.25rem] font-bold tracking-tight text-black">
+      {/* Company documents */}
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
+        <div className="border-b-[3px] border-gray-100 pb-5">
+          <h3 className="mb-5 text-[1.4rem] font-bold tracking-tight text-black">
             Insurance:
           </h3>
 
@@ -80,8 +70,8 @@ export default async function Page({ params }: PageProps) {
           </div>
         </div>
 
-        <div>
-          <h3 className="mb-4 text-[1.25rem] font-bold tracking-tight text-black">
+        <div className="border-b-[3px] border-gray-100 pb-5">
+          <h3 className="mb-5 text-[1.4rem] font-bold tracking-tight text-black">
             License:
           </h3>
 
@@ -98,15 +88,15 @@ export default async function Page({ params }: PageProps) {
           </div>
         </div>
 
-        <div>
-          <h3 className="mb-4 text-[1.25rem] font-bold tracking-tight text-black">
+        <div className="border-b-[3px] border-gray-100 pb-5">
+          <h3 className="mb-5 text-[1.4rem] font-bold tracking-tight text-black">
             Certificate:
           </h3>
 
           <div className="flex flex-wrap items-start gap-4">
             <AttachmentImage
               src="/images/permit-1.jpg"
-              alt="Carrier certificate"
+              alt="Certificate document"
             />
 
             <AttachmentImage
@@ -117,22 +107,53 @@ export default async function Page({ params }: PageProps) {
         </div>
       </div>
 
+      {/* Pilot car details */}
+      <InfoGrid
+        heading="Pilot Car Info"
+        fields={[
+          {
+            label: 'Escort Name',
+            value: 'Road Guardian',
+          },
+          {
+            label: 'Escort Type',
+            value: 'Front Escort',
+          },
+          {
+            label: 'License Plate Number',
+            value: 'CDL-A TX 5678901',
+          },
+          {
+            label: 'VIN Number',
+            value: '1HGCM82633A123456',
+          },
+          {
+            label: 'Registration Number',
+            value: 'REG-TX-98213476',
+          },
+        ]}
+      />
 
-      { status === "Cancelled" && (
-        <div className="">
-          <h3 className="text-[1rem] font-bold tracking-tight text-black">
-            Reason:
-          </h3>
+      {/* Pilot car attachments */}
+      <div className="max-w-[15.25rem] border-b-[3px] border-gray-100 pb-5">
+        <h3 className="mb-4 text-[1.4rem] font-bold tracking-tight text-black">
+          Attachment:
+        </h3>
 
-          <p className="mt-2 text-[0.9rem] leading-relaxed tracking-tight text-black/50">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-          </p>
+        <div className="flex flex-wrap items-start gap-4">
+          <AttachmentImage
+            src="/images/car.jpg"
+            alt="Pilot car attachment one"
+          />
+
+          <AttachmentImage
+            src="/images/car.jpg"
+            alt="Pilot car attachment two"
+          />
         </div>
-      )}
+      </div>
 
+      {/* Fare details */}
       <InfoGrid
         heading="Fares Info"
         fields={[
@@ -155,10 +176,23 @@ export default async function Page({ params }: PageProps) {
         ]}
       />
 
-      
+      { status === "Cancelled" && (
+        <div className="">
+          <h3 className="text-[1rem] font-bold tracking-tight text-black">
+            Reason:
+          </h3>
+
+          <p className="mt-2 text-[0.9rem] leading-relaxed tracking-tight text-black/50">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+          </p>
+        </div>
+      )}
 
       { status === "Approved" &&
-     
+        <>
 
         <div className="mt-8 flex flex-col gap-4">
           <h2 className="text-[1.75rem] font-bold text-black tracking-tight">
@@ -177,7 +211,7 @@ export default async function Page({ params }: PageProps) {
                   </div>
                 )}
         </div>
-    }
+        </>}
 
       </DetailsLayout>
     </>

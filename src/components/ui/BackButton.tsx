@@ -2,10 +2,11 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { twMerge } from 'tailwind-merge';
 
 interface BackButtonProps {
-  href: string;
+  href?: string;
   children?: React.ReactNode;
   className?: string;
 }
@@ -15,17 +16,15 @@ export const BackButton: React.FC<BackButtonProps> = ({
   children = 'Back',
   className = '',
 }) => {
-  const linkStyles = twMerge(
+  const router = useRouter();
+
+  const buttonStyles = twMerge(
     'group inline-flex cursor-pointer select-none items-center gap-3 font-sans focus:outline-none',
-    className
+    className,
   );
 
-  return (
-    <Link
-      href={href}
-      className={linkStyles}
-      aria-label={typeof children === 'string' ? children : 'Go back'}
-    >
+  const content = (
+    <>
       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-white transition-transform duration-200 ease-out group-hover:-translate-x-1 md:h-10 md:w-10">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -34,6 +33,7 @@ export const BackButton: React.FC<BackButtonProps> = ({
           strokeWidth="2.5"
           stroke="currentColor"
           className="h-4 w-4 md:h-5 md:w-5"
+          aria-hidden="true"
         >
           <path
             strokeLinecap="round"
@@ -46,7 +46,30 @@ export const BackButton: React.FC<BackButtonProps> = ({
       <span className="text-[1.5rem] font-bold tracking-tight text-black md:text-[2rem]">
         {children}
       </span>
-    </Link>
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className={buttonStyles}
+        aria-label={typeof children === 'string' ? children : 'Go back'}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => router.back()}
+      className={buttonStyles}
+      aria-label={typeof children === 'string' ? children : 'Go back'}
+    >
+      {content}
+    </button>
   );
 };
 

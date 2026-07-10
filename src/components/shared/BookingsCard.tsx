@@ -61,20 +61,24 @@ export default function BookingsCard({ booking }: BookingsCardProps) {
                 {booking.companyName}
               </h4>
 
-              <div className="flex items-center gap-1 mt-1">
-                <div className="flex gap-0.5 text-amber-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Icon key={i} icon="solar:star-bold" className="w-2 h-2 lg:w-3 lg:h-3" />
-                  ))}
+              <div className="flex  flex-col lg:flex-row lg:items-center gap-1 mt-1">
+                <div className='flex items-center gap-1 mt-1'>
+                  <div className="flex gap-0.5 text-amber-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Icon key={i} icon="solar:star-bold" className="w-2 h-2 lg:w-3 lg:h-3" />
+                    ))}
+                  </div>
+                
+                  <span className="text-[0.8rem] lg:text-[1rem] font-bold text-black ml-1">
+                    {booking.rating}
+                  </span>
                 </div>
+                  <span className='text-[0.8rem] lg:text-[1rem] text-brand hidden lg:block'>|</span>
 
-                <span className="text-[0.8rem] lg:text-[1rem] font-bold text-black ml-1">
-                  {booking.rating}
-                </span>
-
-                <span className="text-[0.8rem] lg:text-[1rem] text-brand">
-                  | {booking.reviewCount} Reviews
-                </span>
+                  <span className="text-[0.8rem] lg:text-[1rem] text-brand">
+                    {booking.reviewCount} Reviews
+                  </span>
+                
               </div>
             </div>
           </div>

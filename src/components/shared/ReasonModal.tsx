@@ -53,7 +53,7 @@ export default function ReasonModal({
       aria-modal="true"
       aria-labelledby="reason-modal-title"
     >
-      <div className="relative w-full max-w-[28.75rem] rounded-[2.7rem] bg-white px-7 pb-7 pt-12 shadow-2xl sm:px-10 sm:pb-7 sm:pt-12">
+      <div className="relative w-full max-w-[28.75rem] rounded-[2.7rem] bg-white px-7 pb-7 pt-12 shadow-2xl sm:pb-7 sm:pt-12">
         <button
           type="button"
           onClick={onClose}
