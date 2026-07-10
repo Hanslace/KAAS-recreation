@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { twMerge } from 'tailwind-merge';
 
 interface BackButtonProps {
   href: string;
@@ -14,20 +15,25 @@ export const BackButton: React.FC<BackButtonProps> = ({
   children = 'Back',
   className = '',
 }) => {
+  const linkStyles = twMerge(
+    'group inline-flex cursor-pointer select-none items-center gap-3 font-sans focus:outline-none',
+    className
+  );
+
   return (
     <Link
       href={href}
-      className={`inline-flex items-center gap-3 group font-sans cursor-pointer focus:outline-none select-none ${className}`}
+      className={linkStyles}
       aria-label={typeof children === 'string' ? children : 'Go back'}
     >
-      <div className="flex items-center justify-center rounded-full bg-black text-white transition-transform duration-200 ease-out group-hover:-translate-x-1 w-8 h-8 md:w-10 md:h-10">
+      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-white transition-transform duration-200 ease-out group-hover:-translate-x-1 md:h-10 md:w-10">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth="2.5"
           stroke="currentColor"
-          className="w-4 h-4 md:w-5 md:h-5"
+          className="h-4 w-4 md:h-5 md:w-5"
         >
           <path
             strokeLinecap="round"
@@ -37,7 +43,7 @@ export const BackButton: React.FC<BackButtonProps> = ({
         </svg>
       </div>
 
-      <span className="font-bold text-black text-[1.5rem] md:text-[2rem]  tracking-tight">
+      <span className="text-[1.5rem] font-bold tracking-tight text-black md:text-[2rem]">
         {children}
       </span>
     </Link>

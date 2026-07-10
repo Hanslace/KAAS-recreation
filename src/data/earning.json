@@ -1,0 +1,200 @@
+{
+  "title": "Subscription Earning",
+  "filters": {
+    "types": [
+      {
+        "id": "all",
+        "label": "All"
+      },
+      {
+        "id": "truck",
+        "label": "Truck"
+      },
+      {
+        "id": "pilot-car",
+        "label": "Pilot Car"
+      }
+    ],
+    "durations": [
+      {
+        "id": "all",
+        "label": "All"
+      },
+      {
+        "id": "monthly",
+        "label": "Monthly"
+      },
+      {
+        "id": "yearly",
+        "label": "Yearly"
+      }
+    ]
+  },
+  "analytics": [
+    {
+      "id": "total-earning",
+      "backgroundColor": "bg-[#C8AF6B]",
+      "icon": "solar:money-bag-bold",
+      "total": "$2,560",
+      "label": "Total Earning"
+    },
+    {
+      "id": "total-refunded",
+      "backgroundColor": "bg-gradient-to-r from-[#FFC107] to-[#FFB300]",
+      "icon": "solar:card-refund-bold",
+      "total": "$250",
+      "label": "Total Refunded"
+    },
+    {
+      "id": "total-withdrawal",
+      "backgroundColor": "bg-gradient-to-r from-[#1F8BFF] to-[#1684F8]",
+      "icon": "solar:wallet-money-bold",
+      "total": "$1,115",
+      "label": "Total Withdrawal"
+    },
+    {
+      "id": "total-subscription-purchased",
+      "backgroundColor": "bg-gradient-to-r from-[#A855F7] to-[#8B3DFF]",
+      "icon": "solar:box-bold",
+      "total": "25",
+      "label": "Total Subscription Purchased"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "slug": "",
+      "userName": "Patriot Escort Services",
+      "email": "patriot.escort@gmail.com",
+      "logo": "/images/company-logo.png",
+      "type": "Pilot Car",
+      "duration": "Monthly",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "amount": "$5",
+      "amountValue": 5,
+      "tax": "$1",
+      "taxValue": 1,
+      "status": "Completed"
+    },
+    {
+      "id": 2,
+      "slug": "",
+      "userName": "ABC Logistics LLC",
+      "email": "abc.logistics@gmail.com",
+      "logo": "/images/company-logo.png",
+      "type": "Truck",
+      "duration": "Yearly",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "amount": "$50",
+      "amountValue": 50,
+      "tax": "$5",
+      "taxValue": 5,
+      "status": "Completed"
+    },
+    {
+      "id": 3,
+      "slug": "",
+      "userName": "Apex Escort Services",
+      "email": "apex.escort@gmail.com",
+      "logo": "/images/company-logo.png",
+      "type": "Pilot Car",
+      "duration": "Monthly",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "amount": "-$5",
+      "amountValue": -5,
+      "tax": "$1",
+      "taxValue": 1,
+      "status": "Refunded"
+    },
+    {
+      "id": 4,
+      "slug": "",
+      "userName": "ABC Logistics LLC",
+      "email": "abc.logistics@gmail.com",
+      "logo": "/images/company-logo.png",
+      "type": "Truck",
+      "duration": "Yearly",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "amount": "$50",
+      "amountValue": 50,
+      "tax": "$5",
+      "taxValue": 5,
+      "status": "Completed"
+    },
+    {
+      "id": 5,
+      "slug": "",
+      "userName": "Titan Pilot Cars",
+      "email": "titan.pilotcars@gmail.com",
+      "logo": "/images/company-logo.png",
+      "type": "Pilot Car",
+      "duration": "Monthly",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "amount": "$5",
+      "amountValue": 5,
+      "tax": "$1",
+      "taxValue": 1,
+      "status": "Completed"
+    },
+    {
+      "id": 6,
+      "slug": "",
+      "userName": "ABC Logistics LLC",
+      "email": "abc.logistics@gmail.com",
+      "logo": "/images/company-logo.png",
+      "type": "Truck",
+      "duration": "Yearly",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "amount": "$50",
+      "amountValue": 50,
+      "tax": "$5",
+      "taxValue": 5,
+      "status": "Completed"
+    },
+    {
+      "id": 7,
+      "slug": "",
+      "userName": "Elite Load Escorts",
+      "email": "eliteload.escort@gmail.com",
+      "logo": "/images/company-logo.png",
+      "type": "Pilot Car",
+      "duration": "Monthly",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "amount": "$5",
+      "amountValue": 5,
+      "tax": "$1",
+      "taxValue": 1,
+      "status": "Completed"
+    },
+    {
+      "id": 8,
+      "slug": "",
+      "userName": "ABC Logistics LLC",
+      "email": "abc.logistics@gmail.com",
+      "logo": "/images/company-logo.png",
+      "type": "Truck",
+      "duration": "Yearly",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "amount": "$50",
+      "amountValue": 50,
+      "tax": "$5",
+      "taxValue": 5,
+      "status": "Completed"
+    },
+    {
+      "id": 9,
+      "slug": "",
+      "userName": "Patriot Escort Services",
+      "email": "patriot.escort@gmail.com",
+      "logo": "/images/company-logo.png",
+      "type": "Pilot Car",
+      "duration": "Monthly",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "amount": "$5",
+      "amountValue": 5,
+      "tax": "$1",
+      "taxValue": 1,
+      "status": "Completed"
+    }
+  ]
+}

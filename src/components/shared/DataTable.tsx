@@ -45,6 +45,8 @@ const statusClasses: Record<string, string> = {
   Deleted: 'bg-red-100 text-red-500',
   Closed: 'bg-red-100 text-red-500',
   Opened: 'bg-green-100 text-green-500',
+  Completed: 'bg-green-100 text-green-500',
+  Refunded: 'bg-red-100 text-red-500',
 
 };
 

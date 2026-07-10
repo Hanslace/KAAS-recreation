@@ -1,0 +1,288 @@
+'use client';
+
+import { FormEvent, useState } from 'react';
+import { useParams, useRouter } from 'next/navigation';
+import subscriptionData from '@/data/plan.json';
+import { Icon } from '@iconify/react';
+
+import BackButton from '@/components/ui/BackButton';
+import SuccessModal from '@/components/shared/SuccessModal';
+
+export default function EditSubscriptionPage() {
+  const router = useRouter();
+  const params = useParams<{ slug: string }>();
+  const slug = params.slug;
+
+  const currentSubscription = subscriptionData.subscriptions.find(
+    (subscription) => subscription.href.split('/').pop() === slug
+  );
+
+  const [title, setTitle] = useState(currentSubscription?.title ?? '');
+  const [duration, setDuration] = useState(
+    currentSubscription?.billingPeriod ?? ''
+  );
+  const [price, setPrice] = useState(currentSubscription?.price ?? '');
+  const [description, setDescription] = useState(
+    currentSubscription?.description ?? ''
+  );
+  const [points, setPoints] = useState<string[]>(
+    currentSubscription?.features ?? []
+  );
+
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handlePointChange = (index: number, value: string) => {
+    setPoints((currentPoints) =>
+      currentPoints.map((point, pointIndex) =>
+        pointIndex === index ? value : point
+      )
+    );
+  };
+
+  const handleAddPoint = () => {
+    setPoints((currentPoints) => [...currentPoints, '']);
+  };
+
+  const handleRemovePoint = (index: number) => {
+    setPoints((currentPoints) =>
+      currentPoints.filter((_, pointIndex) => pointIndex !== index)
+    );
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    try {
+      setIsSubmitting(true);
+
+      const formData = {
+        title,
+        duration,
+        price,
+        description,
+        points: points.filter((point) => point.trim()),
+      };
+
+      console.log('Updated subscription:', formData);
+
+      // Add your API call here.
+      // await updateSubscription(formData);
+
+      setIsSuccessModalOpen(true);
+    } catch (error) {
+      console.error('Failed to update subscription:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleModalDone = () => {
+      setIsSuccessModalOpen(false);
+      router.push('/subscriptions');
+    };
+    if (!currentSubscription) {
+    return (
+      <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4">
+        <h2 className="text-2xl font-bold text-black">
+          Subscription not found
+        </h2>
+
+        <button
+          type="button"
+          onClick={() => router.push('/subscriptions')}
+          className="rounded-lg bg-brand-gradient px-6 py-3 font-semibold text-white"
+        >
+          Back to Subscriptions
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <div className="w-full max-w-[32rem]">
+        <BackButton href="/subscriptions">
+          Edit Subscription
+        </BackButton>
+
+        <form
+          onSubmit={handleSubmit}
+          className="mt-7 flex w-full flex-col gap-7"
+        >
+          <div className="relative w-full">
+            <label
+              htmlFor="subscription-title"
+              className="absolute -top-[6px] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1 text-[0.7rem] lg:text-[0.8rem] xl:text-[0.875rem] font-normal leading-none text-black"
+            >
+              Title
+            </label>
+
+            <input
+              id="subscription-title"
+              type="text"
+              value={title}
+              onChange={(event) => setTitle(event.target.value)}
+              placeholder="Pilot Car"
+              required
+              className="h-[3.4rem] w-full rounded-xl border border-black/10 bg-white px-5 text-[0.9rem] font-light text-black/70 shadow-[0_14px_30px_rgba(0,0,0,0.12)] outline-none placeholder:text-black/25 focus:border-brand"
+            />
+          </div>
+
+          <div className="relative w-full">
+            <label
+              htmlFor="subscription-duration"
+              className="absolute -top-[6px] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1 text-[0.7rem] lg:text-[0.8rem] xl:text-[0.875rem] font-normal leading-none text-black"
+            >
+              Duration
+            </label>
+
+            <input
+              id="subscription-duration"
+              type="text"
+              value={duration}
+              onChange={(event) => setDuration(event.target.value)}
+              placeholder="Monthly"
+              required
+              className="h-[3.4rem] w-full rounded-xl border border-black/10 bg-white px-5 text-[0.9rem] font-light text-black/70 shadow-[0_14px_30px_rgba(0,0,0,0.12)] outline-none placeholder:text-black/25 focus:border-brand"
+            />
+          </div>
+
+          <div className="relative w-full">
+            <label
+              htmlFor="subscription-price"
+              className="absolute -top-[6px] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1 text-[0.7rem] lg:text-[0.8rem] xl:text-[0.875rem] font-normal leading-none text-black"
+            >
+              Price
+            </label>
+
+            <input
+              id="subscription-price"
+              type="number"
+              value={price}
+              min="0"
+              step="1"
+              inputMode="numeric"
+              onKeyDown={(event) => {
+                if (['e', 'E', '+', '-', '.'].includes(event.key)) {
+                  event.preventDefault();
+                }
+              }}
+              onChange={(event) => {
+                const value = event.target.value;
+
+                if (value === '' || /^\d+$/.test(value)) {
+                  setPrice(value);
+                }
+              }}
+              onPaste={(event) => {
+                const pastedValue = event.clipboardData.getData('text');
+
+                if (!/^\d+$/.test(pastedValue)) {
+                  event.preventDefault();
+                }
+              }}
+              placeholder="05"
+              required
+              className="h-[3.4rem] w-full rounded-xl border border-black/10 bg-white px-5 text-[0.9rem] font-light text-black/70 shadow-[0_14px_30px_rgba(0,0,0,0.12)] outline-none placeholder:text-black/25 focus:border-brand"
+            />
+          </div>
+
+          <div className="relative w-full">
+            <label
+              htmlFor="subscription-description"
+              className="absolute -top-[6px] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1 text-[0.7rem] lg:text-[0.8rem] xl:text-[0.875rem] font-normal leading-none text-black"
+            >
+              Description
+            </label>
+
+            <textarea
+              id="subscription-description"
+              value={description}
+              onChange={(event) => setDescription(event.target.value)}
+              placeholder="Enter subscription description"
+              required
+              rows={4}
+              className="min-h-[5.5rem] w-full resize-none rounded-xl border border-black/10 bg-white px-5 py-4 text-[0.9rem] font-light leading-5 text-black/70 shadow-[0_14px_30px_rgba(0,0,0,0.12)] outline-none placeholder:text-black/25 focus:border-brand"
+            />
+          </div>
+
+          <div className="w-full">
+            <h3 className="mb-3 text-[0.8rem] font-medium text-black">
+              Point List
+            </h3>
+
+            <div className="flex flex-col gap-5">
+              {points.map((point, index) => (
+                <div
+                  key={index}
+                  className="flex w-full items-center gap-3"
+                >
+                  <div className="flex min-h-[3.4rem] flex-1 items-center rounded-xl border border-black/10 bg-white px-5 shadow-[0_14px_30px_rgba(0,0,0,0.12)] focus-within:border-brand">
+                    <span className="mr-3 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
+
+                    <input
+                      type="text"
+                      value={point}
+                      onChange={(event) =>
+                        handlePointChange(index, event.target.value)
+                      }
+                      placeholder="Enter point"
+                      className="w-full bg-transparent text-[0.85rem] font-light text-black/70 outline-none placeholder:text-black/25"
+                    />
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => handleRemovePoint(index)}
+                    disabled={points.length === 1}
+                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-black text-white transition hover:scale-105 disabled:cursor-not-allowed disabled:opacity-40"
+                    aria-label={`Remove point ${index + 1}`}
+                  >
+                    <Icon
+                      icon="lucide:x"
+                      className="h-4 w-4"
+                    />
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-5 flex justify-end">
+              <button
+                type="button"
+                onClick={handleAddPoint}
+                className="flex items-center gap-3 text-[0.8rem] font-medium text-black"
+              >
+                <span>Add More</span>
+
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand text-white transition hover:scale-105">
+                  <Icon
+                    icon="lucide:plus"
+                    className="h-4 w-4"
+                  />
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="flex h-[3.25rem] w-full items-center justify-center rounded-lg bg-brand-gradient text-[0.8rem] font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
+          >
+            {isSubmitting ? 'Updating...' : 'Update'}
+          </button>
+        </form>
+      </div>
+
+      <SuccessModal
+        open={isSuccessModalOpen}
+        onDone={handleModalDone}
+        title="Successfully!"
+        description="Subscription has been updated successfully."
+        buttonText="Done"
+      />
+    </>
+  );
+}

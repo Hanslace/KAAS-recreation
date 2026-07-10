@@ -1,5 +1,5 @@
 {
-  "plans": [
+  "subscriptions": [
     {
       "id": 1,
       "title": "Pilot Car",
@@ -13,7 +13,7 @@
         "Lorem ipsum dolor sit amet",
         "Lorem ipsum dolor sit"
       ],
-      "href": "/plans/pilot-car-monthly/edit",
+      "href": "/subscriptions/pilot-car-monthly",
       "buttonText": "Edit Now"
     },
     {
@@ -29,7 +29,7 @@
         "Lorem ipsum dolor sit amet",
         "Lorem ipsum dolor sit"
       ],
-      "href": "/plans/pilot-car-yearly/edit",
+      "href": "/subscriptions/pilot-car-yearly",
       "buttonText": "Edit Now"
     },
     {
@@ -45,7 +45,7 @@
         "Lorem ipsum dolor sit amet",
         "Lorem ipsum dolor sit"
       ],
-      "href": "/plans/truck-monthly/edit",
+      "href": "/subscriptions/truck-monthly",
       "buttonText": "Edit Now"
     },
     {
@@ -61,7 +61,7 @@
         "Lorem ipsum dolor sit amet",
         "Lorem ipsum dolor sit"
       ],
-      "href": "/plans/truck-yearly/edit",
+      "href": "/subscriptions/truck-yearly",
       "buttonText": "Edit Now"
     }
   ]

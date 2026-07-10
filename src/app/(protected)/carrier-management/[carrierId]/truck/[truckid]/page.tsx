@@ -1,7 +1,7 @@
 import BackButton from "@/components/ui/BackButton"
 import vehicles from '@/data/trucks.json';
 import { notFound } from "next/navigation";
-
+import InfoCell from "@/components/ui/InfoCell"
 
 // Assuming VehicleCard is stored here
 
@@ -10,23 +10,7 @@ interface PageProps {
 }
 
 
-interface InfoRowProps {
-  label: string;
-  value: string;
-}
 
-function InfoRow({ label, value }: InfoRowProps) {
-  return (
-    <div className="py-[1.5rem] px-[0.5rem] relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[3px] after:bg-gray-100">
-      <p className="tracking-tight text-black font-bold">
-        {label}
-      </p>
-      <p className="tracking-tight text-brand">
-        {value}
-      </p>
-    </div>
-  );
-}
 
 export default async function Page({ params }: PageProps) {
 
@@ -72,7 +56,7 @@ export default async function Page({ params }: PageProps) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6">
           {detailFields.map((field, index) => (
-            <InfoRow 
+            <InfoCell 
               key={index} 
               label={field.label} 
               value={field.value} 
