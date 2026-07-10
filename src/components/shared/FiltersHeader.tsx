@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Icon } from '@iconify/react';
+import SearchBar from '../ui/SearchBar';
 
 interface FilterOption {
   id: string;
@@ -11,14 +11,19 @@ interface FilterOption {
 interface FiltersHeaderProps {
   /** Array of filter options containing a unique id string and display label string */
   options: FilterOption[];
+
   /** Current active selection ID matching an option id string token */
   activeTabId: string;
+
   /** State callback handler triggered when a tab is clicked */
   onTabChange: (id: string) => void;
+
   /** Current textual value inside the search input element */
   searchValue: string;
+
   /** State callback handler triggered when user changes input text entry */
   onSearchChange: (value: string) => void;
+
   /** Custom optional placeholder override configuration for the text field */
   searchPlaceholder?: string;
 }
@@ -29,27 +34,25 @@ export default function FiltersHeader({
   onTabChange,
   searchValue,
   onSearchChange,
-  searchPlaceholder = "Search here"
+  searchPlaceholder = 'Search here',
 }: FiltersHeaderProps) {
   return (
-    <div className="flex flex-col items-center gap-4 lg:gap-10  lg:flex-row lg:items-center lg:justify-between w-full bg-white  rounded-md ">
-      
-      {/* ========================================================================= */}
-      {/* FILTER BUTTON TABS BAR STACK                                               */}
-      {/* ========================================================================= */}
-      <div className="flex flex-wrap  lg:flex-nowrap items-center gap-2   pb-1 ">
+    <div className="flex flex-col items-center gap-4 lg:gap-10 lg:flex-row lg:items-center lg:justify-between w-full bg-white rounded-md">
+      {/* Filter tabs */}
+      <div className="flex flex-wrap lg:flex-nowrap items-center gap-2 pb-1">
         {options.map((option) => {
           const isActive = activeTabId === option.id;
+
           return (
             <button
               key={option.id}
               type="button"
               onClick={() => onTabChange(option.id)}
-              className={`shrink-0 px-4 lg:p-2 py-2 text-[0.7rem] xl:text-[1rem] font-semibold rounded-lg transition-all duration-150 tracking-tight
-                ${isActive 
-                  ? 'bg-brand-gradient text-white shadow-sm' 
+              className={`shrink-0 px-4 lg:p-2 py-2 text-[0.7rem] xl:text-[1rem] font-semibold rounded-lg transition-all duration-150 tracking-tight ${
+                isActive
+                  ? 'bg-brand-gradient text-white shadow-sm'
                   : 'bg-brand/20 text-brand hover:bg-brand/40'
-                }`}
+              }`}
             >
               {option.label}
             </button>
@@ -57,22 +60,12 @@ export default function FiltersHeader({
         })}
       </div>
 
-      {/* ========================================================================= */}
-      {/* INPUT SEARCH BAR SLOT RECEPTACLE CONTAINER                                 */}
-      {/* ========================================================================= */}
-      <div className="relative  w-full lg:max-w-[18rem] xl:max-w-[25rem] shrink-0">
-        <span className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-          <Icon icon="solar:magnifer-linear" className="w-4 h-4 text-gray-400" />
-        </span>
-        <input
-          type="text"
-          value={searchValue}
-          onChange={(e) => onSearchChange(e.target.value)}
-          placeholder={searchPlaceholder}
-          className="w-full pl-11 pr-2 py-2 text-[1rem] bg-white rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none  shadow-lg  focus:border-[#C4A46E] focus:ring-1 focus:ring-[#C4A46E] transition-all"
-        />
-      </div>
-
+      {/* Separate search bar component */}
+      <SearchBar
+        value={searchValue}
+        onChange={onSearchChange}
+        placeholder={searchPlaceholder}
+      />
     </div>
   );
 }

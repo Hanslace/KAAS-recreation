@@ -1,8 +1,9 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { Icon } from '@iconify/react';
 import DataTable from '@/components/shared/DataTable';
+import Dropdown from '@/components/ui/Dropdown';
+import SearchBar from '@/components/ui/SearchBar';
 import data from '@/data/support.json';
 
 import type { DataTableColumn } from '@/components/shared/DataTable';
@@ -59,8 +60,6 @@ const supportColumns: readonly DataTableColumn<SupportData>[] = [
   },
 ];
 
-
-
 export default function SupportPage() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchValue, setSearchValue] = useState('');
@@ -90,39 +89,24 @@ export default function SupportPage() {
   return (
     <div className="w-full">
       <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-        <h2 className="text-[2rem] font-bold tracking-tight text-black">
+        <h2 className="text-[2.5rem] font-bold tracking-tight text-black">
           Support
         </h2>
 
-        <div className="flex w-full flex-col gap-4 sm:flex-row sm:items-center lg:w-auto">
-          <select
-            value={activeFilter}
-            onChange={(event) => setActiveFilter(event.target.value)}
-            className="h-[3.5rem] rounded-lg bg-white px-5 text-black shadow-lg focus:outline-none focus:ring-1 focus:ring-brand"
-          >
-            {data.filters.map((filter) => (
-              <option key={filter.id} value={filter.id}>
-                {filter.label}
-              </option>
-            ))}
-          </select>
+        <div className="flex w-full flex-col gap-4 lg:flex-row lg:items-center lg:justify-end ">
+          <Dropdown
+            filters={data.filters}
+            activeFilter={activeFilter}
+            onFilterChange={setActiveFilter}
+            labelText="Sort By:"
+          />
 
-          <div className="relative w-full sm:min-w-[22rem] lg:min-w-[25rem]">
-            <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center">
-              <Icon
-                icon="solar:magnifer-linear"
-                className="h-5 w-5 text-gray-400"
-              />
-            </span>
-
-            <input
-              type="text"
-              value={searchValue}
-              onChange={(event) => setSearchValue(event.target.value)}
-              placeholder="Search here"
-              className="h-[3.5rem] w-full rounded-lg bg-white py-3 pl-12 pr-4 text-[1rem] text-gray-900 shadow-lg placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-brand"
-            />
-          </div>
+          <SearchBar
+            value={searchValue}
+            onChange={setSearchValue}
+            placeholder="Search here"
+            
+          />
         </div>
       </div>
 

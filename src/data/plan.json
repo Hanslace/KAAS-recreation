@@ -1,0 +1,68 @@
+{
+  "plans": [
+    {
+      "id": 1,
+      "title": "Pilot Car",
+      "billingPeriod": "Monthly",
+      "price": "05",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "features": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing",
+        "Lorem ipsum dolor sit amet, consectetur",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit"
+      ],
+      "href": "/plans/pilot-car-monthly/edit",
+      "buttonText": "Edit Now"
+    },
+    {
+      "id": 2,
+      "title": "Pilot Car",
+      "billingPeriod": "Yearly",
+      "price": "50",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "features": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing",
+        "Lorem ipsum dolor sit amet, consectetur",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit"
+      ],
+      "href": "/plans/pilot-car-yearly/edit",
+      "buttonText": "Edit Now"
+    },
+    {
+      "id": 3,
+      "title": "Truck",
+      "billingPeriod": "Monthly",
+      "price": "05",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "features": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing",
+        "Lorem ipsum dolor sit amet, consectetur",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit"
+      ],
+      "href": "/plans/truck-monthly/edit",
+      "buttonText": "Edit Now"
+    },
+    {
+      "id": 4,
+      "title": "Truck",
+      "billingPeriod": "Yearly",
+      "price": "50",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "features": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing",
+        "Lorem ipsum dolor sit amet, consectetur",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit"
+      ],
+      "href": "/plans/truck-yearly/edit",
+      "buttonText": "Edit Now"
+    }
+  ]
+}
