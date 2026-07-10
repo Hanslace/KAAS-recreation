@@ -1,0 +1,119 @@
+{
+
+  "filters": [
+    {
+      "id": "all",
+      "label": "All"
+    },
+    {
+      "id": "pending",
+      "label": "Pending"
+    },
+    {
+      "id": "opened",
+      "label": "Opened"
+    },
+    {
+      "id": "closed",
+      "label": "Closed"
+    }
+  ],
+  "tickets": [
+    {
+      "id": 1,
+      "slug": "abc-logistics-1",
+      "name": "ABC Logistics LLC",
+      "logo": "/images/company-logo.png",
+      "email": "abclogistics.llc@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "subject": "Lorem ipsum dolor sit",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "status": "Pending"
+    },
+    {
+      "id": 2,
+      "slug": "patriot-escort-services-1",
+      "name": "Patriot Escort Services",
+      "logo": "/images/company-logo.png",
+      "email": "patriot.escort@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "subject": "Lorem ipsum dolor sit",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "status": "Closed"
+    },
+    {
+      "id": 3,
+      "slug": "abc-logistics-2",
+      "name": "ABC Logistics LLC",
+      "logo": "/images/company-logo.png",
+      "email": "abclogistics.llc@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "subject": "Lorem ipsum dolor sit",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "status": "Opened"
+    },
+    {
+      "id": 4,
+      "slug": "patriot-escort-services-2",
+      "name": "Patriot Escort Services",
+      "logo": "/images/company-logo.png",
+      "email": "patriot.escort@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "subject": "Lorem ipsum dolor sit",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "status": "Pending"
+    },
+    {
+      "id": 5,
+      "slug": "abc-logistics-3",
+      "name": "ABC Logistics LLC",
+      "logo": "/images/company-logo.png",
+      "email": "abclogistics.llc@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "subject": "Lorem ipsum dolor sit",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "status": "Closed"
+    },
+    {
+      "id": 6,
+      "slug": "patriot-escort-services-3",
+      "name": "Patriot Escort Services",
+      "logo": "/images/company-logo.png",
+      "email": "patriot.escort@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "subject": "Lorem ipsum dolor sit",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "status": "Opened"
+    },
+    {
+      "id": 7,
+      "slug": "abc-logistics-4",
+      "name": "ABC Logistics LLC",
+      "logo": "/images/company-logo.png",
+      "email": "abclogistics.llc@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "subject": "Lorem ipsum dolor sit",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "status": "Pending"
+    },
+    {
+      "id": 8,
+      "slug": "patriot-escort-services-4",
+      "name": "Patriot Escort Services",
+      "logo": "/images/company-logo.png",
+      "email": "patriot.escort@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "subject": "Lorem ipsum dolor sit",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "dateTime": "15 January, 2026 | 10:23 PM",
+      "status": "Closed"
+    }
+  ]
+}

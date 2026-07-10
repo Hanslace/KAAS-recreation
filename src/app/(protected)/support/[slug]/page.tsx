@@ -1,0 +1,165 @@
+
+import BackButton from '@/components/ui/BackButton';
+import BrandPill from '@/components/ui/BrandPill';
+import Image from 'next/image';
+import { notFound } from 'next/navigation';
+import CloseButton from './_components/CloseButton';
+
+
+interface PageProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
+
+const supportTickets = [
+  {
+    id: 1,
+    slug: 'abc-logistics-1',
+    companyName: 'ABC Logistics LLC',
+    logo: '/images/company-logo.png',
+    email: 'abclogistics.llc@gmail.com',
+    phoneNumber: '+123 456 7890',
+    subject: 'Lorem ipsum dolor sit',
+    dateTime: '15 January, 2026 | 10:23 PM',
+    message:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
+    status: 'Pending',
+    attachments: [
+      '/images/liability-doc.jpg',
+      '/images/liability-doc.jpg',
+      '/images/liability-doc.jpg',
+    ],
+  },
+  {
+    id: 2,
+    slug: 'patriot-escort-services-1',
+    companyName: 'Patriot Escort Services',
+    logo: '/images/company-logo.png',
+    email: 'patriot.escort@gmail.com',
+    phoneNumber: '+123 456 7890',
+    subject: 'Lorem ipsum dolor sit',
+    dateTime: '15 January, 2026 | 10:23 PM',
+    message:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
+    status: 'Closed',
+    attachments: [
+      '/images/liability-doc.jpg',
+      '/images/liability-doc.jpg',
+      '/images/liability-doc.jpg',
+    ],
+  },
+];
+
+function InfoRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="relative px-2 py-[1.5rem] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-gray-100">
+      <p className="text-[0.95rem] font-bold tracking-tight text-black">
+        {label}
+      </p>
+
+      <p className="mt-1 text-[0.9rem] leading-snug tracking-tight text-brand">
+        {value}
+      </p>
+    </div>
+  );
+}
+
+
+
+export default async function SupportDetailsPage({ params }: PageProps) {
+  const { slug } = await params;
+
+  const ticket = supportTickets.find((item) => item.slug === slug);
+
+  if (!ticket) {
+    notFound();
+  }
+
+  const detailFields = [
+    {
+      label: 'Subject',
+      value: ticket.subject,
+    },
+    {
+      label: 'Date & Time',
+      value: ticket.dateTime,
+    },
+    {
+      label: 'Message',
+      value: ticket.message,
+    },
+  ];
+
+  return (
+    <>
+      <div className="flex  w-full gap-5 items-center justify-between">
+        <BackButton href="/support">Details</BackButton>
+
+       
+        <CloseButton />
+      
+      </div>
+
+      <div className="mt-[1.5rem] min-h-[32rem] w-full overflow-y-auto rounded-2xl bg-white p-[1.5rem] shadow-lg xl:h-[calc(80vh-11rem)]">
+        <div className="flex items-start justify-between gap-4">
+          <h2 className="text-[1.5rem] font-bold tracking-tight text-black lg:text-[1.75rem]">
+            Ticket Info
+          </h2>
+
+          <BrandPill>{ticket.status}</BrandPill>
+        </div>
+
+        <div className="relative flex items-center gap-4 py-[1.5rem] after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-gray-100">
+          <div className="flex h-[5rem] w-[5rem] shrink-0 items-center justify-center overflow-hidden rounded-full bg-black">
+            <Image
+              src={ticket.logo}
+              alt={ticket.companyName}
+              width={120}
+              height={120}
+              priority
+              className="h-full w-full rounded-full object-contain"
+            />
+          </div>
+
+          <div className="min-w-0">
+            <h3 className="text-[1.45rem] font-bold tracking-tight text-black lg:text-[1.75rem]">
+              {ticket.companyName}
+            </h3>
+
+            <p className="mt-1 truncate text-[0.95rem] tracking-tight text-black/50">
+              {ticket.email}
+            </p>
+
+            <p className="mt-1 text-[0.95rem] tracking-tight text-black/50">
+              {ticket.phoneNumber}
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-x-10 md:grid-cols-2 xl:grid-cols-[1fr_1fr_2fr]">
+          {detailFields.map((field) => (
+            <InfoRow key={field.label} label={field.label} value={field.value} />
+          ))}
+        </div>
+
+        <div className="mt-8">
+          <h2 className="text-[1.5rem] font-bold tracking-tight text-black lg:text-[1.75rem]">
+            Attachments:
+          </h2>
+
+          <div className="relative mt-5 flex w-fit flex-wrap gap-4 pb-6 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-gray-100">
+            {ticket.attachments.map((attachment, index) => (
+              <img
+                key={index}
+                src={attachment}
+                alt={`Attachment ${index + 1}`}
+                className="h-[7rem] w-[7.5rem] rounded-xl object-cover shadow-lg"
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

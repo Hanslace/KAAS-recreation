@@ -42,6 +42,10 @@ const statusClasses: Record<string, string> = {
   Pending: 'bg-yellow-100 text-yellow-500',
   Cancelled: 'bg-red-100 text-red-500',
   Approved: 'bg-green-100 text-green-500',
+  Deleted: 'bg-red-100 text-red-500',
+  Closed: 'bg-red-100 text-red-500',
+  Opened: 'bg-green-100 text-green-500',
+
 };
 
 export default function DataTable<T extends { id: number | string; slug: string }>({

@@ -86,7 +86,18 @@ export default async function BookingDetailPage({ params }: BookingDetailPagePro
        
 
         <div className="w-full xl:overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          <div className="flex items-start justify-between gap-5">
+          <div className="flex flex-col sm:flex-row-reverse items-start justify-between gap-5">
+
+            <div className="shrink-0 w-full sm:w-auto flex items-center  justify-between flex-row-reverse sm:flex-col text-right">
+              <span className="inline-flex rounded-full border border-brand/30 bg-[#F5E9CF] px-4 py-1.5 text-[0.75rem] font-medium text-brand">
+                {booking.status}
+              </span>
+
+              <h2 className="mt-3 text-[2rem] font-black tracking-tight text-black">
+                {booking.price}
+              </h2>
+            </div>
+
             <div>
               <div className="flex items-center gap-3">
                 <img
@@ -108,15 +119,7 @@ export default async function BookingDetailPage({ params }: BookingDetailPagePro
               </div>
             </div>
 
-            <div className="shrink-0 text-right">
-              <span className="inline-flex rounded-full border border-brand/30 bg-[#F5E9CF] px-4 py-1.5 text-[0.75rem] font-medium text-brand">
-                {booking.status}
-              </span>
-
-              <h2 className="mt-3 text-[2rem] font-black tracking-tight text-black">
-                {booking.price}
-              </h2>
-            </div>
+            
           </div>
 
           <div className="">

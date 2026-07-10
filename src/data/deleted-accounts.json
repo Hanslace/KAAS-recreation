@@ -1,0 +1,20 @@
+{
+  "tableData": [
+    {
+      "id": 1,
+      "slug": "patriot-escort-services-1",
+      "name": "Patriot Escort Services",
+      "companyName": "ABC Logistics LLC",
+      "logo": "/images/company-logo.png",
+      "email": "abclogistics.llc@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "MC-00001",
+      "licensePlateNumber": "A1234567",
+      "country": "United State",
+      "state": "California",
+      "city": "Los Angeles",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Deleted"
+    }
+  ]
+}
