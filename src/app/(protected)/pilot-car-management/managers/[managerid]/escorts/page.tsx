@@ -1,10 +1,10 @@
 'use client';
 
+import BackButton from '@/components/ui/BackButton';
+import type { VehicleCardField } from '@/components/shared/VehicleCard';
 
-import VehicleCard, { VehicleCardField } from "@/components/shared/VehicleCard";
-import BackButton from "@/components/ui/BackButton";
-import data from "@/data/escorts.json"
-import { usePathname } from "next/navigation";
+import data from '@/data/escorts.json';
+import VehicleGrid from '@/components/shared/VehicleGrid';
 
 type Escort = (typeof data.escorts)[number];
 
@@ -24,16 +24,16 @@ const escortFields: VehicleCardField<Escort>[] = [
 ];
 
 export default function Page() {
-  const pathname = usePathname();
   return (
     <div>
-        <BackButton> View Escorts</BackButton>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
-          {data.escorts.map((truck) => (
-            <VehicleCard basePath={pathname} key={truck.slug} vehicle={truck} fields={escortFields} />
-          ))}
-        </div>
+      <BackButton>View Escorts</BackButton>
 
+      <div className="mt-6">
+        <VehicleGrid
+          vehicles={data.escorts}
+          fields={escortFields}
+        />
+      </div>
     </div>
   );
 }
