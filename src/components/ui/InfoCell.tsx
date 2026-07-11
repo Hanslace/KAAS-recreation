@@ -9,7 +9,7 @@ export default function InfoCell({ label, value }: InfoCellProps) {
       <p className="tracking-tight text-black font-bold">
         {label}
       </p>
-      <p className="tracking-tight text-[0.875rem] md:text-[1rem] text-brand">
+      <p className="break-words tracking-tight text-[0.875rem] md:text-[1rem] text-brand ">
         {value}
       </p>
     </div>

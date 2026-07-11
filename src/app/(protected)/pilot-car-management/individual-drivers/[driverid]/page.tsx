@@ -6,6 +6,7 @@ import BookingsGrid from "@/components/shared/BookingsGrid";
 import InfoGrid from "@/components/shared/InfoGrid";
 import DetailsLayout from "@/components/DetailsLayout";
 import AttachmentImage from "@/components/ui/AttachmentImage";
+import DocumentsSection from '@/components/shared/DocumentsSection';
 
 // Assuming VehicleCard is stored here
 
@@ -55,57 +56,7 @@ export default async function Page({ params }: PageProps) {
         ]}
       />
 
-      {/* Company documents */}
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
-        <div className="border-b-[3px] border-gray-100 pb-5">
-          <h3 className="mb-5 text-[1.4rem] font-bold tracking-tight text-black">
-            Insurance:
-          </h3>
-
-          <div className="flex flex-wrap items-start gap-4">
-            <AttachmentImage
-              src="/images/liability-doc.jpg"
-              alt="Insurance document"
-            />
-          </div>
-        </div>
-
-        <div className="border-b-[3px] border-gray-100 pb-5">
-          <h3 className="mb-5 text-[1.4rem] font-bold tracking-tight text-black">
-            License:
-          </h3>
-
-          <div className="flex flex-wrap items-start gap-4">
-            <AttachmentImage
-              src="/images/id-front.jpg"
-              alt="Driver license front"
-            />
-
-            <AttachmentImage
-              src="/images/id-back.jpg"
-              alt="Driver license back"
-            />
-          </div>
-        </div>
-
-        <div className="border-b-[3px] border-gray-100 pb-5">
-          <h3 className="mb-5 text-[1.4rem] font-bold tracking-tight text-black">
-            Certificate:
-          </h3>
-
-          <div className="flex flex-wrap items-start gap-4">
-            <AttachmentImage
-              src="/images/permit-1.jpg"
-              alt="Certificate document"
-            />
-
-            <AttachmentImage
-              src="/images/permit-2.jpg"
-              alt="Training certificate"
-            />
-          </div>
-        </div>
-      </div>
+      <DocumentsSection/>
 
       {/* Pilot car details */}
       <InfoGrid

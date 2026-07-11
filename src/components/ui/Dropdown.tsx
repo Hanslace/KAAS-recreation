@@ -58,7 +58,7 @@ export default function Dropdown({
           aria-haspopup="listbox"
           aria-expanded={isOpen}
         >
-          <span>{activeLabel}</span>
+          <span className='truncate'>{activeLabel}</span>
           <Icon
             icon="solar:alt-arrow-down-linear"
             className={twMerge("w-4 h-4 text-black transition-transform duration-200", isOpen && "rotate-180")}

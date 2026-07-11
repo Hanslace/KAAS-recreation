@@ -81,8 +81,8 @@ export default async function SupportDetailsPage({ params }: PageProps) {
   ];
 
   return (
-    <>
-      <div className="flex  w-full gap-5 items-center justify-between">
+    <div className='space-y-10'>
+      <div className="flex  w-full  items-center justify-between">
         <BackButton href="/support">Details</BackButton>
 
        
@@ -90,16 +90,19 @@ export default async function SupportDetailsPage({ params }: PageProps) {
       
       </div>
 
-      <div className="mt-[1.5rem] min-h-[32rem] w-full overflow-y-auto rounded-2xl bg-white p-[1.5rem] shadow-lg xl:h-[calc(80vh-11rem)]">
+      
+          
+
+      <div className="mt-[1.5rem] min-h-[32rem] w-full overflow-y-auto rounded-2xl bg-white p-[1.5rem] shadow-lg xl:h-[calc(80vh-11rem)] space-y-10">
         <div className="flex items-start justify-between gap-4">
-          <h2 className="text-[1.5rem] font-bold tracking-tight text-black lg:text-[1.75rem]">
+          <h2 className="text-[1rem] xs:text-[1.5rem] sm:text-[1.75rem] font-bold tracking-tight text-black">
             Ticket Info
           </h2>
 
           <BrandPill>{ticket.status}</BrandPill>
         </div>
 
-        <div className="relative flex items-center gap-4 py-[1.5rem] after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-gray-100">
+        <div className="relative flex flex-col items-center sm:items-start sm:flex-row gap-4 pb-[1.5rem] after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-gray-100">
           <div className="flex h-[5rem] w-[5rem] shrink-0 items-center justify-center overflow-hidden rounded-full bg-black">
             <Image
               src={ticket.logo}
@@ -111,7 +114,7 @@ export default async function SupportDetailsPage({ params }: PageProps) {
             />
           </div>
 
-          <div className="min-w-0">
+          <div className="flex min-w-0  items-center sm:items-start  flex-col justify-center gap-1">
             <h3 className="text-[1.45rem] font-bold tracking-tight text-black lg:text-[1.75rem]">
               {ticket.companyName}
             </h3>
@@ -149,6 +152,6 @@ export default async function SupportDetailsPage({ params }: PageProps) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -63,7 +63,7 @@ export default async function Page({ params }: PageProps) {
         ]}
       />
 
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-10 min-[37.5rem]:grid-cols-2">
         {/* License */}
         <div className="border-b-[3px] border-gray-100 pb-5">
           <h3 className="mb-5 text-[1.4rem] font-bold tracking-tight text-black">

@@ -22,7 +22,7 @@ export default function InfoGrid({
         </h2>
       )}
 
-      <div className="grid grid-cols-1 gap-x-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-5 md:gap-x-10 sm:grid-cols-2 md:grid-cols-4">
         {fields.map((field) => (
           <InfoCell
             key={field.label}

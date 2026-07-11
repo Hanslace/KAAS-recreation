@@ -11,6 +11,7 @@ import InfoGrid from '@/components/shared/InfoGrid';
 import AttachmentImage from '@/components/ui/AttachmentImage';
 
 import deletedAccountsData from '@/data/deleted-accounts.json';
+import DocumentsSection from '@/components/shared/DocumentsSection';
 
 export default function DeletedAccountDetailsPage() {
   const router = useRouter();
@@ -147,59 +148,7 @@ export default function DeletedAccountDetailsPage() {
               ]}
             />
 
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
-              {/* Insurance */}
-              <div className="border-b-[3px] border-gray-100 pb-5">
-                <h3 className="mb-5 text-[1.4rem] font-bold tracking-tight text-black">
-                  Insurance:
-                </h3>
-
-                <div className="flex flex-wrap items-start gap-4">
-                  <AttachmentImage
-                    src="/images/liability-doc.jpg"
-                    alt="Insurance document"
-                  />
-                </div>
-              </div>
-
-              {/* License */}
-              <div className="border-b-[3px] border-gray-100 pb-5">
-                <h3 className="mb-5 text-[1.4rem] font-bold tracking-tight text-black">
-                  License:
-                </h3>
-
-                <div className="flex flex-wrap items-start gap-4">
-                  <AttachmentImage
-                    src="/images/id-front.jpg"
-                    alt="Driver license front"
-                  />
-
-                  <AttachmentImage
-                    src="/images/id-back.jpg"
-                    alt="Driver license back"
-                  />
-                </div>
-              </div>
-
-              {/* Certificate */}
-              <div className="border-b-[3px] border-gray-100 pb-5">
-                <h3 className="mb-5 text-[1.4rem] font-bold tracking-tight text-black">
-                  Certificate:
-                </h3>
-
-                <div className="flex flex-wrap items-start gap-4">
-                  <AttachmentImage
-                    src="/images/permit-1.jpg"
-                    alt="Company certificate"
-                  />
-
-                  <AttachmentImage
-                    src="/images/permit-2.jpg"
-                    alt="Training certificate"
-                  />
-                </div>
-              </div>
-            </div>
+            <DocumentsSection/>
 
             <InfoGrid
               heading="Fares Info"

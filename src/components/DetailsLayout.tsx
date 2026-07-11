@@ -96,7 +96,7 @@ export default function DetailsLayout({
         <div className="flex items-center justify-between gap-4">
           <h2
             id={headingId}
-            className="text-[1.75rem] font-bold tracking-tight text-black"
+            className="text-[1rem] xs:text-[1.5rem] sm:text-[1.75rem] font-bold tracking-tight text-black"
           >
             Personal Info
           </h2>
@@ -104,7 +104,7 @@ export default function DetailsLayout({
           <BrandPill>{status}</BrandPill>
         </div>
 
-        <div className="relative flex gap-4 pb-[1.5rem] after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-gray-100">
+        <div className="relative flex flex-col items-center sm:items-start sm:flex-row gap-4 pb-[1.5rem] after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-gray-100">
           <div className="flex h-[6rem] w-[6rem] shrink-0 items-center justify-center overflow-hidden rounded-full">
             <Image
               src={logoSrc}
@@ -116,7 +116,7 @@ export default function DetailsLayout({
             />
           </div>
 
-          <div className="flex min-w-0 flex-col justify-center gap-1">
+          <div className="flex min-w-0  items-center sm:items-start  flex-col justify-center gap-1">
             <h3 className="truncate text-[1.75rem] font-bold tracking-tight text-black">
               {companyName}
             </h3>

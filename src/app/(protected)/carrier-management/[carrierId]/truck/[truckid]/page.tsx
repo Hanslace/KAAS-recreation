@@ -41,23 +41,24 @@ export default async function Page({ params }: PageProps) {
         </BackButton>
         
       </div>
-      <div className=" xl:h-[calc(80vh-11rem)] overflow-y-auto rounded-2xl mt-[1.5rem]  p-[1.5rem] gap-[2rem] w-full h-full shadow-lg ">
+      <div className=" xl:h-[calc(80vh-11rem)] overflow-y-auto rounded-2xl mt-[1.5rem] space-y-10 p-[1.5rem] w-full h-full shadow-lg ">
+        <>
+          <h2 className="text-[1.75rem] mb-3 font-bold text-black tracking-tight">
+            Truck Info
+          </h2>
         
-        <h2 className="text-[1.75rem] font-bold text-black tracking-tight">
-          Truck Info
-        </h2>
-       
 
-        <img
-            src="/images/truck.jpg"
-            alt={`truck `}
-            className="max-h-[10rem] h-full aspect-[9/2.5] object-cover rounded-xl transition-transform duration-300 group-hover:scale-105 brightness-60"
-          />
+          <img
+              src="/images/truck.jpg"
+              alt={`truck `}
+              className="max-h-[10rem] h-full aspect-[9/2.5] object-cover rounded-xl transition-transform duration-300 group-hover:scale-105 brightness-60"
+            />
+          </>
 
 
         <InfoGrid fields={detailFields} />
 
-        <h2 className="text-[1.75rem] font-bold text-black tracking-tight">
+        <h2 className="text-[1.75rem] mb-3 font-bold text-black tracking-tight">
               Liability:
             </h2>
 

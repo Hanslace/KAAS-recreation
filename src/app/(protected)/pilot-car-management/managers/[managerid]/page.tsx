@@ -9,6 +9,7 @@ import InfoGrid from "@/components/shared/InfoGrid";
 import DetailsLayout from "@/components/DetailsLayout";
 import Image from "next/image";
 import AttachmentImage from "@/components/ui/AttachmentImage";
+import DocumentsSection from "@/components/shared/DocumentsSection";
 
 
 interface PageProps {
@@ -66,56 +67,7 @@ export default async function Page({ params }: PageProps) {
         ]}
       />
 
-      <div className="mt-8 grid grid-cols-1 gap-8 border-b border-gray-100 pb-8 md:grid-cols-4">
-        <div>
-          <h3 className="mb-4 text-[1.25rem] font-bold tracking-tight text-black">
-            Insurance:
-          </h3>
-
-          <div className="flex flex-wrap items-start gap-4">
-            <AttachmentImage
-              src="/images/liability-doc.jpg"
-              alt="Insurance document"
-            />
-          </div>
-        </div>
-
-        <div>
-          <h3 className="mb-4 text-[1.25rem] font-bold tracking-tight text-black">
-            License:
-          </h3>
-
-          <div className="flex flex-wrap items-start gap-4">
-            <AttachmentImage
-              src="/images/id-front.jpg"
-              alt="Driver license front"
-            />
-
-            <AttachmentImage
-              src="/images/id-back.jpg"
-              alt="Driver license back"
-            />
-          </div>
-        </div>
-
-        <div>
-          <h3 className="mb-4 text-[1.25rem] font-bold tracking-tight text-black">
-            Certificate:
-          </h3>
-
-          <div className="flex flex-wrap items-start gap-4">
-            <AttachmentImage
-              src="/images/permit-1.jpg"
-              alt="Carrier certificate"
-            />
-
-            <AttachmentImage
-              src="/images/permit-2.jpg"
-              alt="Training certificate"
-            />
-          </div>
-        </div>
-      </div>
+      <DocumentsSection/>
 
 
       { status === "Cancelled" && (
