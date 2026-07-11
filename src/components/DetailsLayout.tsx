@@ -7,6 +7,7 @@ import BackButton from '@/components/ui/BackButton';
 import BrandButton from '@/components/ui/BrandButton';
 import BrandPill from '@/components/ui/BrandPill';
 import ReasonModal from '@/components/shared/ReasonModal';
+import { useRouter } from 'next/navigation';
 
 type ReasonAction = 'block' | 'cancel' | null;
 
@@ -20,9 +21,6 @@ interface DetailsLayoutProps {
   logoAlt?: string;
   children: ReactNode;
   manager?: boolean;
-
-  onBlockSubmit?: (reason: string) => void | Promise<void>;
-  onCancelSubmit?: (reason: string) => void | Promise<void>;
 }
 
 export default function DetailsLayout({
@@ -35,23 +33,18 @@ export default function DetailsLayout({
   logoAlt,
   children,
   manager = false,
-  onBlockSubmit,
-  onCancelSubmit,
+
 }: DetailsLayoutProps) {
+     const router = useRouter();
   const [reasonAction, setReasonAction] = useState<ReasonAction>(null);
 
   const headingId = `${slugName}-personal-info`;
 
   const handleReasonSubmit = async (reason: string) => {
-    if (reasonAction === 'block') {
-      await onBlockSubmit?.(reason);
-    }
 
-    if (reasonAction === 'cancel') {
-      await onCancelSubmit?.(reason);
-    }
 
     setReasonAction(null);
+    router.back()
   };
 
   return (
@@ -61,7 +54,7 @@ export default function DetailsLayout({
 
         {status === 'Pending' && (
           <div className="ml-auto flex w-fit gap-5">
-            <BrandButton>
+            <BrandButton onClick={() => router.back()}>
               Approve
             </BrandButton>
 
@@ -143,7 +136,7 @@ export default function DetailsLayout({
 
       <ReasonModal
         open={reasonAction !== null}
-        onClose={() => setReasonAction(null)}
+        onClose={() => setReasonAction(null) }
         onSubmit={handleReasonSubmit}
 
       />
