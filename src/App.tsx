@@ -19,8 +19,8 @@ import BookingDetailsPage from "@/app/(protected)/bookings/[slug]/page.tsx";
 
 // Carrier management
 import CarrierManagementPage from "@/app/(protected)/carrier-management/page.tsx";
-import CarrierDetailsPage from "@/app/(protected)/carrier-management/[carrierid]/page.tsx";
-import TruckDetailsPage from "@/app/(protected)/carrier-management/[carrierid]/truck/[truckid]/page.tsx";
+import CarrierDetailsPage from "@/app/(protected)/carrier-management/CarrierDetailsPage.tsx";
+import TruckDetailsPage from "@/app/(protected)/carrier-management/TruckDetailsPage.tsx";
 
 // Notifications
 import NotificationsPage from "@/app/(protected)/notifications/page.tsx";
