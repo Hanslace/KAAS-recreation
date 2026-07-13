@@ -32,7 +32,7 @@
       "total": 25,
       "label": "Approval Request",
       "backgroundColor": "bg-[#9747FF]",
-      "icon": "solar:document-validate-linear"
+      "icon": "mdi-light:image"
     }
   },
   "bookingMetrics": {

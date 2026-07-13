@@ -70,7 +70,7 @@ export default function ResetPasswordPage() {
           label="New Password"
           type="password"
           placeholder="Enter new password"
-          icon="iconoir:lock" // Updated to lock icon
+          icon="solar:lock-password-linear" // Updated to lock icon
           error={errors.password?.message}
           {...register("password")}
         />
@@ -79,7 +79,7 @@ export default function ResetPasswordPage() {
           label="Confirm Password"
           type="password"
           placeholder="Confirm new password"
-          icon="iconoir:lock" // Updated to lock icon
+          icon="solar:lock-password-linear" // Updated to lock icon
           error={errors.confirmPassword?.message}
           {...register("confirmPassword")}
         />

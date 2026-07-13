@@ -82,7 +82,7 @@ export default function LoginPage() {
           label="Password"
           type="password"
           placeholder="Enter your password"
-          icon="lucide:lock" 
+          icon="solar:lock-password-linear" 
           showToggle
           error={errors.password?.message}
           {...register("password")}

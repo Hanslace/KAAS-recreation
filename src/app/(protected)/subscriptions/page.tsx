@@ -20,7 +20,7 @@ export default function Page() {
 
     </div>
 
-    <div className="mt-[1rem] grid w-full grid-cols-1 gap-6 md:grid-cols-2 overflow-y-auto">
+    <div className="mt-[1rem] grid w-full grid-cols-1 gap-6 md:grid-cols-2">
         {data.subscriptions.map((plan) => (
           <PlanCard
             key={plan.id}

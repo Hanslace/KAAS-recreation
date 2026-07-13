@@ -179,7 +179,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
       <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
         
         {/* TOP NAVBAR */}
-         <header className="h-auto min-h-max gap-6 overflow-hidden bg-white flex items-center justify-between p-[1.5rem] lg:p-[2.5rem] relative after:absolute after:bottom-0 after:left-10 after:w-[calc(100%-80px)] after:h-[3px] after:bg-gray-100">
+         <header className="h-auto min-h-max gap-6 overflow-hidden bg-white flex items-center justify-between p-[1.5rem] lg:px-[2.5rem] lg:py-[2rem] relative after:absolute after:bottom-0 after:left-10 after:w-[calc(100%-80px)] after:h-[3px] after:bg-gray-100">
           
           {/* Greeting Segment + Mobile Trigger Burger Icon */}
           <div className="flex items-center gap-4">
@@ -202,7 +202,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
               />
           </div>
 
-            <h1 className="text-[1rem] lg:text-[2rem] 2xl:text-[3rem] font-bold text-black tracking-tight hidden md:block">
+            <h1 className="text-[1.5rem] min-[59.375rem]:text-[2rem] min-[67.5rem]:text-[2.5rem] min-[71.875rem]:text-[3rem]  font-bold text-black tracking-tight hidden md:block">
               Welcome Back, Admin!
             </h1>
           </div>

@@ -34,28 +34,28 @@
     {
       "id": "total-earning",
       "backgroundColor": "bg-[#C8AF6B]",
-      "icon": "solar:money-bag-bold",
+      "icon": "healthicons:money-bag",
       "total": "$2,560",
       "label": "Total Earning"
     },
     {
       "id": "total-refunded",
       "backgroundColor": "bg-gradient-to-r from-[#FFC107] to-[#FFB300]",
-      "icon": "solar:card-refund-bold",
+      "icon": "solar:hand-money-bold",
       "total": "$250",
       "label": "Total Refunded"
     },
     {
       "id": "total-withdrawal",
       "backgroundColor": "bg-gradient-to-r from-[#1F8BFF] to-[#1684F8]",
-      "icon": "solar:wallet-money-bold",
+      "icon": "streamline-freehand:money-atm-withdraw",
       "total": "$1,115",
       "label": "Total Withdrawal"
     },
     {
       "id": "total-subscription-purchased",
       "backgroundColor": "bg-gradient-to-r from-[#A855F7] to-[#8B3DFF]",
-      "icon": "solar:box-bold",
+      "icon": "mdi:youtube-subscription",
       "total": "25",
       "label": "Total Subscription Purchased"
     }

@@ -37,12 +37,12 @@ export default function PlanCard({
           </p>
         </div>
 
-        <div className="flex shrink-0 items-start text-brand">
-          <span className="mt-4 text-[1.5rem] font-semibold leading-none">
+        <div className="flex gap-2 shrink-0 items-start text-brand">
+          <span className="mt-4 text-[2rem] font-black leading-none">
             $
           </span>
 
-          <span className="text-[4.8rem] font-bold leading-[0.8] tracking-tight">
+          <span className="text-[6rem] font-black leading-[0.8] tracking-tight">
             {price}
           </span>
         </div>
@@ -54,14 +54,14 @@ export default function PlanCard({
       </p>
 
       {/* Divider */}
-      <div className="mx-auto my-8 h-px w-[70%] bg-brand/20" />
+      <div className="mx-auto my-6 h-px w-[70%] bg-brand/20" />
 
       {/* Features */}
       <ul className="space-y-4">
         {features.map((feature, index) => (
           <li
             key={`${feature}-${index}`}
-            className="flex items-start gap-3 text-[0.95rem] leading-6 text-black"
+            className="flex items-start gap-3 text-[0.8rem] lg:text-[0.95rem] leading-6 text-black"
           >
             <span className="mt-[0.6rem] h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
 
