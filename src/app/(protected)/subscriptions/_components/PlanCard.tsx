@@ -28,11 +28,11 @@ export default function PlanCard({
       {/* Top section */}
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <h3 className="text-[1.6rem] font-bold leading-tight text-brand">
+          <h3 className="text-[1.8rem] font-black leading-tight text-brand">
             {title}
           </h3>
 
-          <p className="mt-1 text-[0.95rem] font-medium text-black">
+          <p className="mt-1 text-[1.15rem] font-black text-black">
             {billingPeriod}
           </p>
         </div>
