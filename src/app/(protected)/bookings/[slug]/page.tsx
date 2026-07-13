@@ -1,14 +1,9 @@
 import AttachmentImage from "@/components/ui/AttachmentImage";
 import BackButton from "@/components/ui/BackButton";
+import NotFound from "@/components/ui/NotFound";
 import data from "@/data/data.json"
 import { Icon } from "@iconify/react";
-
-
-type BookingDetailPageProps = {
-  params: {
-    slug: string;
-  };
-};
+import { useParams } from 'react-router';
 
 function RatingRow({
   rating,
@@ -53,23 +48,14 @@ function DetailRow({
   );
 }
 
-export default async function BookingDetailPage({ params }: BookingDetailPageProps) {
-  const { slug } = await params;
+export default async function BookingDetailPage() {
+  const { slug } = useParams<{ slug: string }>();
   
   const booking = data.bookingDetails.find((item) => item.slug === slug);
 
   if (!booking) {
     return (
-      <div className="p-6">
-        <BackButton href="/bookings">Details</BackButton>
-
-        <div className="mt-6 rounded-2xl p-5 shadow-lg">
-          {/* Render the slug inside curly braces */}
-          <h1 className="text-2xl font-bold text-black">
-            Booking not found
-          </h1>
-        </div>
-      </div>
+      <NotFound/>
     );
   }
 

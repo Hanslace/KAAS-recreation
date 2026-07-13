@@ -1,18 +1,13 @@
 
 import BackButton from '@/components/ui/BackButton';
 import BrandPill from '@/components/ui/BrandPill';
-import Image from 'next/image';
-import { notFound } from 'next/navigation';
 import CloseButton from './_components/CloseButton';
 import InfoCell from '@/components/ui/InfoCell';
 import AttachmentImage from '@/components/ui/AttachmentImage';
+import { useParams } from 'react-router';
+import NotFound from '@/components/ui/NotFound';
 
 
-interface PageProps {
-  params: Promise<{
-    slug: string;
-  }>;
-}
 
 const supportTickets = [
   {
@@ -57,13 +52,17 @@ const supportTickets = [
 
 
 
-export default async function SupportDetailsPage({ params }: PageProps) {
-  const { slug } = await params;
+export default async function SupportDetailsPage() {
+  const { slug } = useParams<{
+    slug: string;
+  }>();
 
   const ticket = supportTickets.find((item) => item.slug === slug);
 
   if (!ticket) {
-    notFound();
+    return (
+      <NotFound/>
+    );
   }
 
   const detailFields = [
@@ -105,12 +104,12 @@ export default async function SupportDetailsPage({ params }: PageProps) {
 
         <div className="relative flex flex-col items-center sm:items-start sm:flex-row gap-4 pb-[1.5rem] after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-gray-100">
           <div className="flex h-[5rem] w-[5rem] shrink-0 items-center justify-center overflow-hidden rounded-full bg-black">
-            <Image
+            <img
               src={ticket.logo}
               alt={ticket.companyName}
               width={120}
               height={120}
-              priority
+              fetchPriority='high'
               className="h-full w-full rounded-full object-contain"
             />
           </div>

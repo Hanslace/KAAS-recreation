@@ -1,18 +1,14 @@
-import { notFound } from 'next/navigation';
-
 import ManagerDetailsContent from '@/components/ManagerDetailsContent';
+import NotFound from '@/components/ui/NotFound';
 import managerData from '@/data/managers.json';
+import { useParams } from 'react-router';
 
-interface PageProps {
-  params: Promise<{
+
+
+export default async function Page() {
+  const { managerid } = useParams<{
     managerid: string;
-  }>;
-}
-
-export default async function Page({
-  params,
-}: PageProps) {
-  const { managerid } = await params;
+  }>();
 
   const currentManager =
     managerData.tableData.find(
@@ -20,7 +16,9 @@ export default async function Page({
     );
 
   if (!currentManager) {
-    notFound();
+    return (
+      <NotFound/>
+    );
   }
 
   return (

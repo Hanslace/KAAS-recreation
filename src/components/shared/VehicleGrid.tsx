@@ -1,10 +1,10 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
 
 import VehicleCard, {
   VehicleCardField,
 } from '@/components/shared/VehicleCard';
+import { useLocation } from 'react-router';
 
 interface BaseVehicleData {
   slug: string;
@@ -27,7 +27,7 @@ export default function VehicleGrid<T extends BaseVehicleData>({
   className = '',
   cardClassName = '',
 }: VehicleGridProps<T>) {
-  const pathname = usePathname();
+  const pathname = useLocation().pathname;
 
   const path =  pathname;
 

@@ -1,15 +1,16 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
 import subscriptionData from '@/data/plan.json';
 import { Icon } from '@iconify/react';
 
 import BackButton from '@/components/ui/BackButton';
 import SuccessModal from '@/components/shared/SuccessModal';
+import NotFound from '@/components/ui/NotFound';
+import { useNavigate, useParams } from 'react-router';
 
 export default function EditSubscriptionPage() {
-  const router = useRouter();
+  const navigate = useNavigate();
   const params = useParams<{ slug: string }>();
   const slug = params.slug;
 
@@ -79,23 +80,11 @@ export default function EditSubscriptionPage() {
 
   const handleModalDone = () => {
       setIsSuccessModalOpen(false);
-      router.push('/subscriptions');
+      navigate('/subscriptions');
     };
     if (!currentSubscription) {
     return (
-      <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4">
-        <h2 className="text-2xl font-bold text-black">
-          Subscription not found
-        </h2>
-
-        <button
-          type="button"
-          onClick={() => router.push('/subscriptions')}
-          className="rounded-lg bg-brand-gradient px-6 py-3 font-semibold text-white"
-        >
-          Back to Subscriptions
-        </button>
-      </div>
+      <NotFound/>
     );
   }
 

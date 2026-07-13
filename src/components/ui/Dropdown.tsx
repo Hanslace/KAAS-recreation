@@ -1,6 +1,6 @@
-'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+
+import { useState, useRef, useEffect } from 'react';
 import { Icon } from '@iconify/react';
 import { twMerge } from 'tailwind-merge';
 

@@ -1,20 +1,16 @@
 
 import bookings from '@/data/data.json'
 import drivers from "@/data/company-drivers.json";
-import { notFound } from "next/navigation";
 import BookingsGrid from "@/components/shared/BookingsGrid";
 import InfoGrid from "@/components/shared/InfoGrid";
 import DetailsLayout from "@/components/DetailsLayout";
 import AttachmentImage from "@/components/ui/AttachmentImage";
+import { useParams } from 'react-router';
+import NotFound from '@/components/ui/NotFound';
 
-// Assuming VehicleCard is stored here
 
-interface PageProps {
-  params: Promise<{ driverid: string }>;
-}
-
-export default async function Page({ params }: PageProps) {
-  const { driverid } = await params;
+export default async function Page() {
+  const { driverid } = useParams<{ driverid: string }>();
   
   const currentDriver = drivers.tableData.find(
     (item) => item.slug === driverid
@@ -22,7 +18,9 @@ export default async function Page({ params }: PageProps) {
 
   // 3. Fallback to 404 page if someone enters an invalid URL driverid
   if (!currentDriver) {
-    return(notFound());
+    return (
+      <NotFound/>
+    );
   }
 
   const status = currentDriver.status;

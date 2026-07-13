@@ -1,7 +1,5 @@
-'use client';
-
-import Link from 'next/link';
 import { ReactNode } from 'react';
+import { Link } from 'react-router';
 import { twMerge } from 'tailwind-merge';
 
 interface BaseVehicleCardData {
@@ -56,7 +54,7 @@ export default function VehicleCard<T extends BaseVehicleCardData>({
 
   return (
     <Link
-      href={`${cleanBasePath}/${vehicle.slug}`}
+      to={`${cleanBasePath}/${vehicle.slug}`}
       className="block w-full focus:outline-none"
       aria-label={`View vehicle details for ${vehicle.name}`}
     >

@@ -1,9 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
-import { notFound, useParams, useRouter } from 'next/navigation';
-
 import BackButton from '@/components/ui/BackButton';
 import BrandPill from '@/components/ui/BrandPill';
 import ConfirmationModal from '@/components/shared/ConfirmationModal';
@@ -11,9 +8,11 @@ import InfoGrid from '@/components/shared/InfoGrid';
 
 import deletedAccountsData from '@/data/deleted-accounts.json';
 import DocumentsSection from '@/components/shared/DocumentsSection';
+import { useNavigate, useParams } from 'react-router';
+import NotFound from '@/components/ui/NotFound';
 
 export default function DeletedAccountDetailsPage() {
-  const router = useRouter();
+  const navigate = useNavigate();
   const params = useParams<{ slug: string }>();
 
   const [restoreModalOpen, setRestoreModalOpen] = useState(false);
@@ -23,7 +22,7 @@ export default function DeletedAccountDetailsPage() {
   );
 
   if (!currentAccount) {
-    notFound();
+    return(<NotFound/>);
   }
 
   const isAbcLogistics = currentAccount.slug.startsWith(
@@ -38,7 +37,7 @@ export default function DeletedAccountDetailsPage() {
     setRestoreModalOpen(false);
 
 
-    router.push('/settings/deleted-accounts');
+    navigate('/settings/deleted-accounts');
   };
 
   return (
@@ -70,7 +69,7 @@ export default function DeletedAccountDetailsPage() {
         {/* Profile */}
         <div className="relative flex items-center gap-4 py-[1.5rem] after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-gray-100">
           <div className="flex h-[5rem] w-[5rem] shrink-0 items-center justify-center overflow-hidden rounded-full bg-black">
-            <Image
+            <img
               src={currentAccount.logo || '/images/company-logo.png'}
               alt={
                 currentAccount.companyName ||
@@ -78,7 +77,7 @@ export default function DeletedAccountDetailsPage() {
               }
               width={120}
               height={120}
-              priority
+              fetchPriority='high'
               className="h-full w-full rounded-full object-contain"
             />
           </div>

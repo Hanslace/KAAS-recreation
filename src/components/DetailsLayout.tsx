@@ -1,13 +1,11 @@
 'use client';
 
 import { ReactNode, useState } from 'react';
-import Image from 'next/image';
-
 import BackButton from '@/components/ui/BackButton';
 import BrandButton from '@/components/ui/BrandButton';
 import BrandPill from '@/components/ui/BrandPill';
 import ReasonModal from '@/components/shared/ReasonModal';
-import { useRouter } from 'next/navigation';
+import { useNavigate } from 'react-router';
 
 type ReasonAction = 'block' | 'cancel' | null;
 
@@ -35,7 +33,7 @@ export default function DetailsLayout({
   manager = false,
 
 }: DetailsLayoutProps) {
-     const router = useRouter();
+     const navigate = useNavigate();
   const [reasonAction, setReasonAction] = useState<ReasonAction>(null);
 
   const headingId = `${slugName}-personal-info`;
@@ -44,7 +42,7 @@ export default function DetailsLayout({
 
 
     setReasonAction(null);
-    router.back()
+    navigate(-1);
   };
 
   return (
@@ -54,7 +52,7 @@ export default function DetailsLayout({
 
         {status === 'Pending' && (
           <div className="ml-auto flex w-fit gap-5">
-            <BrandButton onClick={() => router.back()}>
+            <BrandButton onClick={() => navigate(-1)}>
               Approve
             </BrandButton>
 
@@ -79,7 +77,7 @@ export default function DetailsLayout({
 
             {manager && (
               <BrandButton
-                href={`/pilot-car-management/managers/${slugName}/escorts`}
+                to={`/pilot-car-management/managers/${slugName}/escorts`}
                 className="bg-black"
               >
                 View Escorts
@@ -106,12 +104,12 @@ export default function DetailsLayout({
 
         <div className="relative flex flex-col items-center sm:items-start sm:flex-row gap-4 pb-[1.5rem] after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-gray-100">
           <div className="flex h-[6rem] w-[6rem] shrink-0 items-center justify-center overflow-hidden rounded-full">
-            <Image
+            <img
               src={logoSrc}
               alt={logoAlt ?? companyName}
               width={96}
               height={96}
-              priority
+              fetchPriority='high'
               className="h-full w-full object-contain"
             />
           </div>

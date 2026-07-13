@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import {Link} from "react-router";
 import { ComponentPropsWithRef } from "react";
 
 type BaseProps = {
@@ -43,10 +43,11 @@ export default function AuthButton({
 
     return (
       <Link
-        href={disabled ? "#" : href}
+        
         className={baseStyles}
         aria-disabled={disabled}
         {...linkProps}
+        to={disabled ? "#" : href}
       >
         {children}
       </Link>

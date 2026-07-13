@@ -73,7 +73,7 @@ export default function PlanCard({
       {/* Button */}
       <div className="mx-auto mt-8 w-full max-w-[25rem]">
         <BrandButton
-          href={href}
+          to={href}
           disabled={disabled}
           className="h-[2.9rem] aspect-auto rounded-lg p-0 text-[0.75rem] md:h-[2.9rem] md:aspect-auto md:p-0 md:text-[0.75rem]"
         >

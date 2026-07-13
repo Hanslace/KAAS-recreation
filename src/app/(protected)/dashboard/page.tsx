@@ -34,10 +34,8 @@ const CustomTooltip = ({ active, payload }: any) => {
 
 
 export default function Page() {
-  const { analytics, chartData } = mockData;
+  const { analytics } = mockData;
 
-  // Simple proportional helper to generate CSS bars without needing massive external chart libraries
-  const maxVal = Math.max(...chartData.map(d => Math.max(d.pilotCars, d.carriers)));
 
   return (
     <div className="space-y-10 ">

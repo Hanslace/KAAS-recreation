@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import {Link} from 'react-router';
 import type {
   ComponentPropsWithoutRef,
   MouseEvent,
@@ -57,8 +57,9 @@ export default function BrandButton(props: BrandButtonProps) {
 
     return (
       <Link
-        href={href}
+        
         {...linkProps}
+        to={href}
         onClick={handleClick}
         aria-disabled={disabled}
         tabIndex={disabled ? -1 : linkProps.tabIndex}

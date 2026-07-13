@@ -1,36 +1,23 @@
 import BackButton from "@/components/ui/BackButton"
 import vehicles from '@/data/escorts.json';
-import { notFound } from "next/navigation";
-import InfoCell from "@/components/ui/InfoCell"
 import InfoGrid from "@/components/shared/InfoGrid";
 import AttachmentImage from "@/components/ui/AttachmentImage";
-
-// Assuming VehicleCard is stored here
-
-interface PageProps {
-  params: Promise<{ escortid: string }>;
-}
+import { useParams } from "react-router";
+import NotFound from "@/components/ui/NotFound";
 
 
 
+export default async function Page() {
 
-export default async function Page({ params }: PageProps) {
-
-  const { escortid } = await params;
+  const { escortid } = useParams<{ escortid: string }>();
 
   const vehicle = vehicles.escorts.find((v) => v.slug === escortid);
   if (!vehicle) {
-    notFound();
+    return (
+      <NotFound/>
+    );
   }
 
-
-  const detailFields = [
-    { label: "Escort Name", value: vehicle.name },
-    { label: "Escort Tyoe", value: vehicle.escortType },
-    { label: "License Plate Number", value: vehicle.licensePlate },
-    { label: "VIN Number", value: vehicle.vinNumber || "1HGCM82633A123456" },
-    { label: "Registration Number", value: vehicle.registrationNumber || "REG-TX-98213476" },
-  ];
 
 
   return (

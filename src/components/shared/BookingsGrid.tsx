@@ -1,6 +1,3 @@
-'use client';
-
-import React from 'react';
 import BookingsCard, { BookingsCardData } from './BookingsCard'; // Adjust path based on your file structure
 
 interface BookingsGridProps {

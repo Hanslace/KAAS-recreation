@@ -1,7 +1,6 @@
 'use client';
 
-import React from 'react';
-import Link from 'next/link';
+import {Link} from 'react-router';
 import { Icon } from '@iconify/react';
 
 export interface BookingsCardData {
@@ -26,7 +25,7 @@ interface BookingsCardProps {
 export default function BookingsCard({ booking }: BookingsCardProps) {
   return (
     <Link
-      href={`/bookings/${booking.slug}`}
+      to={`/bookings/${booking.slug}`}
       className="block w-full focus:outline-none"
       aria-label={`View booking for ${booking.companyName}`}
     >

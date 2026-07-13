@@ -1,25 +1,23 @@
-import { notFound } from 'next/navigation';
 
 import CarrierDetailsContent from '@/components/CarrierDetailsContent';
+import NotFound from '@/components/ui/NotFound';
 import carrierData from '@/data/carriers.json';
+import { useParams } from 'react-router';
 
-interface PageProps {
-  params: Promise<{
-    carrierId: string;
-  }>;
-}
 
-export default async function Page({
-  params,
-}: PageProps) {
-  const { carrierId } = await params;
+export default async function Page() {
+  const { carrierid } = useParams<{
+    carrierid: string;
+  }>();
 
   const currentCarrier = carrierData.tableData.find(
-    (carrier) => carrier.slug === carrierId,
+    (carrier) => carrier.slug === carrierid,
   );
 
   if (!currentCarrier) {
-    notFound();
+     return (
+      <NotFound/>
+    );
   }
 
   return (

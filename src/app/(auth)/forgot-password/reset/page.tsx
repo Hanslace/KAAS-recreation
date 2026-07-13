@@ -1,16 +1,12 @@
-'use client';
-
-import React from 'react';
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useRouter } from "next/navigation";
-
 import AuthInput from "@/components/ui/auth/AuthInput";
 import BackButton from "@/components/ui/BackButton";
 import AuthButton from "@/components/ui/auth/AuthButton";
 import AuthHeading from '@/components/ui/auth/AuthHeading';
 import AuthSubHeading from '@/components/ui/auth/AuthSubHeading';
+import { useNavigate } from "react-router";
 
 // 1. Define the Schema for Resetting Password with matching requirements
 const resetPasswordSchema = z
@@ -30,7 +26,7 @@ const resetPasswordSchema = z
 type ResetPasswordFormValues = z.infer<typeof resetPasswordSchema>;
 
 export default function ResetPasswordPage() {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   // 2. React Hook Form Initialization
   const {
@@ -49,7 +45,7 @@ export default function ResetPasswordPage() {
       // Example: await api.auth.updatePassword(data.password);
       
       // Redirect straight to login once password update succeeds
-      router.push(`/login`);
+      navigate(`/login`);
     } catch (error) {
       console.error("Failed to update password:", error);
     }

@@ -3,15 +3,15 @@
 import { useState } from 'react';
 import AuthInput from '@/components/ui/auth/AuthInput';
 import ConfirmationModal from '@/components/shared/ConfirmationModal';
-import { useRouter } from 'next/navigation';
 import BackButton from '@/components/ui/BackButton';
+import { useNavigate } from 'react-router';
 
 export default function ChangePasswordPage() {
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [confirmModalOpen, setConfirmModalOpen] = useState(false);
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -30,7 +30,7 @@ export default function ChangePasswordPage() {
     setNewPassword('');
     setConfirmPassword('');
 
-    router.push("/settings")
+    navigate("/settings")
   };
 
   return (

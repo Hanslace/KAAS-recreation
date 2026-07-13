@@ -1,6 +1,6 @@
-import { notFound } from "next/navigation";
-
+import NotFound from "@/components/ui/NotFound";
 import SettingsContentEditor from "./_components/SettingsContentEditor";
+import { useParams } from "react-router";
 
 type SettingsContentPage = {
   slug: string;
@@ -38,11 +38,7 @@ const pages: SettingsContentPage[] = [
   },
 ];
 
-type PageProps = {
-  params: Promise<{
-    slug: string;
-  }>;
-};
+
 
 export function generateStaticParams() {
   return pages.map((page) => ({
@@ -50,15 +46,17 @@ export function generateStaticParams() {
   }));
 }
 
-export default async function SettingsContentPage({
-  params,
-}: PageProps) {
-  const { slug } = await params;
+export default async function SettingsContentPage() {
+  const { slug } = useParams<{
+    slug: string;
+  }>();
 
   const page = pages.find((item) => item.slug === slug);
 
   if (!page) {
-    notFound();
+    return (
+      <NotFound/>
+    );
   }
 
   const initialContent = page.content

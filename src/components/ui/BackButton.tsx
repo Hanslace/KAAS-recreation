@@ -1,9 +1,8 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { twMerge } from 'tailwind-merge';
+import { Link, useNavigate } from 'react-router';
 
 interface BackButtonProps {
   href?: string;
@@ -16,7 +15,7 @@ export const BackButton: React.FC<BackButtonProps> = ({
   children = 'Back',
   className = '',
 }) => {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const buttonStyles = twMerge(
     'group inline-flex cursor-pointer select-none items-center gap-3 font-sans focus:outline-none',
@@ -52,7 +51,7 @@ export const BackButton: React.FC<BackButtonProps> = ({
   if (href) {
     return (
       <Link
-        href={href}
+        to={href}
         className={buttonStyles}
         aria-label={typeof children === 'string' ? children : 'Go back'}
       >
@@ -64,7 +63,7 @@ export const BackButton: React.FC<BackButtonProps> = ({
   return (
     <button
       type="button"
-      onClick={() => router.back()}
+      onClick={() => navigate(-1)}
       className={buttonStyles}
       aria-label={typeof children === 'string' ? children : 'Go back'}
     >

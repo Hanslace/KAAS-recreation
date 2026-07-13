@@ -1,6 +1,3 @@
-'use client';
-
-
 type SuccessModalProps = {
   open: boolean;
   onDone: () => void;

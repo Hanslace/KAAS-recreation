@@ -1,9 +1,8 @@
 'use client';
 
-import React from 'react';
-import { useRouter } from 'next/navigation';
 import { Icon } from '@iconify/react';
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router';
 
 type ColumnType = 'text' | 'imageText' | 'status' | 'action' | 'empty';
 type RowStatus = 'Cancelled' | 'Approved' | 'Pending' | 'Deleted';
@@ -56,7 +55,7 @@ export default function DataTable<T extends { id: number | string; slug: string 
   columns,
   path,
 }: DataTableProps<T>) {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   // Tracks the slug of the row that currently has its menu open
   const [openDropdownSlug, setOpenDropdownSlug] = useState<string | null>(null);
@@ -74,7 +73,7 @@ export default function DataTable<T extends { id: number | string; slug: string 
   }, []);
 
   const goToDetails = (slug: string) => {
-    router.push(`${path}/${slug}`);
+    navigate(`${path}/${slug}`);
   };
 
   const handleAction = (action: string, slug: string) => {

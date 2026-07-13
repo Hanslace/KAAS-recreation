@@ -7,10 +7,11 @@ import * as z from "zod";
 
 import AuthInput from "@/components/ui/auth/AuthInput";
 import BackButton from "@/components/ui/BackButton";
-import { useRouter } from "next/navigation";
+
 import AuthButton from "@/components/ui/auth/AuthButton";
 import AuthHeading from "@/components/ui/auth/AuthHeading";
 import AuthSubHeading from "@/components/ui/auth/AuthSubHeading";
+import { useNavigate } from "react-router";
 
 
 const forgotPasswordSchema = z.object({
@@ -25,7 +26,7 @@ type ForgotPasswordFormValues = z.infer<typeof forgotPasswordSchema>;
 
 
 export default function Page() {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -40,7 +41,7 @@ export default function Page() {
   const onSubmit: SubmitHandler<ForgotPasswordFormValues> = async (data) => {
     try {
       // Perform your API logic / Auth trigger here
-      router.push(`/forgot-password/otp`);
+      navigate(`/forgot-password/otp`);
       
       // Example: await api.auth.forgotPassword(data.email);
     } catch (error) {

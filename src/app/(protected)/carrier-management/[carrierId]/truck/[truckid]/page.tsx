@@ -1,26 +1,21 @@
 import BackButton from "@/components/ui/BackButton"
 import vehicles from '@/data/trucks.json';
-import { notFound } from "next/navigation";
-import InfoCell from "@/components/ui/InfoCell"
 import InfoGrid from "@/components/shared/InfoGrid";
 import AttachmentImage from "@/components/ui/AttachmentImage";
-
-// Assuming VehicleCard is stored here
-
-interface PageProps {
-  params: Promise<{ truckid: string }>;
-}
+import { useParams } from "react-router";
+import NotFound from "@/components/ui/NotFound";
 
 
 
+export default async function Page() {
 
-export default async function Page({ params }: PageProps) {
-
-  const { truckid } = await params;
+  const { truckid } = useParams<{ truckid: string }>();
 
   const vehicle = vehicles.find((v) => v.slug === truckid);
   if (!vehicle) {
-    notFound();
+    return (
+      <NotFound/>
+    );
   }
 
 

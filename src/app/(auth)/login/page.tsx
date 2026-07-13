@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useRouter } from "next/navigation"; // Import the router for programmatic navigation
+import { useNavigate } from "react-router"; // Import the navigate for programmatic navigation
 import AuthInput from "@/components/ui/auth/AuthInput";
 import AuthButton from "@/components/ui/auth/AuthButton";
 import AuthHeading from "@/components/ui/auth/AuthHeading";
@@ -25,7 +25,7 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>;
 
 export default function LoginPage() {
-  const router = useRouter(); // Initialize the router
+  const navigate = useNavigate(); // Initialize the navigate
 
   const {
     register,
@@ -50,7 +50,7 @@ export default function LoginPage() {
       // const response = await api.login(data);
 
       // Route the user to dashboard programmatically after a successful check
-      router.push("/dashboard"); 
+      navigate("/dashboard"); 
     } catch (error) {
       console.error("Login failed:", error);
     }

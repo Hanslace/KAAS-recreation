@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, forwardRef, ComponentPropsWithRef } from "react";
 import { Icon } from "@iconify/react"; // Import Iconify
 

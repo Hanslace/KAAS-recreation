@@ -1,19 +1,17 @@
 'use client';
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
 import ConfirmationModal from '@/components/shared/ConfirmationModal';
 import { Icon } from '@iconify/react'; 
-import Image from 'next/image';
+import { Outlet } from 'react-router';
 
-interface DashboardLayoutProps {
-  children: React.ReactNode;
-}
 
-export default function Layout({ children }: DashboardLayoutProps) {
-  const pathname = usePathname();
-  const router = useRouter();
+
+
+export default function Layout() {
+  const pathname = useLocation().pathname;
+  const navigate = useNavigate();
   const [logoutModalOpen, setLogoutModalOpen] = useState(false);
 
   const handleLogoutConfirm = () => {
@@ -23,7 +21,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
     // Clear auth/session here later if needed
     // localStorage.removeItem('token');
 
-    router.push('/login');
+    navigate('/login');
   };
   // State to manage mobile sidebar visibility
   const [isOpen, setIsOpen] = useState(false);
@@ -106,7 +104,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
                 return (
                   <div key={link.name} className="w-full flex flex-col">
                     <Link
-                      href={link.href}
+                      to={link.href}
                       onClick={(e) => {
                         if (link.hasSubmenu) {
                           e.preventDefault(); // Stop navigation if submenu exists
@@ -139,7 +137,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
                           return (
                             <Link
                               key={subItem.name}
-                              href={subItem.href}
+                              to={subItem.href}
                               onClick={() => setIsOpen(false)}
                               className={`w-full p-2.5 px-4 rounded-md text-sm font-medium transition-colors text-left
                                 ${isSubActive 
@@ -192,12 +190,12 @@ export default function Layout({ children }: DashboardLayoutProps) {
               <Icon icon="solar:hamburger-menu-linear" className="w-8 h-8" />
             </button>
             <div className="flex flex-col lg:hidden items-center justify-center ">
-              <Image
+              <img
                 src="/logo.png"
                 alt="Kaas Logo"
                 width={520}
                 height={220}
-                priority
+                fetchPriority='high'
                 className="h-auto w-full max-w-[10rem] object-contain"
               />
           </div>
@@ -211,7 +209,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
           <div className="flex items-center gap-6 lg:gap-10">
             
             <Link
-              href="/notifications"
+              to="/notifications"
               className="p-2.5 rounded-xl bg-brand/20 text-brand hover:bg-orange-50 transition-colors focus:outline-none inline-flex items-center justify-center"
               aria-label="View notifications"
             >
@@ -245,7 +243,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
         <main className="overflow-y-auto p-[2.5rem]">
           
           
-          {children}
+          <Outlet/>
         </main>
 
       </div>

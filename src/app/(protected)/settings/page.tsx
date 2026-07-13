@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router';
 
 type SettingCard = {
   id: number;
@@ -81,7 +81,7 @@ export default function SettingsPage() {
         {settingsCards.map((item) => (
           <Link
             key={item.id}
-            href={item.href || '#'}
+            to={item.href || '#'}
             className="flex min-h-[4.25rem] items-center rounded-xl bg-white px-7 shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)]"
           >
             <span className="text-[0.95rem] font-semibold text-black">

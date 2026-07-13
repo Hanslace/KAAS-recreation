@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import SuccessModal from '@/components/shared/SuccessModal';
+import { useNavigate } from 'react-router';
 
 export default function CloseButton() {
-  const router = useRouter();
+  const navigate = useNavigate();
   const [successOpen, setSuccessOpen] = useState(false);
 
   return (
@@ -25,7 +25,7 @@ export default function CloseButton() {
         buttonText="Done"
         onDone={() => {
           setSuccessOpen(false);
-          router.push('/support');
+          navigate('/support');
         }}
       />
     </>

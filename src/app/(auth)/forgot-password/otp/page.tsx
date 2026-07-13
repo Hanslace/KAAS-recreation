@@ -4,12 +4,11 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useRouter } from "next/navigation";
-
 import BackButton from "@/components/ui/BackButton";
 import AuthButton from "@/components/ui/auth/AuthButton";
 import AuthHeading from '@/components/ui/auth/AuthHeading';
 import AuthSubHeading from '@/components/ui/auth/AuthSubHeading';
+import { useNavigate } from 'react-router';
 
 const otpSchema = z.object({
   otp: z
@@ -20,7 +19,7 @@ const otpSchema = z.object({
 type OtpFormValues = z.infer<typeof otpSchema>;
 
 export default function OtpPage() {
-  const router = useRouter();
+  const navigate = useNavigate();
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
   
   // 1. Timer State Management (Starts at 40 seconds)
@@ -70,7 +69,7 @@ export default function OtpPage() {
     try {
       const fullOtpCode = data.otp.join("");
       console.log("Submitting Verified OTP Code:", fullOtpCode);
-      router.push(`/forgot-password/reset`);
+      navigate(`/forgot-password/reset`);
     } catch (error) {
       console.error("OTP verification failed", error);
     }

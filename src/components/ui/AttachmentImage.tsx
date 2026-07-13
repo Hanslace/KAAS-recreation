@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 
 interface AttachmentImageProps {
   src: string;
@@ -19,7 +18,7 @@ export default function AttachmentImage({ src, alt }: AttachmentImageProps) {
         className="group relative block text-left focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
         aria-label={`View larger version of ${alt}`}
       >
-        <Image
+        <img
           src={src}
           alt={alt}
           width={130}
@@ -50,14 +49,16 @@ export default function AttachmentImage({ src, alt }: AttachmentImageProps) {
             className="relative max-w-4xl max-h-[85vh] w-full h-full"
             onClick={(e) => e.stopPropagation()} // Prevents closing when clicking the image itself
           >
-            <Image
-              src={src}
-              alt={alt}
-              fill
-              className="object-contain"
-              sizes="(max-width: 1024px) 100vw, 1024px"
-              priority
-            />
+            <div className="absolute inset-0">
+              <img
+                src={src}
+                alt={alt}
+                fetchPriority="high" // ✅ Replaces Next.js priority
+                sizes="(max-width: 1024px) 100vw, 1024px"
+                className="h-full w-full object-contain" // ✅ Replaces Next.js fill layout
+              />
+            </div>
+
           </div>
         </div>
       )}
