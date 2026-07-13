@@ -8,7 +8,6 @@ import BackButton from '@/components/ui/BackButton';
 import BrandPill from '@/components/ui/BrandPill';
 import ConfirmationModal from '@/components/shared/ConfirmationModal';
 import InfoGrid from '@/components/shared/InfoGrid';
-import AttachmentImage from '@/components/ui/AttachmentImage';
 
 import deletedAccountsData from '@/data/deleted-accounts.json';
 import DocumentsSection from '@/components/shared/DocumentsSection';
@@ -38,8 +37,6 @@ export default function DeletedAccountDetailsPage() {
   const handleRestore = () => {
     setRestoreModalOpen(false);
 
-    // Call the restore API here:
-    // await restoreAccount(currentAccount.id);
 
     router.push('/settings/deleted-accounts');
   };
@@ -60,7 +57,7 @@ export default function DeletedAccountDetailsPage() {
         </button>
       </div>
 
-      <div className="mt-[1.5rem] h-full min-h-[32rem] w-full overflow-y-auto rounded-2xl bg-white p-[1.5rem] shadow-lg xl:h-[calc(80vh-11rem)]">
+      <div className="mt-[1.5rem]  w-full overflow-y-auto rounded-2xl bg-white p-[1.5rem] shadow-lg">
         {/* Personal information heading */}
         <div className="flex items-start justify-between gap-4">
           <h2 className="text-[1.5rem] font-bold tracking-tight text-black lg:text-[1.75rem]">

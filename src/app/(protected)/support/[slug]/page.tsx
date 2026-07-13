@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import CloseButton from './_components/CloseButton';
 import InfoCell from '@/components/ui/InfoCell';
+import AttachmentImage from '@/components/ui/AttachmentImage';
 
 
 interface PageProps {
@@ -93,7 +94,7 @@ export default async function SupportDetailsPage({ params }: PageProps) {
       
           
 
-      <div className="mt-[1.5rem] min-h-[32rem] w-full overflow-y-auto rounded-2xl bg-white p-[1.5rem] shadow-lg xl:h-[calc(80vh-11rem)] space-y-10">
+      <div className="mt-[1.5rem]  w-full  rounded-2xl bg-white p-[1.5rem] shadow-lg space-y-10">
         <div className="flex items-start justify-between gap-4">
           <h2 className="text-[1rem] xs:text-[1.5rem] sm:text-[1.75rem] font-bold tracking-tight text-black">
             Ticket Info
@@ -142,11 +143,10 @@ export default async function SupportDetailsPage({ params }: PageProps) {
 
           <div className="relative mt-5 flex w-fit flex-wrap gap-4 pb-6 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-gray-100">
             {ticket.attachments.map((attachment, index) => (
-              <img
+              <AttachmentImage
                 key={index}
                 src={attachment}
                 alt={`Attachment ${index + 1}`}
-                className="h-[7rem] w-[7.5rem] rounded-xl object-cover shadow-lg"
               />
             ))}
           </div>

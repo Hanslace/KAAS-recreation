@@ -3,6 +3,7 @@ import vehicles from '@/data/trucks.json';
 import { notFound } from "next/navigation";
 import InfoCell from "@/components/ui/InfoCell"
 import InfoGrid from "@/components/shared/InfoGrid";
+import AttachmentImage from "@/components/ui/AttachmentImage";
 
 // Assuming VehicleCard is stored here
 
@@ -41,7 +42,7 @@ export default async function Page({ params }: PageProps) {
         </BackButton>
         
       </div>
-      <div className=" xl:h-[calc(80vh-11rem)] overflow-y-auto rounded-2xl mt-[1.5rem] space-y-10 p-[1.5rem] w-full h-full shadow-lg ">
+      <div className="  rounded-2xl mt-[1.5rem] space-y-10 p-[1.5rem] w-full  shadow-lg ">
         <>
           <h2 className="text-[1.75rem] mb-3 font-bold text-black tracking-tight">
             Truck Info
@@ -64,10 +65,9 @@ export default async function Page({ params }: PageProps) {
 
             <div className=" w-fit flex flex-col gap-5">
               <p className="text-brand font-bold">Important docs</p>
-            <img
+            <AttachmentImage
             src="/images/liability-doc.jpg"
             alt={`truck `}
-            className="max-h-[7rem] h-full aspect-[6/6.5] object-cover rounded-xl transition-transform duration-300 group-hover:scale-105 brightness-60"
           />
           </div>
 

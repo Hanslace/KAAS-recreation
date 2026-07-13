@@ -41,7 +41,7 @@ export default async function Page({ params }: PageProps) {
         </BackButton>
         
       </div>
-      <div className=" xl:h-[calc(80vh-11rem)] overflow-y-auto rounded-2xl mt-[1.5rem]  p-[1.5rem] gap-[2rem] w-full h-full shadow-lg ">
+      <div className="  rounded-2xl mt-[1.5rem]  p-[1.5rem] gap-[2rem] w-full shadow-lg ">
         
         <InfoGrid
           heading="Escorts Info"

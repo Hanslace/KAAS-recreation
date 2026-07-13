@@ -32,7 +32,7 @@ export default function Page() {
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-2  md:grid-cols-3 min-[100rem]:grid-cols-6 gap-6">
+      <div className="grid grid-cols-2  md:grid-cols-3 min-[120rem]:grid-cols-6 gap-6">
         {Object.entries(data.bookingMetrics).map(([key, item]) => (
           <AnalyticsCard 
             key={key}

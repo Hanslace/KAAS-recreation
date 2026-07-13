@@ -91,7 +91,7 @@ export default function DetailsLayout({
 
       <section
         aria-labelledby={headingId}
-        className="mt-[1.5rem] h-full w-full space-y-10 overflow-y-auto rounded-2xl p-[1.5rem] shadow-lg xl:h-[calc(80vh-11rem)]"
+        className="mt-[1.5rem] w-full space-y-10  rounded-2xl p-[1.5rem] shadow-lg "
       >
         <div className="flex items-center justify-between gap-4">
           <h2

@@ -28,11 +28,11 @@ export default function AnalyticsCard({
       </div>
 
       {/* Numerical metric and label content data container */}
-      <div className="flex flex-col text-left items-center sm:items-start justify-center min-w-0">
+      <div className="flex flex-col text-left items-center  sm:items-start justify-center min-w-0">
         <span className="text-[1rem] xl:text-[1.5rem] font-bold leading-tight tracking-tight truncate">
           {value}
         </span>
-        <span className=" text-[0.7rem] xl:text-[0.875rem] font-medium opacity-80 leading-snug ">
+        <span className=" text-[0.7rem] xl:text-[0.875rem] text-center sm:text-left font-medium opacity-80 leading-snug ">
           {label}
         </span>
       </div>

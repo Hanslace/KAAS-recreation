@@ -3,8 +3,10 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { Icon } from '@iconify/react';
+import { useState, useEffect, useRef } from 'react';
 
 type ColumnType = 'text' | 'imageText' | 'status' | 'action' | 'empty';
+type RowStatus = 'Cancelled' | 'Approved' | 'Pending' | 'Deleted';
 
 export type DataTableColumn<T> =
   | {
@@ -47,7 +49,6 @@ const statusClasses: Record<string, string> = {
   Opened: 'bg-green-100 text-green-500',
   Completed: 'bg-green-100 text-green-500',
   Refunded: 'bg-red-100 text-red-500',
-
 };
 
 export default function DataTable<T extends { id: number | string; slug: string }>({
@@ -57,8 +58,30 @@ export default function DataTable<T extends { id: number | string; slug: string 
 }: DataTableProps<T>) {
   const router = useRouter();
 
+  // Tracks the slug of the row that currently has its menu open
+  const [openDropdownSlug, setOpenDropdownSlug] = useState<string | null>(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+  // Close dropdown if user clicks anywhere outside of it
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setOpenDropdownSlug(null);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const goToDetails = (slug: string) => {
     router.push(`${path}/${slug}`);
+  };
+
+  const handleAction = (action: string, slug: string) => {
+    console.log(`Executing ${action} on row ${slug}`);
+    setOpenDropdownSlug(null); // Close menu after selection
+    
+    // Add your API triggers or state modifications here
   };
 
   return (
@@ -161,25 +184,89 @@ export default function DataTable<T extends { id: number | string; slug: string 
                 }
 
                 if (column.type === 'action') {
+                  const isMenuOpen = openDropdownSlug === row.slug;
+                  const currentStatus = 'status' in row ? String(row['status' as keyof T]) : '';
                   return (
                     <td
                       key={String(column.key)}
-                      className={`${cellRounded} px-[1.25rem] py-[1rem] text-center`}
+                      className={`${cellRounded} relative px-[1.25rem] py-[1rem] text-center`}
                     >
+                      {/* The 3-Dot Trigger Button */}
                       <button
                         type="button"
                         onClick={(event) => {
                           event.stopPropagation();
-                          goToDetails(row.slug);
+                          // Toggle dropdown open/close for this specific row
+                          setOpenDropdownSlug(isMenuOpen ? null : row.slug);
                         }}
                         className="inline-flex items-center justify-center rounded-full p-[0.5rem] text-black/50 hover:bg-black/5"
-                        aria-label="Open details"
+                        aria-label="Open actions menu"
                       >
                         <Icon
                           icon="solar:menu-dots-bold"
                           className="h-[1.25rem] w-[1.25rem]"
                         />
                       </button>
+
+                      {/* Dynamic Status-Based Dropdown Overlay */}
+                      {isMenuOpen && (
+                        <div
+                          ref={dropdownRef}
+                          className="absolute right-4 top-[80%] z-30 min-w-[140px] rounded-xl bg-white p-2 shadow-xl border border-gray-100 flex flex-col gap-1 animate-in fade-in slide-in-from-top-1 duration-100"
+                          onClick={(e) => e.stopPropagation()} // Keep dropdown open when items are clicked
+                        >
+                          {currentStatus === 'Deleted' && (
+                            <button
+                              onClick={() => handleAction('restore', row.slug)}
+                              className="flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-100/80 transition w-full"
+                            >
+                              <Icon icon="solar:restart-bold" className="h-4 w-4" />
+                              Restore
+                            </button>
+                          )}
+                          {/* Options for Cancelled Status */}
+                          {currentStatus === 'Cancelled' && (
+                            <button
+                              onClick={() => handleAction('delete', row.slug)}
+                              className="flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-100/80 transition w-full"
+                            >
+                              <Icon icon="solar:trash-bin-trash-bold" className="h-4 w-4" />
+                              Delete
+                            </button>
+                          )}
+
+                          {/* Options for Approved Status */}
+                          {currentStatus === 'Approved' && (
+                            <button
+                              onClick={() => handleAction('delete', row.slug)}
+                              className="flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-100/80 transition w-full"
+                            >
+                              <Icon icon="solar:trash-bin-trash-bold" className="h-4 w-4" />
+                              Delete
+                            </button>
+                          )}
+
+                          {/* Options for Pending Status */}
+                          {currentStatus === 'Pending' && (
+                            <>
+                              <button
+                                onClick={() => handleAction('approve', row.slug)}
+                                className="flex items-center gap-2 rounded-lg bg-green-50 px-3 py-2 text-sm font-medium text-green-600 hover:bg-green-100/80 transition w-full"
+                              >
+                                <Icon icon="solar:check-circle-bold" className="h-4 w-4" />
+                                Approve
+                              </button>
+                              <button
+                                onClick={() => handleAction('cancel', row.slug)}
+                                className="flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-100/80 transition w-full"
+                              >
+                                <Icon icon="solar:close-circle-bold" className="h-4 w-4" />
+                                Cancel
+                              </button>
+                            </>
+                          )}
+                        </div>
+                      )}
                     </td>
                   );
                 }

@@ -11,6 +11,13 @@ const urbanist = Urbanist({
 export const metadata: Metadata = {
   title: "KAAS",
   description: "Heavy haul and pilot cars.",
+  icons: {
+    icon: [
+      { url: '/logo.png' },
+      { url: '/logo.png', sizes: '192x192', type: 'image/png' },
+      { url: '/logo.png', sizes: '512x512', type: 'image/png' },
+    ],
+  }
 };
 
 export default function RootLayout({

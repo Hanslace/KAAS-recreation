@@ -1,3 +1,4 @@
+import AttachmentImage from "@/components/ui/AttachmentImage";
 import BackButton from "@/components/ui/BackButton";
 import data from "@/data/data.json"
 import { Icon } from "@iconify/react";
@@ -75,7 +76,7 @@ export default async function BookingDetailPage({ params }: BookingDetailPagePro
   return (
     <div>
       <BackButton href="/bookings"> Details</BackButton>
-      <div className=" xl:h-[calc(80vh-11rem)] rounded-2xl mt-[1rem]  items-center xl:items-stretch p-[1.25rem] gap-[2rem] xl:w-full h-full shadow-lg flex flex-col xl:flex-row">
+      <div className="  rounded-2xl mt-[1rem]  items-center xl:items-stretch p-[1.25rem] gap-[2rem] w-full shadow-lg flex flex-col xl:flex-row">
         <div className="w-[25rem] max-w-full aspect-square overflow-hidden items-center rounded-2xl">
           <img
             src={booking.imageUrl}
@@ -215,11 +216,10 @@ export default async function BookingDetailPage({ params }: BookingDetailPagePro
 
             <div className="flex flex-wrap gap-5">
               {booking.permitImages.map((permit, index) => (
-                <img
+                <AttachmentImage
                   key={index}
                   src={permit}
                   alt={`Permit ${index + 1}`}
-                  className="h-24 w-24 rounded-2xl object-cover shadow-lg shadow-black/10"
                 />
               ))}
             </div>
