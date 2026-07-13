@@ -1,6 +1,4 @@
-'use client';
-
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 import type {
   ComponentPropsWithoutRef,
   MouseEvent,
@@ -14,15 +12,16 @@ type CommonProps = {
   disabled?: boolean;
 };
 
+// ✅ Updated to explicitly use 'to' instead of Next.js 'href'
 type LinkButtonProps = CommonProps & {
-  href: string;
+  to: string; 
 } & Omit<
     ComponentPropsWithoutRef<typeof Link>,
-    'href' | 'children' | 'className'
+    'to' | 'children' | 'className'
   >;
 
 type NativeButtonProps = CommonProps & {
-  href?: never;
+  to?: never;
 } & Omit<
     ComponentPropsWithoutRef<'button'>,
     'children' | 'className' | 'disabled'
@@ -34,9 +33,10 @@ export default function BrandButton(props: BrandButtonProps) {
   const baseStyles =
     'flex h-[3.25rem] items-center justify-center rounded-xl bg-brand-gradient px-6 text-[0.95rem] font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0';
 
-  if ('href' in props && typeof props.href === 'string') {
+  // ✅ Check for 'to' instead of Next.js 'href'
+  if ('to' in props && typeof props.to === 'string') {
     const {
-      href,
+      to,
       children,
       className,
       disabled,
@@ -57,9 +57,8 @@ export default function BrandButton(props: BrandButtonProps) {
 
     return (
       <Link
-        
         {...linkProps}
-        to={href}
+        to={to} // ✅ Keep 'to' placed AFTER the spread to prevent typescript syntax overwrites
         onClick={handleClick}
         aria-disabled={disabled}
         tabIndex={disabled ? -1 : linkProps.tabIndex}
