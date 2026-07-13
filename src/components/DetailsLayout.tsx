@@ -38,7 +38,7 @@ export default function DetailsLayout({
 
   const headingId = `${slugName}-personal-info`;
 
-  const handleReasonSubmit = async (reason: string) => {
+  const handleReasonSubmit = async () => {
 
 
     setReasonAction(null);

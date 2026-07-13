@@ -1,4 +1,3 @@
-import { Link } from "react-router"; // or 'react-router-dom'
 import { Icon } from "@iconify/react";
 
 interface NotFoundProps {

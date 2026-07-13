@@ -19,7 +19,6 @@ type ToolbarButtonProps = {
 
 function ToolbarButton({
   children,
-  active = false,
   disabled = false,
   onClick,
 }: ToolbarButtonProps) {

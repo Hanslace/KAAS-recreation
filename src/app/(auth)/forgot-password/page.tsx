@@ -38,7 +38,7 @@ export default function Page() {
   });
 
   // 3. Define the submission handler function
-  const onSubmit: SubmitHandler<ForgotPasswordFormValues> = async (data) => {
+  const onSubmit: SubmitHandler<ForgotPasswordFormValues> = async () => {
     try {
       // Perform your API logic / Auth trigger here
       navigate(`/forgot-password/otp`);

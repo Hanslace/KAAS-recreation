@@ -1,6 +1,3 @@
-'use client';
-
-import React from 'react';
 import BackButton from '@/components/ui/BackButton';
 
 type NotificationItem = {

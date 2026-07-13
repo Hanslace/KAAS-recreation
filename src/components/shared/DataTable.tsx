@@ -4,8 +4,7 @@ import { Icon } from '@iconify/react';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router';
 
-type ColumnType = 'text' | 'imageText' | 'status' | 'action' | 'empty';
-type RowStatus = 'Cancelled' | 'Approved' | 'Pending' | 'Deleted';
+
 
 export type DataTableColumn<T> =
   | {

@@ -13,7 +13,7 @@ export default function Page() {
       </h2>
 
       <div className="flex ml-auto w-fit gap-5">
-            <BrandButton href="/subscriptions/earning" >
+            <BrandButton to="/subscriptions/earning" >
               Subscription Earning
             </BrandButton>
       </div>
