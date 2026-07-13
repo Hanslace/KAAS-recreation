@@ -77,7 +77,7 @@ export default function DetailsLayout({
 
             {manager && (
               <BrandButton
-                href={`/pilot-car-management/managers/${slugName}/escorts`}
+                to={`/pilot-car-management/managers/${slugName}/escorts`}
                 className="bg-black"
               >
                 View Escorts
