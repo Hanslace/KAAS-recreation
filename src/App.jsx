@@ -1,55 +1,55 @@
 import { Navigate, Route, Routes } from "react-router";
 
 // Auth layout and pages
-import AuthLayout from "@/app/(auth)/layout.tsx";
-import LoginPage from "@/app/(auth)/login/page.tsx";
-import ForgotPasswordPage from "@/app/(auth)/forgot-password/page.tsx";
-import ForgotPasswordOtpPage from "@/app/(auth)/forgot-password/otp/page.tsx";
-import ResetPasswordPage from "@/app/(auth)/forgot-password/reset/page.tsx";
+import AuthLayout from "@/app/(auth)/layout.jsx";
+import LoginPage from "@/app/(auth)/login/page.jsx";
+import ForgotPasswordPage from "@/app/(auth)/forgot-password/page.jsx";
+import ForgotPasswordOtpPage from "@/app/(auth)/forgot-password/otp/page.jsx";
+import ResetPasswordPage from "@/app/(auth)/forgot-password/reset/page.jsx";
 
 // Protected layout
-import ProtectedLayout from "@/app/(protected)/layout.tsx";
+import ProtectedLayout from "@/app/(protected)/layout.jsx";
 
 // Dashboard
-import DashboardPage from "@/app/(protected)/dashboard/page.tsx";
+import DashboardPage from "@/app/(protected)/dashboard/page.jsx";
 
 // Bookings
-import BookingsPage from "@/app/(protected)/bookings/page.tsx";
-import BookingDetailsPage from "@/app/(protected)/bookings/[slug]/page.tsx";
+import BookingsPage from "@/app/(protected)/bookings/page.jsx";
+import BookingDetailsPage from "@/app/(protected)/bookings/[slug]/page.jsx";
 
 // Carrier management
-import CarrierManagementPage from "@/app/(protected)/carrier-management/page.tsx";
-import CarrierDetailsPage from "@/app/(protected)/carrier-management/CarrierDetailsPage.tsx";
-import TruckDetailsPage from "@/app/(protected)/carrier-management/TruckDetailsPage.tsx";
+import CarrierManagementPage from "@/app/(protected)/carrier-management/page.jsx";
+import CarrierDetailsPage from "@/app/(protected)/carrier-management/CarrierDetailsPage.jsx";
+import TruckDetailsPage from "@/app/(protected)/carrier-management/TruckDetailsPage.jsx";
 
 // Notifications
-import NotificationsPage from "@/app/(protected)/notifications/page.tsx";
+import NotificationsPage from "@/app/(protected)/notifications/page.jsx";
 
 // Pilot car management
-import CompanyDriversPage from "@/app/(protected)/pilot-car-management/company-drivers/page.tsx";
-import CompanyDriverDetailsPage from "@/app/(protected)/pilot-car-management/company-drivers/[driverid]/page.tsx";
-import IndividualDriversPage from "@/app/(protected)/pilot-car-management/individual-drivers/page.tsx";
-import IndividualDriverDetailsPage from "@/app/(protected)/pilot-car-management/individual-drivers/[driverid]/page.tsx";
-import ManagersPage from "@/app/(protected)/pilot-car-management/managers/page.tsx";
-import ManagerDetailsPage from "@/app/(protected)/pilot-car-management/managers/[managerid]/page.tsx";
-import ManagerEscortsPage from "@/app/(protected)/pilot-car-management/managers/[managerid]/escorts/page.tsx";
-import ManagerEscortDetailsPage from "@/app/(protected)/pilot-car-management/managers/[managerid]/escorts/[escortid]/page.tsx";
+import CompanyDriversPage from "@/app/(protected)/pilot-car-management/company-drivers/page.jsx";
+import CompanyDriverDetailsPage from "@/app/(protected)/pilot-car-management/company-drivers/[driverid]/page.jsx";
+import IndividualDriversPage from "@/app/(protected)/pilot-car-management/individual-drivers/page.jsx";
+import IndividualDriverDetailsPage from "@/app/(protected)/pilot-car-management/individual-drivers/[driverid]/page.jsx";
+import ManagersPage from "@/app/(protected)/pilot-car-management/managers/page.jsx";
+import ManagerDetailsPage from "@/app/(protected)/pilot-car-management/managers/[managerid]/page.jsx";
+import ManagerEscortsPage from "@/app/(protected)/pilot-car-management/managers/[managerid]/escorts/page.jsx";
+import ManagerEscortDetailsPage from "@/app/(protected)/pilot-car-management/managers/[managerid]/escorts/[escortid]/page.jsx";
 
 // Settings
-import SettingsPage from "@/app/(protected)/settings/page.tsx";
-import SettingsContentPage from "@/app/(protected)/settings/[slug]/page.tsx";
-import ChangePasswordPage from "@/app/(protected)/settings/change-password/page.tsx";
-import DeletedAccountsPage from "@/app/(protected)/settings/deleted-accounts/page.tsx";
-import DeletedAccountDetailsPage from "@/app/(protected)/settings/deleted-accounts/[slug]/page.tsx";
+import SettingsPage from "@/app/(protected)/settings/page.jsx";
+import SettingsContentPage from "@/app/(protected)/settings/[slug]/page.jsx";
+import ChangePasswordPage from "@/app/(protected)/settings/change-password/page.jsx";
+import DeletedAccountsPage from "@/app/(protected)/settings/deleted-accounts/page.jsx";
+import DeletedAccountDetailsPage from "@/app/(protected)/settings/deleted-accounts/[slug]/page.jsx";
 
 // Subscriptions
-import SubscriptionsPage from "@/app/(protected)/subscriptions/page.tsx";
-import SubscriptionDetailsPage from "@/app/(protected)/subscriptions/[slug]/page.tsx";
-import SubscriptionEarningPage from "@/app/(protected)/subscriptions/earning/page.tsx";
+import SubscriptionsPage from "@/app/(protected)/subscriptions/page.jsx";
+import SubscriptionDetailsPage from "@/app/(protected)/subscriptions/[slug]/page.jsx";
+import SubscriptionEarningPage from "@/app/(protected)/subscriptions/earning/page.jsx";
 
 // Support
-import SupportPage from "@/app/(protected)/support/page.tsx";
-import SupportDetailsPage from "@/app/(protected)/support/[slug]/page.tsx";
+import SupportPage from "@/app/(protected)/support/page.jsx";
+import SupportDetailsPage from "@/app/(protected)/support/[slug]/page.jsx";
 
 function NotFoundPage() {
   return (

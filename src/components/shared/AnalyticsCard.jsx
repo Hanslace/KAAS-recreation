@@ -1,22 +1,13 @@
 import { Icon } from '@iconify/react';
 
-interface AnalyticsCardProps {
-  /** The background color class for the outer card container (e.g., 'bg-[#C2A371]' or 'bg-amber-500') */
-  backgroundColor: string;
-  /** The full Iconify token string for the icon (e.g., 'solar:bus-linear') */
-  iconName: string;
-  /** The large primary value or metric display text (e.g., '512') */
-  value: string | number;
-  /** The descriptive text below the main value metric (e.g., 'Total Pilot Cars') */
-  label: string;
-}
+
 
 export default function AnalyticsCard({ 
   backgroundColor, 
   iconName, 
   value, 
   label 
-}: AnalyticsCardProps) {
+}) {
   return (
     <div 
       className={`flex flex-col sm:flex-row items-center gap-5 p-[1rem] xl:p-[1.5rem] rounded-xl text-white w-full ${backgroundColor}`}
