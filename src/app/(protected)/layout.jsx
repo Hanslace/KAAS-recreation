@@ -8,7 +8,6 @@ import { Outlet } from 'react-router';
 
 
 
-
 export default function Layout() {
   const pathname = useLocation().pathname;
   const navigate = useNavigate();
@@ -75,23 +74,40 @@ export default function Layout() {
         />
       )}
 
-      <aside className={`w-[2vw]
-        fixed inset-y-0 left-0 z-50 flex flex-col h-full bg-black transition-transform duration-300 text-white ease-in-out p-[1.5rem] xl:p-[2rem] gap-5
-        w-fit   lg:static lg:translate-x-0
-        ${isOpen ? 'translate-x-0' : '-translate-x-full'}
-      `}>
+      <aside
+        className={`
+          fixed inset-y-0 left-0 z-50
+          flex h-full w-max max-w-[85vw] flex-col
+          gap-7 overflow-x-hidden
+          bg-black p-[1.25rem] text-white
+          transition-transform duration-300 ease-in-out
+
+          lg:static lg:max-w-none lg:translate-x-0
+
+          ${isOpen ? 'translate-x-0' : '-translate-x-full'}
+        `}
+      >
           
           {/* KAAS Branding Header Logo Area */}
     
-          <img
-            src="/logo.png"
-            alt="Logo"
-            className=" aspect-[9/5] px-5 object-contain transition-transform duration-300 group-hover:scale-105 "
-          />
+          {/* Logo does not control the sidebar width */}
+          <div className="relative h-[9rem] w-full shrink-0">
+            <img
+              src="/logo.png"
+              alt="KAAS Logo"
+              className="absolute px-2 inset-0 h-full w-full object-contain"
+            />
+          </div>
 
           {/* Scrollable Container for Navigation Menu Links */}
-          <div className='flex flex-col  py-10 flex-1  overflow-y-auto min-h-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
-            <nav className="space-y-1.5 ">
+          <div className="
+            flex min-h-0 flex-1 flex-col
+            overflow-y-auto
+            [&::-webkit-scrollbar]:hidden
+            [-ms-overflow-style:none]
+            [scrollbar-width:none]
+          ">
+            <nav className="w-max space-y-1.5">
               {sidebarLinks.map((link) => {
                 const isSubmenuActive = link.submenuItems?.some((sub) =>
                   isPathActive(sub.href)
@@ -113,18 +129,24 @@ export default function Layout() {
                           setIsOpen(false); // Close menu on link click (mobile)
                         }
                       }}
-                      className={`group w-full flex items-center justify-between p-3 px-5 rounded-md text-[0.8rem] lg:text-[0.6rem] xl:text-[0.8rem] 2xl:text-[1.1rem] font-medium transition-all duration-150 ease-in-out
-                        ${isActive ? 'bg-brand-gradient font-semibold' : 'hover:bg-zinc-900'}`}
+                      className={`group flex w-full min-w-max items-center justify-between
+                        whitespace-nowrap rounded-sm px-3 py-2
+                        text-[0.775rem] transition-all duration-150 ease-in-out
+                        ${isActive
+                          ? 'bg-brand-gradient font-semibold'
+                          : 'hover:bg-zinc-900'
+                        }
+                      `}
                     >
                       <div className="flex items-center overflow-hidden gap-3">
-                        <Icon icon={link.icon} className="w-5 h-5" />
+                        <Icon icon={link.icon} className="w-4 h-4" />
                         <span>{link.name}</span>
                       </div>
                       
                       {link.hasSubmenu && (
                         <Icon 
                           icon="solar:alt-arrow-right-linear" 
-                          className={`w-5 h-5 transition-transform duration-200 ${isExpanded ? 'rotate-90' : ''}`} 
+                          className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-90' : ''}`} 
                         />
                       )}
                     </Link>
@@ -139,10 +161,13 @@ export default function Layout() {
                               key={subItem.name}
                               to={subItem.href}
                               onClick={() => setIsOpen(false)}
-                              className={`w-full p-2.5 px-4 rounded-md text-[0.7rem] lg:text-[0.8rem] font-medium transition-colors text-left
-                                ${isSubActive 
-                                  ? ' bg-brand/40 font-semibold' 
-                                  : ' hover:text-gray'}`}
+                              className={`w-full min-w-max whitespace-nowrap rounded-md
+                                px-4 py-2.5 text-left text-[0.8rem] transition-colors
+                                ${isSubActive
+                                  ? 'bg-brand/40 font-semibold'
+                                  : 'hover:text-gray'
+                                }
+                              `}
                             >
                               {subItem.name}
                             </Link>
@@ -161,9 +186,9 @@ export default function Layout() {
               <button
                 type="button"
                 onClick={() => setLogoutModalOpen(true)}
-                className="w-fit p-3 px-5 inline-flex items-center justify-center gap-2 rounded-md bg-brand-gradient text-sub-text font-medium"
+                className="w-fit py-1.5 px-4 inline-flex items-center justify-center gap-1 rounded-sm bg-brand-gradient text-[0.775rem]"
               >
-                <Icon icon="majesticons:logout-half-circle" className="w-5 h-5" />
+                <Icon icon="majesticons:logout-half-circle" className="w-4 h-4" />
                 Logout
               </button>
             </div>
@@ -177,7 +202,7 @@ export default function Layout() {
       <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
         
         {/* TOP NAVBAR */}
-         <header className="h-auto min-h-max gap-6 overflow-hidden bg-white flex items-center justify-between p-[1.5rem] lg:px-[2.5rem] lg:py-[2rem] relative after:absolute after:bottom-0 after:left-10 after:w-[calc(100%-80px)] after:h-[3px] after:bg-gray-100">
+         <header className="h-auto min-h-max gap-6 overflow-hidden bg-white flex items-center justify-between px-[1.5rem] py-[1rem] relative after:absolute after:bottom-0 after:left-10 after:w-[calc(100%-80px)] after:h-[3px] after:bg-gray-100">
           
           {/* Greeting Segment + Mobile Trigger Burger Icon */}
           <div className="flex items-center gap-4">
@@ -189,39 +214,30 @@ export default function Layout() {
             >
               <Icon icon="solar:hamburger-menu-linear" className="w-8 h-8" />
             </button>
-            <div className="flex flex-col lg:hidden items-center justify-center ">
-              <img
-                src="/logo.png"
-                alt="Kaas Logo"
-                width={520}
-                height={220}
-                fetchPriority='high'
-                className="h-auto w-full max-w-[10rem] object-contain"
-              />
-          </div>
 
-            <h1 className="text-[1.5rem] min-[59.375rem]:text-[2rem] min-[67.5rem]:text-[2.5rem] min-[71.875rem]:text-[3rem]  font-bold text-black tracking-tight hidden md:block">
+
+            <h1 className="text-[2.5rem]  font-bold text-black tracking-tight ">
               Welcome Back, Admin!
             </h1>
           </div>
 
           {/* User Interface Context Blocks (Notification & Profile) */}
-          <div className="flex items-center gap-6 lg:gap-10">
+          <div className="flex items-center gap-6 ">
             
             <Link
               to="/notifications"
-              className="p-2.5 rounded-xl bg-brand/20 text-brand hover:bg-orange-50 transition-colors focus:outline-none inline-flex items-center justify-center"
+              className="p-1.5 rounded-sm bg-brand/20 text-brand hover:bg-orange-50 transition-colors focus:outline-none inline-flex items-center justify-center"
               aria-label="View notifications"
             >
-              <Icon icon="solar:bell-bing-bold-duotone" className="w-6 h-6" />
+              <Icon icon="solar:bell-bing-bold-duotone" className="w-4 h-4" />
             </Link>
 
             {/* Profile Avatar Card Wrapper */}
-            <div className="flex items-center gap-3 min-h-16 min-w-16 text-[1rem] 2xl:text-[1.5rem] rounded-xl">
+            <div className="flex items-center gap-1 min-h-8 min-w-8 text-[0.8rem] rounded-xl">
               <img 
                 src="https://images.unsplash.com/photo-1783095627526-25c08072893f?w=900&auto=format&fit=crop&q=60" 
                 alt="Admin Profile Avatar" 
-                className="w-11 md:w-16 h-auto aspect-square rounded-xl object-cover border border-gray-200 shadow-sm"
+                className="w-10 h-auto aspect-square rounded-sm object-cover border border-gray-200 shadow-sm"
               />
               <div className="hidden md:flex flex-col text-left min-w-0 max-w-[12rem]">
                 <span className="font-bold text-gray-900 leading-tight truncate">
@@ -240,7 +256,7 @@ export default function Layout() {
      
 
         {/* PRIMARY VIEW CONTENT VIEWPORT SLOT */}
-        <main className="overflow-y-auto p-[2.5rem] custom-scrollbar">
+        <main className="overflow-y-auto p-[1.5rem] custom-scrollbar">
           
           
           <Outlet/>
@@ -257,6 +273,8 @@ export default function Layout() {
         onCancel={() => setLogoutModalOpen(false)}
         onConfirm={handleLogoutConfirm}
       />
+
+      
     </div>
   );
 }

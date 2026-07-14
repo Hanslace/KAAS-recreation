@@ -12,7 +12,7 @@ export default function FiltersHeader({
   return (
     <div className="flex flex-col items-center gap-4 lg:gap-10 lg:flex-row lg:items-center lg:justify-between w-full bg-white rounded-md">
       {/* Filter tabs */}
-      <div className="flex flex-wrap lg:flex-nowrap items-center gap-2 pb-1">
+      <div className="flex w-full overflow-x-auto custom-scrollbar items-center gap-2 pb-1">
         {options.map((option) => {
           const isActive = activeTabId === option.id;
 
