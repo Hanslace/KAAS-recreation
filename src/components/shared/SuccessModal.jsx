@@ -1,10 +1,4 @@
-type SuccessModalProps = {
-  open: boolean;
-  onDone: () => void;
-  title?: string;
-  description?: string;
-  buttonText?: string;
-};
+
 
 export default function SuccessModal({
   open,
@@ -12,7 +6,7 @@ export default function SuccessModal({
   title = 'Successfully!',
   description = 'Your password has been updated successfully.',
   buttonText = 'Done',
-}: SuccessModalProps) {
+}) {
   if (!open) return null;
 
   return (

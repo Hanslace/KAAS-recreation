@@ -4,24 +4,15 @@ import StarterKit from "@tiptap/starter-kit";
 
 import BackButton from "@/components/ui/BackButton";
 
-type SettingsContentEditorProps = {
-  slug: string;
-  title: string;
-  initialContent: string;
-};
 
-type ToolbarButtonProps = {
-  children: React.ReactNode;
-  active?: boolean;
-  disabled?: boolean;
-  onClick: () => void;
-};
+
+
 
 function ToolbarButton({
   children,
   disabled = false,
   onClick,
-}: ToolbarButtonProps) {
+}) {
   return (
     <button
       type="button"
@@ -38,7 +29,7 @@ export default function SettingsContentEditor({
   slug,
   title,
   initialContent,
-}: SettingsContentEditorProps) {
+}) {
   const [isEditing, setIsEditing] = useState(false);
   const [savedContent, setSavedContent] = useState(initialContent);
   const [isSaving, setIsSaving] = useState(false);

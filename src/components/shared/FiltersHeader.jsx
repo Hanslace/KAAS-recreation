@@ -1,31 +1,6 @@
 
 import SearchBar from '../ui/SearchBar';
 
-interface FilterOption {
-  id: string;
-  label: string;
-}
-
-interface FiltersHeaderProps {
-  /** Array of filter options containing a unique id string and display label string */
-  options: FilterOption[];
-
-  /** Current active selection ID matching an option id string token */
-  activeTabId: string;
-
-  /** State callback handler triggered when a tab is clicked */
-  onTabChange: (id: string) => void;
-
-  /** Current textual value inside the search input element */
-  searchValue: string;
-
-  /** State callback handler triggered when user changes input text entry */
-  onSearchChange: (value: string) => void;
-
-  /** Custom optional placeholder override configuration for the text field */
-  searchPlaceholder?: string;
-}
-
 export default function FiltersHeader({
   options,
   activeTabId,
@@ -33,7 +8,7 @@ export default function FiltersHeader({
   searchValue,
   onSearchChange,
   searchPlaceholder = 'Search here',
-}: FiltersHeaderProps) {
+}) {
   return (
     <div className="flex flex-col items-center gap-4 lg:gap-10 lg:flex-row lg:items-center lg:justify-between w-full bg-white rounded-md">
       {/* Filter tabs */}

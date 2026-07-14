@@ -53,9 +53,7 @@ const supportTickets = [
 
 
 export default async function SupportDetailsPage() {
-  const { slug } = useParams<{
-    slug: string;
-  }>();
+  const { slug } = useParams();
 
   const ticket = supportTickets.find((item) => item.slug === slug);
 

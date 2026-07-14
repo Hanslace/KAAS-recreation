@@ -2,13 +2,9 @@ import NotFound from "@/components/ui/NotFound";
 import SettingsContentEditor from "./_components/SettingsContentEditor";
 import { useParams } from "react-router";
 
-type SettingsContentPage = {
-  slug: string;
-  title: string;
-  content: string[];
-};
 
-const pages: SettingsContentPage[] = [
+
+const pages = [
   {
     slug: "privacy-policy",
     title: "Privacy Policy",
@@ -47,9 +43,7 @@ export function generateStaticParams() {
 }
 
 export default async function SettingsContentPage() {
-  const { slug } = useParams<{
-    slug: string;
-  }>();
+  const { slug } = useParams();
 
   const page = pages.find((item) => item.slug === slug);
 

@@ -10,7 +10,7 @@ import NotFound from '@/components/ui/NotFound';
 
 
 export default async function Page() {
-  const { driverid } = useParams<{ driverid: string }>();
+  const { driverid } = useParams();
   
   const currentDriver = drivers.tableData.find(
     (item) => item.slug === driverid

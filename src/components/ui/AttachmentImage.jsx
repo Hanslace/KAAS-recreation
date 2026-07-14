@@ -2,12 +2,9 @@
 
 import { useState } from 'react';
 
-interface AttachmentImageProps {
-  src: string;
-  alt: string;
-}
 
-export default function AttachmentImage({ src, alt }: AttachmentImageProps) {
+
+export default function AttachmentImage({ src, alt }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

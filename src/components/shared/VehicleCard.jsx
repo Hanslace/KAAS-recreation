@@ -2,30 +2,10 @@ import { ReactNode } from 'react';
 import { Link } from 'react-router';
 import { twMerge } from 'tailwind-merge';
 
-interface BaseVehicleCardData {
-  slug: string;
-  name: string;
-  imageUrl: string;
-}
 
-type ReservedVehicleKeys = keyof BaseVehicleCardData | 'id';
 
-export interface VehicleCardField<
-  T extends BaseVehicleCardData = BaseVehicleCardData,
-> {
-  label: string;
-  accessKey: Exclude<keyof T, ReservedVehicleKeys>;
-  render?: (value: T[keyof T], vehicle: T) => ReactNode;
-}
 
-interface VehicleCardProps<T extends BaseVehicleCardData> {
-  vehicle: T;
-  basePath: string;
-  fields: VehicleCardField<T>[];
-  className?: string;
-}
-
-function displayValue(value: unknown): ReactNode {
+function displayValue(value) {
   if (value === null || value === undefined || value === '') {
     return 'N/A';
   }
@@ -41,12 +21,12 @@ function displayValue(value: unknown): ReactNode {
   return 'N/A';
 }
 
-export default function VehicleCard<T extends BaseVehicleCardData>({
+export default function VehicleCard({
   vehicle,
   basePath,
   fields,
   className = '',
-}: VehicleCardProps<T>) {
+}) {
   const cleanBasePath =
     basePath.length > 1 && basePath.endsWith('/')
       ? basePath.slice(0, -1)

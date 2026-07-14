@@ -2,16 +2,7 @@
 
 import BrandButton from '@/components/ui/BrandButton';
 
-interface PlanCardProps {
-  title: string;
-  billingPeriod: string;
-  price: string | number;
-  description: string;
-  features: string[];
-  href: string;
-  buttonText?: string;
-  disabled?: boolean;
-}
+
 
 export default function PlanCard({
   title,
@@ -22,7 +13,7 @@ export default function PlanCard({
   href,
   buttonText = 'Edit Now',
   disabled = false,
-}: PlanCardProps) {
+}) {
   return (
     <div className="w-full rounded-[1.25rem] bg-white px-6 py-7 shadow-[0_12px_28px_rgba(0,0,0,0.12)] sm:px-8">
       {/* Top section */}

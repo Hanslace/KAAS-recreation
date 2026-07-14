@@ -2,14 +2,7 @@
 
 import { FormEvent, useEffect, useState } from 'react';
 
-type ReasonModalProps = {
-  open: boolean;
-  onClose: () => void;
-  onSubmit: (reason: string) => void | Promise<void>;
-  title?: string;
-  placeholder?: string;
-  buttonText?: string;
-};
+
 
 export default function ReasonModal({
   open,
@@ -18,7 +11,7 @@ export default function ReasonModal({
   title = 'Reason',
   placeholder = 'Write your reason',
   buttonText = 'Submit',
-}: ReasonModalProps) {
+}) {
   const [reason, setReason] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -31,7 +24,7 @@ export default function ReasonModal({
 
   if (!open) return null;
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const trimmedReason = reason.trim();

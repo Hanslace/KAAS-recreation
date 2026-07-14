@@ -1,10 +1,8 @@
 'use client';
 
 import ListPage from '@/components/ListPage';
-import { DataTableColumn } from '@/components/shared/DataTable';
 import data from '@/data/carriers.json';
 
-type CarrierRow = (typeof data.tableData)[number];
 
 const columns = [
   {
@@ -48,7 +46,7 @@ const columns = [
     label: 'Action',
     type: 'action',
   },
-] as const satisfies readonly DataTableColumn<CarrierRow>[];
+];
 
 export default function Page() {
   return (

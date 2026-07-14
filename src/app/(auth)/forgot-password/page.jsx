@@ -1,7 +1,7 @@
 'use client'
 
 
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
@@ -22,7 +22,6 @@ const forgotPasswordSchema = z.object({
 });
 
 // Infer the Form Type from the schema
-type ForgotPasswordFormValues = z.infer<typeof forgotPasswordSchema>;
 
 
 export default function Page() {
@@ -32,13 +31,13 @@ export default function Page() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isValid },
-  } = useForm<ForgotPasswordFormValues>({
+  } = useForm({
     resolver: zodResolver(forgotPasswordSchema),
     mode: "onChange", // Validates on every keystroke to toggle AuthButton 'disabled' state properly
   });
 
   // 3. Define the submission handler function
-  const onSubmit: SubmitHandler<ForgotPasswordFormValues> = async () => {
+  const onSubmit = async () => {
     try {
       // Perform your API logic / Auth trigger here
       navigate(`/forgot-password/otp`);

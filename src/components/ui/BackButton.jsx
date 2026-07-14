@@ -4,13 +4,9 @@ import React from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Link, useNavigate } from 'react-router';
 
-interface BackButtonProps {
-  href?: string;
-  children?: React.ReactNode;
-  className?: string;
-}
 
-export const BackButton: React.FC<BackButtonProps> = ({
+
+export const BackButton= ({
   href,
   children = 'Back',
   className = '',

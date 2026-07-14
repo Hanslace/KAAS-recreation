@@ -1,25 +1,13 @@
 import { Icon } from '@iconify/react';
 
-interface SearchBarProps {
-  /** Current textual value inside the search input element */
-  value: string;
 
-  /** State callback handler triggered when user changes input text entry */
-  onChange: (value: string) => void;
-
-  /** Custom optional placeholder override configuration for the text field */
-  placeholder?: string;
-
-  /** Optional additional classes for the outer container */
-  className?: string;
-}
 
 export default function SearchBar({
   value,
   onChange,
   placeholder = 'Search here',
   className = '',
-}: SearchBarProps) {
+}) {
   return (
     <div
       className={`relative w-full lg:max-w-[18rem] xl:max-w-[25rem] shrink-0 ${className}`}

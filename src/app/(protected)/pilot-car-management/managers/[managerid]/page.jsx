@@ -6,9 +6,7 @@ import { useParams } from 'react-router';
 
 
 export default async function Page() {
-  const { managerid } = useParams<{
-    managerid: string;
-  }>();
+  const { managerid } = useParams();
 
   const currentManager =
     managerData.tableData.find(

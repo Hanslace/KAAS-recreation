@@ -1,6 +1,3 @@
-import  {
-  VehicleCardField,
-} from '@/components/shared/VehicleCard';
 import BookingsGrid from '@/components/shared/BookingsGrid';
 import InfoGrid from '@/components/shared/InfoGrid';
 import DetailsLayout from '@/components/DetailsLayout';
@@ -11,10 +8,9 @@ import bookings from '@/data/data.json';
 import carrierData from '@/data/carriers.json';
 import VehicleGrid from './shared/VehicleGrid';
 
-type Carrier = (typeof carrierData.tableData)[number];
-type Truck = (typeof vehicles)[number];
 
-const truckFields: VehicleCardField<Truck>[] = [
+
+const truckFields = [
   {
     label: 'MC Number',
     accessKey: 'mcNumber',
@@ -29,13 +25,11 @@ const truckFields: VehicleCardField<Truck>[] = [
   },
 ];
 
-interface CarrierDetailsContentProps {
-  currentCarrier: Carrier;
-}
+
 
 export default function CarrierDetailsContent({
   currentCarrier,
-}: CarrierDetailsContentProps) {
+}) {
   const status = currentCarrier.status;
 
   return (

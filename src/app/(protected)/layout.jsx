@@ -48,7 +48,7 @@ export default function Layout() {
     { name: 'Settings', href: '/settings', icon: 'material-symbols:settings', hasSubmenu: false },
   ];
 
-  const isPathActive = (href: string) => {
+  const isPathActive = (href) => {
     const cleanHref = href.replace(/\/$/, '') || '/';
     const cleanPathname = pathname.replace(/\/$/, '') || '/';
 

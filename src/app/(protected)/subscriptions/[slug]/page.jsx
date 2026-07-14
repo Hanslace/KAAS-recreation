@@ -11,7 +11,7 @@ import { useNavigate, useParams } from 'react-router';
 
 export default function EditSubscriptionPage() {
   const navigate = useNavigate();
-  const params = useParams<{ slug: string }>();
+  const params = useParams();
   const slug = params.slug;
 
   const currentSubscription = subscriptionData.subscriptions.find(
@@ -26,14 +26,14 @@ export default function EditSubscriptionPage() {
   const [description, setDescription] = useState(
     currentSubscription?.description ?? ''
   );
-  const [points, setPoints] = useState<string[]>(
+  const [points, setPoints] = useState(
     currentSubscription?.features ?? []
   );
 
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handlePointChange = (index: number, value: string) => {
+  const handlePointChange = (index, value) => {
     setPoints((currentPoints) =>
       currentPoints.map((point, pointIndex) =>
         pointIndex === index ? value : point
@@ -45,13 +45,13 @@ export default function EditSubscriptionPage() {
     setPoints((currentPoints) => [...currentPoints, '']);
   };
 
-  const handleRemovePoint = (index: number) => {
+  const handleRemovePoint = (index) => {
     setPoints((currentPoints) =>
       currentPoints.filter((_, pointIndex) => pointIndex !== index)
     );
   };
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {

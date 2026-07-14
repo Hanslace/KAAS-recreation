@@ -1,14 +1,7 @@
 import BackButton from '@/components/ui/BackButton';
 
-type NotificationItem = {
-  id: number;
-  title: string;
-  description: string;
-  dateTime: string;
-  day: string;
-};
 
-const notifications: NotificationItem[] = [
+const notifications= [
   {
     id: 1,
     title: 'Booking Requests Accepted',

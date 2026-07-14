@@ -4,18 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Icon } from '@iconify/react';
 import { twMerge } from 'tailwind-merge';
 
-export interface FilterItem {
-  id: string;
-  label: string;
-}
 
-interface DropdownProps {
-  filters: FilterItem[];
-  activeFilter: string;
-  onFilterChange: (id: string) => void;
-  labelText?: string;
-  className?: string;
-}
 
 export default function Dropdown({
   filters,
@@ -23,14 +12,14 @@ export default function Dropdown({
   onFilterChange,
   labelText = "Sort By:",
   className = ""
-}: DropdownProps) {
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown when clicking anywhere outside
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
       }
     }

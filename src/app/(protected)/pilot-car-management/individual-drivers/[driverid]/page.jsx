@@ -12,7 +12,7 @@ import NotFound from '@/components/ui/NotFound';
 // Assuming VehicleCard is stored here
 
 export default async function Page() {
-  const { driverid } = useParams<{ driverid: string }>();
+  const { driverid } = useParams();
   
   const currentDriver = drivers.tableData.find(
     (item) => item.slug === driverid

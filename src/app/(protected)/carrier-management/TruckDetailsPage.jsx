@@ -9,7 +9,7 @@ import NotFound from "@/components/ui/NotFound";
 
 export default async function Page() {
 
-  const { truckid } = useParams<{ truckid: string }>();
+  const { truckid } = useParams();
 
   const vehicle = vehicles.find((v) => v.slug === truckid);
   if (!vehicle) {

@@ -1,16 +1,7 @@
 
 import { Icon } from '@iconify/react';
 
-type ConfirmationModalProps = {
-  open: boolean;
-  icon: string;
-  title: string;
-  description: string;
-  confirmText?: string;
-  cancelText?: string;
-  onConfirm: () => void | Promise<void>;
-  onCancel: () => void;
-};
+
 
 export default function ConfirmationModal({
   open,
@@ -21,7 +12,7 @@ export default function ConfirmationModal({
   cancelText = 'No',
   onConfirm,
   onCancel,
-}: ConfirmationModalProps) {
+}) {
   if (!open) return null;
 
   const handleConfirm = async () => {

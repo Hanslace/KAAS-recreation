@@ -1,23 +1,11 @@
 'use client';
 
 import ListPage from '@/components/ListPage';
-import type { DataTableColumn } from '@/components/shared/DataTable';
 import data from '@/data/individual-drivers.json';
 
-export type IndividualDriverData = {
-  id: number;
-  slug: string;
-  name: string;
-  logo: string;
-  email: string;
-  phoneNumber: string;
-  mcNumber: string;
-  dotNumber: string;
-  address: string;
-  status: 'Pending' | 'Cancelled' | 'Approved';
-};
 
-export const individualDriverColumns: readonly DataTableColumn<IndividualDriverData>[] = [
+
+export const individualDriverColumns= [
   {
     key: 'name',
     label: 'Name',
@@ -67,7 +55,7 @@ export default function IndividualDriversPage() {
       heading="Pilot Car Management"
       secondaryText="Individual Drivers"
       filters={data.filters}
-      tableData={data.tableData as IndividualDriverData[]}
+      tableData={data.tableData}
       columns={individualDriverColumns}
       path="/pilot-car-management/individual-drivers"
       searchPlaceholder="Search here"

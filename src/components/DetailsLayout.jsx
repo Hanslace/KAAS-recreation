@@ -7,19 +7,8 @@ import BrandPill from '@/components/ui/BrandPill';
 import ReasonModal from '@/components/shared/ReasonModal';
 import { useNavigate } from 'react-router';
 
-type ReasonAction = 'block' | 'cancel' | null;
 
-interface DetailsLayoutProps {
-  slugName: string;
-  status: string;
-  companyName: string;
-  email: string;
-  phone: string;
-  logoSrc: string;
-  logoAlt?: string;
-  children: ReactNode;
-  manager?: boolean;
-}
+
 
 export default function DetailsLayout({
   slugName,
@@ -32,7 +21,7 @@ export default function DetailsLayout({
   children,
   manager = false,
 
-}: DetailsLayoutProps) {
+}) {
      const navigate = useNavigate();
   const [reasonAction, setReasonAction] = useState<ReasonAction>(null);
 

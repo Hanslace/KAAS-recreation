@@ -8,9 +8,6 @@ import { useParams } from 'react-router';
 function RatingRow({
   rating,
   reviewCount,
-}: {
-  rating: number;
-  reviewCount: number;
 }) {
   return (
     <div className="flex items-center gap-1">
@@ -31,10 +28,6 @@ function DetailRow({
   icon,
   label,
   value,
-}: {
-  icon: string;
-  label: string;
-  value: React.ReactNode;
 }) {
   return (
     <div className="flex items-start gap-3">
@@ -49,7 +42,7 @@ function DetailRow({
 }
 
 export default async function BookingDetailPage() {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams();
   
   const booking = data.bookingDetails.find((item) => item.slug === slug);
 

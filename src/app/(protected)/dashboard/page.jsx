@@ -14,7 +14,7 @@ import {
 } from 'recharts';
 
 
-const CustomTooltip = ({ active, payload }: any) => {
+const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-white border border-gray-100 rounded-xl p-3 shadow-md flex flex-col items-center justify-center text-center min-w-[90px] relative">

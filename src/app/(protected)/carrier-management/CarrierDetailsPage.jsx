@@ -6,9 +6,7 @@ import { useParams } from 'react-router';
 
 
 export default async function Page() {
-  const { carrierid } = useParams<{
-    carrierid: string;
-  }>();
+  const { carrierid } = useParams();
 
   const currentCarrier = carrierData.tableData.find(
     (carrier) => carrier.slug === carrierid,

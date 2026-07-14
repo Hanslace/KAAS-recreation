@@ -4,41 +4,7 @@ import { Icon } from '@iconify/react';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router';
 
-
-
-export type DataTableColumn<T> =
-  | {
-      key: keyof T;
-      label: string;
-      type?: 'text' | 'status';
-      imageKey?: never;
-    }
-  | {
-      key: keyof T;
-      label: string;
-      type: 'imageText';
-      imageKey: keyof T;
-    }
-  | {
-      key: 'action';
-      label: string;
-      type: 'action';
-      imageKey?: never;
-    }
-  | {
-      key: `empty-${string}`;
-      label: string;
-      type: 'empty';
-      imageKey?: never;
-    };
-
-type DataTableProps<T extends { id: number | string; slug: string }> = {
-  data: T[];
-  columns: readonly DataTableColumn<T>[];
-  path: string;
-};
-
-const statusClasses: Record<string, string> = {
+const statusClasses = {
   Pending: 'bg-yellow-100 text-yellow-500',
   Cancelled: 'bg-red-100 text-red-500',
   Approved: 'bg-green-100 text-green-500',
@@ -49,21 +15,17 @@ const statusClasses: Record<string, string> = {
   Refunded: 'bg-red-100 text-red-500',
 };
 
-export default function DataTable<T extends { id: number | string; slug: string }>({
-  data,
-  columns,
-  path,
-}: DataTableProps<T>) {
+export default function DataTable({ data, columns, path }) {
   const navigate = useNavigate();
 
   // Tracks the slug of the row that currently has its menu open
-  const [openDropdownSlug, setOpenDropdownSlug] = useState<string | null>(null);
-  const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const [openDropdownSlug, setOpenDropdownSlug] = useState(null);
+  const dropdownRef = useRef(null);
 
   // Close dropdown if user clicks anywhere outside of it
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setOpenDropdownSlug(null);
       }
     }
@@ -71,15 +33,13 @@ export default function DataTable<T extends { id: number | string; slug: string 
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const goToDetails = (slug: string) => {
+  const goToDetails = (slug) => {
     navigate(`${path}/${slug}`);
   };
 
-  const handleAction = (action: string, slug: string) => {
+  const handleAction = (action, slug) => {
     console.log(`Executing ${action} on row ${slug}`);
     setOpenDropdownSlug(null); // Close menu after selection
-    
-    // Add your API triggers or state modifications here
   };
 
   return (
@@ -137,7 +97,6 @@ export default function DataTable<T extends { id: number | string; slug: string 
 
                 const value = column.key === 'action' ? '' : row[column.key];
 
-
                 if (column.type === 'imageText') {
                   const imageValue = column.imageKey
                     ? row[column.imageKey]
@@ -183,7 +142,7 @@ export default function DataTable<T extends { id: number | string; slug: string 
 
                 if (column.type === 'action') {
                   const isMenuOpen = openDropdownSlug === row.slug;
-                  const currentStatus = 'status' in row ? String(row['status' as keyof T]) : '';
+                  const currentStatus = 'status' in row ? String(row['status']) : '';
                   return (
                     <td
                       key={String(column.key)}
@@ -194,7 +153,6 @@ export default function DataTable<T extends { id: number | string; slug: string 
                         type="button"
                         onClick={(event) => {
                           event.stopPropagation();
-                          // Toggle dropdown open/close for this specific row
                           setOpenDropdownSlug(isMenuOpen ? null : row.slug);
                         }}
                         className="inline-flex items-center justify-center rounded-full p-[0.5rem] text-black/50 hover:bg-black/5"
@@ -211,7 +169,7 @@ export default function DataTable<T extends { id: number | string; slug: string 
                         <div
                           ref={dropdownRef}
                           className="absolute right-4 top-[80%] z-30 min-w-[140px] rounded-xl bg-white p-2 shadow-xl border border-gray-100 flex flex-col gap-1 animate-in fade-in slide-in-from-top-1 duration-100"
-                          onClick={(e) => e.stopPropagation()} // Keep dropdown open when items are clicked
+                          onClick={(e) => e.stopPropagation()}
                         >
                           {currentStatus === 'Deleted' && (
                             <button
@@ -222,63 +180,12 @@ export default function DataTable<T extends { id: number | string; slug: string 
                               Restore
                             </button>
                           )}
-                          {/* Options for Cancelled Status */}
-                          {currentStatus === 'Cancelled' && (
-                            <button
-                              onClick={() => handleAction('delete', row.slug)}
-                              className="flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-100/80 transition w-full"
-                            >
-                              <Icon icon="solar:trash-bin-trash-bold" className="h-4 w-4" />
-                              Delete
-                            </button>
-                          )}
-
-                          {/* Options for Approved Status */}
-                          {currentStatus === 'Approved' && (
-                            <button
-                              onClick={() => handleAction('delete', row.slug)}
-                              className="flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-100/80 transition w-full"
-                            >
-                              <Icon icon="solar:trash-bin-trash-bold" className="h-4 w-4" />
-                              Delete
-                            </button>
-                          )}
-
-                          {/* Options for Pending Status */}
-                          {currentStatus === 'Pending' && (
-                            <>
-                              <button
-                                onClick={() => handleAction('approve', row.slug)}
-                                className="flex items-center gap-2 rounded-lg bg-green-50 px-3 py-2 text-sm font-medium text-green-600 hover:bg-green-100/80 transition w-full"
-                              >
-                                <Icon icon="solar:check-circle-bold" className="h-4 w-4" />
-                                Approve
-                              </button>
-                              <button
-                                onClick={() => handleAction('cancel', row.slug)}
-                                className="flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-100/80 transition w-full"
-                              >
-                                <Icon icon="solar:close-circle-bold" className="h-4 w-4" />
-                                Cancel
-                              </button>
-                            </>
-                          )}
                         </div>
                       )}
                     </td>
                   );
                 }
-
-                return (
-                  <td
-                    key={String(column.key)}
-                    className={`${cellRounded} px-[1.25rem] py-[1rem]`}
-                  >
-                    <span className="whitespace-nowrap text-[0.9rem] text-black/50">
-                      {String(value)}
-                    </span>
-                  </td>
-                );
+                return null;
               })}
             </tr>
           ))}

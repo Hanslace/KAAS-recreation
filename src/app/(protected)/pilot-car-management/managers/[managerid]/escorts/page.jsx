@@ -1,14 +1,11 @@
 'use client';
 
 import BackButton from '@/components/ui/BackButton';
-import type { VehicleCardField } from '@/components/shared/VehicleCard';
-
 import data from '@/data/escorts.json';
 import VehicleGrid from '@/components/shared/VehicleGrid';
 
-type Escort = (typeof data.escorts)[number];
 
-const escortFields: VehicleCardField<Escort>[] = [
+const escortFields = [
   {
     label: 'Escort Type',
     accessKey: 'escortType',

@@ -3,23 +3,11 @@
 import { useMemo, useState } from 'react';
 import { Icon } from '@iconify/react';
 import BackButton from '@/components/ui/BackButton';
-import DataTable, { type DataTableColumn } from '@/components/shared/DataTable';
+import DataTable from '@/components/shared/DataTable';
 import data from '@/data/deleted-accounts.json';
 
-export type DeletedAccountData = {
-  id: number;
-  slug: string;
-  name: string;
-  logo: string;
-  email: string;
-  phoneNumber: string;
-  mcNumber: string;
-  licensePlateNumber: string;
-  address: string;
-  status: 'Deleted';
-};
 
-const columns: readonly DataTableColumn<DeletedAccountData>[] = [
+const columns = [
   {
     key: 'name',
     label: 'Name',
@@ -107,7 +95,7 @@ export default function DeletedAccountsPage() {
       <div className="mt-7">
         <DataTable
           path="/settings/deleted-accounts"
-          data={filteredData as DeletedAccountData[]}
+          data={filteredData }
           columns={columns}
         />
       </div>

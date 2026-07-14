@@ -1,4 +1,4 @@
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form"; // Removed SubmitHandler import
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import AuthInput from "@/components/ui/auth/AuthInput";
@@ -23,23 +23,22 @@ const resetPasswordSchema = z
     path: ["confirmPassword"], // Sets the error specifically on the confirmPassword field
   });
 
-type ResetPasswordFormValues = z.infer<typeof resetPasswordSchema>;
 
 export default function ResetPasswordPage() {
   const navigate = useNavigate();
 
-  // 2. React Hook Form Initialization
+  // 2. React Hook Form Initialization - Stripped out <ResetPasswordFormValues>
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isValid },
-  } = useForm<ResetPasswordFormValues>({
+  } = useForm({
     resolver: zodResolver(resetPasswordSchema),
     mode: "onChange",
   });
 
   // 3. Submission Handler Function
-  const onSubmit: SubmitHandler<ResetPasswordFormValues> = async (data) => {
+  const onSubmit = async (data) => {
     try {
       console.log("Submitting New Password Data:", data.password);
       // Example: await api.auth.updatePassword(data.password);
@@ -54,7 +53,7 @@ export default function ResetPasswordPage() {
   return (
     <>
       {/* Back button directs user back to the OTP screen if they need to check it */}
-        <BackButton href="/forgot-password/otp">Back</BackButton>
+      <BackButton href="/forgot-password/otp">Back</BackButton>
 
       <AuthHeading text="Reset Password"/>
 

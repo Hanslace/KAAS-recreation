@@ -1,23 +1,11 @@
 'use client';
 
 import ListPage from '@/components/ListPage';
-import type { DataTableColumn } from '@/components/shared/DataTable';
 import data from '@/data/managers.json';
 
-export type ManagerData = {
-  id: number;
-  slug: string;
-  name: string;
-  logo: string;
-  email: string;
-  phoneNumber: string;
-  mcNumber: string;
-  dotNumber: string;
-  address: string;
-  status: 'Pending' | 'Cancelled' | 'Approved';
-};
 
-export const managerColumns: readonly DataTableColumn<ManagerData>[] = [
+
+export const managerColumns = [
   {
     key: 'name',
     label: 'Name',
@@ -67,7 +55,7 @@ export default function ManagersPage() {
       heading="Pilot Car Management"
       secondaryText="Managers"
       filters={data.filters}
-      tableData={data.tableData as ManagerData[]}
+      tableData={data.tableData}
       columns={managerColumns}
       path="/pilot-car-management/managers"
       searchPlaceholder="Search here"

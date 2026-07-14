@@ -1,6 +1,5 @@
 'use client'
 
-import type { DataTableColumn } from '@/components/shared/DataTable';
 import { useMemo, useState } from 'react';
 import data from "@/data/earning.json"
 import BackButton from '@/components/ui/BackButton';
@@ -11,23 +10,9 @@ import DataTable from '@/components/shared/DataTable';
 
 
 
-type SubscriptionTransaction = {
-  id: number;
-  slug: string;
-  userName: string;
-  email: string;
-  logo: string;
-  type: 'Pilot Car' | 'Truck';
-  duration: 'Monthly' | 'Yearly';
-  dateTime: string;
-  amount: string;
-  amountValue: number;
-  tax: string;
-  taxValue: number;
-  status: 'Completed' | 'Refunded';
-};
 
-const subscriptionColumns: readonly DataTableColumn<SubscriptionTransaction>[] =
+
+const subscriptionColumns =
   [
     {
       key: 'userName',
@@ -151,7 +136,7 @@ export default function BlankPage() {
       </div>
 
       <DataTable
-        data={filteredTransactions as SubscriptionTransaction[]}
+        data={filteredTransactions}
         columns={subscriptionColumns}
         path="/subscriptions/earning"
       />

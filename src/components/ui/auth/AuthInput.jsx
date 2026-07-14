@@ -1,16 +1,9 @@
 import { useState, forwardRef, ComponentPropsWithRef } from "react";
 import { Icon } from "@iconify/react"; // Import Iconify
 
-type AuthInputProps = {
-  label: string;
-  placeholder: string;
-  type?: string;
-  icon?: string; // Changed from union to generic string for Iconify identifiers
-  showToggle?: boolean;
-  error?: string;
-} & ComponentPropsWithRef<"input">;
 
-export const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>(
+
+export const AuthInput = forwardRef(
   (
     {
       label,

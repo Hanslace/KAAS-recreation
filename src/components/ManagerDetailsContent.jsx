@@ -5,36 +5,11 @@ import InfoGrid from '@/components/shared/InfoGrid';
 
 import bookings from '@/data/data.json';
 
-export interface ManagerDetailsData {
-  id?: number;
-  slug: string;
-  status: string;
 
-  name?: string;
-  companyName?: string;
-  email?: string;
-  phoneNumber?: string;
-  logo?: string;
-
-  address?: string;
-  mcNumber?: string;
-  dotNumber?: string;
-
-  perDay?: string;
-  perMile?: string;
-  overnight?: string;
-  custom?: string;
-
-  cancelReason?: string;
-}
-
-interface ManagerDetailsContentProps {
-  currentManager: ManagerDetailsData;
-}
 
 export default function ManagerDetailsContent({
   currentManager,
-}: ManagerDetailsContentProps) {
+}) {
   const status = currentManager.status;
 
   return (

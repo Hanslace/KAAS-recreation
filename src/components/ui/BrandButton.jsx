@@ -1,35 +1,10 @@
 import { Link } from 'react-router';
-import type {
-  ComponentPropsWithoutRef,
-  MouseEvent,
-  ReactNode,
-} from 'react';
+
 import { twMerge } from 'tailwind-merge';
 
-type CommonProps = {
-  children: ReactNode;
-  className?: string;
-  disabled?: boolean;
-};
 
-// ✅ Updated to explicitly use 'to' instead of Next.js 'href'
-type LinkButtonProps = CommonProps & {
-  to: string; 
-} & Omit<
-    ComponentPropsWithoutRef<typeof Link>,
-    'to' | 'children' | 'className'
-  >;
 
-type NativeButtonProps = CommonProps & {
-  to?: never;
-} & Omit<
-    ComponentPropsWithoutRef<'button'>,
-    'children' | 'className' | 'disabled'
-  >;
-
-export type BrandButtonProps = LinkButtonProps | NativeButtonProps;
-
-export default function BrandButton(props: BrandButtonProps) {
+export default function BrandButton(props) {
   const baseStyles =
     'flex h-[3.25rem] items-center justify-center rounded-xl bg-brand-gradient px-6 text-[0.95rem] font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0';
 
@@ -45,7 +20,7 @@ export default function BrandButton(props: BrandButtonProps) {
     } = props;
 
     const handleClick = (
-      event: MouseEvent<HTMLAnchorElement>,
+      event,
     ) => {
       if (disabled) {
         event.preventDefault();

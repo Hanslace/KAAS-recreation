@@ -3,23 +3,6 @@
 import {Link} from "react-router";
 import { ComponentPropsWithRef } from "react";
 
-type BaseProps = {
-  children: React.ReactNode;
-  className?: string;
-  type?: "button" | "submit" | "reset"; // 1. Enforce strict button types globally here
-};
-
-type LinkButtonProps = {
-  href: string;
-  disabled?: boolean;
-} & Omit<ComponentPropsWithRef<typeof Link>, "href" | "className" | "type">; // 2. Omit conflicting type definitions
-
-type NormalButtonProps = {
-  href?: never;
-  disabled?: boolean;
-} & Omit<ComponentPropsWithRef<"button">, "className" | "type">; // 3. Omit conflicting type definitions
-
-type AuthButtonProps = BaseProps & (LinkButtonProps | NormalButtonProps);
 
 export default function AuthButton({
   children,
@@ -28,7 +11,7 @@ export default function AuthButton({
   disabled,
   className = "",
   ...props
-}: AuthButtonProps) {
+}) {
   const baseStyles = `flex h-[7.5vh] w-full items-center justify-center rounded-xl bg-brand-gradient text-[1rem] font-bold text-white shadow-md transition duration-300 ${
     disabled
       ? "pointer-events-none opacity-50 shadow-none"
@@ -36,10 +19,7 @@ export default function AuthButton({
   } ${className}`;
 
   if (href) {
-    const linkProps = props as Omit<
-      ComponentPropsWithRef<typeof Link>,
-      "href" | "className" | "type"
-    >;
+    const linkProps = props;
 
     return (
       <Link
@@ -54,7 +34,7 @@ export default function AuthButton({
     );
   }
 
-  const buttonProps = props as Omit<ComponentPropsWithRef<"button">, "className" | "type">;
+  const buttonProps = props;
 
   return (
     <button

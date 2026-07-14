@@ -13,7 +13,7 @@ import NotFound from '@/components/ui/NotFound';
 
 export default function DeletedAccountDetailsPage() {
   const navigate = useNavigate();
-  const params = useParams<{ slug: string }>();
+  const params = useParams();
 
   const [restoreModalOpen, setRestoreModalOpen] = useState(false);
 

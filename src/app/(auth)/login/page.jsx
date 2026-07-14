@@ -22,7 +22,6 @@ const loginSchema = z.object({
   rememberMe: z.boolean().optional(),
 });
 
-type LoginFormValues = z.infer<typeof loginSchema>;
 
 export default function LoginPage() {
   const navigate = useNavigate(); // Initialize the navigate
@@ -31,7 +30,7 @@ export default function LoginPage() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isValid }, // Extracted isValid to monitor form validity status
-  } = useForm<LoginFormValues>({
+  } = useForm({
     resolver: zodResolver(loginSchema),
     mode: "onChange", 
     defaultValues: {
@@ -42,7 +41,7 @@ export default function LoginPage() {
   });
 
   // This will ONLY execute if react-hook-form confirms all Zod validation rules pass
-  const onSubmit = async (data: LoginFormValues) => {
+  const onSubmit = async (data) => {
     try {
       console.log("Validated Form Submission Data:", data);
       

@@ -2,37 +2,10 @@
 
 import { useMemo, useState } from 'react';
 import FiltersHeader from '@/components/shared/FiltersHeader';
-import DataTable, { DataTableColumn } from '@/components/shared/DataTable';
+import DataTable from '@/components/shared/DataTable';
 
-type FilterOption = {
-  id: string;
-  label: string;
-};
 
-type ListPageProps<
-  T extends {
-    id: number | string;
-    slug: string;
-    status: string;
-  }
-> = {
-  heading: string;
-  secondaryText?: string;
-  filters: FilterOption[];
-  tableData: T[];
-  columns: readonly DataTableColumn<T>[];
-  path: string;
-  searchPlaceholder?: string;
-  searchKeys?: readonly (keyof T)[];
-};
-
-export default function ListPage<
-  T extends {
-    id: number | string;
-    slug: string;
-    status: string;
-  }
->({
+export default function ListPage({
   heading,
   secondaryText = '',
   filters,
@@ -41,7 +14,7 @@ export default function ListPage<
   path,
   searchPlaceholder = 'Search here',
   searchKeys,
-}: ListPageProps<T>) {
+}) {
   const [activeTabId, setActiveTabId] = useState('all');
   const [searchValue, setSearchValue] = useState('');
 

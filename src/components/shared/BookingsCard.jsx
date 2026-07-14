@@ -3,26 +3,8 @@
 import {Link} from 'react-router';
 import { Icon } from '@iconify/react';
 
-export interface BookingsCardData {
-  price: string;
-  status: 'Reschedule' | 'Cancelled' | 'Completed' | string;
-  slug: string;
-  imageUrl: string;
-  companyLogoUrl: string;
-  companyName: string;
-  rating: number;
-  reviewCount: number;
-  dateTime: string;
-  pickupLocation: string;
-  dropoffLocation: string;
-  distanceAway: string;
-}
 
-interface BookingsCardProps {
-  booking: BookingsCardData;
-}
-
-export default function BookingsCard({ booking }: BookingsCardProps) {
+export default function BookingsCard({ booking }) {
   return (
     <Link
       to={`/bookings/${booking.slug}`}

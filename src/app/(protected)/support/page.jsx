@@ -6,22 +6,10 @@ import Dropdown from '@/components/ui/Dropdown';
 import SearchBar from '@/components/ui/SearchBar';
 import data from '@/data/support.json';
 
-import type { DataTableColumn } from '@/components/shared/DataTable';
 
-type SupportData = {
-  id: number;
-  slug: string;
-  name: string;
-  logo: string;
-  email: string;
-  phoneNumber: string;
-  subject: string;
-  message: string;
-  dateTime: string;
-  status: 'Pending' | 'Opened' | 'Closed';
-};
 
-const supportColumns: readonly DataTableColumn<SupportData>[] = [
+
+const supportColumns = [
   {
     key: 'name',
     label: 'Name',
@@ -112,7 +100,7 @@ export default function SupportPage() {
 
       <div className="mt-7">
         <DataTable
-          data={filteredData as SupportData[]}
+          data={filteredData}
           columns={supportColumns}
           path="/support"
         />

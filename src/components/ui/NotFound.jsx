@@ -1,15 +1,11 @@
 import { Icon } from "@iconify/react";
 
-interface NotFoundProps {
-  title?: string;
-  message?: string;
-  showBackButton?: boolean;
-}
+
 
 export default function NotFound({
   title = "Not Found",
   message = "The resource you are looking for does not exist or has been moved.",
-}: NotFoundProps) {
+}) {
   return (
     <div className="flex min-h-[400px] flex-col items-center justify-center p-8 text-center animate-fade-in">
       {/* Visual Anchor Icon using Iconify */}

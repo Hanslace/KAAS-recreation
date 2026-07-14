@@ -3,13 +3,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
 
-type SettingCard = {
-  id: number;
-  title: string;
-  href?: string;
-};
 
-const settingsCards: SettingCard[] = [
+
+const settingsCards = [
   {
     id: 1,
     title: 'Change Password',

@@ -1,23 +1,10 @@
 'use client';
 
 import ListPage from '@/components/ListPage';
-import type { DataTableColumn } from '@/components/shared/DataTable';
 import data from '@/data/company-drivers.json';
 
-export type CompanyDriverData = {
-  id: number;
-  slug: string;
-  name: string;
-  logo: string;
-  email: string;
-  phoneNumber: string;
-  driverId: string;
-  company: string;
-  address: string;
-  status: 'Pending' | 'Cancelled' | 'Approved';
-};
 
-export const companyDriverColumns: readonly DataTableColumn<CompanyDriverData>[] = [
+export const companyDriverColumns = [
   {
     key: 'name',
     label: 'Name',
@@ -67,7 +54,7 @@ export default function CompanyDriversPage() {
       heading="Pilot Car Management"
       secondaryText="Company Drivers"
       filters={data.filters}
-      tableData={data.tableData as CompanyDriverData[]}
+      tableData={data.tableData}
       columns={companyDriverColumns}
       path="/pilot-car-management/company-drivers"
       searchPlaceholder="Search here"

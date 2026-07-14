@@ -1,19 +1,11 @@
 import InfoCell from '../ui/InfoCell';
 
-type DetailField = {
-  label: string;
-  value: string;
-};
 
-interface InfoGridProps {
-  fields: DetailField[];
-  heading?: string;
-}
 
 export default function InfoGrid({
   fields,
   heading,
-}: InfoGridProps) {
+}) {
   return (
     <div>
       {heading && (

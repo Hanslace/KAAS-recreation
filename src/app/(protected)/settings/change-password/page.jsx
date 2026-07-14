@@ -13,7 +13,7 @@ export default function ChangePasswordPage() {
   const [confirmModalOpen, setConfirmModalOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     

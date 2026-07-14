@@ -1,32 +1,18 @@
 'use client';
 
 
-import VehicleCard, {
-  VehicleCardField,
-} from '@/components/shared/VehicleCard';
+import VehicleCard from '@/components/shared/VehicleCard';
 import { useLocation } from 'react-router';
 
-interface BaseVehicleData {
-  slug: string;
-  name: string;
-  imageUrl: string;
-}
 
-interface VehicleGridProps<T extends BaseVehicleData> {
-  vehicles: T[];
-  fields: VehicleCardField<T>[];
-  pathAppendage?: string;
-  className?: string;
-  cardClassName?: string;
-}
 
-export default function VehicleGrid<T extends BaseVehicleData>({
+export default function VehicleGrid({
   vehicles,
   fields,
   pathAppendage,
   className = '',
   cardClassName = '',
-}: VehicleGridProps<T>) {
+}) {
   const pathname = useLocation().pathname;
 
   const path =  pathname;
