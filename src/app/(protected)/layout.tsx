@@ -75,7 +75,7 @@ export default function Layout() {
         />
       )}
 
-      <aside className={`max-w-[17rem] xs:max-w-[20rem] lg:max-w-[15rem]  xl:max-w-[20rem] 2xl:max-w-[22rem]
+      <aside className={`max-w-[17rem] xs:max-w-[20rem] lg:max-w-[15rem]  xl:max-w-[18.5rem] 2xl:max-w-[21rem]
         fixed inset-y-0 left-0 z-50 flex flex-col h-full bg-black transition-transform duration-300 text-white ease-in-out p-[1.5rem] xl:p-[2rem] gap-5
         w-fit   lg:static lg:translate-x-0
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}
@@ -113,7 +113,7 @@ export default function Layout() {
                           setIsOpen(false); // Close menu on link click (mobile)
                         }
                       }}
-                      className={`group w-full flex items-center justify-between p-3 px-5 rounded-md  text-[0.8m] lg:text-[0.7rem] xl:text-[1rem] 2xl:text-[1.1rem] font-medium transition-all duration-150 ease-in-out
+                      className={`group w-full flex items-center justify-between p-3 px-5 rounded-md text-[0.8rem] lg:text-[0.6rem] xl:text-[0.8rem] 2xl:text-[1.1rem] font-medium transition-all duration-150 ease-in-out
                         ${isActive ? 'bg-brand-gradient font-semibold' : 'hover:bg-zinc-900'}`}
                     >
                       <div className="flex items-center overflow-hidden gap-3">

@@ -20,14 +20,15 @@
 
   --breakpoint-*: initial; 
 
-  /* Clean Breakpoint Redefinitions (Do not use --breakpoint-*: initial in v4) */
-  --breakpoint-2xs: 20rem;    /* 320px */
-  --breakpoint-xs: 23.3rem;   /* ~373px */
-  --breakpoint-sm: 40rem;     /* 640px / 16 (Fix: Your comment said 640px but math was 424px) */
-  --breakpoint-md: 48rem;     /* 768px / 16 */
-  --breakpoint-lg: 64rem;     /* 1024px / 16 */
-  --breakpoint-xl: 80rem;     /* 1280px / 16 (Fix: 1280 / 16 is 80rem, not 90rem) */
-  --breakpoint-2xl: 100rem;   /* 1600px / 16 (Fix: 1600 / 16 is 100rem, not 160rem) */
+
+  /* Redefine everything consistently in pixels */
+  --breakpoint-2xs: 20rem;
+  --breakpoint-xs: 23.3rem;
+  --breakpoint-sm: 26.5rem; 
+  --breakpoint-md: 48rem;  
+  --breakpoint-lg: 64rem;    
+  --breakpoint-xl: 90rem;    
+  --breakpoint-2xl: 160rem;   
 }
 
 body {
