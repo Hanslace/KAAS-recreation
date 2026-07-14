@@ -139,7 +139,7 @@ export default function Layout() {
                               key={subItem.name}
                               to={subItem.href}
                               onClick={() => setIsOpen(false)}
-                              className={`w-full p-2.5 px-4 rounded-md text-sm font-medium transition-colors text-left
+                              className={`w-full p-2.5 px-4 rounded-md text-[0.7rem] lg:text-[0.8rem] font-medium transition-colors text-left
                                 ${isSubActive 
                                   ? ' bg-brand/40 font-semibold' 
                                   : ' hover:text-gray'}`}

@@ -46,7 +46,7 @@ export default function FiltersHeader({
               key={option.id}
               type="button"
               onClick={() => onTabChange(option.id)}
-              className={`shrink-0 px-4 lg:p-2 py-2 text-[0.7rem] xl:text-[1rem] font-semibold rounded-lg transition-all duration-150 tracking-tight ${
+              className={`shrink-0 px-4 lg:px-[0.75rem] lg:py-[0.5rem] py-2 text-[0.7rem] xl:text-[0.8rem] font-semibold rounded-lg transition-all duration-150 tracking-tight ${
                 isActive
                   ? 'bg-brand-gradient text-white shadow-sm'
                   : 'bg-brand/20 text-brand hover:bg-brand/40'
