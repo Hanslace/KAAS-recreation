@@ -9,6 +9,11 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
+  },
+  server: {
+    hmr: {
+      overlay: true, // Forces Vite to draw red errors over your blank screen
+    }
   }
   
 });

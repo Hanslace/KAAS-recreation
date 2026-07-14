@@ -1,5 +1,3 @@
-'use client';
-
 import { ReactNode, useState } from 'react';
 import BackButton from '@/components/ui/BackButton';
 import BrandButton from '@/components/ui/BrandButton';
@@ -23,7 +21,7 @@ export default function DetailsLayout({
 
 }) {
      const navigate = useNavigate();
-  const [reasonAction, setReasonAction] = useState<ReasonAction>(null);
+  const [reasonAction, setReasonAction] = useState(null);
 
   const headingId = `${slugName}-personal-info`;
 

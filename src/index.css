@@ -36,3 +36,28 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
+@layer utilities {
+  /* Target any element with the class 'custom-scrollbar' */
+  .custom-scrollbar::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+
+  /* The scroll background track */
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #FAF8F2; /* Matching your alternating table row light tan color */
+    border-radius: 9999px;
+  }
+
+  /* The active scrolling grab bar */
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #C4A46E; /* Your main Amber/Gold Brand Color */
+    border-radius: 9999px;
+  }
+
+  /* Hover state on the grab bar */
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #A68753; /* Darker brand gold for hover indicator feed */
+  }
+}

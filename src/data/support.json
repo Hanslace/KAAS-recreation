@@ -45,7 +45,7 @@
     },
     {
       "id": 3,
-      "slug": "abc-logistics-1",
+      "slug": "abc-logistics-2",
       "name": "ABC Logistics LLC",
       "logo": "/images/company-logo.png",
       "email": "abclogistics.llc@gmail.com",
@@ -81,7 +81,7 @@
     },
     {
       "id": 6,
-      "slug": "patriot-escort-services-1",
+      "slug": "abc-logistics-2",
       "name": "Patriot Escort Services",
       "logo": "/images/company-logo.png",
       "email": "patriot.escort@gmail.com",

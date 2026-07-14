@@ -97,8 +97,8 @@ export default function BlankPage() {
           Subscription Earning
         </BackButton>
 
-        <div className="flex  flex-col w-full  gap-4 min-[1150]:flex-row min-[1150]:items-center min-[1150]:justify-end items-end">
-          <div className='flex gap-4 min-[550]:flex-row flex-col items-end'>
+        <div className="flex  flex-col w-full  gap-4 min-[1150px]:flex-row min-[1150px]:items-center min-[1150px]:justify-end items-end">
+          <div className='flex gap-4 min-[550px]:flex-row flex-col items-end'>
             <Dropdown
               filters={data.filters.types}
               activeFilter={selectedType}

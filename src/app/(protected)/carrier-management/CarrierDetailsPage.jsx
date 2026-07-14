@@ -5,7 +5,7 @@ import carrierData from '@/data/carriers.json';
 import { useParams } from 'react-router';
 
 
-export default async function Page() {
+export default function Page() {
   const { carrierid } = useParams();
 
   const currentCarrier = carrierData.tableData.find(

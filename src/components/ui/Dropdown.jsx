@@ -14,7 +14,7 @@ export default function Dropdown({
   className = ""
 }) {
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef(null);
 
   // Close dropdown when clicking anywhere outside
   useEffect(() => {

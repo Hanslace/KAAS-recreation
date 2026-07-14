@@ -26,7 +26,7 @@ export default function Layout() {
   // State to manage mobile sidebar visibility
   const [isOpen, setIsOpen] = useState(false);
   // State to track which menu item's submenu is currently open
-  const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
+  const [expandedMenu, setExpandedMenu] = useState(null);
 
   const sidebarLinks = [
     { name: 'Dashboard', href: '/dashboard', icon: 'ic:baseline-home', hasSubmenu: false },
@@ -240,7 +240,7 @@ export default function Layout() {
      
 
         {/* PRIMARY VIEW CONTENT VIEWPORT SLOT */}
-        <main className="overflow-y-auto p-[2.5rem]">
+        <main className="overflow-y-auto p-[2.5rem] custom-scrollbar">
           
           
           <Outlet/>

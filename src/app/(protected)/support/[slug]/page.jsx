@@ -46,13 +46,30 @@ const supportTickets = [
       '/images/liability-doc.jpg',
     ],
   },
+  {
+    id: 3,
+    slug: 'abc-logistics-2',
+    companyName: 'ABC Logistics LLC',
+    logo: '/images/company-logo.png',
+    email: 'abclogistics.llc@gmail.com',
+    phoneNumber: '+123 456 7890',
+    subject: 'Lorem ipsum dolor sit',
+    dateTime: '15 January, 2026 | 10:23 PM',
+    message:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
+    status: 'Opened',
+    attachments: [
+      '/images/liability-doc.jpg',
+      '/images/liability-doc.jpg',
+    ],
+  },
 ];
 
 
 
 
 
-export default async function SupportDetailsPage() {
+export default function SupportDetailsPage() {
   const { slug } = useParams();
 
   const ticket = supportTickets.find((item) => item.slug === slug);
@@ -83,8 +100,8 @@ export default async function SupportDetailsPage() {
       <div className="flex  w-full  items-center justify-between">
         <BackButton href="/support">Details</BackButton>
 
-       
-        <CloseButton />
+       {(ticket.status === "Pending" || ticket.status === "Opened") && <CloseButton />}
+        
       
       </div>
 

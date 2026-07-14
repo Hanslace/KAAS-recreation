@@ -82,95 +82,101 @@ export default function Page() {
       {/* ========================================================================= */}
       <div className="bg-white border border-gray-100 rounded-2xl p-6 lg:p-8 shadow-xl w-full">
         {/* Date Dropdown Selection Pill Container */}
-         <div className="flex items-center justify-end gap-4 w-full mb-6">
+        <div className="flex items-center justify-end gap-4 w-full mb-6">
           <span className="text-label text-black/50 font-medium hidden sm:inline">
             Provisions Month
           </span>
           <button 
             type="button" 
-            className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-sm bg-white text-label font-semibold text-black  hover:bg-gray-50 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-sm bg-white text-label font-semibold text-black hover:bg-gray-50 transition-colors"
           >
             <span>September 2025</span>
             <Icon icon="solar:calendar-linear" className="w-4 h-4 text-brand" />
           </button>
         </div>
-        <div className="w-full h-80">
-          <ResponsiveContainer width="100%" height="100%">
-            <AreaChart 
-              data={mockData.chartData} 
-              margin={{ top: 20, right: 10, left: -20, bottom: 0 }}
-            >
-              {/* Definition tags for background color opacity transitions */}
-              <defs>
-                <linearGradient id="pilotColor" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#C4A46E" stopOpacity={0.06}/>
-                  <stop offset="95%" stopColor="#C4A46E" stopOpacity={0}/>
-                </linearGradient>
-                <linearGradient id="carrierColor" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#7F7F7F" stopOpacity={0.04}/>
-                  <stop offset="95%" stopColor="#7F7F7F" stopOpacity={0}/>
-                </linearGradient>
-              </defs>
 
-              {/* Minimalist chart framework markers */}
-              <CartesianGrid vertical={false} stroke="#F3F4F6" strokeDasharray="0" />
-              
-              <XAxis 
-                dataKey="day" 
-                tickLine={false} 
-                axisLine={false}
-                stroke="#9CA3AF"
-                dy={12}
-                style={{ fontSize: '12px', fontWeight: 500 }}
-              />
-              
-              <YAxis 
-                domain={[0, 20]} 
-                ticks={[5, 10, 15, 20]} 
-                tickLine={false} 
-                axisLine={false}
-                stroke="#9CA3AF"
-                style={{ fontSize: '12px', fontWeight: 500 }}
-              />
-              
-              <Tooltip 
-                content={<CustomTooltip />} 
-                cursor={{ stroke: '#C4A46E', strokeWidth: 1, strokeDasharray: '4 4' }}
-              />
+        {/* 1. Added horizontal scrolling and custom scrollbar clipping styles here */}
+        <div className="w-full overflow-x-auto pb-2 custom-scrollbar">
+          
+          {/* 2. Enforced a minimum width so the visual chart tracks cannot compress below desktop layout thresholds */}
+          <div className="w-full h-80 min-w-[45rem]">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart 
+                data={mockData.chartData} 
+                margin={{ top: 20, right: 10, left: -20, bottom: 0 }}
+              >
+                {/* Definition tags for background color opacity transitions */}
+                <defs>
+                  <linearGradient id="pilotColor" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#C4A46E" stopOpacity={0.06}/>
+                    <stop offset="95%" stopColor="#C4A46E" stopOpacity={0}/>
+                  </linearGradient>
+                  <linearGradient id="carrierColor" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#7F7F7F" stopOpacity={0.04}/>
+                    <stop offset="95%" stopColor="#7F7F7F" stopOpacity={0}/>
+                  </linearGradient>
+                </defs>
 
-              {/* Pilot Car Spline Stream Path (Gold/Amber) */}
-              <Area 
-                type="monotone" 
-                dataKey="pilotCars" 
-                stroke="#C4A46E" 
-                strokeWidth={2.5}
-                fillOpacity={1} 
-                fill="url(#pilotColor)"
-                activeDot={{ 
-                  r: 6, 
-                  stroke: '#C4A46E', 
-                  strokeWidth: 3, 
-                  fill: '#white' 
-                }}
-              />
+                {/* Minimalist chart framework markers */}
+                <CartesianGrid vertical={false} stroke="#F3F4F6" strokeDasharray="0" />
+                
+                <XAxis 
+                  dataKey="day" 
+                  tickLine={false} 
+                  axisLine={false}
+                  stroke="#9CA3AF"
+                  dy={12}
+                  style={{ fontSize: '12px', fontWeight: 500 }}
+                />
+                
+                <YAxis 
+                  domain={[0, 20]} 
+                  ticks={[5, 10, 15, 20]} 
+                  tickLine={false} 
+                  axisLine={false}
+                  stroke="#9CA3AF"
+                  style={{ fontSize: '12px', fontWeight: 500 }}
+                />
+                
+                <Tooltip 
+                  content={<CustomTooltip />} 
+                  cursor={{ stroke: '#C4A46E', strokeWidth: 1, strokeDasharray: '4 4' }}
+                />
 
-              {/* Carriers Spline Stream Path (Slate/Muted Gray) */}
-              <Area 
-                type="monotone" 
-                dataKey="carriers" 
-                stroke="#9CA3AF" 
-                strokeWidth={2.5}
-                fillOpacity={1} 
-                fill="url(#carrierColor)"
-                activeDot={{ 
-                  r: 5, 
-                  stroke: '#9CA3AF', 
-                  strokeWidth: 2, 
-                  fill: '#white' 
-                }}
-              />
-            </AreaChart>
-          </ResponsiveContainer>
+                {/* Pilot Car Spline Stream Path (Gold/Amber) */}
+                <Area 
+                  type="monotone" 
+                  dataKey="pilotCars" 
+                  stroke="#C4A46E" 
+                  strokeWidth={2.5}
+                  fillOpacity={1} 
+                  fill="url(#pilotColor)"
+                  activeDot={{ 
+                    r: 6, 
+                    stroke: '#C4A46E', 
+                    strokeWidth: 3, 
+                    fill: 'white' // Fixed typo: changed '#white' to 'white'
+                  }}
+                />
+
+                {/* Carriers Spline Stream Path (Slate/Muted Gray) */}
+                <Area 
+                  type="monotone" 
+                  dataKey="carriers" 
+                  stroke="#9CA3AF" 
+                  strokeWidth={2.5}
+                  fillOpacity={1} 
+                  fill="url(#carrierColor)"
+                  activeDot={{ 
+                    r: 5, 
+                    stroke: '#9CA3AF', 
+                    strokeWidth: 2, 
+                    fill: 'white' // Fixed typo: changed '#white' to 'white'
+                  }}
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
     </div>
