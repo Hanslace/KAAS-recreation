@@ -217,7 +217,7 @@ export default function Layout() {
             </button>
 
 
-            <h1 className=" font-bold text-black tracking-tight ">
+            <h1 className="hidden lg:block font-bold text-black tracking-tight ">
               Welcome Back, Admin!
             </h1>
           </div>

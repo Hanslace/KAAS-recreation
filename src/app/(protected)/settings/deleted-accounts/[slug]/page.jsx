@@ -50,16 +50,16 @@ export default function DeletedAccountDetailsPage() {
         <button
           type="button"
           onClick={() => setRestoreModalOpen(true)}
-          className="flex aspect-[3/1] w-full max-w-fit items-center justify-center rounded-xl bg-brand-gradient p-[1rem] text-[0.875rem] font-bold tracking-wide text-white shadow-md transition duration-300 md:aspect-[5/1] md:p-[1.35rem] md:text-[1rem]"
+          className="brand-button flex  items-center justify-center rounded-md bg-brand-gradient py-3 px-11  font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
         >
           Restore
         </button>
       </div>
 
-      <div className="mt-[1.5rem]  w-full overflow-y-auto rounded-2xl bg-white p-[1.5rem] shadow-lg">
+      <div className="space-y-3 details-layout w-full overflow-y-auto rounded-2xl bg-white p-4 shadow-lg">
         {/* Personal information heading */}
         <div className="flex items-start justify-between gap-4">
-          <h2 className="text-[1.5rem] font-bold tracking-tight text-black lg:text-[1.75rem]">
+          <h2 className="main-heading font-bold tracking-tight text-black">
             Personal Info
           </h2>
 
@@ -67,8 +67,8 @@ export default function DeletedAccountDetailsPage() {
         </div>
 
         {/* Profile */}
-        <div className="relative flex items-center gap-4 py-[1.5rem] after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-gray-100">
-          <div className="flex h-[5rem] w-[5rem] shrink-0 items-center justify-center overflow-hidden rounded-full bg-black">
+        <div className="relative flex flex-col items-center sm:items-start sm:flex-row gap-3 pb-3 after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-gray-100">
+          <div className="flex h-[5em] w-[5em] shrink-0 items-center justify-center overflow-hidden rounded-full">
             <img
               src={currentAccount.logo || '/images/company-logo.png'}
               alt={
@@ -82,16 +82,16 @@ export default function DeletedAccountDetailsPage() {
             />
           </div>
 
-          <div className="min-w-0">
-            <h3 className="text-[1.45rem] font-bold tracking-tight text-black lg:text-[1.75rem]">
+          <div className="flex min-w-0  items-center sm:items-start flex-col justify-center ">
+            <h3 className="truncate main-heading font-bold tracking-tight text-black">
               {currentAccount.companyName}
             </h3>
 
-            <p className="mt-1 truncate text-[0.95rem] tracking-tight text-black/50">
+            <p className="truncate tracking-tight text-black/50">
               {currentAccount.email}
             </p>
 
-            <p className="mt-1 text-[0.95rem] tracking-tight text-black/50">
+            <p className="tracking-tight text-black/50">
               {currentAccount.phoneNumber}
             </p>
           </div>
@@ -186,7 +186,7 @@ export default function DeletedAccountDetailsPage() {
 
       <ConfirmationModal
         open={restoreModalOpen}
-        icon="solar:refresh-bold"
+        icon="fa7-solid:trash-restore"
         title="Restore!"
         description="Are you sure you want to restore this account?"
         cancelText="No"

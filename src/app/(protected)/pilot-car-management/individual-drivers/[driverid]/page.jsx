@@ -11,7 +11,7 @@ import NotFound from '@/components/ui/NotFound';
 
 // Assuming VehicleCard is stored here
 
-export default async function Page() {
+export default  function Page() {
   const { driverid } = useParams();
   
   const currentDriver = drivers.tableData.find(
@@ -86,7 +86,7 @@ export default async function Page() {
 
       {/* Pilot car attachments */}
       <div className="max-w-[15.25rem] border-b-[3px] border-gray-100 pb-5">
-        <h3 className="mb-4 text-[1.4rem] font-bold tracking-tight text-black">
+        <h3 className="mb-4 main-heading font-bold tracking-tight text-black">
           Attachment:
         </h3>
 
@@ -128,11 +128,11 @@ export default async function Page() {
 
       { status === "Cancelled" && (
         <div className="">
-          <h3 className="text-[1rem] font-bold tracking-tight text-black">
+          <h3 className="main-heading font-bold tracking-tight text-black">
             Reason:
           </h3>
 
-          <p className="mt-2 text-[0.9rem] leading-relaxed tracking-tight text-black/50">
+          <p className="mt-2  leading-relaxed tracking-tight text-black/50">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -145,7 +145,7 @@ export default async function Page() {
         <>
 
         <div className="mt-8 flex flex-col gap-4">
-          <h2 className="text-[1.75rem] font-bold text-black tracking-tight">
+          <h2 className="main-heading font-bold text-black tracking-tight">
             Booking History
           </h2>
           

@@ -64,7 +64,7 @@ export default function LoginPage() {
       <AuthSubHeading>Please enter your credentials</AuthSubHeading>
 
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-2">
 
         <AuthInput
           label="Email Address"
@@ -87,17 +87,17 @@ export default function LoginPage() {
           {...register("password")}
         />
 
-        <div className="flex items-center justify-between">
-          <label className="flex items-center gap-2 text-[0.8rem]  xs:text-[0.9rem] xl:text-[1rem] text-black cursor-pointer select-none">
+        <div className="flex auth-options mb-3 items-center justify-between">
+          <label className="flex items-center gap-2  text-black cursor-pointer select-none">
             <input 
               type="checkbox" 
               className="peer sr-only" 
               {...register("rememberMe")}
             />
 
-            <span className="flex h-5 w-5 items-center justify-center rounded border border-[#C0A86C] bg-white peer-checked:bg-[#C0A86C] peer-checked:[&>svg]:block">
+            <span className="flex h-[2em] w-[2em] items-center justify-center rounded border border-[#C0A86C] bg-white peer-checked:bg-[#C0A86C] peer-checked:[&>svg]:block">
               <svg
-                className="hidden h-6 w-6 text-white"
+                className="hidden h-[2.2em] w-[2.2em] text-white"
                 viewBox="0 0 20 20"
                 fill="none"
               >
@@ -115,7 +115,7 @@ export default function LoginPage() {
 
           <a
             type="button"
-            className="text-[0.8rem]  xs:text-[0.9rem] xl:text-[1rem] font-medium text-brand transition hover:text-brand-dark"
+            className=" font-medium text-brand transition hover:text-brand-dark"
             href={"/forgot-password"}
           >
             Forgot Password?

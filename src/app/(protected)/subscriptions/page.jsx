@@ -8,7 +8,7 @@ export default function Page() {
   return(
   <div className="w-full">
     <div className="w-full flex flex-col sm:flex-row gap-10 justify-between">
-      <h2 className="text-[2.5rem] font-bold tracking-tight text-black">
+      <h2 className="main-heading font-bold tracking-tight text-black">
           Subscription
       </h2>
 

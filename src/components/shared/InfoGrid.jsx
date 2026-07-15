@@ -9,12 +9,12 @@ export default function InfoGrid({
   return (
     <div>
       {heading && (
-        <h2 className="mb-4 text-[1.25rem] font-bold tracking-tight text-black">
+        <h2 className="mb-2 main-heading font-bold tracking-tight text-black">
           {heading}
         </h2>
       )}
 
-      <div className="grid grid-cols-2 gap-5 md:gap-x-10 sm:grid-cols-2 md:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 gap-x-4 sm:grid-cols-2 md:grid-cols-4">
         {fields.map((field) => (
           <InfoCell
             key={field.label}

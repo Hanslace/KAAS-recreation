@@ -124,14 +124,15 @@ export default function OtpPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center max-h-screen p-4">
-      <div className="w-full max-w-md flex flex-col items-start">
+    <div className="flex flex-col items-center justify-center max-h-screen ">
+      <div className="w-full max-w-md flex flex-col items-start space-y-2">
         <BackButton href="/forgot-password">Back</BackButton>
+        <div>
+          <AuthHeading text="Enter OTP"/>
+          <AuthSubHeading>Please enter OTP sent to your email</AuthSubHeading>
+        </div>
 
-        <AuthHeading text="Enter OTP"/>
-        <AuthSubHeading>Please enter OTP sent to your email</AuthSubHeading>
-
-        <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-8 flex flex-col items-center">
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-3 flex flex-col items-center">
           
           <Controller
             name="otp"
@@ -152,7 +153,7 @@ export default function OtpPage() {
                       onPaste={handlePaste}
                       onChange={(e) => handleInputChange(e, index, onChange, value)}
                       onKeyDown={(e) => handleKeyDown(e, index, onChange, value)}
-                      className={`w-full aspect-square text-center text-xl font-bold rounded-xl border bg-white shadow-md transition-all focus:outline-none 
+                      className={`w-full aspect-square text-center text-xl font-bold rounded-md border bg-white shadow-md transition-all focus:outline-none 
                         ${hasValue ? 'border-amber-600/30 text-black' : 'border-gray-100 text-gray-400'} 
                         focus:border-brand focus:ring-1 focus:ring-brand`}
                       placeholder="-"
@@ -173,7 +174,7 @@ export default function OtpPage() {
 
           {/* Action Footer Context */}
           <div className="text-center w-full space-y-6">
-            <p className="text-sub-text text-gray-500">
+            <p className="auth-sub-heading text-gray-500">
               Code didn't receive?{" "}
               <button 
                 type="button" 
@@ -209,7 +210,7 @@ export default function OtpPage() {
                   d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                 />
               </svg>
-              <span className="absolute text-brand font-bold text-sm">
+              <span className="absolute text-brand font-bold text-[1rem]">
                 {formatTime(timeLeft)}
               </span>
             </div>

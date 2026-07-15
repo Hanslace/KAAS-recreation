@@ -37,15 +37,15 @@ export default function SettingsPage() {
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
 
   return (
-    <div className="w-full">
-      <h2 className="text-[2rem] font-bold text-black tracking-tight">
+    <div className="w-full settings">
+      <h2 className="main-heading font-bold text-black tracking-tight">
         Settings
       </h2>
 
-      <div className="mt-8 grid w-full max-w-[60rem] grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="mt-8 grid w-full  max-w-[55em] grid-cols-1 gap-3 md:grid-cols-2">
         {/* Notifications Card */}
-        <div className="flex min-h-[4.25rem] items-center justify-between rounded-xl bg-white px-7 shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
-          <span className="text-[0.95rem] font-semibold text-black">
+        <div className="flex min-h-[4em] items-center justify-between rounded-xl bg-white px-7 shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
+          <span className=" font-semibold text-black">
             Notifications
           </span>
 
@@ -60,7 +60,7 @@ export default function SettingsPage() {
             aria-label="Toggle notifications"
           >
             {notificationsEnabled && (
-              <span className="absolute left-2 text-[0.55rem] font-bold text-white">
+              <span className="absolute left-2  font-bold text-white">
                 ON
               </span>
             )}
@@ -78,9 +78,9 @@ export default function SettingsPage() {
           <Link
             key={item.id}
             to={item.href || '#'}
-            className="flex min-h-[4.25rem] items-center rounded-xl bg-white px-7 shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)]"
+            className="flex min-h-[4em] items-center rounded-xl bg-white px-7 shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)]"
           >
-            <span className="text-[0.95rem] font-semibold text-black">
+            <span className=" font-semibold text-black">
               {item.title}
             </span>
           </Link>

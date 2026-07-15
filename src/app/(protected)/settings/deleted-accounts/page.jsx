@@ -5,6 +5,7 @@ import { Icon } from '@iconify/react';
 import BackButton from '@/components/ui/BackButton';
 import DataTable from '@/components/shared/DataTable';
 import data from '@/data/deleted-accounts.json';
+import SearchBar from '@/components/ui/SearchBar';
 
 
 const columns = [
@@ -77,19 +78,8 @@ export default function DeletedAccountsPage() {
       <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
         <BackButton href="/settings">Deleted Accounts</BackButton>
 
-        <div className="relative w-full lg:max-w-[25rem]">
-          <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center">
-            <Icon icon="solar:magnifer-linear" className="h-5 w-5 text-gray-400" />
-          </span>
-
-          <input
-            type="text"
-            value={searchValue}
-            onChange={(event) => setSearchValue(event.target.value)}
-            placeholder="Search here"
-            className="w-full rounded-lg bg-white py-3 pl-12 pr-4 text-[1rem] text-gray-900 shadow-lg transition-all placeholder:text-gray-400 focus:border-[#C4A46E] focus:outline-none focus:ring-1 focus:ring-[#C4A46E]"
-          />
-        </div>
+        <SearchBar value={searchValue} onChange={(event) => setSearchValue(event.target.value)} placeholder="Search here"/>
+          
       </div>
 
       <div className="mt-7">

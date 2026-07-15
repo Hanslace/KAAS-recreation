@@ -49,15 +49,12 @@ export default function Page() {
   };
 
   return (
-    <>
+    <div className="space-y-3">
       <BackButton href="/login">Back</BackButton>
-
-      <AuthHeading text="Forgot Password" />
-        
-
-
-      <AuthSubHeading>Please enter your email to reset your password</AuthSubHeading>
-        
+      <div className="mb-6">
+        <AuthHeading text="Forgot Password" />
+        <AuthSubHeading>Please enter your email to reset your password</AuthSubHeading>
+      </div>
    
 
         <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6">
@@ -79,6 +76,6 @@ export default function Page() {
           </AuthButton>
         </form>
 
-    </>
+    </div>
   );
 }

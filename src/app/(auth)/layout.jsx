@@ -22,7 +22,7 @@ export default function LoginLayout() {
               width={520}
               height={220}
               fetchPriority="high"
-              className="h-auto w-full max-w-[520px] object-contain"
+              className="h-auto w-full max-w-[18rem] object-contain"
             />
 
           </div>
@@ -31,7 +31,7 @@ export default function LoginLayout() {
         
 
         {/* Right Column */}
-        <div className=" w-full lg:m-auto space-y-10 lg:max-w-[33vw] p-10">
+        <div className=" w-full lg:m-auto space-y-10 lg:max-w-[35vw] p-10">
           <div className="lg:hidden mt-20  flex items-center justify-center ">
             <img
               src="/logo.png"

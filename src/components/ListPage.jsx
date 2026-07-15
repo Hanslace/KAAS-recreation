@@ -41,9 +41,9 @@ export default function ListPage({
   }, [activeTabId, searchValue, tableData, searchKeys]);
 
   return (
-    <>
-      <div>
-        <h2 className="flex flex-wrap items-center gap-3 text-[2rem] font-bold text-black tracking-tight">
+
+      <div className='space-y-1.5'>
+        <h2 className="main-heading flex flex-wrap items-center gap-3 text-[2rem] font-bold text-black tracking-tight">
             <span>{heading}</span>
 
             {secondaryText ? (
@@ -53,9 +53,9 @@ export default function ListPage({
             </>
             ) : null}
         </h2>
-        </div>
+        
 
-      <div className="mt-[1.5rem]">
+  
         <FiltersHeader
           options={filters}
           activeTabId={activeTabId}
@@ -64,11 +64,11 @@ export default function ListPage({
           onSearchChange={setSearchValue}
           searchPlaceholder={searchPlaceholder}
         />
-      </div>
+  
 
-      <div className="mt-[1.5rem]">
+     
         <DataTable path={path} data={filteredData} columns={columns} />
-      </div>
-    </>
+    
+    </div>
   );
 }

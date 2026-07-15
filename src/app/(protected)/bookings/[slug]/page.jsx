@@ -1,5 +1,6 @@
 import AttachmentImage from "@/components/ui/AttachmentImage";
 import BackButton from "@/components/ui/BackButton";
+import BrandPill from "@/components/ui/BrandPill";
 import NotFound from "@/components/ui/NotFound";
 import data from "@/data/data.json"
 import { Icon } from "@iconify/react";
@@ -13,13 +14,13 @@ function RatingRow({
     <div className="flex items-center gap-1">
       <div className="flex items-center gap-0.5 text-yellow-400">
         {[...Array(5)].map((_, index) => (
-          <Icon key={index} icon="solar:star-bold" className="h-3 w-3" />
+          <Icon key={index} icon="solar:star-bold" className="h-[0.8em] w-[0.8em]" />
         ))}
       </div>
 
-      <span className="font-bold text-black">{rating}</span>
+      <span className="font-bold text-black">{rating} |</span>
 
-      <span className="text-brand underline">| {reviewCount} Reviews</span>
+      <span className="text-brand "> {reviewCount} Reviews</span>
     </div>
   );
 }
@@ -30,10 +31,10 @@ function DetailRow({
   value,
 }) {
   return (
-    <div className="flex items-start gap-3">
-      <Icon icon={icon} className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
+    <div className="flex items-start gap-1">
+      <Icon icon={icon} className=" h-[1.25em] w-[1.25em] shrink-0 text-brand" />
 
-      <p className="text-[0.95rem] leading-snug text-black/50">
+      <p className=" leading-snug text-black/50">
         <span className="font-bold text-black">{label}: </span>
         {value}
       </p>
@@ -41,7 +42,7 @@ function DetailRow({
   );
 }
 
-export default async function BookingDetailPage() {
+export default  function BookingDetailPage() {
   const { slug } = useParams();
   
   const booking = data.bookingDetails.find((item) => item.slug === slug);
@@ -55,8 +56,8 @@ export default async function BookingDetailPage() {
   return (
     <div>
       <BackButton href="/bookings"> Details</BackButton>
-      <div className="  rounded-2xl mt-[1rem]  items-center xl:items-stretch p-[1.25rem] gap-[2rem] w-full shadow-lg flex flex-col xl:flex-row">
-        <div className="w-[25rem] max-w-full aspect-square overflow-hidden items-center rounded-2xl">
+      <div className=" booking-detail rounded-[20px] mt-[1rem]  items-center lg:items-stretch p-[0.75rem] gap-[0.75rem] w-full shadow-lg flex flex-col lg:flex-row">
+        <div className="w-[27rem] max-w-full aspect-square overflow-hidden items-center rounded-2xl">
           <img
             src={booking.imageUrl}
             alt={booking.companyName}
@@ -65,37 +66,33 @@ export default async function BookingDetailPage() {
         </div>
        
 
-        <div className="w-full xl:overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div className="w-full space-y-3 ">
           <div className="flex flex-col sm:flex-row-reverse items-start justify-between gap-5">
 
-            <div className="shrink-0 w-full sm:w-auto flex items-center  justify-between flex-row-reverse sm:flex-col text-right">
-              <span className="inline-flex rounded-full border border-brand/30 bg-[#F5E9CF] px-4 py-1.5 text-[0.75rem] font-medium text-brand">
-                {booking.status}
-              </span>
+            <div className="shrink-0 w-full sm:w-auto flex items-center gap-0.5 justify-between flex-row-reverse sm:flex-col text-right">
+              <BrandPill>{booking.status}</BrandPill>
 
-              <h2 className="mt-3 text-[2rem] font-black tracking-tight text-black">
+              <h2 className=" price font-black tracking-tight text-black">
                 {booking.price}
               </h2>
             </div>
 
             <div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1">
                 <img
                   src={booking.companyLogoUrl}
                   alt={booking.companyName}
-                  className="h-11 w-11 rounded-full border border-gray-200 object-cover"
+                  className="h-[3em] w-[3em] rounded-full border border-gray-200 object-cover"
                 />
-
-                <h1 className="text-[1.75rem] font-bold leading-tight tracking-tight text-black">
-                  {booking.companyName}
-                </h1>
-              </div>
-
-              <div className="ml-14 mt-1">
-                <RatingRow
-                  rating={booking.rating}
-                  reviewCount={booking.reviewCount}
-                />
+                <div className="mt-2">
+                  <h1 className=" font-bold leading-tight tracking-tight text-black">
+                    {booking.companyName}
+                  </h1>
+                  <RatingRow
+                    rating={booking.rating}
+                    reviewCount={booking.reviewCount}
+                  />
+                </div>
               </div>
             </div>
 
@@ -105,13 +102,13 @@ export default async function BookingDetailPage() {
           <div className="">
             {booking.status === "Reschedule" 
             ?
-            <h2 className="mb-5 text-[1.45rem] font-bold tracking-tight text-black">
+            <h2 className="mb-5  font-bold tracking-tight text-black">
               
                 Reschedule Details
             </h2>
             : null}
 
-            <div className="space-y-4">
+            <div className="space-y-2">
               <DetailRow
                 icon="uil:calendar"
                 label="Date & Time"
@@ -188,8 +185,8 @@ export default async function BookingDetailPage() {
             </div>
           </div>
 
-          <div className="mt-7">
-            <h2 className="mb-4 text-[1.25rem] font-bold tracking-tight text-black">
+          <div className="space-y-2">
+            <h2 className="mb-4  font-bold tracking-tight text-black">
               Permit:
             </h2>
 
@@ -204,42 +201,42 @@ export default async function BookingDetailPage() {
             </div>
           </div>
 
-          <div className="mt-8">
-            <h2 className="mb-4 text-[1.45rem] font-bold tracking-tight text-black">
+          <div className="space-y-2">
+            <h2 className="  font-bold tracking-tight text-black">
               Trailer Details:
             </h2>
 
-            <div className="space-y-4">
-              <p className="text-[0.95rem] text-black/50">
+            <div className="space-y-2">
+              <p className="text-black/50">
                 <span className="font-bold text-black">MC Number: </span>
                 {booking.trailerDetails.mcNumber}
               </p>
 
-              <p className="text-[0.95rem] text-black/50">
+              <p className="text-black/50">
                 <span className="font-bold text-black">Dot Number: </span>
                 {booking.trailerDetails.dotNumber}
               </p>
 
-              <p className="text-[0.95rem] text-black/50">
+              <p className="text-black/50">
                 <span className="font-bold text-black">
                   License Plate Number:{" "}
                 </span>
                 {booking.trailerDetails.licensePlateNumber}
               </p>
 
-              <p className="text-[0.95rem] text-black/50">
+              <p className="text-black/50">
                 <span className="font-bold text-black">
                   Registration Number:{" "}
                 </span>
                 {booking.trailerDetails.registrationNumber}
               </p>
 
-              <p className="text-[0.95rem] text-black/50">
+              <p className="text-black/50">
                 <span className="font-bold text-black">Vin Number: </span>
                 {booking.trailerDetails.vinNumber}
               </p>
 
-              <p className="text-[0.95rem] leading-snug text-black/50">
+              <p className="leading-snug text-black/50">
                 <span className="font-bold text-black">Description: </span>
                 {booking.trailerDetails.description}
               </p>
@@ -251,53 +248,53 @@ export default async function BookingDetailPage() {
               <img
                 src={booking.escortCompany.logoUrl}
                 alt={booking.escortCompany.name}
-                className="h-11 w-11 rounded-full border border-gray-200 object-cover"
+                className="h-[3em] w-[3em] rounded-full border border-gray-200 object-cover"
               />
-
-              <h2 className="text-[1.75rem] font-bold leading-tight tracking-tight text-black">
-                {booking.escortCompany.name}
-              </h2>
+              <div className="mt-3">
+                <h1 className=" font-bold leading-tight tracking-tight text-black">
+                  {booking.escortCompany.name}
+                </h1>
+                <RatingRow
+                  rating={booking.escortCompany.rating}
+                  reviewCount={booking.escortCompany.reviewCount}
+                />
+              </div>
             </div>
 
-            <div className="ml-14 mt-1">
-              <RatingRow
-                rating={booking.escortCompany.rating}
-                reviewCount={booking.escortCompany.reviewCount}
-              />
-            </div>
+       
               {booking.escortCompany.drivers &&
-            <h3 className="mt-8 text-[1.25rem] font-bold tracking-tight text-black">
+            <h2 className="mt-8 font-bold tracking-tight text-black">
               Drivers:
-            </h3>
-}
+            </h2>
+                }
                           {booking.reason &&
                           <>
-            <h3 className="mt-8 text-[1.25rem] font-bold tracking-tight text-black">
+            <h2 className="mt-8 font-bold tracking-tight text-black">
               Reason:
-            </h3>
-            <p className="text-[0.95rem] text-black/50">
+            </h2>
+            <p className=" text-black/50">
                 {booking.reason}
               </p>
               </>
-}
-            <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-2">
+              }
+            <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-2">
               {booking.escortCompany.drivers && booking.escortCompany.drivers.map((driver) => (
                 <div
                   key={driver.name}
-                  className="flex items-center gap-4 rounded-3xl bg-white px-6 py-4 shadow-xl shadow-black/5"
+                  className="flex items-center gap-4 rounded-xl bg-white px-3 py-2 shadow-xl shadow-black/5"
                 >
                   <img
                     src={driver.imageUrl}
                     alt={driver.name}
-                    className="h-14 w-14 rounded-full object-cover"
+                    className="h-[4em] w-[4em] rounded-full object-cover"
                   />
 
                   <div className="min-w-0">
-                    <h4 className="truncate text-[1rem] font-bold tracking-tight text-black">
+                    <h4 className="truncate  font-bold tracking-tight text-black">
                       {driver.name}
                     </h4>
 
-                    <p className="mt-1 text-[0.75rem] font-medium text-brand">
+                    <p className="  font-medium text-brand">
                       {driver.role}
                     </p>
                   </div>
@@ -308,7 +305,7 @@ export default async function BookingDetailPage() {
         </div>
           
         {booking.routeImageUrl && (
-        <div className="w-[40rem] max-w-full aspect-square  items-center overflow-hidden rounded-2xl">
+        <div className="w-[30rem] max-w-full aspect-square  items-center overflow-hidden rounded-2xl">
           <img
             src={booking.routeImageUrl}
             alt="Route"

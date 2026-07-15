@@ -34,11 +34,11 @@ export default function DetailsLayout({
 
   return (
     <>
-      <div className="flex flex-col justify-between gap-10 sm:flex-row">
+      <div className="flex flex-col justify-between gap-3 sm:flex-row">
         <BackButton>Details</BackButton>
 
         {status === 'Pending' && (
-          <div className="ml-auto flex w-fit gap-5">
+          <div className="ml-auto flex w-fit gap-3">
             <BrandButton onClick={() => navigate(-1)}>
               Approve
             </BrandButton>
@@ -54,7 +54,7 @@ export default function DetailsLayout({
         )}
 
         {status === 'Approved' && (
-          <div className="ml-auto flex w-fit gap-5">
+          <div className="ml-auto flex w-fit gap-3">
             <BrandButton
               type="button"
               onClick={() => setReasonAction('block')}
@@ -76,12 +76,12 @@ export default function DetailsLayout({
 
       <section
         aria-labelledby={headingId}
-        className="mt-[1.5rem] w-full space-y-10  rounded-2xl p-[1.5rem] shadow-lg "
+        className=" w-full space-y-3 details-layout rounded-2xl p-5 shadow-lg "
       >
         <div className="flex items-center justify-between gap-4">
           <h2
             id={headingId}
-            className="text-[1rem] xs:text-[1.5rem] sm:text-[1.75rem] font-bold tracking-tight text-black"
+            className="main-heading font-bold tracking-tight text-black"
           >
             Personal Info
           </h2>
@@ -89,8 +89,8 @@ export default function DetailsLayout({
           <BrandPill>{status}</BrandPill>
         </div>
 
-        <div className="relative flex flex-col items-center sm:items-start sm:flex-row gap-4 pb-[1.5rem] after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-gray-100">
-          <div className="flex h-[6rem] w-[6rem] shrink-0 items-center justify-center overflow-hidden rounded-full">
+        <div className="relative flex flex-col items-center sm:items-start sm:flex-row gap-3 pb-3 after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-gray-100">
+          <div className="flex h-[5em] w-[5em] shrink-0 items-center justify-center overflow-hidden rounded-full">
             <img
               src={logoSrc}
               alt={logoAlt ?? companyName}
@@ -101,8 +101,8 @@ export default function DetailsLayout({
             />
           </div>
 
-          <div className="flex min-w-0  items-center sm:items-start  flex-col justify-center gap-1">
-            <h3 className="truncate text-[1.75rem] font-bold tracking-tight text-black">
+          <div className="flex min-w-0  items-center sm:items-start  flex-col justify-center ">
+            <h3 className="truncate main-heading font-bold tracking-tight text-black">
               {companyName}
             </h3>
 

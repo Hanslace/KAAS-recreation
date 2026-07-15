@@ -43,19 +43,19 @@ export default function DataTable({ data, columns, path }) {
   };
 
   return (
-    <div className="w-full overflow-x-auto custom-scrollbar pb-2">
-      <table className="w-full min-w-[75rem] border-separate border-spacing-0 ">
+    <div className="data-table w-full overflow-x-auto custom-scrollbar pb-2">
+      <table className="lg:w-full max-[1023px]:min-w-[50rem] border-separate border-spacing-0 ">
         <thead>
           <tr className="bg-brand-gradient text-white">
             {columns.map((column, index) => (
               <th
                 key={String(column.key)}
-                className={`px-[1.25rem] py-[1rem] text-[0.9rem] font-bold ${
+                className={`px-2 py-2  ${
                   column.type === 'action' ? 'text-center' : 'text-left'
                 } ${
-                  index === 0 ? 'rounded-l-[0.5rem]' : ''
+                  index === 0 ? 'rounded-tl-[0.3rem]' : ''
                 } ${
-                  index === columns.length - 1 ? 'rounded-r-[0.5rem]' : ''
+                  index === columns.length - 1 ? 'rounded-tr-[0.3rem]' : ''
                 }`}
               >
                 {column.label}
@@ -81,16 +81,16 @@ export default function DataTable({ data, columns, path }) {
               {columns.map((column, columnIndex) => {
                 const cellRounded =
                     columnIndex === 0
-                    ? 'rounded-l-[0.5rem]'
+                    ? 'rounded-l-[0.5rem] px-2'
                     : columnIndex === columns.length - 1
                     ? 'rounded-r-[0.5rem]'
-                    : '';
+                    : ' px-1 py-2 max-w-[20em]';
 
                 if (column.type === 'empty') {
                     return (
                     <td
                         key={String(column.key)}
-                        className={`${cellRounded} px-[1.25rem] py-[1rem]`}
+                        className={`${cellRounded}`}
                     />
                     );
                 }
@@ -105,16 +105,16 @@ export default function DataTable({ data, columns, path }) {
                   return (
                     <td
                       key={String(column.key)}
-                      className={`${cellRounded} px-[1.25rem] py-[1rem]`}
+                      className={`${cellRounded}`}
                     >
-                      <div className="flex items-center gap-[0.75rem]">
+                      <div className="flex items-center gap-[0.5rem]">
                         <img
                           src={String(imageValue || '/images/company-logo.png')}
                           alt={String(value)}
-                          className="h-[2rem] w-[2rem] shrink-0 rounded-full object-cover"
+                          className="h-[2.5em] w-[2.5em] shrink-0 rounded-full object-cover"
                         />
 
-                        <span className="whitespace-nowrap text-[0.9rem] text-black/50">
+                        <span className="whitespace-nowrap text-black/50">
                           {String(value)}
                         </span>
                       </div>
@@ -126,10 +126,10 @@ export default function DataTable({ data, columns, path }) {
                   return (
                     <td
                       key={String(column.key)}
-                      className={`${cellRounded} px-[1.25rem] py-[1rem]`}
+                      className={`${cellRounded}`}
                     >
                       <span
-                        className={`inline-flex rounded-full px-[1rem] py-[0.5rem] text-[0.8rem] font-medium ${
+                        className={`inline-flex rounded-full px-[0.4rem] py-[0.2rem]  font-medium ${
                           statusClasses[String(value)] ||
                           'bg-gray-100 text-gray-500'
                         }`}
@@ -146,7 +146,7 @@ export default function DataTable({ data, columns, path }) {
                   return (
                     <td
                       key={String(column.key)}
-                      className={`${cellRounded} relative px-[1.25rem] py-[1rem] text-center`}
+                      className={`${cellRounded} relative text-center`}
                     >
                       {/* The 3-Dot Trigger Button */}
                       <button
@@ -160,7 +160,7 @@ export default function DataTable({ data, columns, path }) {
                       >
                         <Icon
                           icon="solar:menu-dots-bold"
-                          className="h-[1.25rem] w-[1.25rem]"
+                          className="h-[1.5em] w-[1.5em]"
                         />
                       </button>
 
@@ -223,7 +223,7 @@ export default function DataTable({ data, columns, path }) {
                  return (
                     <td
                       key={String(column.key)}
-                      className={`${cellRounded} px-[1.25rem] py-[1rem] text-[0.9rem] text-black/50`}
+                      className={`${cellRounded} text-black/50`}
                     >
                       {value !== undefined && value !== null ? String(value) : ''}
                     </td>

@@ -51,14 +51,14 @@ export default function ResetPasswordPage() {
   };
 
   return (
-    <>
+    <div className="space-y-3">
       {/* Back button directs user back to the OTP screen if they need to check it */}
       <BackButton href="/forgot-password/otp">Back</BackButton>
+      <div className="mb-6">
+        <AuthHeading text="Reset Password"/>
 
-      <AuthHeading text="Reset Password"/>
-
-      <AuthSubHeading>Please type your new password</AuthSubHeading>
-     
+        <AuthSubHeading>Please type your new password</AuthSubHeading>
+      </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6">
         <AuthInput
@@ -87,6 +87,6 @@ export default function ResetPasswordPage() {
           {isSubmitting ? "Saving..." : "Save"}
         </AuthButton>
       </form>
-    </>
+    </div>
   );
 }

@@ -96,7 +96,7 @@ export default function SupportDetailsPage() {
   ];
 
   return (
-    <div className='space-y-10'>
+    <div className='space-y-3'>
       <div className="flex  w-full  items-center justify-between">
         <BackButton href="/support">Details</BackButton>
 
@@ -108,17 +108,17 @@ export default function SupportDetailsPage() {
       
           
 
-      <div className="mt-[1.5rem]  w-full  rounded-2xl bg-white p-[1.5rem] shadow-lg space-y-10">
+      <div className=" w-full space-y-3 details-layout rounded-2xl p-5 shadow-lg ">
         <div className="flex items-start justify-between gap-4">
-          <h2 className="text-[1rem] xs:text-[1.5rem] sm:text-[1.75rem] font-bold tracking-tight text-black">
+          <h2 className="main-heading font-bold tracking-tight text-black">
             Ticket Info
           </h2>
 
           <BrandPill>{ticket.status}</BrandPill>
         </div>
 
-        <div className="relative flex flex-col items-center sm:items-start sm:flex-row gap-4 pb-[1.5rem] after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-gray-100">
-          <div className="flex h-[5rem] w-[5rem] shrink-0 items-center justify-center overflow-hidden rounded-full bg-black">
+        <div className="relative flex flex-col items-center sm:items-start sm:flex-row gap-3 pb-3 after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-gray-100">
+          <div className="flex h-[5em] w-[5em] shrink-0 items-center justify-center overflow-hidden rounded-full">
             <img
               src={ticket.logo}
               alt={ticket.companyName}
@@ -129,29 +129,29 @@ export default function SupportDetailsPage() {
             />
           </div>
 
-          <div className="flex min-w-0  items-center sm:items-start  flex-col justify-center gap-1">
-            <h3 className="text-[1.45rem] font-bold tracking-tight text-black lg:text-[1.75rem]">
+          <div className="flex min-w-0  items-center sm:items-start flex-col justify-center ">
+            <h3 className="truncate main-heading font-bold tracking-tight text-black">
               {ticket.companyName}
             </h3>
 
-            <p className="mt-1 truncate text-[0.95rem] tracking-tight text-black/50">
+            <p className="truncate tracking-tight text-black/50">
               {ticket.email}
             </p>
 
-            <p className="mt-1 text-[0.95rem] tracking-tight text-black/50">
+            <p className="tracking-tight text-black/50">
               {ticket.phoneNumber}
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-x-10 md:grid-cols-2 xl:grid-cols-[1fr_1fr_2fr]">
+        <div className="grid grid-cols-1 gap-x-10 grid-cols-[1fr_1fr_2fr]">
           {detailFields.map((field) => (
             <InfoCell key={field.label} label={field.label} value={field.value} />
           ))}
         </div>
 
         <div className="mt-8">
-          <h2 className="text-[1.5rem] font-bold tracking-tight text-black lg:text-[1.75rem]">
+          <h2 className="main-heading font-bold tracking-tight text-black">
             Attachments:
           </h2>
 

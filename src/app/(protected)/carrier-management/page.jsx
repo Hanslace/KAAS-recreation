@@ -26,16 +26,7 @@ const columns = [
     label: 'Address',
     type: 'text',
   },
-  {
-    key: 'empty-1',
-    label: '',
-    type: 'empty',
-  },
-  {
-    key: 'empty-2',
-    label: '',
-    type: 'empty',
-  },
+
   {
     key: 'status',
     label: 'Status',

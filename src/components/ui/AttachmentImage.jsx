@@ -20,7 +20,7 @@ export default function AttachmentImage({ src, alt }) {
           alt={alt}
           width={130}
           height={105}
-          className="h-[7rem] min-h-[6rem] w-[6rem] min-w-[5rem] rounded-lg object-contain shadow-md cursor-zoom-in transition group-hover:opacity-90"
+          className="h-[4rem] w-[4rem] rounded-lg object-contain shadow-md cursor-zoom-in transition group-hover:opacity-90"
         />
       </button>
 

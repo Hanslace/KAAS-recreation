@@ -7,7 +7,7 @@ import NotFound from "@/components/ui/NotFound";
 
 
 
-export default async function Page() {
+export default function Page() {
 
   const { truckid } = useParams();
 
@@ -31,15 +31,13 @@ export default async function Page() {
 
   return (
     <>
-      <div className="flex flex-col sm:flex-row gap-10 justify-between">
         <BackButton href="/carrier-management">
         Details 
         </BackButton>
         
-      </div>
-      <div className="  rounded-2xl mt-[1.5rem] space-y-10 p-[1.5rem] w-full  shadow-lg ">
+      <div className=" truck-details rounded-2xl  space-y-3 p-4 w-full  shadow-lg ">
         <>
-          <h2 className="text-[1.75rem] mb-3 font-bold text-black tracking-tight">
+          <h2 className="main-heading mb-3 font-bold text-black tracking-tight">
             Truck Info
           </h2>
         
@@ -47,25 +45,26 @@ export default async function Page() {
           <img
               src="/images/truck.jpg"
               alt={`truck `}
-              className="max-h-[10rem] h-full aspect-[9/2.5] object-cover rounded-xl transition-transform duration-300 group-hover:scale-105 brightness-60"
+              className="h-[11em]  aspect-[9/2.5] object-cover rounded-xl transition-transform duration-300 group-hover:scale-105 brightness-60"
             />
           </>
 
 
         <InfoGrid fields={detailFields} />
+        <div>
 
-        <h2 className="text-[1.75rem] mb-3 font-bold text-black tracking-tight">
-              Liability:
-            </h2>
+          <h2 className="main-heading  font-bold text-black tracking-tight">
+            Liability:
+          </h2>
 
-            <div className=" w-fit flex flex-col gap-5">
-              <p className="text-brand font-bold">Important docs</p>
+          <div className=" ml-3 w-fit flex flex-col gap-2">
+            <p className="text-brand font-bold">Important docs</p>
             <AttachmentImage
-            src="/images/liability-doc.jpg"
-            alt={`truck `}
-          />
+              src="/images/liability-doc.jpg"
+              alt={`truck `}
+            />
           </div>
-
+        </div>
  
 
       </div>

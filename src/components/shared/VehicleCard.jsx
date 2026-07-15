@@ -35,12 +35,12 @@ export default function VehicleCard({
   return (
     <Link
       to={`${cleanBasePath}/${vehicle.slug}`}
-      className="block w-full focus:outline-none"
+      className="block w-full focus:outline-none vehicle-card"
       aria-label={`View vehicle details for ${vehicle.name}`}
     >
       <div
         className={twMerge(
-          'flex w-full flex-col rounded-[24px] border border-gray-100 bg-white p-4 shadow-xl transition-all duration-300 ease-in-out hover:shadow-2xl md:p-5',
+          'flex w-full flex-col rounded-[15px] border border-gray-100 bg-white p-2 pb-5 shadow-xl transition-all duration-300 ease-in-out hover:shadow-2xl ',
           className,
         )}
       >
@@ -52,12 +52,12 @@ export default function VehicleCard({
           />
         </div>
 
-        <div className="mt-4 flex flex-col space-y-2.5 text-left">
-          <h3 className="truncate text-[1rem] font-bold leading-tight tracking-tight text-gray-900 md:text-[1.5rem]">
+        <div className="mt-4 flex flex-col space-y-1 text-left">
+          <h3 className="truncate heading font-bold leading-tight tracking-tight text-gray-900 ">
             {vehicle.name}
           </h3>
 
-          <div className="space-y-1.5 pt-1 text-[0.7rem] font-medium md:text-[0.875rem]">
+          <div className="space-y-1.5 pt-1  font-medium ">
             {fields.map((field) => {
               const value = vehicle[field.accessKey];
 

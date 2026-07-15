@@ -6,7 +6,7 @@ import { twMerge } from 'tailwind-merge';
 
 export default function BrandButton(props) {
   const baseStyles =
-    'flex h-[3.25rem] items-center justify-center rounded-xl bg-brand-gradient px-6 text-[0.95rem] font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0';
+    'brand-button flex  items-center justify-center rounded-md bg-brand-gradient py-3 px-11  font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0';
 
   // ✅ Check for 'to' instead of Next.js 'href'
   if ('to' in props && typeof props.to === 'string') {

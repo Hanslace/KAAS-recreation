@@ -36,8 +36,8 @@ export default function ChangePasswordPage() {
   return (
     <>
       <BackButton href='/settings'>Change Password</BackButton>
-      <div className='flex flex-col items-center justify-center lg:block '>
-      <div className="w-full max-w-[32rem] mt-[2rem]">
+      <div className='flex flex-col items-center justify-center lg:block settings'>
+      <div className="w-full max-w-[30em] mt-[2rem]">
         <form onSubmit={handleSubmit} className="space-y-7 ">
           <AuthInput
             label="Current Password"
@@ -71,7 +71,7 @@ export default function ChangePasswordPage() {
 
           <button
             type="submit"
-            className="mt-9 flex h-[3.8rem] w-full items-center justify-center rounded-lg bg-brand-gradient text-[1rem] font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95"
+            className="brand-button flex  items-center justify-center rounded-md bg-brand-gradient py-3 px-11  font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
           >
             Update Password
           </button>

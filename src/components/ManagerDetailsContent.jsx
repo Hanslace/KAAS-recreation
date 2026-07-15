@@ -68,11 +68,11 @@ export default function ManagerDetailsContent({
 
       {status === 'Cancelled' && (
         <div>
-          <h3 className="text-[1rem] font-bold tracking-tight text-black">
+          <h3 className="main-heading font-bold tracking-tight text-black">
             Reason:
           </h3>
 
-          <p className="mt-2 text-[0.9rem] leading-relaxed tracking-tight text-black/50">
+          <p className="mt-2 leading-relaxed tracking-tight text-black/50">
             {currentManager.cancelReason ??
               `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
               sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -110,7 +110,7 @@ export default function ManagerDetailsContent({
 
       {status === 'Approved' && (
         <div className="mt-8 flex flex-col gap-4">
-          <h2 className="text-[1.75rem] font-bold tracking-tight text-black">
+          <h2 className="main-heading font-bold tracking-tight text-black">
             Booking History
           </h2>
 

@@ -90,19 +90,19 @@ export default function EditSubscriptionPage() {
 
   return (
     <>
-      <div className="w-full max-w-[32rem]">
+      <div className="w-full max-w-[20em]">
         <BackButton href="/subscriptions">
           Edit Subscription
         </BackButton>
 
         <form
           onSubmit={handleSubmit}
-          className="mt-7 flex w-full flex-col gap-7"
+          className="mt-3 flex w-full flex-col gap-6 edit-subscription-form"
         >
           <div className="relative w-full">
             <label
               htmlFor="subscription-title"
-              className="absolute -top-[6px] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1 text-[0.7rem] lg:text-[0.8rem] xl:text-[0.875rem] font-normal leading-none text-black"
+              className="absolute -top-[0.3em] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1  font-normal leading-none text-black"
             >
               Title
             </label>
@@ -114,14 +114,14 @@ export default function EditSubscriptionPage() {
               onChange={(event) => setTitle(event.target.value)}
               placeholder="Pilot Car"
               required
-              className="h-[3.4rem] w-full rounded-xl border border-black/10 bg-white px-5 text-[0.9rem] font-light text-black/70 shadow-[0_14px_30px_rgba(0,0,0,0.12)] outline-none placeholder:text-black/25 focus:border-brand"
+              className="h-[4em] w-full rounded-sm border border-black/10 bg-white px-5  font-light text-black/70 shadow-[0_14px_30px_rgba(0,0,0,0.12)] outline-none placeholder:text-black/25 focus:border-brand"
             />
           </div>
 
           <div className="relative w-full">
             <label
               htmlFor="subscription-duration"
-              className="absolute -top-[6px] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1 text-[0.7rem] lg:text-[0.8rem] xl:text-[0.875rem] font-normal leading-none text-black"
+              className="absolute -top-[0.3em] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1  font-normal leading-none text-black"
             >
               Duration
             </label>
@@ -133,14 +133,14 @@ export default function EditSubscriptionPage() {
               onChange={(event) => setDuration(event.target.value)}
               placeholder="Monthly"
               required
-              className="h-[3.4rem] w-full rounded-xl border border-black/10 bg-white px-5 text-[0.9rem] font-light text-black/70 shadow-[0_14px_30px_rgba(0,0,0,0.12)] outline-none placeholder:text-black/25 focus:border-brand"
+              className="h-[4em] w-full rounded-sm border border-black/10 bg-white px-5 font-light text-black/70 shadow-[0_14px_30px_rgba(0,0,0,0.12)] outline-none placeholder:text-black/25 focus:border-brand"
             />
           </div>
 
           <div className="relative w-full">
             <label
               htmlFor="subscription-price"
-              className="absolute -top-[6px] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1 text-[0.7rem] lg:text-[0.8rem] xl:text-[0.875rem] font-normal leading-none text-black"
+              className="absolute -top-[0.3em] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1 font-normal leading-none text-black"
             >
               Price
             </label>
@@ -173,14 +173,14 @@ export default function EditSubscriptionPage() {
               }}
               placeholder="05"
               required
-              className="h-[3.4rem] w-full rounded-xl border border-black/10 bg-white px-5 text-[0.9rem] font-light text-black/70 shadow-[0_14px_30px_rgba(0,0,0,0.12)] outline-none placeholder:text-black/25 focus:border-brand"
+              className="h-[4em] w-full rounded-sm border border-black/10 bg-white px-5  font-light text-black/70 shadow-[0_14px_30px_rgba(0,0,0,0.12)] outline-none placeholder:text-black/25 focus:border-brand"
             />
           </div>
 
           <div className="relative w-full">
             <label
               htmlFor="subscription-description"
-              className="absolute -top-[6px] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1 text-[0.7rem] lg:text-[0.8rem] xl:text-[0.875rem] font-normal leading-none text-black"
+              className="absolute -top-[0.3em] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1  font-normal leading-none text-black"
             >
               Description
             </label>
@@ -192,22 +192,22 @@ export default function EditSubscriptionPage() {
               placeholder="Enter subscription description"
               required
               rows={4}
-              className="min-h-[5.5rem] w-full resize-none rounded-xl border border-black/10 bg-white px-5 py-4 text-[0.9rem] font-light leading-5 text-black/70 shadow-[0_14px_30px_rgba(0,0,0,0.12)] outline-none placeholder:text-black/25 focus:border-brand"
+              className="min-h-[5.5rem] w-full resize-none rounded-sm border border-black/10 bg-white px-5 py-4  font-light text-black/70 shadow-[0_14px_30px_rgba(0,0,0,0.12)] outline-none placeholder:text-black/25 focus:border-brand"
             />
           </div>
 
           <div className="w-full">
-            <h3 className="mb-3 text-[0.8rem] font-medium text-black">
+            <h3 className="mb-3 font-medium text-black">
               Point List
             </h3>
 
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-3">
               {points.map((point, index) => (
                 <div
                   key={index}
                   className="flex w-full items-center gap-3"
                 >
-                  <div className="flex min-h-[3.4rem] flex-1 items-center rounded-xl border border-black/10 bg-white px-5 shadow-[0_14px_30px_rgba(0,0,0,0.12)] focus-within:border-brand">
+                  <div className="flex min-h-[4em] flex-1 items-center rounded-sm border border-black/10 bg-white px-5 shadow-[0_14px_30px_rgba(0,0,0,0.12)] focus-within:border-brand">
                     <span className="mr-3 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
 
                     <input
@@ -217,7 +217,7 @@ export default function EditSubscriptionPage() {
                         handlePointChange(index, event.target.value)
                       }
                       placeholder="Enter point"
-                      className="w-full bg-transparent text-[0.85rem] font-light text-black/70 outline-none placeholder:text-black/25"
+                      className="w-full bg-transparent font-light text-black/70 outline-none placeholder:text-black/25"
                     />
                   </div>
 
@@ -241,7 +241,7 @@ export default function EditSubscriptionPage() {
               <button
                 type="button"
                 onClick={handleAddPoint}
-                className="flex items-center gap-3 text-[0.8rem] font-medium text-black"
+                className="flex items-center gap-3 font-medium text-black"
               >
                 <span>Add More</span>
 
@@ -258,7 +258,7 @@ export default function EditSubscriptionPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="flex h-[3.25rem] w-full items-center justify-center rounded-lg bg-brand-gradient text-[0.8rem] font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
+            className="flex h-[3.25rem] w-full items-center justify-center rounded-lg bg-brand-gradient font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-lg active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
           >
             {isSubmitting ? 'Updating...' : 'Update'}
           </button>

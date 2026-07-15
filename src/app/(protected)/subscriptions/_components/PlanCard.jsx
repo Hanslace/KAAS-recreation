@@ -15,46 +15,46 @@ export default function PlanCard({
   disabled = false,
 }) {
   return (
-    <div className="w-full rounded-[1.25rem] bg-white px-6 py-7 shadow-[0_12px_28px_rgba(0,0,0,0.12)] sm:px-8">
+    <div className="plan-card w-full rounded-[15px] bg-white p-4 shadow-[0_12px_28px_rgba(0,0,0,0.12)] space-y-3">
       {/* Top section */}
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <h3 className="text-[1.8rem] font-black leading-tight text-brand">
+          <h3 className="heading font-black leading-tight text-brand">
             {title}
           </h3>
 
-          <p className="mt-1 text-[1.15rem] font-black text-black">
+          <p className="mt-1  font-black text-black">
             {billingPeriod}
           </p>
         </div>
 
         <div className="flex gap-2 shrink-0 items-start text-brand">
-          <span className="mt-4 text-[2rem] font-black leading-none">
+          <span className="mt-4 heading font-black leading-none">
             $
           </span>
 
-          <span className="text-[6rem] font-black leading-[0.8] tracking-tight">
+          <span className="price font-black leading-[0.8] tracking-tight">
             {price}
           </span>
         </div>
       </div>
 
       {/* Description */}
-      <p className="mt-4 max-w-[33rem] text-[0.95rem] leading-6 text-gray-500">
+      <p className=" max-w-[33rem]   text-gray-500">
         {description}
       </p>
 
       {/* Divider */}
-      <div className="mx-auto my-6 h-px w-[70%] bg-brand/20" />
+      <div className="mx-auto  h-px w-[70%] bg-brand/20" />
 
       {/* Features */}
-      <ul className="space-y-4">
+      <ul className="space-y-0.5">
         {features.map((feature, index) => (
           <li
             key={`${feature}-${index}`}
-            className="flex items-start gap-3 text-[0.8rem] lg:text-[0.95rem] leading-6 text-black"
+            className="flex items-start gap-2  leading-6 text-black"
           >
-            <span className="mt-[0.6rem] h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
+            <span className="mt-[0.6rem] h-1 w-1 shrink-0 rounded-full bg-gray-500" />
 
             <span>{feature}</span>
           </li>
@@ -62,11 +62,11 @@ export default function PlanCard({
       </ul>
 
       {/* Button */}
-      <div className="mx-auto mt-8 w-full max-w-[25rem]">
+      <div className="flex justify-center">
         <BrandButton
           to={href}
           disabled={disabled}
-          className="h-[2.9rem] aspect-auto rounded-lg p-0 text-[0.75rem] md:h-[2.9rem] md:aspect-auto md:p-0 md:text-[0.75rem]"
+          className="h-8 aspect-[530/60]     "
         >
           {buttonText}
         </BrandButton>

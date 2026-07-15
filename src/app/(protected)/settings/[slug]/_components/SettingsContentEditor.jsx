@@ -18,7 +18,7 @@ function ToolbarButton({
       type="button"
       onClick={onClick}
       disabled={disabled}
-      className={`flex border-black/10 bg-white  hover:border-brand hover:text-brand h-9 min-w-9 items-center justify-center rounded-lg border px-3 text-sm font-medium transition  disabled:cursor-not-allowed disabled:opacity-40`}
+      className={`flex border-black/10 bg-white  hover:border-brand hover:text-brand h-9 min-w-9 items-center justify-center rounded-lg border px-3  font-medium transition  disabled:cursor-not-allowed disabled:opacity-40`}
     >
       {children}
     </button>
@@ -41,7 +41,7 @@ export default function SettingsContentEditor({
     editorProps: {
       attributes: {
         class:
-          "min-h-[420px] px-6 py-6 text-[1rem] leading-[1.9] text-black/55 outline-none sm:px-8 sm:text-[1.1rem] " +
+          "min-h-[420px] px-6 py-6  leading-[1.9] text-black/55 outline-none sm:px-8  " +
           "[&_p]:mb-6 [&_p:last-child]:mb-0 " +
           "[&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:text-black " +
           "[&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-black " +
@@ -141,7 +141,7 @@ export default function SettingsContentEditor({
               type="button"
               onClick={handleCancel}
               disabled={isSaving}
-              className="h-10 rounded-xl border border-black/10 bg-white px-5 text-sm font-medium text-black/60 transition hover:border-black/20 hover:text-black disabled:opacity-50"
+              className="h-10 rounded-xl border border-black/10 bg-white px-5  font-medium text-black/60 transition hover:border-black/20 hover:text-black disabled:opacity-50"
             >
               Cancel
             </button>
@@ -150,7 +150,7 @@ export default function SettingsContentEditor({
               type="button"
               onClick={handleSave}
               disabled={isSaving}
-              className="h-10 rounded-xl bg-gradient-to-r from-brand to-brand-dark px-6 text-sm font-medium text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+              className="h-10 rounded-xl bg-gradient-to-r from-brand to-brand-dark px-6  font-medium text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {isSaving ? "Saving..." : "Save Changes"}
             </button>
@@ -158,7 +158,7 @@ export default function SettingsContentEditor({
         )}
       </div>
 
-      <div className="mt-7 overflow-hidden rounded-2xl bg-white shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
+      <div className="mt-7 settings overflow-hidden rounded-2xl bg-white shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
         {isEditing && (
           <div className="flex flex-wrap items-center gap-2 border-b border-black/10 bg-black/[0.02] p-3">
             <ToolbarButton

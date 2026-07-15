@@ -55,7 +55,7 @@ export default function CarrierDetailsContent({
       { status === "Approved" &&
         <>
         <div className="mt-8 flex flex-col gap-4">
-          <h2 className="text-[1.75rem] font-bold text-black tracking-tight">
+          <h2 className="main-heading font-bold text-black tracking-tight">
             Truck Info
           </h2>
 
@@ -70,7 +70,7 @@ export default function CarrierDetailsContent({
         {/* ==================== TRUCK INFO SECTION END ==================== */}
 
         <div className="mt-8 flex flex-col gap-4">
-          <h2 className="text-[1.75rem] font-bold text-black tracking-tight">
+          <h2 className="main-heading font-bold text-black tracking-tight">
             Booking History
           </h2>
           

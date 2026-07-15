@@ -75,9 +75,9 @@ export default function SupportPage() {
   }, [activeFilter, searchValue]);
 
   return (
-    <div className="w-full">
+    <div className="w-full space-y-3">
       <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-        <h2 className="text-[2.5rem] font-bold tracking-tight text-black">
+        <h2 className="main-heading font-bold tracking-tight text-black">
           Support
         </h2>
 
@@ -98,13 +98,13 @@ export default function SupportPage() {
         </div>
       </div>
 
-      <div className="mt-7">
+
         <DataTable
           data={filteredData}
           columns={supportColumns}
           path="/support"
         />
       </div>
-    </div>
+
   );
 }

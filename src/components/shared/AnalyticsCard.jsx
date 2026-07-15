@@ -14,7 +14,7 @@ export default function AnalyticsCard({
     >
       {/* Translucent white icon circle wrapper */}
       <div className={`flex items-center justify-center p-[0.6rem] rounded-full bg-white/40 shrink-0`}>
-        <Icon icon={iconName} className="w-[2em] h-[2em] text-white" />
+        <Icon icon={iconName} className="w-[1.9em] h-[1.9em] text-white" />
       </div>
 
       {/* Numerical metric and label content data container */}

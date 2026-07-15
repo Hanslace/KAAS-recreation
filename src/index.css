@@ -51,8 +51,9 @@ body {
 }
 
 
+
 .sidebar {
-  font-size: 0.55rem;
+  font-size: 0.575rem;
   padding: 1rem;
 }
   
@@ -65,7 +66,7 @@ header h1 {
   font-size: 2rem;
 }
 
-.dashboard {
+.main-heading {
   font-size: 1rem;
 }
 
@@ -103,4 +104,116 @@ header h1 {
 
 .booking-card h4 {
   font-size: 0.8rem;
+}
+
+.back-button {
+  font-size: 1.1rem;
+}
+
+.booking-detail {
+  font-size: 0.5rem;
+}
+
+.booking-detail h1 {
+  font-size: 1rem;
+}
+
+.booking-detail h2 {
+  font-size: 0.8rem;
+}
+
+.booking-detail .price {
+  font-size: 1.1rem;
+}
+
+.brand-pill {
+  font-size: 0.45rem;
+}
+
+.data-table {
+  font-size: 0.5rem;
+}
+
+.brand-button {
+  font-size: 0.5rem;
+}
+
+.details-layout {
+  font-size: 0.6rem;
+}
+
+.info-cell {
+  font-size: 0.6rem;
+}
+
+.vehicle-card {
+  font-size: 0.55rem;
+}
+
+.vehicle-card .heading {
+  font-size: 0.8rem;
+}
+
+.truck-details {
+  font-size: 0.6rem;
+}
+
+.plan-card {
+  font-size: 0.6rem;
+}
+
+.plan-card .heading {
+  font-size: 1rem;
+}
+
+.plan-card .price {
+  font-size: 3rem;
+}
+
+.dropdown {
+  font-size: 0.55rem;
+}
+
+.edit-subscription-form {
+  font-size: 0.55rem;
+}
+
+.modal {
+  font-size: 0.8rem;
+}
+
+.modal .heading {
+  font-size: 1.5rem;
+}
+
+.settings {
+  font-size: 0.6rem;
+}
+
+.notification {
+  font-size: 0.55rem;
+}
+
+.notification .heading {
+  font-size: 0.75rem;
+}
+
+.notification .message {
+  font-size: 0.65rem;
+}
+
+.auth-input {
+  font-size: 0.55rem;
+}
+
+.auth-heading {
+  font-size: 1.8rem;
+}
+
+.auth-sub-heading {
+  font-size: 0.55rem;
+}
+
+.auth-options {
+  font-size: 0.45rem;
 }
