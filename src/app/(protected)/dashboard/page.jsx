@@ -38,11 +38,11 @@ export default function Page() {
 
 
   return (
-    <div className="space-y-10 ">
+    <div className="space-y-10 dashboard ">
       
-      <div  className="space-y-3">
+      <div  className="space-y-2">
       <div>
-        <h2 className="text-[2rem] font-bold text-black tracking-tight">
+        <h2 className=" font-bold text-black tracking-tight">
           Dashboard
         </h2>
       </div>
@@ -50,7 +50,7 @@ export default function Page() {
       {/* ========================================================================= */}
       {/* METRIC ANALYTICS GRID MARGIN                                              */}
       {/* ========================================================================= */}
-      <div className="grid grid-cols-2  lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2  lg:grid-cols-4 gap-3">
         {Object.entries(analytics).map(([key, item]) => (
           <AnalyticsCard 
             key={key}
@@ -71,7 +71,7 @@ export default function Page() {
       {/* CHART HEADER CONTROLS SECTION                                             */}
       {/* ========================================================================= */}
       <div className="flex items-center justify-between w-full">
-        <h3 className="text-[2rem] font-bold text-black tracking-tight">
+        <h3 className=" font-bold text-black tracking-tight">
           Pilot Car & Carriers
         </h3>
 
@@ -80,30 +80,30 @@ export default function Page() {
       {/* ========================================================================= */}
       {/* MAIN VISUAL CANVAS ELEMENT                                                */}
       {/* ========================================================================= */}
-      <div className="bg-white border border-gray-100 rounded-2xl p-6 lg:p-8 shadow-xl w-full">
+      <div className="bg-white border border-gray-100 rounded-2xl p-3  shadow-xl w-full">
         {/* Date Dropdown Selection Pill Container */}
-        <div className="flex items-center justify-end gap-4 w-full mb-6">
-          <span className="text-label text-black/50 font-medium hidden sm:inline">
+        <div className="chart-text flex items-center justify-end gap-4 w-full mb-6">
+          <span className=" text-black/50 font-medium hidden sm:inline">
             Provisions Month
           </span>
           <button 
             type="button" 
-            className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-sm bg-white text-label font-semibold text-black hover:bg-gray-50 transition-colors"
+            className="flex items-center gap-2 px-2 py-1 border border-gray-200 rounded-sm bg-white ont-semibold text-black hover:bg-gray-50 transition-colors"
           >
             <span>September 2025</span>
-            <Icon icon="solar:calendar-linear" className="w-4 h-4 text-brand" />
+            <Icon icon="solar:calendar-linear" className="w-[1em] -mt-1 h-[1em] text-brand" />
           </button>
         </div>
 
         {/* 1. Added horizontal scrolling and custom scrollbar clipping styles here */}
-        <div className="w-full overflow-x-auto pb-2 custom-scrollbar">
+        <div className="w-full lg:overflow-x-auto pb-2 lg:custom-scrollbar">
           
           {/* 2. Enforced a minimum width so the visual chart tracks cannot compress below desktop layout thresholds */}
-          <div className="w-full h-80 min-w-[45rem]">
+          <div className="w-full h-60 min-w-[45rem]">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart 
                 data={mockData.chartData} 
-                margin={{ top: 20, right: 10, left: -20, bottom: 0 }}
+                margin={{ top: 20, right: 10, left: -30, bottom: 0 }}
               >
                 {/* Definition tags for background color opacity transitions */}
                 <defs>

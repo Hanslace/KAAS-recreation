@@ -76,10 +76,11 @@ export default function Layout() {
 
       <aside
         className={`
+          sidebar
           fixed inset-y-0 left-0 z-50
           flex h-full w-max max-w-[85vw] flex-col
-          gap-7 overflow-x-hidden
-          bg-black p-[1.25rem] text-white
+          gap-5 overflow-x-hidden
+          bg-black text-white
           transition-transform duration-300 ease-in-out
 
           lg:static lg:max-w-none lg:translate-x-0
@@ -91,11 +92,11 @@ export default function Layout() {
           {/* KAAS Branding Header Logo Area */}
     
           {/* Logo does not control the sidebar width */}
-          <div className="relative h-[9rem] w-full shrink-0">
+          <div className="relative h-[20vh] w-full  shrink-0">
             <img
               src="/logo.png"
               alt="KAAS Logo"
-              className="absolute px-2 inset-0 h-full w-full object-contain"
+              className="absolute  inset-0 h-full mx-auto w-[90%] object-contain"
             />
           </div>
 
@@ -130,8 +131,8 @@ export default function Layout() {
                         }
                       }}
                       className={`group flex w-full min-w-max items-center justify-between
-                        whitespace-nowrap rounded-sm px-3 py-2
-                        text-[0.775rem] transition-all duration-150 ease-in-out
+                        whitespace-nowrap rounded-xs px-3 py-1.75 gap-2
+                         transition-all duration-150 ease-in-out
                         ${isActive
                           ? 'bg-brand-gradient font-semibold'
                           : 'hover:bg-zinc-900'
@@ -139,14 +140,14 @@ export default function Layout() {
                       `}
                     >
                       <div className="flex items-center overflow-hidden gap-3">
-                        <Icon icon={link.icon} className="w-4 h-4" />
+                        <Icon icon={link.icon} className="w-[1.4em] h-[1.4em]" />
                         <span>{link.name}</span>
                       </div>
                       
                       {link.hasSubmenu && (
                         <Icon 
                           icon="solar:alt-arrow-right-linear" 
-                          className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-90' : ''}`} 
+                          className={`w-[1.4em] h-[1.4em] transition-transform duration-200 ${isExpanded ? 'rotate-90' : ''}`} 
                         />
                       )}
                     </Link>
@@ -162,7 +163,7 @@ export default function Layout() {
                               to={subItem.href}
                               onClick={() => setIsOpen(false)}
                               className={`w-full min-w-max whitespace-nowrap rounded-md
-                                px-4 py-2.5 text-left text-[0.8rem] transition-colors
+                                px-4 py-2.5 text-left  transition-colors
                                 ${isSubActive
                                   ? 'bg-brand/40 font-semibold'
                                   : 'hover:text-gray'
@@ -186,9 +187,9 @@ export default function Layout() {
               <button
                 type="button"
                 onClick={() => setLogoutModalOpen(true)}
-                className="w-fit py-1.5 px-4 inline-flex items-center justify-center gap-1 rounded-sm bg-brand-gradient text-[0.775rem]"
+                className="w-fit py-1.5 px-4 inline-flex items-center justify-center gap-1 rounded-sm bg-brand-gradient "
               >
-                <Icon icon="majesticons:logout-half-circle" className="w-4 h-4" />
+                <Icon icon="majesticons:logout-half-circle" className="w-[1.4em] h-[1.4em]" />
                 Logout
               </button>
             </div>
@@ -202,7 +203,7 @@ export default function Layout() {
       <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
         
         {/* TOP NAVBAR */}
-         <header className="h-auto min-h-max gap-6 overflow-hidden bg-white flex items-center justify-between px-[1.5rem] py-[1rem] relative after:absolute after:bottom-0 after:left-10 after:w-[calc(100%-80px)] after:h-[3px] after:bg-gray-100">
+         <header className=" h-auto min-h-max gap-6 overflow-hidden bg-white flex items-center justify-between px-[1.5rem] py-[1rem] relative after:absolute after:bottom-0 after:left-10 after:w-[calc(100%-80px)] after:h-[3px] after:bg-gray-100">
           
           {/* Greeting Segment + Mobile Trigger Burger Icon */}
           <div className="flex items-center gap-4">
@@ -216,7 +217,7 @@ export default function Layout() {
             </button>
 
 
-            <h1 className="text-[2.5rem]  font-bold text-black tracking-tight ">
+            <h1 className=" font-bold text-black tracking-tight ">
               Welcome Back, Admin!
             </h1>
           </div>
@@ -229,15 +230,15 @@ export default function Layout() {
               className="p-1.5 rounded-sm bg-brand/20 text-brand hover:bg-orange-50 transition-colors focus:outline-none inline-flex items-center justify-center"
               aria-label="View notifications"
             >
-              <Icon icon="solar:bell-bing-bold-duotone" className="w-4 h-4" />
+              <Icon icon="solar:bell-bing-bold-duotone" className="w-[1.5em] h-[1.5em]" />
             </Link>
 
             {/* Profile Avatar Card Wrapper */}
-            <div className="flex items-center gap-1 min-h-8 min-w-8 text-[0.8rem] rounded-xl">
+            <div className="flex items-center gap-1 min-h-8 min-w-8  rounded-xl">
               <img 
                 src="https://images.unsplash.com/photo-1783095627526-25c08072893f?w=900&auto=format&fit=crop&q=60" 
                 alt="Admin Profile Avatar" 
-                className="w-10 h-auto aspect-square rounded-sm object-cover border border-gray-200 shadow-sm"
+                className="w-[4em] h-auto aspect-square rounded-sm object-cover border border-gray-200 shadow-sm"
               />
               <div className="hidden md:flex flex-col text-left min-w-0 max-w-[12rem]">
                 <span className="font-bold text-gray-900 leading-tight truncate">

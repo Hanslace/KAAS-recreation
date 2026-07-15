@@ -17,18 +17,6 @@
   --color-brand-dark: var(--brand-dark);
   --background-image-brand-gradient: var(--brand-gradient);
   --font-sans: Urbanist, sans-serif;
-
-  --breakpoint-*: initial; 
-
-
-  /* Redefine everything consistently in pixels */
-  --breakpoint-2xs: 20rem;
-  --breakpoint-xs: 23.3rem;
-  --breakpoint-sm: 26.5rem; 
-  --breakpoint-md: 48rem;  
-  --breakpoint-lg: 64rem;    
-  --breakpoint-xl: 90rem;    
-  --breakpoint-2xl: 160rem;   
 }
 
 body {
@@ -60,4 +48,59 @@ body {
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #A68753; /* Darker brand gold for hover indicator feed */
   }
+}
+
+
+.sidebar {
+  font-size: 0.55rem;
+  padding: 1rem;
+}
+  
+
+header {
+  font-size: 0.6rem
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+.dashboard {
+  font-size: 1rem;
+}
+
+.chart-text {
+  font-size: 0.45rem;
+}
+
+.analytic-card .main-text {
+  font-size:0.9rem;
+}
+
+.analytic-card{
+  font-size: 0.45rem;
+}
+
+.searchbar {
+  font-size: 0.55rem;
+}
+
+.filters {
+  font-size: 0.4rem;
+}
+
+.booking-card {
+  font-size: 0.45rem;
+}
+
+.booking-card .pill {
+  font-size: 0.35rem;
+}
+
+.booking-card .price{
+  font-size: 1rem;
+}
+
+.booking-card h4 {
+  font-size: 0.8rem;
 }

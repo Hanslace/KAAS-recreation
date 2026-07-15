@@ -10,19 +10,19 @@ export default function AnalyticsCard({
 }) {
   return (
     <div 
-      className={`flex flex-col sm:flex-row items-center gap-5 p-[1rem] xl:p-[1.5rem] rounded-xl text-white w-full ${backgroundColor}`}
+      className={`analytic-card flex flex-col sm:flex-row items-center gap-3 px-[1rem] py-[0.8rem] rounded-md text-white w-full ${backgroundColor}`}
     >
       {/* Translucent white icon circle wrapper */}
-      <div className={`flex items-center justify-center w-[3rem] h-[3rem] rounded-full bg-white/40 shrink-0`}>
-        <Icon icon={iconName} className="w-[1.5rem] h-[1.5rem] text-white" />
+      <div className={`flex items-center justify-center p-[0.6rem] rounded-full bg-white/40 shrink-0`}>
+        <Icon icon={iconName} className="w-[2em] h-[2em] text-white" />
       </div>
 
       {/* Numerical metric and label content data container */}
       <div className="flex flex-col text-left items-center  sm:items-start justify-center min-w-0">
-        <span className="text-[1rem] xl:text-[1.5rem] font-bold leading-tight tracking-tight truncate">
+        <span className="main-text  font-bold leading-tight tracking-tight truncate">
           {value}
         </span>
-        <span className=" text-[0.7rem] xl:text-[0.875rem] text-center sm:text-left font-medium opacity-80 leading-snug ">
+        <span className=" text-center sm:text-left font-medium opacity-80 leading-snug ">
           {label}
         </span>
       </div>
