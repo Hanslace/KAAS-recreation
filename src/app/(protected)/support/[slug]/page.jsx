@@ -144,7 +144,7 @@ export default function SupportDetailsPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-x-10 grid-cols-[1fr_1fr_2fr]">
+        <div className="grid grid-cols-1 gap-x-10 sm:grid-cols-[1fr_1fr_2fr]">
           {detailFields.map((field) => (
             <InfoCell key={field.label} label={field.label} value={field.value} />
           ))}

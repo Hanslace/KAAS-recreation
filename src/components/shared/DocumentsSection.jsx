@@ -2,13 +2,13 @@ import AttachmentImage from '@/components/ui/AttachmentImage';
 
 export default function DocumentsSection() {
   return (
-    <div className="mt-8 grid grid-cols-1 gap-8 border-b border-gray-100 pb-8 lg:grid-cols-4 ">
+    <div className="mt-8 grid grid-cols-1 gap-8 border-b border-gray-100 pb-8 md:grid-cols-4 ">
       <div>
-        <h3 className="mb-4 main-heading font-bold tracking-tight text-black">
+        <h3 className="mb-3 main-heading font-bold tracking-tight text-black">
           Insurance:
         </h3>
 
-        <div className="flex flex-wrap items-start gap-4">
+        <div className="flex flex-wrap items-start gap-3">
           <AttachmentImage
             src="/images/liability-doc.jpg"
             alt="Insurance document"
@@ -17,11 +17,11 @@ export default function DocumentsSection() {
       </div>
 
       <div>
-        <h3 className="mb-4 main-heading font-bold tracking-tight text-black">
+        <h3 className="mb-3 main-heading font-bold tracking-tight text-black">
           License:
         </h3>
 
-        <div className="flex flex-wrap items-start justify-between gap-4 sm:justify-start">
+        <div className="flex flex-wrap items-start gap-3 ">
           <AttachmentImage
             src="/images/id-front.jpg"
             alt="Driver license front"
@@ -35,11 +35,11 @@ export default function DocumentsSection() {
       </div>
 
       <div>
-        <h3 className="mb-4 main-heading font-bold tracking-tight text-black">
+        <h3 className="mb-3 main-heading font-bold tracking-tight text-black">
           Certificate:
         </h3>
 
-        <div className="flex flex-wrap items-start justify-between gap-4 sm:justify-start">
+        <div className="flex flex-wrap items-start gap-3 ">
           <AttachmentImage
             src="/images/permit-1.jpg"
             alt="Carrier certificate"

@@ -92,13 +92,13 @@ export default function BlankPage() {
 
   return (
     <div className='w-full space-y-3'>
-      <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between ">
+      <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between ">
         <BackButton href='/subscriptions' className='w-full'>
           Subscription Earning
         </BackButton>
 
-        <div className="flex  flex-col w-full  gap-3 lg:flex-row lg:items-center lg:justify-end items-end">
-          <div className='flex gap-4 min-[550px]:flex-row flex-col items-end'>
+        <div className="flex  flex-col w-full  gap-3 sm:flex-row sm:items-center sm:justify-end items-end">
+          <div className='flex gap-4  items-end'>
             <Dropdown
               filters={data.filters.types}
               activeFilter={selectedType}
@@ -123,7 +123,7 @@ export default function BlankPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2  lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2  md:grid-cols-4 gap-3">
         {Object.entries(data.analytics).map(([key, item]) => (
           <AnalyticsCard 
             key={key}

@@ -34,7 +34,7 @@ export default function DetailsLayout({
 
   return (
     <>
-      <div className="flex flex-col justify-between gap-3 sm:flex-row">
+      <div className="flex flex-col justify-between gap-3 min-[26.56rem]:flex-row">
         <BackButton>Details</BackButton>
 
         {status === 'Pending' && (

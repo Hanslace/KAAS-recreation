@@ -66,7 +66,7 @@ export default function PlanCard({
         <BrandButton
           to={href}
           disabled={disabled}
-          className="h-8 aspect-[530/60]     "
+          className="h-8 aspect-[530/60]  max-w-full   "
         >
           {buttonText}
         </BrandButton>

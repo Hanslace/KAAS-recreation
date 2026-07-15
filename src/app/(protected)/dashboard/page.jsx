@@ -91,12 +91,12 @@ export default function Page() {
             className="flex items-center gap-2 px-2 py-1 border border-gray-200 rounded-sm bg-white ont-semibold text-black hover:bg-gray-50 transition-colors"
           >
             <span>September 2025</span>
-            <Icon icon="solar:calendar-linear" className="w-[1em] -mt-1 h-[1em] text-brand" />
+            <Icon icon="solar:calendar-linear" className="w-[1em] h-[1em] text-brand" />
           </button>
         </div>
 
         {/* 1. Added horizontal scrolling and custom scrollbar clipping styles here */}
-        <div className="w-full lg:overflow-x-auto pb-2 lg:custom-scrollbar">
+        <div className="lg:w-full overflow-x-auto pb-2 custom-scrollbar">
           
           {/* 2. Enforced a minimum width so the visual chart tracks cannot compress below desktop layout thresholds */}
           <div className="w-full h-60 min-w-[45rem]">

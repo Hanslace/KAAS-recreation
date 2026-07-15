@@ -71,7 +71,7 @@ export default function ChangePasswordPage() {
 
           <button
             type="submit"
-            className="brand-button flex  items-center justify-center rounded-md bg-brand-gradient py-3 px-11  font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
+            className="brand-button flex  items-center justify-center rounded-md bg-brand-gradient py-3 px-11 w-full font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
           >
             Update Password
           </button>

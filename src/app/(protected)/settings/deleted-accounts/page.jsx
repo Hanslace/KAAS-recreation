@@ -75,7 +75,7 @@ export default function DeletedAccountsPage() {
 
   return (
     <div className="w-full">
-      <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+      <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
         <BackButton href="/settings">Deleted Accounts</BackButton>
 
         <SearchBar value={searchValue} onChange={(event) => setSearchValue(event.target.value)} placeholder="Search here"/>

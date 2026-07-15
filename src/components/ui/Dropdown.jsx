@@ -33,24 +33,24 @@ export default function Dropdown({
   return (
     <div ref={dropdownRef} className={twMerge("flex items-center gap-3 relative z-30 select-none dropdown", className)}>
       {/* Left Text Label */}
-      <span className=" font-medium text-gray-700 whitespace-nowrap">
+      <span className="label font-medium text-gray-700 whitespace-nowrap">
         {labelText}
       </span>
 
       {/* Dropdown Container */}
-      <div className="relative ]">
+      <div className="relative ">
         {/* Trigger Button */}
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="flex h-[3em] w-full items-center justify-between gap-4 rounded-sm bg-white px-3 text-black shadow-[0_4px_12px_rgba(0,0,0,0.08)] border border-gray-50/50 transition-all focus:outline-none focus:ring-1 focus:ring-brand font-medium "
+          className="flex h-[3em] w-full items-center justify-between gap-3 rounded-sm bg-white px-2 text-black shadow-[0_4px_12px_rgba(0,0,0,0.08)] border border-gray-50/50 transition-all focus:outline-none focus:ring-1 focus:ring-brand font-medium "
           aria-haspopup="listbox"
           aria-expanded={isOpen}
         >
           <span className='truncate'>{activeLabel}</span>
           <Icon
             icon="solar:alt-arrow-down-linear"
-            className={twMerge("w-4 h-4 text-black transition-transform duration-200", isOpen && "rotate-180")}
+            className={twMerge("w-[1.5em] h-[1.5em] text-black transition-transform duration-200", isOpen && "rotate-180")}
           />
         </button>
 

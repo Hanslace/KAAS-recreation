@@ -168,7 +168,7 @@ export default function DataTable({ data, columns, path }) {
                       {isMenuOpen && (
                         <div
                           ref={dropdownRef}
-                          className="absolute right-4 top-[80%] z-30 min-w-[150px] rounded-xl bg-white p-2 shadow-xl border border-gray-100 flex flex-col gap-1 animate-in fade-in slide-in-from-top-1 duration-100"
+                          className="absolute right-4 top-[80%] z-30 min-w-[7rem] rounded-xl bg-white p-2 shadow-xl border border-gray-100 flex flex-col gap-1 animate-in fade-in slide-in-from-top-1 duration-100"
                           onClick={(e) => e.stopPropagation()}
                         >
                           {/* 1. Actions Visible ONLY when status is Pending */}
@@ -176,14 +176,14 @@ export default function DataTable({ data, columns, path }) {
                             <>
                               <button
                                 onClick={() => handleAction('approve', row.slug)}
-                                className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-green-600 hover:bg-green-50 transition w-full text-left"
+                                className="flex items-center gap-2 rounded-lg px-3 py-2  font-medium text-green-600 hover:bg-green-50 transition w-full text-left"
                               >
                                 <Icon icon="solar:check-circle-bold" className="h-4 w-4" />
                                 Approve
                               </button>
                               <button
                                 onClick={() => handleAction('cancel', row.slug)}
-                                className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-50 transition w-full text-left"
+                                className="flex items-center gap-2 rounded-lg px-3 py-2  font-medium text-red-600 hover:bg-red-50 transition w-full text-left"
                               >
                                 <Icon icon="solar:close-circle-bold" className="h-4 w-4" />
                                 Cancel
@@ -195,7 +195,7 @@ export default function DataTable({ data, columns, path }) {
                           {(currentStatus === 'Approved' || currentStatus === 'Cancelled') && (
                             <button
                               onClick={() => handleAction('suspend', row.slug)}
-                              className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-50 transition w-full text-left"
+                              className="flex items-center gap-2 rounded-lg px-3 py-2  font-medium text-red-600 hover:bg-red-50 transition w-full text-left"
                             >
                               <Icon icon="solar:danger-bold" className="h-4 w-4" />
                               Delete
@@ -206,7 +206,7 @@ export default function DataTable({ data, columns, path }) {
                           {currentStatus === 'Deleted' && (
                             <button
                               onClick={() => handleAction('restore', row.slug)}
-                              className="flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-100/80 transition w-full text-left"
+                              className="flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2  font-medium text-red-600 hover:bg-red-100/80 transition w-full text-left"
                             >
                               <Icon icon="solar:restart-bold" className="h-4 w-4" />
                               Restore

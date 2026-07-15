@@ -3,9 +3,9 @@ import { Outlet } from 'react-router';
 export default function LoginLayout() {
   return (
     <main className="min-h-screen w-full ">
-      <section className="lg:grid min-h-screen w-full flex flex-col lg:grid-cols-2">
+      <section className="md:grid min-h-screen w-full flex flex-col md:grid-cols-2">
         {/* Left Image */}
-        <div className="relative hidden w-full lg:block">
+        <div className="relative hidden w-full md:block">
           <img
             src="/auth-bg.png"
             alt="Login background"
@@ -31,8 +31,8 @@ export default function LoginLayout() {
         
 
         {/* Right Column */}
-        <div className=" w-full lg:m-auto space-y-10 lg:max-w-[35vw] p-10">
-          <div className="lg:hidden mt-20  flex items-center justify-center ">
+        <div className=" w-full md:m-auto space-y-10 md:max-w-[35vw] p-10">
+          <div className="md:hidden mt-20  flex items-center justify-center ">
             <img
               src="/logo.png"
               alt="Kaas Logo"

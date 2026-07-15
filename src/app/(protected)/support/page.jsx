@@ -76,12 +76,12 @@ export default function SupportPage() {
 
   return (
     <div className="w-full space-y-3">
-      <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+      <div className="flex flex-col gap-5 min-[31.25rem]:flex-row min-[31.25rem]:items-center min-[31.25rem]:justify-between">
         <h2 className="main-heading font-bold tracking-tight text-black">
           Support
         </h2>
 
-        <div className="flex w-full flex-col gap-4 lg:flex-row lg:items-center lg:justify-end ">
+        <div className="flex w-full flex-col items-end gap-4 min-[26.5rem]:flex-row min-[26.5rem]:items-center min-[26.5rem]:justify-end ">
           <Dropdown
             filters={data.filters}
             activeFilter={activeFilter}
@@ -93,6 +93,7 @@ export default function SupportPage() {
             value={searchValue}
             onChange={setSearchValue}
             placeholder="Search here"
+            className='min-[26.5rem]:max-w-[15.5rem]'
             
           />
         </div>

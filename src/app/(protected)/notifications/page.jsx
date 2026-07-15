@@ -39,7 +39,7 @@ const notifications= [
 export default function NotificationsPage() {
   return (
     <div className="w-fullcspace-y-1">
-      <div className="flex sm:flex-row flex-col items-center justify-between gap-4">
+      <div className="flex flex-row  justify-between gap-4">
         <BackButton href="/dashboard" className='mr-auto'>Notifications</BackButton>
 
         <button

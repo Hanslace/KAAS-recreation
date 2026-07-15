@@ -7,20 +7,18 @@ import data from '@/data/plan.json';
 export default function Page() {
   return(
   <div className="w-full">
-    <div className="w-full flex flex-col sm:flex-row gap-10 justify-between">
+    <div className="w-full flex flex-row gap-5 justify-between">
       <h2 className="main-heading font-bold tracking-tight text-black">
           Subscription
       </h2>
 
-      <div className="flex ml-auto w-fit gap-5">
-            <BrandButton to="/subscriptions/earning" >
+            <BrandButton to="/subscriptions/earning" className="px-4" >
               Subscription Earning
             </BrandButton>
-      </div>
 
     </div>
 
-    <div className="mt-[1rem] grid w-full grid-cols-1 gap-6 md:grid-cols-2">
+    <div className="mt-[1rem] grid w-full grid-cols-1 gap-6 sm:grid-cols-2">
         {data.subscriptions.map((plan) => (
           <PlanCard
             key={plan.id}
