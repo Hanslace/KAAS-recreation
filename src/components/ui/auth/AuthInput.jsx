@@ -24,13 +24,13 @@ export const AuthInput = forwardRef(
       <div className="auth-input relative w-full flex flex-col gap-1.5">
         <div className="relative w-full">
           {/* Floating Label */}
-          <label className="absolute -top-[0.4em] left-3 z-10 bg-gradient-to-b from-transparent via-white  to-white  font-normal leading-none text-black">
+          <label className="absolute -top-[0.4em] left-[1.75em] z-10 bg-gradient-to-b from-transparent via-white  to-white  font-normal leading-none text-black">
             {label}
           </label>
 
           {/* Input Box */}
           <div
-            className={`flex h-[4.5em] w-full items-center rounded-md border border-black/10 shadow-lg bg-white px-3 text-black/50 transition-colors duration-200 focus-within:border-1 focus-within:text-brand ${
+            className={`flex h-[4.5em] w-full items-center rounded-[0.6em] border border-black/10 shadow-lg bg-white px-[1.5em] text-black/50 transition-colors duration-200 focus-within:border-1 focus-within:text-brand ${
               error
                 ? " border-red-500 focus-within:border-red-500"
                 : "focus-within:border focus-within:border-brand"
@@ -39,7 +39,7 @@ export const AuthInput = forwardRef(
             {icon && (
               <Icon
                 icon={icon}
-                className={`mr-3 w-[1.5em] h-[1.5em] shrink-0 ${error ? "text-red-500" : ""}`}
+                className={`mr-[1.5em] w-[1.5em] h-[1.5em] shrink-0 ${error ? "text-red-500" : ""}`}
               />
             )}
 

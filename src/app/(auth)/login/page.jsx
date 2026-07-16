@@ -57,14 +57,12 @@ export default function LoginPage() {
 
   return (
     <div className="">
-      <AuthHeading text="Welcome Back!"/>
-        
-      
+      <div className="mb-[2em]">
+        <AuthHeading text="Welcome Back!"/>
+        <AuthSubHeading>Please enter your credentials</AuthSubHeading>
+      </div>
 
-      <AuthSubHeading>Please enter your credentials</AuthSubHeading>
-
-
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-2">
+      <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-[2.5em]">
 
         <AuthInput
           label="Email Address"
@@ -75,7 +73,6 @@ export default function LoginPage() {
           {...register("email")}
         />
 
-        <div className="py-1"></div>
 
         <AuthInput
           label="Password"
@@ -87,7 +84,7 @@ export default function LoginPage() {
           {...register("password")}
         />
 
-        <div className="flex auth-options mb-3 items-center justify-between">
+        <div className="flex auth-options -mt-[1em] mb-[3em] items-center justify-between">
           <label className="flex items-center gap-2  text-black cursor-pointer select-none">
             <input 
               type="checkbox" 
@@ -95,9 +92,9 @@ export default function LoginPage() {
               {...register("rememberMe")}
             />
 
-            <span className="flex h-[2em] w-[2em] items-center justify-center rounded border border-[#C0A86C] bg-white peer-checked:bg-[#C0A86C] peer-checked:[&>svg]:block">
+            <span className="flex h-[1.8em] w-[1.8em] items-center justify-center rounded border border-[#C0A86C] bg-white peer-checked:bg-[#C0A86C] peer-checked:[&>svg]:block">
               <svg
-                className="hidden h-[2.2em] w-[2.2em] text-white"
+                className="hidden h-[2em] w-[2em] text-white"
                 viewBox="0 0 20 20"
                 fill="none"
               >

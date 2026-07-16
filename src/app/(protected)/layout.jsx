@@ -140,14 +140,14 @@ export default function Layout() {
                       `}
                     >
                       <div className="flex items-center overflow-hidden gap-3">
-                        <Icon icon={link.icon} className="w-[1.4em] h-[1.4em]" />
+                        <Icon icon={link.icon} className="icon" />
                         <span>{link.name}</span>
                       </div>
                       
                       {link.hasSubmenu && (
                         <Icon 
                           icon="solar:alt-arrow-right-linear" 
-                          className={`w-[1.4em] h-[1.4em] transition-transform duration-200 ${isExpanded ? 'rotate-90' : ''}`} 
+                          className={`icon transition-transform duration-200 ${isExpanded ? 'rotate-90' : ''}`} 
                         />
                       )}
                     </Link>
@@ -189,7 +189,7 @@ export default function Layout() {
                 onClick={() => setLogoutModalOpen(true)}
                 className="w-fit py-1.5 px-4 inline-flex items-center justify-center gap-1 rounded-sm bg-brand-gradient "
               >
-                <Icon icon="majesticons:logout-half-circle" className="w-[1.4em] h-[1.4em]" />
+                <Icon icon="majesticons:logout-half-circle" className="icon" />
                 Logout
               </button>
             </div>
@@ -203,7 +203,7 @@ export default function Layout() {
       <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
         
         {/* TOP NAVBAR */}
-         <header className=" h-auto min-h-max gap-6 overflow-hidden bg-white flex items-center justify-between px-[1.5rem] py-[1rem] relative after:absolute after:bottom-0 after:left-10 after:w-[calc(100%-80px)] after:h-[3px] after:bg-gray-100">
+         <header className=" h-auto min-h-max gap-6 overflow-hidden bg-white flex items-center justify-between px-[1.5rem] py-[1rem] relative after:absolute after:bottom-0  after:w-full after:h-[3px] after:bg-gray-100">
           
           {/* Greeting Segment + Mobile Trigger Burger Icon */}
           <div className="flex items-center gap-4">
@@ -213,7 +213,7 @@ export default function Layout() {
               onClick={() => setIsOpen(true)}
               aria-label="Open sidebar"
             >
-              <Icon icon="solar:hamburger-menu-linear" className="w-8 h-8" />
+              <Icon icon="solar:hamburger-menu-linear" className="icon" />
             </button>
 
 
@@ -230,7 +230,7 @@ export default function Layout() {
               className="p-1.5 rounded-sm bg-brand/20 text-brand hover:bg-orange-50 transition-colors focus:outline-none inline-flex items-center justify-center"
               aria-label="View notifications"
             >
-              <Icon icon="solar:bell-bing-bold-duotone" className="w-[1.5em] h-[1.5em]" />
+              <Icon icon="solar:bell-bing-bold-duotone" className="icon" />
             </Link>
 
             {/* Profile Avatar Card Wrapper */}

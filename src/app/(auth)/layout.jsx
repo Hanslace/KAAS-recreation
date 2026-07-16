@@ -22,7 +22,7 @@ export default function LoginLayout() {
               width={520}
               height={220}
               fetchPriority="high"
-              className="h-auto w-full max-w-[18rem] object-contain"
+              className="h-auto w-full max-w-[22vw] object-contain"
             />
 
           </div>

@@ -38,7 +38,7 @@ export default function Page() {
 
 
   return (
-    <div className="space-y-10  ">
+    <div className="space-y-5  ">
       
       <div  className="space-y-2">
       <div>
@@ -66,7 +66,7 @@ export default function Page() {
       {/* ========================================================================= */}
       {/* VISUAL CHART AREA (Pilot Car & Carriers)                                  */}
       {/* ========================================================================= */}
-      <div className="space-y-5 w-full">
+      <div className="space-y-3 w-full">
       {/* ========================================================================= */}
       {/* CHART HEADER CONTROLS SECTION                                             */}
       {/* ========================================================================= */}
@@ -82,7 +82,7 @@ export default function Page() {
       {/* ========================================================================= */}
       <div className="bg-white border border-gray-100 rounded-2xl p-3  shadow-xl w-full">
         {/* Date Dropdown Selection Pill Container */}
-        <div className="chart-text flex items-center justify-end gap-4 w-full mb-6">
+        <div className="chart-text flex items-center justify-end gap-4 w-full mb-3">
           <span className=" text-black/50 font-medium hidden sm:inline">
             Provisions Month
           </span>
