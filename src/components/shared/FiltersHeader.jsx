@@ -10,9 +10,9 @@ export default function FiltersHeader({
   searchPlaceholder = 'Search here',
 }) {
   return (
-    <div className="flex filters flex-col items-center gap-4 lg:flex-row lg:items-center lg:justify-between w-full bg-white rounded-md">
+    <div className="flex filters flex-col  gap-4 min-[40rem]:flex-row min-[40rem]:items-center min-[40rem]:justify-between  w-full bg-white rounded-md">
       {/* Filter tabs */}
-      <div className="flex w-full overflow-x-auto custom-scrollbar items-center gap-2 pb-1">
+      <div className="flex w-full overflow-x-auto custom-scrollbar items-center gap-2 py-1">
         {options.map((option) => {
           const isActive = activeTabId === option.id;
 
@@ -38,6 +38,7 @@ export default function FiltersHeader({
         value={searchValue}
         onChange={onSearchChange}
         placeholder={searchPlaceholder}
+        className='mt'
       />
     </div>
   );
