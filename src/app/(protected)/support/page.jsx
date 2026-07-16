@@ -93,7 +93,7 @@ export default function SupportPage() {
             value={searchValue}
             onChange={setSearchValue}
             placeholder="Search here"
-            className='min-[26.5rem]:max-w-[15.5rem]'
+            className='min-[26.5rem]:max-w-[30rem]'
             
           />
         </div>

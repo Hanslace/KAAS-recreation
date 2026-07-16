@@ -10,11 +10,11 @@ export default function AnalyticsCard({
 }) {
   return (
     <div 
-      className={`analytic-card flex items-center gap-3 px-[1rem] py-[0.8rem] rounded-md text-white w-full ${backgroundColor}`}
+      className={`analytic-card flex items-center gap-3  rounded-md text-white w-full ${backgroundColor}`}
     >
       {/* Translucent white icon circle wrapper */}
       <div className={`flex items-center justify-center p-[0.6rem] rounded-full bg-white/40 shrink-0`}>
-        <Icon icon={iconName} className="w-[1.9em] h-[1.9em] text-white" />
+        <Icon icon={iconName} className=" text-white icon" />
       </div>
 
       {/* Numerical metric and label content data container */}

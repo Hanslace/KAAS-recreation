@@ -49,7 +49,7 @@ export default function SuccessModal({
         <button
             type="button"
             onClick={onDone}
-            className="flex h-[5em] w-full items-center justify-center rounded-sm bg-brand-gradient brand-button font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95"
+            className="flex h-[4em] w-full items-center justify-center rounded-sm bg-brand-gradient brand-button font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95"
         >
             {buttonText}
         </button>

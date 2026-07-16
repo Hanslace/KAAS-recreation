@@ -46,7 +46,7 @@ export default function ConfirmationModal({
           <button
             type="button"
             onClick={onCancel}
-            className="flex h-[5em] w-full items-center justify-center rounded-sm bg-white brand-button font-bold text-black shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95"
+            className="flex h-[4em] w-full items-center justify-center rounded-sm bg-white brand-button font-bold text-black shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95"
           >
             {cancelText}
           </button>
@@ -54,7 +54,7 @@ export default function ConfirmationModal({
           <button
             type="button"
             onClick={handleConfirm}
-            className="flex h-[5em] w-full items-center justify-center rounded-sm bg-brand-gradient brand-button font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95"
+            className="flex h-[4em] w-full items-center justify-center rounded-sm bg-brand-gradient brand-button font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95"
           >
             {confirmText}
           </button>

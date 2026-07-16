@@ -18,7 +18,7 @@ export default function Page() {
 
     </div>
 
-    <div className="mt-[1rem] grid w-full grid-cols-1 gap-6 sm:grid-cols-2">
+    <div className="mt-[1rem] grid w-full grid-cols-1 gap-6 sm:grid-cols-2 min-[120rem]:grid-cols-3 min-[160rem]:grid-cols-4">
         {data.subscriptions.map((plan) => (
           <PlanCard
             key={plan.id}

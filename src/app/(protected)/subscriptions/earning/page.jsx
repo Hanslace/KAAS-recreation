@@ -92,7 +92,7 @@ export default function BlankPage() {
 
   return (
     <div className='w-full space-y-3'>
-      <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between ">
+      <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between min-[80rem]:flex-col min-[96.875rem]:flex-row min-[96.875rem]:items-center min-[96.875rem]:justify-between">
         <BackButton href='/subscriptions' className='w-full'>
           Subscription Earning
         </BackButton>

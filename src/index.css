@@ -84,6 +84,13 @@ header h1 {
 
 .analytic-card{
   font-size: 0.45rem;
+  padding-block: 0.8rem;
+  padding-inline: 1rem;
+}
+
+.analytic-card .icon {
+  height: 1.9em;
+  width: 1.9em;
 }
 
 .searchbar {
@@ -136,6 +143,11 @@ header h1 {
 
 .data-table {
   font-size: 0.5rem;
+}
+
+.data-table .cell {
+  padding-inline:0.25rem;
+  padding-block: 0.5rem;
 }
 
 .brand-button {
@@ -227,44 +239,63 @@ header h1 {
   font-size: 0.45rem;
 }
 
+@media (min-width: 40rem) {
+  .searchbar {
+    width: 15.5rem;
+  }
+}
 
-@media (min-width: 64.0625rem) {
+@media (min-width: 80rem) {
 .sidebar {
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 1.7rem;
 }
 
 .sidebar .icon {
-  width: 1em;
-  height: 1em;
+  width: 1.2em;
+  height: 1.2em;
 }
 
 header {
-  font-size: 0.7rem;
+  font-size: 1rem;
 }
 
 header h1 {
   font-size: 2.4rem;
 }
 
+header .icon {
+  width: 1.3em;
+  height: 1.3em;
+  margin: 0.1em;
+}
+
 .main-heading {
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 .chart-text {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .analytic-card .main-text {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
 }
 
 .analytic-card {
-  font-size: 0.6rem;
+  font-size: 0.8rem;
+  padding-block: 1.4rem;
+  padding-inline: 1.4rem;
+}
+
+.analytic-card .icon {
+  height: 2em;
+  width: 2em;
 }
 
 .searchbar {
   font-size: 1.1rem;
+  width: 30rem;
 }
 
 .filters {
@@ -315,6 +346,11 @@ header h1 {
   font-size: 1rem;
 }
 
+.data-table .cell {
+  padding-inline:0.25rem;
+  padding-block: 0.75rem;
+}
+
 .brand-button {
   font-size: 1rem;
 }
@@ -324,11 +360,11 @@ header h1 {
 }
 
 .info-cell {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .vehicle-card {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .vehicle-card .heading {
@@ -340,7 +376,7 @@ header h1 {
 }
 
 .plan-card {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .plan-card .heading {
@@ -352,11 +388,11 @@ header h1 {
 }
 
 .dropdown {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
 }
 
 .dropdown .label {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
 }
 
 .edit-subscription-form {
@@ -392,7 +428,7 @@ header h1 {
 }
 
 .auth-heading {
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 .auth-sub-heading {

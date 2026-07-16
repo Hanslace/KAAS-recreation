@@ -84,7 +84,7 @@ export default function DataTable({ data, columns, path }) {
                     ? 'rounded-l-[0.5rem] px-2'
                     : columnIndex === columns.length - 1
                     ? 'rounded-r-[0.5rem]'
-                    : ' px-1 py-2 max-w-[20em]';
+                    : ' cell  max-w-[20em]';
 
                 if (column.type === 'empty') {
                     return (

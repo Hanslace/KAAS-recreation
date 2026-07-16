@@ -90,7 +90,7 @@ export default function EditSubscriptionPage() {
 
   return (
     <>
-      <div className="w-full max-w-[20em]">
+      <div className="w-full max-w-[20rem] xl:max-w-[40rem] space-y-5">
         <BackButton href="/subscriptions">
           Edit Subscription
         </BackButton>

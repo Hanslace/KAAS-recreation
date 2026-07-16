@@ -41,7 +41,7 @@ export default function ReasonModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4 py-6"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 pt-10 pb-5 px-10"
       role="dialog"
       aria-modal="true"
       aria-labelledby="reason-modal-title"
@@ -99,7 +99,7 @@ export default function ReasonModal({
             <button
               type="submit"
               disabled={!reason.trim() || isSubmitting}
-              className="flex h-[3.25rem] w-full items-center justify-center rounded-lg bg-brand-gradient text-[0.8rem] font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
+              className="flex h-[4em] w-full items-center justify-center rounded-sm bg-brand-gradient brand-button font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
             >
               {isSubmitting ? 'Submitting...' : buttonText}
             </button>

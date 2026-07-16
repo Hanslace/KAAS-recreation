@@ -10,7 +10,7 @@ export default function SearchBar({
 }) {
   return (
     <div
-      className={`searchbar relative w-full sm:max-w-[15.5rem]  shrink-0 ${className}`}
+      className={`searchbar relative w-full   shrink-0 ${className}`}
     >
       <span className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
         <Icon
