@@ -131,7 +131,7 @@ export default function Layout() {
                         }
                       }}
                       className={`group flex w-full min-w-max items-center justify-between
-                        whitespace-nowrap rounded-xs px-3 py-1.75 gap-2
+                        whitespace-nowrap rounded-[0.5em] px-[1em] py-[0.7em] gap-2
                          transition-all duration-150 ease-in-out
                         ${isActive
                           ? 'bg-brand-gradient font-semibold'
@@ -162,8 +162,7 @@ export default function Layout() {
                               key={subItem.name}
                               to={subItem.href}
                               onClick={() => setIsOpen(false)}
-                              className={`w-full min-w-max whitespace-nowrap rounded-md
-                                px-4 py-2.5 text-left  transition-colors
+                              className={`w-full min-w-max whitespace-nowrap rounded-[0.5em] px-[1em] py-[0.7em] text-left  transition-colors
                                 ${isSubActive
                                   ? 'bg-brand/40 font-semibold'
                                   : 'hover:text-gray'
@@ -238,7 +237,7 @@ export default function Layout() {
               <img 
                 src="https://images.unsplash.com/photo-1783095627526-25c08072893f?w=900&auto=format&fit=crop&q=60" 
                 alt="Admin Profile Avatar" 
-                className="w-[4em] h-auto aspect-square rounded-sm object-cover border border-gray-200 shadow-sm"
+                className="w-[3.5em] h-auto aspect-square rounded-sm object-cover border border-gray-200 shadow-sm"
               />
               <div className="hidden md:flex flex-col text-left min-w-0 max-w-[12rem]">
                 <span className="font-bold text-gray-900 leading-tight truncate">

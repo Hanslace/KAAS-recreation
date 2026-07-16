@@ -97,7 +97,7 @@ export default function DetailsLayout({
               width={96}
               height={96}
               fetchPriority='high'
-              className="h-full w-full object-contain"
+              className="h-full w-full object-cover"
             />
           </div>
 

@@ -6,7 +6,7 @@ import data from '@/data/plan.json';
 
 export default function Page() {
   return(
-  <div className="w-full">
+  <div className="w-full space-y-[1em] lg:space-y-[1.5em]">
     <div className="w-full flex flex-row gap-5 justify-between">
       <h2 className="main-heading font-bold tracking-tight text-black">
           Subscription

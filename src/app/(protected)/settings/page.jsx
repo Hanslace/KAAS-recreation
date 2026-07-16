@@ -60,7 +60,7 @@ export default function SettingsPage() {
             aria-label="Toggle notifications"
           >
             {notificationsEnabled && (
-              <span className="absolute left-2  font-bold text-white">
+              <span className="absolute left-2 text-[0.7em] font-bold text-white">
                 ON
               </span>
             )}

@@ -78,7 +78,7 @@ export default function DeletedAccountDetailsPage() {
               width={120}
               height={120}
               fetchPriority='high'
-              className="h-full w-full rounded-full object-contain"
+              className="h-full w-full rounded-full object-cover"
             />
           </div>
 

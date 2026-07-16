@@ -75,7 +75,7 @@ export default function SupportPage() {
   }, [activeFilter, searchValue]);
 
   return (
-    <div className="w-full space-y-3">
+    <div className="w-full space-y-[1em] lg:space-y-[1.5em]">
       <div className="flex flex-col gap-5 min-[31.25rem]:flex-row min-[31.25rem]:items-center min-[31.25rem]:justify-between">
         <h2 className="main-heading font-bold tracking-tight text-black">
           Support

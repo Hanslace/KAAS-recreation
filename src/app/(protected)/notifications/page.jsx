@@ -54,9 +54,9 @@ export default function NotificationsPage() {
         {notifications.map((notification) => (
           <div
             key={notification.id}
-            className="relative flex items-center gap-3 rounded-xl border border-black/10 bg-white transition duration-300 hover:bg-brand/10 px-2 py-3.5 shadow-[0_8px_24px_rgba(0,0,0,0.08)] "
+            className="relative flex items-center gap-3 rounded-xl border border-black/10 bg-white transition duration-300 hover:bg-brand/10 px-[1.5em] py-[2em] shadow-[0_8px_24px_rgba(0,0,0,0.08)] "
           >
-            <div className="flex p-2.5 shrink-0 items-center justify-center rounded-full bg-brand/10 ">
+            <div className="flex p-[1em] shrink-0 items-center justify-center rounded-full bg-brand/10 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

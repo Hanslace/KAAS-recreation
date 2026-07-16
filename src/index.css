@@ -70,6 +70,12 @@ header h1 {
   font-size: 2rem;
 }
 
+header .icon {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0.1em;
+}
+
 .main-heading {
   font-size: 1rem;
 }
@@ -99,6 +105,11 @@ header h1 {
 
 .filters {
   font-size: 0.4rem;
+}
+
+.filters .tabs {
+  padding-inline: 0.5rem;
+  padding-block: 0.25rem;
 }
 
 .booking-card {
@@ -148,6 +159,11 @@ header h1 {
 .data-table .cell {
   padding-inline:0.25rem;
   padding-block: 0.5rem;
+}
+
+.data-table .pill {
+  padding-inline:0.4rem;
+  padding-block: 0.2rem;
 }
 
 .brand-button {
@@ -300,6 +316,12 @@ header .icon {
 
 .filters {
   font-size: 0.8rem;
+  margin-bottom: 2em;
+}
+
+.filters .tabs {
+  padding-inline: 0.75rem;
+  padding-block: 0.5rem;
 }
 
 .booking-card {
@@ -347,8 +369,14 @@ header .icon {
 }
 
 .data-table .cell {
-  padding-inline:0.25rem;
-  padding-block: 0.75rem;
+  padding-inline:0.4rem;
+  padding-block: 0.9rem;
+}
+
+.data-table .pill {
+  font-size: 0.75rem;
+  padding-inline:0.8rem;
+  padding-block: 0.3rem;
 }
 
 .brand-button {
@@ -376,7 +404,7 @@ header .icon {
 }
 
 .plan-card {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .plan-card .heading {
@@ -408,19 +436,19 @@ header .icon {
 }
 
 .settings {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .notification {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
 }
 
 .notification .heading {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .notification .message {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 .auth-input {

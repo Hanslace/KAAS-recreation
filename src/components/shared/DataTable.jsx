@@ -84,7 +84,7 @@ export default function DataTable({ data, columns, path }) {
                     ? 'rounded-l-[0.5rem] px-2'
                     : columnIndex === columns.length - 1
                     ? 'rounded-r-[0.5rem]'
-                    : ' cell  max-w-[20em]';
+                    : ' cell  max-w-[18em]';
 
                 if (column.type === 'empty') {
                     return (
@@ -111,7 +111,7 @@ export default function DataTable({ data, columns, path }) {
                         <img
                           src={String(imageValue || '/images/company-logo.png')}
                           alt={String(value)}
-                          className="h-[2.5em] w-[2.5em] shrink-0 rounded-full object-cover"
+                          className="h-[2em] w-[2em] shrink-0 rounded-full object-cover"
                         />
 
                         <span className="whitespace-nowrap text-black/50">
@@ -129,7 +129,7 @@ export default function DataTable({ data, columns, path }) {
                       className={`${cellRounded}`}
                     >
                       <span
-                        className={`inline-flex rounded-full px-[0.4rem] py-[0.2rem]  font-medium ${
+                        className={`inline-flex rounded-full pill  font-medium ${
                           statusClasses[String(value)] ||
                           'bg-gray-100 text-gray-500'
                         }`}
@@ -223,7 +223,7 @@ export default function DataTable({ data, columns, path }) {
                  return (
                     <td
                       key={String(column.key)}
-                      className={`${cellRounded} text-black/50`}
+                      className={`${cellRounded} text-black/50 truncate`}
                     >
                       {value !== undefined && value !== null ? String(value) : ''}
                     </td>
