@@ -5,6 +5,7 @@ import NotFound from "@/components/ui/NotFound";
 import data from "@/data/data.json"
 import { Icon } from "@iconify/react";
 import { useParams } from 'react-router';
+import BookingLocationMap from "./_components/BookingLocationMap";
 
 function RatingRow({
   rating,
@@ -108,7 +109,7 @@ export default  function BookingDetailPage() {
             </h2>
             : null}
 
-            <div className="space-y-2">
+            <div className="space-y-2 xl:space-y-3">
               <DetailRow
                 icon="uil:calendar"
                 label="Date & Time"
@@ -305,14 +306,27 @@ export default  function BookingDetailPage() {
         </div>
           
         {booking.routeImageUrl && (
-        <div className="w-[30rem] max-w-full aspect-square  items-center overflow-hidden rounded-2xl">
           <img
             src={booking.routeImageUrl}
             alt="Route"
             className="w-[40rem] aspect-square rounded-2xl object-cover"
           />
+        )}
+
+        {booking.latitude && booking.longitude && (
+        <div className="w-[30rem] max-w-full aspect-square  items-center overflow-hidden rounded-2xl">
+
+          <BookingLocationMap
+          
+            latitude={booking.latitude}
+            longitude={booking.longitude}
+            locationUrl={booking.locationUrl}
+            title="Booking route location"
+          />
+
         </div>
         )}
+      
     
       </div>
     </div>

@@ -187,7 +187,9 @@
       "escort2Place": "Left Escort",
       "paymentMethod": "Cash",
       "permitImages": ["/images/permit-1.jpg", "/images/permit-2.jpg"],
-      "routeImageUrl": "/images/route.jpg",
+      "latitude": 31.5204,
+      "longitude": 74.3587,
+
       "trailerDetails": {
         "mcNumber": "MC-845672",
         "dotNumber": "USDOT 2983745",
@@ -224,7 +226,8 @@
       "escort2Place": "Rear Escort",
       "paymentMethod": "Card",
       "permitImages": ["/images/permit-1.jpg", "/images/permit-2.jpg"],
-      "routeImageUrl": "/images/route.jpg",
+      "latitude": 31.5204,
+      "longitude": 74.3587,
       "trailerDetails": {
         "mcNumber": "MC-734198",
         "dotNumber": "USDOT 3847562",
@@ -282,7 +285,8 @@
       "escort2Place": "Not Required",
       "paymentMethod": "Cash",
       "permitImages": ["/images/permit-1.jpg", "/images/permit-2.jpg"],
-      "routeImageUrl": "/images/route.jpg",
+      "latitude": 31.5204,
+      "longitude": 74.3587,
       "trailerDetails": {
         "mcNumber": "MC-456217",
         "dotNumber": "USDOT 7456218",
@@ -429,7 +433,8 @@
       "escort2Place": "Left Escort",
       "paymentMethod": "Card",
       "permitImages": ["/images/permit-1.jpg", "/images/permit-2.jpg"],
-      "routeImageUrl": "/images/route.jpg",
+      "latitude": 31.5204,
+      "longitude": 74.3587,
       "trailerDetails": {
         "mcNumber": "MC-319845",
         "dotNumber": "USDOT 7391284",

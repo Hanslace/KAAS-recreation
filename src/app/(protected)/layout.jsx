@@ -237,7 +237,7 @@ export default function Layout() {
               <img 
                 src="https://images.unsplash.com/photo-1783095627526-25c08072893f?w=900&auto=format&fit=crop&q=60" 
                 alt="Admin Profile Avatar" 
-                className="w-[3.5em] h-auto aspect-square rounded-sm object-cover border border-gray-200 shadow-sm"
+                className="w-[3em] h-auto aspect-square rounded-sm object-cover border border-gray-200 shadow-sm"
               />
               <div className="hidden md:flex flex-col text-left min-w-0 max-w-[12rem]">
                 <span className="font-bold text-gray-900 leading-tight truncate">
