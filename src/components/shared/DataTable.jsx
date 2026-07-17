@@ -50,7 +50,7 @@ export default function DataTable({ data, columns, path }) {
             {columns.map((column, index) => (
               <th
                 key={String(column.key)}
-                className={`px-2 py-2  ${
+                className={`px-2 py-2 min-w-fit whitespace-nowrap cell ${
                   column.type === 'action' ? 'text-center' : 'text-left'
                 } ${
                   index === 0 ? 'rounded-tl-[0.3rem]' : ''
@@ -84,7 +84,7 @@ export default function DataTable({ data, columns, path }) {
                     ? 'rounded-l-[0.5rem] px-2'
                     : columnIndex === columns.length - 1
                     ? 'rounded-r-[0.5rem]'
-                    : ' cell  max-w-[18em]';
+                    : ' cell min-w-fit whitespace-nowrap';
 
                 if (column.type === 'empty') {
                     return (

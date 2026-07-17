@@ -90,77 +90,86 @@ export default function EditSubscriptionPage() {
 
   return (
     <>
-      <div className="w-full max-w-[20rem] xl:max-w-[40rem] space-y-5">
+      <div className="w-full">
         <BackButton href="/subscriptions">
           Edit Subscription
         </BackButton>
 
         <form
           onSubmit={handleSubmit}
-          className="mt-3 flex w-full flex-col gap-6 edit-subscription-form"
+          className="mt-3 flex w-full flex-wrap gap-6 edit-subscription-form"
         >
-          {/* Title Input */}
-          <AuthInput
-            label="Title"
-            placeholder="Pilot Car"
-            type="text"
-            value={title}
-            onChange={(e) => setTitle((e.target).value)}
-            required
-          />
+          <div className='w-full max-w-[20rem] xl:max-w-[40rem]'>
+            <h3 className="mb-3 font-medium text-white w-full ">
+                .
+            </h3>
+            <div className=' flex flex-col w-full  gap-6'> 
+              
+              
+              {/* Title Input */}
+              <AuthInput
+                label="Title"
+                placeholder="Pilot Car"
+                type="text"
+                value={title}
+                onChange={(e) => setTitle((e.target).value)}
+                required
+              />
 
-          {/* Duration Input */}
-          <AuthInput
-            label="Duration"
-            placeholder="Monthly"
-            type="text"
-            value={duration}
-            onChange={(e) => setDuration((e.target).value)}
-            required
-          />
+              {/* Duration Input */}
+              <AuthInput
+                label="Duration"
+                placeholder="Monthly"
+                type="text"
+                value={duration}
+                onChange={(e) => setDuration((e.target).value)}
+                required
+              />
 
-          {/* Price Input */}
-          <AuthInput
-            label="Price"
-            placeholder="0"
-            type="number"
-            value={price}
-            min="0"
-            step="1"
-            inputMode="numeric"
-            required
-            onKeyDown={(event) => {
-              if (['e', 'E', '+', '-', '.'].includes(event.key)) {
-                event.preventDefault();
-              }
-            }}
-            onChange={(event) => {
-              const value = (event.target).value;
-              if (value === '' || /^\d+$/.test(value)) {
-                setPrice(value);
-              }
-            }}
-            onPaste={(event) => {
-              const pastedValue = event.clipboardData.getData('text');
-              if (!/^\d+$/.test(pastedValue)) {
-                event.preventDefault();
-              }
-            }}
-          />
+              {/* Price Input */}
+              <AuthInput
+                label="Price"
+                placeholder="0"
+                type="number"
+                value={price}
+                min="0"
+                step="1"
+                inputMode="numeric"
+                required
+                onKeyDown={(event) => {
+                  if (['e', 'E', '+', '-', '.'].includes(event.key)) {
+                    event.preventDefault();
+                  }
+                }}
+                onChange={(event) => {
+                  const value = (event.target).value;
+                  if (value === '' || /^\d+$/.test(value)) {
+                    setPrice(value);
+                  }
+                }}
+                onPaste={(event) => {
+                  const pastedValue = event.clipboardData.getData('text');
+                  if (!/^\d+$/.test(pastedValue)) {
+                    event.preventDefault();
+                  }
+                }}
+              />
 
-          {/* Description Input */}
-          <AuthInput
-            label="Description"
-            placeholder="Enter subscription details..."
-            type="text"
-            as="textarea" /* Pass down custom handling if your input supports tag casting, otherwise standard styling applies */
-            value={description}
-            onChange={(e) => setDescription((e.target).value)}
-            required
-          />
+              {/* Description Input */}
+              <AuthInput
+                label="Description"
+                placeholder="Enter subscription details..."
+                type="text"
+                as="textarea" /* Pass down custom handling if your input supports tag casting, otherwise standard styling applies */
+                value={description}
+                onChange={(e) => setDescription((e.target).value)}
+                required
+              />
+            </div>
+          </div>
 
         {/* Point List Fields */}
-          <div className="w-full">
+          <div className="w-full max-w-[20rem] xl:max-w-[40rem]">
             <h3 className="mb-3 font-medium text-black">
               Point List
             </h3>
@@ -214,16 +223,17 @@ export default function EditSubscriptionPage() {
                 </span>
               </button>
             </div>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="flex h-[3.25rem] mt-6 w-full max-w-[20rem] xl:max-w-[40rem] items-center justify-center rounded-lg bg-brand-gradient font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-lg active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
+            >
+              {isSubmitting ? 'Updating...' : 'Update'}
+            </button>
           </div>
 
           {/* Form Submit Action */}
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="flex h-[3.25rem] w-full items-center justify-center rounded-lg bg-brand-gradient font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-lg active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
-          >
-            {isSubmitting ? 'Updating...' : 'Update'}
-          </button>
+          
         </form>
       </div>
 

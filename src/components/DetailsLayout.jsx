@@ -34,11 +34,11 @@ export default function DetailsLayout({
 
   return (
     <>
-      <div className="flex flex-col justify-between gap-3 min-[26.56rem]:flex-row">
+      <div className="flex flex-wrap justify-between gap-3">
         <BackButton>Details</BackButton>
 
         {status === 'Pending' && (
-          <div className="ml-auto flex w-fit gap-3">
+          <div className="min-[26.56rem]:mx-0 mx-auto flex  gap-3">
             <BrandButton onClick={() => navigate(-1)}>
               Approve
             </BrandButton>
@@ -54,7 +54,7 @@ export default function DetailsLayout({
         )}
 
         {status === 'Approved' && (
-          <div className="ml-auto flex w-fit gap-3">
+          <div className="min-[26.56rem]:mx-0 mx-auto flex w-fit gap-3">
             <BrandButton
               type="button"
               onClick={() => setReasonAction('block')}

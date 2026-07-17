@@ -76,6 +76,13 @@ header .icon {
   margin: 0.1em;
 }
 
+header .hamburger {
+  width: 2em;
+  height: 2em;
+  margin: 0.10em;
+}
+
+
 .main-heading {
   font-size: 1rem;
 }
@@ -361,7 +368,7 @@ header .icon {
 }
 
 .brand-pill {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .data-table {
@@ -369,7 +376,7 @@ header .icon {
 }
 
 .data-table .cell {
-  padding-inline:0.4rem;
+  padding-inline:1rem;
   padding-block: 1.1rem;
 }
 

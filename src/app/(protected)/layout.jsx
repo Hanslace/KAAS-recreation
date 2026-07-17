@@ -208,11 +208,11 @@ export default function Layout() {
           <div className="flex items-center gap-4">
             <button
               type="button"
-              className="p-2 text-black lg:hidden hover:bg-gray-100 rounded-lg focus:outline-none"
+              className="p-1.5 rounded-sm bg-brand/20 text-brand lg:hidden hover:bg-gray-100 rounded-lg focus:outline-none"
               onClick={() => setIsOpen(true)}
               aria-label="Open sidebar"
             >
-              <Icon icon="solar:hamburger-menu-linear" className="icon" />
+              <Icon icon="solar:hamburger-menu-linear" className="hamburger" />
             </button>
 
 
