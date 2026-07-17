@@ -7,6 +7,7 @@ import { Icon } from '@iconify/react';
 import BackButton from '@/components/ui/BackButton';
 import SuccessModal from '@/components/shared/SuccessModal';
 import NotFound from '@/components/ui/NotFound';
+import AuthInput from '@/components/ui/auth/AuthInput'; // Adjust the import path as needed
 import { useNavigate, useParams } from 'react-router';
 
 export default function EditSubscriptionPage() {
@@ -79,13 +80,12 @@ export default function EditSubscriptionPage() {
   };
 
   const handleModalDone = () => {
-      setIsSuccessModalOpen(false);
-      navigate('/subscriptions');
-    };
-    if (!currentSubscription) {
-    return (
-      <NotFound/>
-    );
+    setIsSuccessModalOpen(false);
+    navigate('/subscriptions');
+  };
+
+  if (!currentSubscription) {
+    return <NotFound />;
   }
 
   return (
@@ -99,103 +99,67 @@ export default function EditSubscriptionPage() {
           onSubmit={handleSubmit}
           className="mt-3 flex w-full flex-col gap-6 edit-subscription-form"
         >
-          <div className="relative w-full">
-            <label
-              htmlFor="subscription-title"
-              className="absolute -top-[0.3em] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1  font-normal leading-none text-black"
-            >
-              Title
-            </label>
+          {/* Title Input */}
+          <AuthInput
+            label="Title"
+            placeholder="Pilot Car"
+            type="text"
+            value={title}
+            onChange={(e) => setTitle((e.target).value)}
+            required
+          />
 
-            <input
-              id="subscription-title"
-              type="text"
-              value={title}
-              onChange={(event) => setTitle(event.target.value)}
-              placeholder="Pilot Car"
-              required
-              className="h-[4em] w-full rounded-sm border border-black/10 bg-white px-5  font-light text-black/70 shadow-[0_14px_30px_rgba(0,0,0,0.12)] outline-none placeholder:text-black/25 focus:border-brand"
-            />
-          </div>
+          {/* Duration Input */}
+          <AuthInput
+            label="Duration"
+            placeholder="Monthly"
+            type="text"
+            value={duration}
+            onChange={(e) => setDuration((e.target).value)}
+            required
+          />
 
-          <div className="relative w-full">
-            <label
-              htmlFor="subscription-duration"
-              className="absolute -top-[0.3em] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1  font-normal leading-none text-black"
-            >
-              Duration
-            </label>
+          {/* Price Input */}
+          <AuthInput
+            label="Price"
+            placeholder="0"
+            type="number"
+            value={price}
+            min="0"
+            step="1"
+            inputMode="numeric"
+            required
+            onKeyDown={(event) => {
+              if (['e', 'E', '+', '-', '.'].includes(event.key)) {
+                event.preventDefault();
+              }
+            }}
+            onChange={(event) => {
+              const value = (event.target).value;
+              if (value === '' || /^\d+$/.test(value)) {
+                setPrice(value);
+              }
+            }}
+            onPaste={(event) => {
+              const pastedValue = event.clipboardData.getData('text');
+              if (!/^\d+$/.test(pastedValue)) {
+                event.preventDefault();
+              }
+            }}
+          />
 
-            <input
-              id="subscription-duration"
-              type="text"
-              value={duration}
-              onChange={(event) => setDuration(event.target.value)}
-              placeholder="Monthly"
-              required
-              className="h-[4em] w-full rounded-sm border border-black/10 bg-white px-5 font-light text-black/70 shadow-[0_14px_30px_rgba(0,0,0,0.12)] outline-none placeholder:text-black/25 focus:border-brand"
-            />
-          </div>
+          {/* Description Input */}
+          <AuthInput
+            label="Description"
+            placeholder="Enter subscription details..."
+            type="text"
+            as="textarea" /* Pass down custom handling if your input supports tag casting, otherwise standard styling applies */
+            value={description}
+            onChange={(e) => setDescription((e.target).value)}
+            required
+          />
 
-          <div className="relative w-full">
-            <label
-              htmlFor="subscription-price"
-              className="absolute -top-[0.3em] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1 font-normal leading-none text-black"
-            >
-              Price
-            </label>
-
-            <input
-              id="subscription-price"
-              type="number"
-              value={price}
-              min="0"
-              step="1"
-              inputMode="numeric"
-              onKeyDown={(event) => {
-                if (['e', 'E', '+', '-', '.'].includes(event.key)) {
-                  event.preventDefault();
-                }
-              }}
-              onChange={(event) => {
-                const value = event.target.value;
-
-                if (value === '' || /^\d+$/.test(value)) {
-                  setPrice(value);
-                }
-              }}
-              onPaste={(event) => {
-                const pastedValue = event.clipboardData.getData('text');
-
-                if (!/^\d+$/.test(pastedValue)) {
-                  event.preventDefault();
-                }
-              }}
-              placeholder="05"
-              required
-              className="h-[4em] w-full rounded-sm border border-black/10 bg-white px-5  font-light text-black/70 shadow-[0_14px_30px_rgba(0,0,0,0.12)] outline-none placeholder:text-black/25 focus:border-brand"
-            />
-          </div>
-
-          <div className="relative w-full">
-            <label
-              htmlFor="subscription-description"
-              className="absolute -top-[0.3em] left-5 z-10 bg-gradient-to-b from-transparent via-white  to-transparent px-1  font-normal leading-none text-black"
-            >
-              Description
-            </label>
-
-            <textarea
-              id="subscription-description"
-              value={description}
-              onChange={(event) => setDescription(event.target.value)}
-              placeholder="Enter subscription description"
-              required
-              rows={4}
-              className="min-h-[5.5rem] w-full resize-none rounded-sm border border-black/10 bg-white px-5 py-4  font-light text-black/70 shadow-[0_14px_30px_rgba(0,0,0,0.12)] outline-none placeholder:text-black/25 focus:border-brand"
-            />
-          </div>
-
+        {/* Point List Fields */}
           <div className="w-full">
             <h3 className="mb-3 font-medium text-black">
               Point List
@@ -207,17 +171,14 @@ export default function EditSubscriptionPage() {
                   key={index}
                   className="flex w-full items-center gap-3"
                 >
-                  <div className="flex min-h-[4em] flex-1 items-center rounded-sm border border-black/10 bg-white px-5 shadow-[0_14px_30px_rgba(0,0,0,0.12)] focus-within:border-brand">
-                    <span className="mr-3 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-
-                    <input
+                  <div className="flex-1">
+                    <AuthInput
+                      placeholder="Enter point"
                       type="text"
                       value={point}
-                      onChange={(event) =>
-                        handlePointChange(index, event.target.value)
-                      }
-                      placeholder="Enter point"
-                      className="w-full bg-transparent font-light text-black/70 outline-none placeholder:text-black/25"
+                      onChange={(e) => handlePointChange(index, (e.target).value)}
+                      required
+                      icon="icon-park-outline:dot"
                     />
                   </div>
 
@@ -255,6 +216,7 @@ export default function EditSubscriptionPage() {
             </div>
           </div>
 
+          {/* Form Submit Action */}
           <button
             type="submit"
             disabled={isSubmitting}

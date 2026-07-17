@@ -44,7 +44,7 @@ export default function DataTable({ data, columns, path }) {
 
   return (
     <div className="data-table w-full overflow-x-auto custom-scrollbar pb-2">
-      <table className="lg:w-full max-[1023px]:min-w-[50rem] border-separate border-spacing-0 ">
+      <table className="w-full min-w-fit border-separate border-spacing-0 ">
         <thead>
           <tr className="bg-brand-gradient text-white">
             {columns.map((column, index) => (

@@ -1,7 +1,5 @@
-import { useState, forwardRef, ComponentPropsWithRef } from "react";
+import { useState, forwardRef } from "react";
 import { Icon } from "@iconify/react"; // Import Iconify
-
-
 
 export const AuthInput = forwardRef(
   (
@@ -12,6 +10,7 @@ export const AuthInput = forwardRef(
       icon,
       showToggle = false,
       error,
+      as: Component = "input", // Defaults to standard "input" if not provided
       ...props
     },
     ref
@@ -19,43 +18,63 @@ export const AuthInput = forwardRef(
     const [showPassword, setShowPassword] = useState(false);
 
     const inputType = showToggle ? (showPassword ? "text" : "password") : type;
+    const isTextarea = Component === "textarea";
 
     return (
       <div className="auth-input relative w-full flex flex-col gap-1.5">
-        <div className="relative w-full">
+        {/* Added "has-[:focus]" wrapper to style the label dynamically when the input is active */}
+        <div className="relative w-full has-[:focus]:text-brand">
           {/* Floating Label */}
-          <label className="absolute -top-[0.4em] left-[1.75em] z-10 bg-gradient-to-b from-transparent via-white  to-white  font-normal leading-none text-black">
+          <label 
+            className={`absolute -top-[0.4em] left-[1.75em] z-10 bg-gradient-to-b from-transparent via-white to-white font-normal leading-none transition-colors duration-200 ${
+              error ? "text-red-500!" : ""
+            }`}
+          >
             {label}
           </label>
 
-          {/* Input Box */}
+          {/* Input/Textarea Container Box */}
           <div
-            className={`flex h-[4.5em] w-full items-center rounded-[0.6em] border border-black/10 shadow-lg bg-white px-[1.5em] text-black/50 transition-colors duration-200 focus-within:border-1 focus-within:text-brand ${
+            className={`flex w-full items-center rounded-[0.6em] border border-black/10 shadow-lg bg-white px-[1.5em] text-black/50 transition-colors duration-200 focus-within:border-1 focus-within:text-brand ${
+              isTextarea ? "min-h-[6em] py-[1.2em] items-start" : "h-[4.5em]"
+            } ${
               error
-                ? " border-red-500 focus-within:border-red-500"
+                ? "border-red-500 focus-within:border-red-500"
                 : "focus-within:border focus-within:border-brand"
             }`}
           >
             {icon && (
               <Icon
                 icon={icon}
-                className={`mr-[1.5em] w-[1.5em] h-[1.5em] shrink-0 ${error ? "text-red-500" : ""}`}
+                className={`mr-[1.5em] w-[1.5em] h-[1.5em] shrink-0 ${
+                  error ? "text-red-500" : ""
+                } ${isTextarea ? "mt-[0.1em]" : ""}`}
               />
             )}
 
-            <input
-              ref={ref}
-              type={inputType}
-              placeholder={placeholder}
-              {...props}
-              className={`w-full bg-transparent  font-light text-black/70 outline-none placeholder:text-black/35 ${
-                inputType === "password"
-                  ? "[:not(:placeholder-shown)]:tracking-[0.3em]"
-                  : ""
-              }`}
-            />
+            {/* Conditionally render explicit built-in tags to safely preserve React internal Ref bindings */}
+            {isTextarea ? (
+              <textarea
+                ref={ref}
+                placeholder={placeholder}
+                {...(props)}
+                className="w-full bg-transparent font-light text-black/70 outline-none placeholder:text-black/35 resize-y min-h-[4em]"
+              />
+            ) : (
+              <input
+                ref={ref}
+                type={inputType}
+                placeholder={placeholder}
+                {...props}
+                className={`w-full bg-transparent font-light text-black/70 outline-none placeholder:text-black/35 ${
+                  inputType === "password"
+                    ? "[:not(:placeholder-shown)]:tracking-[0.3em]"
+                    : ""
+                }`}
+              />
+            )}
 
-            {showToggle && (
+            {showToggle && !isTextarea && (
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
@@ -73,7 +92,7 @@ export const AuthInput = forwardRef(
 
         {/* Validation Error Message */}
         {error && (
-          <p className=" text-red-500 px-4 font-medium transition-all duration-200">
+          <p className="text-red-500 px-4 font-medium transition-all duration-200">
             {error}
           </p>
         )}

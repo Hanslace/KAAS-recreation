@@ -256,7 +256,7 @@ export default function Layout() {
      
 
         {/* PRIMARY VIEW CONTENT VIEWPORT SLOT */}
-        <main className="overflow-y-auto p-[1.5rem] custom-scrollbar">
+        <main className="overflow-y-auto pb-[1.5rem] px-[1.5rem] py-[1rem] custom-scrollbar">
           
           
           <Outlet/>
