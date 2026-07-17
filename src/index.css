@@ -287,7 +287,7 @@ header .icon {
 }
 
 .main-heading {
-  font-size: 1.7rem;
+  font-size: 1.9rem;
 }
 
 .chart-text {
@@ -370,7 +370,7 @@ header .icon {
 
 .data-table .cell {
   padding-inline:0.4rem;
-  padding-block: 0.9rem;
+  padding-block: 1.1rem;
 }
 
 .data-table .pill {
@@ -467,3 +467,4 @@ header .icon {
   font-size: 0.7rem;
 }
 }
+
