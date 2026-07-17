@@ -12,6 +12,9 @@ import {
   Tooltip, 
   CartesianGrid 
 } from 'recharts';
+import { useState } from 'react';
+import MonthYearPicker from '@/components/ui/Calendar';
+import dayjs from 'dayjs';
 
 
 const CustomTooltip = ({ active, payload }) => {
@@ -34,11 +37,17 @@ const CustomTooltip = ({ active, payload }) => {
 
 
 export default function Page() {
+
   const { analytics } = mockData;
+
+  const [selectedMonth, setSelectedMonth] = useState(
+    dayjs('2025-09-01')
+  );
+
 
 
   return (
-    <div className="space-y-5  ">
+    <div className="space-y-5  min-h-[calc(100vh-15rem)]">
       
       <div  className="space-y-2">
       <div>
@@ -81,18 +90,17 @@ export default function Page() {
       {/* MAIN VISUAL CANVAS ELEMENT                                                */}
       {/* ========================================================================= */}
       <div className="bg-white border border-gray-100 rounded-2xl p-3  shadow-xl w-full">
-        {/* Date Dropdown Selection Pill Container */}
-        <div className="chart-text flex items-center justify-end gap-4 w-full mb-3">
-          <span className=" text-black/50 font-medium hidden sm:inline">
+        <div className="chart-text relative z-[100] mb-3 flex w-full items-center justify-end gap-4 overflow-visible">
+          <span className="hidden font-medium text-black/50 sm:inline">
             Provisions Month
           </span>
-          <button 
-            type="button" 
-            className="flex items-center gap-2 px-2 py-1 border border-gray-200 rounded-sm bg-white ont-semibold text-black hover:bg-gray-50 transition-colors"
-          >
-            <span>September 2025</span>
-            <Icon icon="solar:calendar-linear" className="w-[1em] h-[1em] text-brand" />
-          </button>
+
+          <MonthYearPicker
+            value={selectedMonth}
+            onChange={setSelectedMonth}
+            minYear={2020}
+            maxYear={2035}
+          />
         </div>
 
         {/* 1. Added horizontal scrolling and custom scrollbar clipping styles here */}

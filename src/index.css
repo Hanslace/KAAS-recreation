@@ -262,6 +262,12 @@ header .hamburger {
   font-size: 0.45rem;
 }
 
+.month-picker-popover {
+    left: auto;
+    width: 15rem;
+    font-size: 0.6rem;
+  }
+
 @media (min-width: 40rem) {
   .searchbar {
     width: 15.5rem;
@@ -473,5 +479,13 @@ header .icon {
 .auth-options {
   font-size: 0.7rem;
 }
+
+ .month-picker-popover {
+    left: auto;
+    width: 15rem;
+    max-height: calc(100dvh - 1.5rem);
+  }
 }
+
+
 
