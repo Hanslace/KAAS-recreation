@@ -11,7 +11,7 @@ export default function SuccessModal({
 
   return (
     <div className="modal fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4">
-      <div className="w-full max-w-[25em] rounded-3xl bg-white  pt-10 pb-5 px-10 text-center shadow-xl space-y-3 ">
+      <div className="w-full max-w-[25em] rounded-[3em] bg-white  pt-[3em] pb-[1.5em] px-[3.5em] text-center shadow-xl space-y-3 ">
         <div className="mx-auto flex h-[6em] w-[6em] items-center justify-center">
           <div
             className="flex h-[6em] w-[6em] items-center justify-center bg-brand"
@@ -41,7 +41,7 @@ export default function SuccessModal({
           {title}
         </h2>
 
-        <p className="mx-auto  text-black/80">
+        <p className="mx-auto  text-black/50">
           {description}
         </p>
 
@@ -49,7 +49,7 @@ export default function SuccessModal({
         <button
             type="button"
             onClick={onDone}
-            className="flex h-[4em] w-full items-center justify-center rounded-sm bg-brand-gradient brand-button font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95"
+            className="flex button w-full items-center justify-center rounded-[0.5em] bg-brand-gradient brand-button font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95"
         >
             {buttonText}
         </button>

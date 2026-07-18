@@ -226,7 +226,7 @@ export default function EditSubscriptionPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex h-[3.25rem] mt-6 w-full max-w-[20rem] xl:max-w-[40rem] items-center justify-center rounded-lg bg-brand-gradient font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-lg active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
+              className="flex button h-[2.75rem] mt-6 w-full max-w-[20rem] xl:max-w-[40rem] items-center justify-center rounded-lg bg-brand-gradient font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-lg active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
             >
               {isSubmitting ? 'Updating...' : 'Update'}
             </button>

@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 
 
 
-export default async function Page() {
+export default function Page() {
   const { managerid } = useParams();
 
   const currentManager =

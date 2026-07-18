@@ -230,6 +230,11 @@ header .hamburger {
   font-size: 1.5rem;
 }
 
+.modal .button {
+  font-size: 0.7rem;
+  height: 2.5rem;
+}
+
 .settings {
   font-size: 0.6rem;
 }
@@ -441,12 +446,21 @@ header .icon {
   font-size: 1.1rem;
 }
 
+.edit-subscription-form .button {
+  font-size: 0.7rem;
+}
+
 .modal {
-  font-size: 1.6rem;
+  font-size: 1rem;
 }
 
 .modal .heading {
-  font-size: 3rem;
+  font-size: 1.7rem;
+}
+
+.modal .button {
+  font-size: 0.8rem;
+  height: 3rem;
 }
 
 .settings {

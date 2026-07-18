@@ -41,12 +41,12 @@ export default function ReasonModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 pt-10 pb-5 px-10"
+      className="modal fixed inset-0 z-50 flex items-center justify-center bg-black/80 pt-10 pb-5 px-10"
       role="dialog"
       aria-modal="true"
       aria-labelledby="reason-modal-title"
     >
-      <div className="relative w-full max-w-[28.75rem] rounded-[2.7rem] bg-white px-7 pb-7 pt-12 shadow-2xl sm:pb-7 sm:pt-12">
+      <div className="relative w-full max-w-[28.75rem] rounded-[3em] bg-white px-7 pb-7 pt-12 shadow-2xl sm:pb-7 sm:pt-12">
         <button
           type="button"
           onClick={onClose}
@@ -70,7 +70,7 @@ export default function ReasonModal({
 
         <h2
           id="reason-modal-title"
-          className="text-center text-[1.6rem] font-bold leading-none text-brand"
+          className="text-center heading font-bold leading-none text-brand"
         >
           {title}
         </h2>
@@ -79,7 +79,7 @@ export default function ReasonModal({
           <div className="relative">
             <label
               htmlFor="reason"
-              className="absolute -top-[0.4rem] left-4 z-10 bg-white px-1 text-[0.7rem] font-normal leading-none text-black"
+              className="absolute -top-[0.4rem] left-4 z-10 bg-white px-1  font-normal leading-none text-black"
             >
               Reason
             </label>
@@ -91,7 +91,7 @@ export default function ReasonModal({
               placeholder={placeholder}
               required
               maxLength={1000}
-              className="h-[12rem] w-full resize-none rounded-lg border border-brand bg-white px-5 py-4 text-[0.9rem] font-normal text-black/70 shadow-[0_12px_25px_rgba(0,0,0,0.12)] outline-none transition placeholder:text-black/25 focus:border-brand focus:ring-1 focus:ring-brand"
+              className="h-[12rem] w-full resize-none rounded-lg border border-brand bg-white px-5 py-4 font-normal text-black/70 shadow-[0_12px_25px_rgba(0,0,0,0.12)] outline-none transition placeholder:text-black/25 focus:border-brand focus:ring-1 focus:ring-brand"
             />
           </div>
 
@@ -99,7 +99,7 @@ export default function ReasonModal({
             <button
               type="submit"
               disabled={!reason.trim() || isSubmitting}
-              className="flex h-[4em] w-full items-center justify-center rounded-sm bg-brand-gradient brand-button font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
+              className="flex button w-full items-center justify-center rounded-sm bg-brand-gradient brand-button font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
             >
               {isSubmitting ? 'Submitting...' : buttonText}
             </button>
