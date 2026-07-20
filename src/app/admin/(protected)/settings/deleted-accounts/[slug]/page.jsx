@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import BackButton from '@/components/ui/BackButton';
 import BrandPill from '@/components/ui/BrandPill';
-import ConfirmationModal from '@/components/shared/ConfirmationModal';
+import ConfirmationModal from '@/components/shared/modals/ConfirmationModal';
 import InfoGrid from '@/components/shared/InfoGrid';
 
 import deletedAccountsData from '@/data/deleted-accounts.json';

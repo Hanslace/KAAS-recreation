@@ -5,7 +5,7 @@ import subscriptionData from '@/data/plan.json';
 import { Icon } from '@iconify/react';
 
 import BackButton from '@/components/ui/BackButton';
-import SuccessModal from '@/components/shared/SuccessModal';
+import SuccessModal from '@/components/shared/modals/SuccessModal';
 import NotFound from '@/components/ui/NotFound';
 import AuthInput from '@/components/ui/auth/AuthInput'; // Adjust the import path as needed
 import { useNavigate, useParams } from 'react-router';

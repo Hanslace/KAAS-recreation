@@ -1,7 +1,7 @@
 'use client';
 
 
-import VehicleCard from '@/components/shared/VehicleCard';
+import VehicleCard from '@/components/shared/cards/VehicleCard';
 import { useLocation } from 'react-router';
 
 

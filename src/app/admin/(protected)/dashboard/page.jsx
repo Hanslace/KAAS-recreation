@@ -1,6 +1,6 @@
 'use client';
 
-import AnalyticsCard from '@/components/shared/AnalyticsCard'; // Adjust path based on where you created the card
+import AnalyticsCard from '@/components/shared/cards/AnalyticsCard'; // Adjust path based on where you created the card
 import mockData from '@/data/data.json';
 import { Icon } from '@iconify/react';
 import { 
@@ -90,7 +90,7 @@ export default function Page() {
       {/* MAIN VISUAL CANVAS ELEMENT                                                */}
       {/* ========================================================================= */}
       <div className="bg-white border border-gray-100 rounded-2xl p-3  shadow-xl w-full">
-        <div className="chart-text relative z-[100] mb-3 flex w-full items-center justify-end gap-4 overflow-visible">
+        <div className="chart-text relative z-[10] mb-3 flex w-full items-center justify-end gap-4 overflow-visible">
           <span className="hidden font-medium text-black/50 sm:inline">
             Provisions Month
           </span>

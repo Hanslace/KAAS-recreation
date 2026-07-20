@@ -1,4 +1,4 @@
-import BookingsCard from './BookingsCard'; // Adjust path based on your file structure
+import BookingsCard from './cards/BookingsCard'; // Adjust path based on your file structure
 
 
 

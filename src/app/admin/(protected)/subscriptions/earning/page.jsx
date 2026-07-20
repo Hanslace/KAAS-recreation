@@ -5,7 +5,7 @@ import data from "@/data/earning.json"
 import BackButton from '@/components/ui/BackButton';
 import Dropdown from '@/components/ui/Dropdown';
 import SearchBar from '@/components/ui/SearchBar';
-import AnalyticsCard from '@/components/shared/AnalyticsCard';
+import AnalyticsCard from '@/components/shared/cards/AnalyticsCard';
 import DataTable from '@/components/shared/DataTable';
 
 

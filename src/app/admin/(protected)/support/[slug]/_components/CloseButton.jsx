@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react';
-import SuccessModal from '@/components/shared/SuccessModal';
+import SuccessModal from '@/components/shared/modals/SuccessModal';
 import { useNavigate } from 'react-router';
 
 export default function CloseButton() {

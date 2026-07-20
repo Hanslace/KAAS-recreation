@@ -5,12 +5,12 @@ export default function LoginLayout() {
     <main className="min-h-screen w-full ">
       <section className="md:grid min-h-screen w-full flex flex-col md:grid-cols-2">
         {/* Left Image */}
-        <div className="relative hidden w-full md:block">
+        <div className="relative hidden max-h-screen w-full md:block">
           <img
             src="/auth-bg.png"
             alt="Login background"
             fetchPriority="high" 
-            className="h-full w-full object-cover" 
+            className="h-full  w-full object-cover" 
           />
 
           <div className="absolute inset-0 bg-black/75" />

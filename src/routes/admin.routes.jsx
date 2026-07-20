@@ -1,14 +1,14 @@
 import { Navigate, Route, Routes } from "react-router";
 
 // Auth layout and pages
-import AuthLayout from "@/app/admin/(auth)/layout.jsx";
+import AuthLayout from "@/components/shared/layouts/AuthLayout.jsx";
 import LoginPage from "@/app/admin/(auth)/login/page.jsx";
 import ForgotPasswordPage from "@/app/admin/(auth)/forgot-password/page.jsx";
 import ForgotPasswordOtpPage from "@/app/admin/(auth)/forgot-password/otp/page.jsx";
 import ResetPasswordPage from "@/app/admin/(auth)/forgot-password/reset/page.jsx";
 
 // Protected layout
-import ProtectedLayout from "@/app/admin/(protected)/layout.jsx";
+import ProtectedLayout from "@/components/shared/layouts/ProtectedLayout.jsx";
 
 // Dashboard
 import DashboardPage from "@/app/admin/(protected)/dashboard/page.jsx";

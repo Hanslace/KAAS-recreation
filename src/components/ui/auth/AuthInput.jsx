@@ -26,7 +26,7 @@ export const AuthInput = forwardRef(
         <div className="relative w-full has-[:focus]:text-black">
           {/* Floating Label */}
           <label 
-            className={`absolute -top-[0.4em] left-[1.75em] z-10 bg-gradient-to-b from-transparent via-white to-white font-normal leading-none transition-colors duration-200 ${
+            className={`absolute -top-[0.4em] left-[1.75em] px-1 z-10 bg-gradient-to-b from-transparent via-[20%] via-white to-white font-normal leading-none transition-colors duration-200 ${
               error ? "text-red-500!" : ""
             }`}
           >

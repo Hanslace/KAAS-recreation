@@ -1,6 +1,6 @@
 'use client'
 
-import AnalyticsCard from "@/components/shared/AnalyticsCard";
+import AnalyticsCard from "@/components/shared/cards/AnalyticsCard";
 import FiltersHeader from "@/components/shared/FiltersHeader";
 import data from '@/data/data.json';
 import  { useState } from 'react';

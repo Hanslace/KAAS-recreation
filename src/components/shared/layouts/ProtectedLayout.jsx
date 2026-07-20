@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
-import ConfirmationModal from '@/components/shared/ConfirmationModal';
+import ConfirmationModal from '@/components/shared/modals/ConfirmationModal';
 import { Icon } from '@iconify/react'; 
 import { Outlet } from 'react-router';
 

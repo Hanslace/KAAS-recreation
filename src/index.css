@@ -271,6 +271,12 @@ header .hamburger {
   font-size: 0.45rem;
 }
 
+.auth-options-button {
+  height: 2.5rem;
+  width: 2.5rem ;
+  margin: 1rem;
+}
+
 .month-picker-popover {
     left: auto;
     width: 15rem;
@@ -500,8 +506,8 @@ header .icon {
 }
 
 .auth-options-button {
-  height: 4rem;
-  width: 4rem ;
+  height: 3.5rem;
+  width: 3.5rem ;
   margin: 1.5rem;
 }
 

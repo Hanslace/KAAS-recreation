@@ -1,11 +1,15 @@
 import { Navigate, Route, Routes } from "react-router";
 
 // Auth layout and pages
-import AuthLayout from "@/app/carrier/(auth)/layout.jsx";
+import AuthLayout from "@/components/shared/layouts/AuthLayout.jsx";
 import LoginPage from "@/app/carrier/(auth)/login/page.jsx";
 import ForgotPasswordPage from "@/app/carrier/(auth)/forgot-password/page.jsx";
 import ForgotPasswordOtpPage from "@/app/carrier/(auth)/forgot-password/otp/page.jsx";
 import ResetPasswordPage from "@/app/carrier/(auth)/forgot-password/reset/page.jsx";
+import SignUpPage from "@/app/carrier/(auth)/sign-up/page.jsx";
+import SignUpOtpPage from "@/app/carrier/(auth)/sign-up/otp/page";
+import CreateProfilePage from "@/app/carrier/(auth)/sign-up/create-profile/page";
+
 
 // // Protected layout
 // import ProtectedLayout from "@/app/carrier/(protected)/layout.jsx";
@@ -70,12 +74,17 @@ export const carrierRoutes =  (
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
       {/* Authentication routes */}
-      <Route element={<AuthLayout />}>
+      <Route element={<AuthLayout />}>SignUpPage
         <Route path="/login" element={<LoginPage />} />
         <Route path="/forgot-password">
           <Route index element={<ForgotPasswordPage />} />
           <Route path="otp" element={<ForgotPasswordOtpPage />} />
           <Route path="reset" element={<ResetPasswordPage />} />
+        </Route>
+        <Route path="/sign-up">
+          <Route index element={<SignUpPage />} />
+          <Route path="otp" element={<SignUpOtpPage />} />
+          <Route path="create-profile" element={<CreateProfilePage />} />
         </Route>
       </Route>
 

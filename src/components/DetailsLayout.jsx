@@ -2,7 +2,7 @@ import { ReactNode, useState } from 'react';
 import BackButton from '@/components/ui/BackButton';
 import BrandButton from '@/components/ui/BrandButton';
 import BrandPill from '@/components/ui/BrandPill';
-import ReasonModal from '@/components/shared/ReasonModal';
+import ReasonModal from '@/components/shared/modals/ReasonModal';
 import { useNavigate } from 'react-router';
 
 
