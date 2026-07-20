@@ -7,6 +7,34 @@ import { Icon } from "@iconify/react";
 import { useParams } from 'react-router';
 import BookingLocationMap from "./_components/BookingLocationMap";
 
+function ReviewCard({ logoUrl, companyName, rating = 5, title, review }) {
+  return (
+    <div className="rounded-[20px] p-[1.5rem] gap-[0.75rem] w-full shadow-lg flex">
+      <img
+        src={logoUrl}
+        alt={companyName}
+        className="h-[3em] w-[3em] rounded-full border border-gray-200 object-cover"
+      />
+      <div className="space-y-[1em]">
+        <h1 className="font-bold leading-tight tracking-tight text-black">
+          {companyName}
+        </h1>
+        <div className="flex items-center gap-0.5 -mt-2 text-yellow-400">
+          {[...Array(rating)].map((_, index) => (
+            <Icon key={index} icon="solar:star-bold" className="h-[1.5em] w-[1.5em]" />
+          ))}
+        </div>
+        <div className="space-y-[0.5em]">
+          <h1 className="font-bold leading-tight tracking-tight text-black">
+            {title}
+          </h1>
+          <span className="review text-black/50">{review}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function RatingRow({
   rating,
   reviewCount,
@@ -55,9 +83,9 @@ export default  function BookingDetailPage() {
   }
 
   return (
-    <div>
+    <div className=" booking-detail space-y-6">
       <BackButton href="/bookings"> Details</BackButton>
-      <div className=" booking-detail rounded-[20px] mt-[1rem]  items-center lg:items-stretch p-[0.75rem] gap-[0.75rem] w-full shadow-lg flex flex-col lg:flex-row">
+      <div className=" rounded-[20px]   items-center lg:items-stretch p-[0.75rem] gap-[0.75rem] w-full shadow-lg flex flex-col lg:flex-row">
         <div className="w-[27rem] max-w-full aspect-square overflow-hidden items-center rounded-2xl">
           <img
             src={booking.imageUrl}
@@ -326,9 +354,31 @@ export default  function BookingDetailPage() {
 
         </div>
         )}
-      
-    
       </div>
+
+      {booking.status === "Completed" && (
+        <div className="space-y-3">
+          <h2 className="font-bold text-black tracking-tight">Rating and Reviews</h2>
+
+          <ReviewCard
+            logoUrl={booking.companyLogoUrl}
+            companyName="Patriot Escort Services"
+            rating={5}
+            title="Great Work"
+            review="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          />
+
+          <ReviewCard
+            logoUrl={booking.companyLogoUrl}
+            companyName="Fast Track Transport Inc."
+            rating={5}
+            title="Great Work"
+            review="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          />
+        </div>
+      )}
+
+
     </div>
   );
 }

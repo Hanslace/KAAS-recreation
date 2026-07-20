@@ -23,7 +23,7 @@ export const AuthInput = forwardRef(
     return (
       <div className="auth-input relative w-full flex flex-col gap-1.5">
         {/* Added "has-[:focus]" wrapper to style the label dynamically when the input is active */}
-        <div className="relative w-full has-[:focus]:text-brand">
+        <div className="relative w-full has-[:focus]:text-black">
           {/* Floating Label */}
           <label 
             className={`absolute -top-[0.4em] left-[1.75em] z-10 bg-gradient-to-b from-transparent via-white to-white font-normal leading-none transition-colors duration-200 ${

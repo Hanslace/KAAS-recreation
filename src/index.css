@@ -151,6 +151,10 @@ header .hamburger {
   font-size: 0.8rem;
 }
 
+.booking-detail .review {
+  font-size: 1rem;
+}
+
 .booking-detail .price {
   font-size: 1.1rem;
 }
@@ -372,6 +376,10 @@ header .icon {
 
 .booking-detail h2 {
   font-size: 1.6rem;
+}
+
+.booking-detail .review {
+  font-size: 1.3rem;
 }
 
 .booking-detail .price {
