@@ -283,6 +283,10 @@ header .hamburger {
     font-size: 0.6rem;
   }
 
+.avatar-picker {
+    font-size: 0.7rem;
+  }
+
 @media (min-width: 40rem) {
   .searchbar {
     width: 15.5rem;
@@ -519,6 +523,10 @@ header .icon {
     left: auto;
     width: 15rem;
     max-height: calc(100dvh - 1.5rem);
+  }
+
+  .avatar-picker {
+    font-size: 1rem;
   }
 }
 

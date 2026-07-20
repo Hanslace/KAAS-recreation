@@ -1,92 +1,139 @@
-import { useForm } from "react-hook-form"; // Removed SubmitHandler import
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { useState } from "react";
+import { Icon } from "@iconify/react";
 import AuthInput from "@/components/ui/auth/AuthInput";
 import BackButton from "@/components/ui/BackButton";
 import AuthButton from "@/components/ui/auth/AuthButton";
 import AuthHeading from '@/components/ui/auth/AuthHeading';
 import AuthSubHeading from '@/components/ui/auth/AuthSubHeading';
 import { useNavigate } from "react-router";
+import SuccessModal from "@/components/shared/modals/SuccessModal";
+import AvatarPicker from "@/components/ui/AvatarPicker";
 
-// 1. Define the Schema for Resetting Password with matching requirements
-const resetPasswordSchema = z
-  .object({
-    password: z
-      .string()
-      .min(8, "Password must be at least 8 characters long"),
-    confirmPassword: z
-      .string()
-      .min(1, "Please confirm your password"),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords do not match",
-    path: ["confirmPassword"], // Sets the error specifically on the confirmPassword field
-  });
-
+const createProfileSchema = z.object({
+  fullName: z
+    .string()
+    .min(2, "Full name must be at least 2 characters long"),
+  phoneNumber: z
+    .string()
+    .min(7, "Please enter a valid phone number")
+    .regex(/^[0-9+\-\s()]+$/, "Please enter a valid phone number"),
+  address: z
+    .string()
+    .min(5, "Please enter your complete address"),
+  state: z.string().min(1, "State is required"),
+  city: z.string().min(1, "City is required"),
+});
 
 export default function CreateProfilePage() {
   const navigate = useNavigate();
 
-  // 2. React Hook Form Initialization - Stripped out <ResetPasswordFormValues>
+  const [avatarPreview, setAvatarPreview] = useState(null);
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const handleAvatarChange = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const objectUrl = URL.createObjectURL(file);
+      setAvatarPreview(objectUrl);
+    }
+  };
+
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isValid },
   } = useForm({
-    resolver: zodResolver(resetPasswordSchema),
+    resolver: zodResolver(createProfileSchema),
     mode: "onChange",
   });
 
-  // 3. Submission Handler Function
   const onSubmit = async (data) => {
     try {
-      console.log("Submitting New Password Data:", data.password);
-      // Example: await api.auth.updatePassword(data.password);
-      
-      // Redirect straight to login once password update succeeds
-      navigate(`/login`);
+      console.log("Submitting Profile Data:", data);
+      setShowSuccess(true);
     } catch (error) {
-      console.error("Failed to update password:", error);
+      console.error("Failed to create profile:", error);
     }
   };
 
   return (
     <div className="space-y-3">
-      {/* Back button directs user back to the OTP screen if they need to check it */}
-      <BackButton href="/forgot-password/otp">Back</BackButton>
+      <BackButton href="/">Back</BackButton>
       <div className="mb-6">
-        <AuthHeading text="Reset Password"/>
-
-        <AuthSubHeading>Please type your new password</AuthSubHeading>
+        <AuthHeading text="Create Profile" />
+        <AuthSubHeading>Please enter your Personal information</AuthSubHeading>
       </div>
+
+      <AvatarPicker onChange={(file) => console.log("Selected avatar:", file)} />
 
       <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6">
         <AuthInput
-          label="New Password"
-          type="password"
-          placeholder="Enter new password"
-          icon="solar:lock-password-linear" // Updated to lock icon
-          error={errors.password?.message}
-          {...register("password")}
+          label="Full Name."
+          type="text"
+          placeholder="Enter Your Name"
+          error={errors.fullName?.message}
+          {...register("fullName")}
         />
 
         <AuthInput
-          label="Confirm Password"
-          type="password"
-          placeholder="Confirm new password"
-          icon="solar:lock-password-linear" // Updated to lock icon
-          error={errors.confirmPassword?.message}
-          {...register("confirmPassword")}
+          label="Phone Number"
+          type="tel"
+          inputMode="numeric"
+          placeholder="Enter Phone Number"
+          error={errors.phoneNumber?.message}
+          {...register("phoneNumber", {
+            onChange: (e) => {
+              e.target.value = e.target.value.replace(/[^0-9+\-\s()]/g, "").slice(0, 15);
+            },
+          })}
         />
 
-        <AuthButton 
-          type="submit" 
+        <AuthInput
+          label="Complete Address"
+          type="text"
+          placeholder="Enter Address"
+          error={errors.address?.message}
+          {...register("address")}
+        />
+
+        <AuthInput
+          label="State"
+          type="text"
+          placeholder="Autofill from Address"
+          error={errors.state?.message}
+          {...register("state")}
+        />
+
+        <AuthInput
+          label="City"
+          type="text"
+          placeholder="Autofill from Address"
+          error={errors.city?.message}
+          {...register("city")}
+        />
+
+        <AuthButton
+          type="submit"
           disabled={isSubmitting || !isValid}
           className="w-full"
         >
-          {isSubmitting ? "Saving..." : "Save"}
+          {isSubmitting ? "Saving..." : "Next"}
         </AuthButton>
       </form>
+
+      <SuccessModal
+        open={showSuccess}
+        title="Successfully!"
+        description="Your profile has been created successfully."
+        buttonText="Next"
+        onDone={() => {
+          setShowSuccess(false);
+          navigate("/carrier-profile");
+        }}
+      />
     </div>
   );
 }

@@ -57,7 +57,7 @@ export const AuthInput = forwardRef(
               <textarea
                 ref={ref}
                 placeholder={placeholder}
-                {...(props)}
+                {...props}
                 className="w-full bg-transparent font-light text-black/70 outline-none placeholder:text-black/35 resize-y min-h-[4em]"
               />
             ) : (
@@ -66,7 +66,7 @@ export const AuthInput = forwardRef(
                 type={inputType}
                 placeholder={placeholder}
                 {...props}
-                className={`w-full bg-transparent font-light text-black/70 outline-none placeholder:text-black/35 ${
+                className={`w-full bg-transparent font-light text-black/70 outline-none placeholder:text-black/35 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${
                   inputType === "password"
                     ? "[:not(:placeholder-shown)]:tracking-[0.3em]"
                     : ""

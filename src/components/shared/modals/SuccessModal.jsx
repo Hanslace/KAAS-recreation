@@ -1,5 +1,3 @@
-
-
 export default function SuccessModal({
   open,
   onDone,
@@ -8,6 +6,10 @@ export default function SuccessModal({
   buttonText = 'Done',
 }) {
   if (!open) return null;
+
+  const paragraphs = Array.isArray(description)
+    ? description
+    : String(description).split('\n');
 
   return (
     <div className="modal fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4">
@@ -41,18 +43,20 @@ export default function SuccessModal({
           {title}
         </h2>
 
-        <p className="mx-auto  text-black/50">
-          {description}
-        </p>
+        <div className="mx-auto text-black/50 space-y-2">
+          {paragraphs.map((para, i) => (
+            <p key={i}>{para}</p>
+          ))}
+        </div>
 
         <div className="mx-auto mt-8 w-full ">
-        <button
+          <button
             type="button"
             onClick={onDone}
             className="flex button w-full items-center justify-center rounded-[0.5em] bg-brand-gradient brand-button font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95"
-        >
+          >
             {buttonText}
-        </button>
+          </button>
         </div>
       </div>
     </div>
