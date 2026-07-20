@@ -499,6 +499,12 @@ header .icon {
   font-size: 0.9rem;
 }
 
+.auth-options-button {
+  height: 4rem;
+  width: 4rem ;
+  margin: 1.5rem;
+}
+
 .auth-options {
   font-size: 0.7rem;
 }
