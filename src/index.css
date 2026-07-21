@@ -263,6 +263,11 @@ header .hamburger {
   font-size: 1.7rem;
 }
 
+.auth-h2 {
+  font-size: 0.75rem;
+  
+}
+
 .auth-sub-heading {
   font-size: 0.55rem;
 }
@@ -286,6 +291,11 @@ header .hamburger {
 .avatar-picker {
     font-size: 0.7rem;
   }
+
+.upload-area {
+  padding-block: 1.5rem;
+  font-size: 0.7rem;
+}
 
 @media (min-width: 40rem) {
   .searchbar {
@@ -505,6 +515,11 @@ header .icon {
   font-size: 3rem;
 }
 
+.auth-h2 {
+  font-size: 1.2rem;
+  
+}
+
 .auth-sub-heading {
   font-size: 0.9rem;
 }
@@ -526,6 +541,11 @@ header .icon {
   }
 
   .avatar-picker {
+    font-size: 1rem;
+  }
+
+  .upload-area {
+    padding-block: 2rem;
     font-size: 1rem;
   }
 }

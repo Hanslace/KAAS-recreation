@@ -1,5 +1,5 @@
+import { Icon } from '@iconify/react';
 import React, { useState, DragEvent, ChangeEvent } from 'react';
-import { Upload, LucideIcon } from 'lucide-react';
 
 
 
@@ -10,7 +10,7 @@ export const UploadArea = ({
   onFileSelect,
 }) => {
   const [isDragActive, setIsDragActive] = useState(false);
-  const Icon = CustomIcon || Upload;
+  const iconName = "solar:upload-broken";
 
   // Handle drag states
   const handleDrag = (e) => {
@@ -49,10 +49,10 @@ export const UploadArea = ({
       onDragLeave={handleDrag}
       onDrop={handleDrop}
       className={`
-        relative w-full max-w-[600px] min-h-[140px] px-6 py-4
+        relative w-full  upload-area px-6 py-4
         flex rounded-xl border border-dashed bg-white
-        transition-all duration-200 cursor-pointer
-        ${isDragActive ? 'border-[#A3865D] bg-[#C5A880]/10 scale-[1.01]' : 'border-[#C5A880] hover:bg-[#C5A880]/5'}
+        transition-all duration-200 cursor-pointer shadow-md
+        ${isDragActive ? 'border-brand bg-brand/10 scale-[1.01]' : 'border-brand hover:bg-brand/5'}
         ${iconPosition === 'top' ? 'flex-col items-center justify-center gap-3' : 'flex-row items-center justify-center gap-4'}
       `}
     >
@@ -64,11 +64,12 @@ export const UploadArea = ({
         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
       />
 
-      <Icon 
-        className={`text-[#C5A880] w-7 h-7 stroke-[1.5] transition-transform ${isDragActive ? 'scale-110' : ''} ${iconPosition === 'right' ? 'order-last' : ''}`} 
+      <Icon
+        className={`text-brand w-7 h-7 stroke-[1.5] transition-transform ${isDragActive ? 'scale-110' : ''} ${iconPosition === 'right' ? 'order-last' : ''}`} 
+        icon={iconName}
       />
       
-      <span className="text-[#666666] font-medium text-[15px] select-none text-center">
+      <span className="text-black/60 font-medium  select-none text-center">
         {isDragActive ? 'Drop your photo here' : label}
       </span>
     </div>

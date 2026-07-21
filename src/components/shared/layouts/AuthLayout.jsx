@@ -31,7 +31,7 @@ export default function LoginLayout() {
         
 
         {/* Right Column */}
-        <div className=" w-full md:m-auto space-y-10 md:max-w-[35vw] p-10">
+        <div className=" w-full md:m-auto space-y-10 md:max-w-[35vw] p-10 ">
           <div className="md:hidden mt-20  flex items-center justify-center ">
             <img
               src="/logo.png"
