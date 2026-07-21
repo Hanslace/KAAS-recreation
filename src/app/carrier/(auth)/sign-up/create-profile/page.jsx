@@ -44,7 +44,7 @@ export default function CreateProfilePage() {
     handleSubmit,
     formState: { errors, isSubmitting, isValid },
   } = useForm({
-    resolver: zodResolver(createProfileSchema),
+    // resolver: zodResolver(createProfileSchema),
     mode: "onChange",
   });
 
@@ -125,11 +125,14 @@ export default function CreateProfilePage() {
       <SuccessModal
         open={showSuccess}
         title="Successfully!"
-        description="Your profile has been created successfully."
+        description={[
+            "Your profile has been submitted for review.",
+            "Our team will verify your information, and once your profile is approved, you will be notified immediately."
+          ]}        
         buttonText="Next"
         onDone={() => {
           setShowSuccess(false);
-          navigate("/carrier-profile");
+          navigate("/payment-plan");
         }}
       />
     </div>

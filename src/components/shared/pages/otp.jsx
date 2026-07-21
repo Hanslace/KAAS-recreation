@@ -56,7 +56,7 @@ export default function OtpPage({
     setValue,
     formState: { isSubmitting, isValid },
   } = useForm({
-    resolver: zodResolver(otpSchema),
+    // resolver: zodResolver(otpSchema),
     mode: "onChange",
     defaultValues: {
       otp: ["", "", "", "", "", ""],

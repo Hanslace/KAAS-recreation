@@ -57,7 +57,7 @@ export default function CarrierProfilePage() {
     control,
     formState: { errors, isSubmitting, isValid },
   } = useForm({
-    resolver: zodResolver(formSchema),
+    // resolver: zodResolver(formSchema),
     mode: "onChange",
     defaultValues: { carriers: [emptyCarrier] },
   });
@@ -89,7 +89,7 @@ export default function CarrierProfilePage() {
   const onSubmit = async (data) => {
     try {
       console.log("Validated Form Submission Data:", data);
-      navigate("/payment-plan");
+      navigate("/home");
     } catch (error) {
       console.error("Submission failed:", error);
     }
@@ -221,15 +221,15 @@ export default function CarrierProfilePage() {
           })}
         </div>
 
-        <div className="mt-5 flex justify-end md:pr-3">
+        <div className="auth-h2 mt-5 flex justify-end md:pr-3">
           <button
             type="button"
             onClick={addCarrier}
             className="flex items-center gap-3 font-medium text-black"
           >
-            <span>Add Another Carrier</span>
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-black text-white transition hover:scale-105">
-              <Icon icon="lucide:plus" className="h-4 w-4" />
+            <span className="">Add Another Carrier</span>
+            <span className="flex h-[1.5em] w-[1.5em] items-center justify-center rounded-full bg-black text-white transition hover:scale-105">
+              <Icon icon="lucide:plus" className="h-[1em] w-[1em]" />
             </span>
           </button>
         </div>

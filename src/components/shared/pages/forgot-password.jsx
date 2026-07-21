@@ -30,7 +30,7 @@ export default function ForgotPasswordPage() {
     handleSubmit,
     formState: { errors, isSubmitting, isValid },
   } = useForm({
-    resolver: zodResolver(forgotPasswordSchema),
+    // resolver: zodResolver(forgotPasswordSchema),
     mode: "onChange", // Validates on every keystroke to toggle AuthButton 'disabled' state properly
   });
 

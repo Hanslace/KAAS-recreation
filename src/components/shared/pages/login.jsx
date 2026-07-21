@@ -29,7 +29,7 @@ export default function LoginPage() {
     handleSubmit,
     formState: { errors, isSubmitting, isValid }, // Extracted isValid to monitor form validity status
   } = useForm({
-    resolver: zodResolver(loginSchema),
+    // resolver: zodResolver(loginSchema),
     mode: "onChange", 
     defaultValues: {
       email: "",

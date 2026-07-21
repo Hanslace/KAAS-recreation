@@ -50,7 +50,7 @@ export default function PaymentPage() {
     handleSubmit,
     formState: { errors, isSubmitting, isValid },
   } = useForm({
-    resolver: zodResolver(paymentSchema),
+    // resolver: zodResolver(paymentSchema),
     mode: "onChange",
     defaultValues: {
       cardHolder: "",
@@ -185,7 +185,7 @@ export default function PaymentPage() {
         buttonText="Done"
         onDone={() => {
           setShowSuccess(false);
-          navigate("/home");
+          navigate("/carrier-profile");
         }}
       />
     </div>

@@ -13,8 +13,8 @@ export default function SuccessModal({
 
   return (
     <div className="modal fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4">
-      <div className="w-full max-w-[25em] rounded-[3em] bg-white  pt-[3em] pb-[1.5em] px-[3.5em] text-center shadow-xl space-y-3 ">
-        <div className="mx-auto flex h-[6em] w-[6em] items-center justify-center">
+      <div className=" flex flex-col items-center min-w-[25em] w-fit rounded-[3em] bg-white  pt-[3em] pb-[1.5em] px-[3.5em] text-center shadow-xl space-y-3 ">
+        <div className=" flex h-[6em] w-[6em] items-center justify-center">
           <div
             className="flex h-[6em] w-[6em] items-center justify-center bg-brand"
             style={{
@@ -39,17 +39,17 @@ export default function SuccessModal({
           </div>
         </div>
 
-        <h2 className="heading font-bold leading-none text-brand">
+        <h2 className="heading font-bold leading-none text-brand w-fit">
           {title}
         </h2>
 
-        <div className="mx-auto text-black/50 space-y-2">
+        <div className=" text-black/50 space-y-2 w-[50ch]">
           {paragraphs.map((para, i) => (
             <p key={i}>{para}</p>
           ))}
         </div>
 
-        <div className="mx-auto mt-8 w-full ">
+        <div className="mx-auto mt-8 w-full max-w-[50ch]">
           <button
             type="button"
             onClick={onDone}
