@@ -21,7 +21,7 @@ export const Input = forwardRef(
     const isTextarea = Component === "textarea";
 
     return (
-      <div className="auth-input relative w-full flex flex-col gap-1.5">
+      <div className="input relative w-full flex flex-col gap-1.5">
         {/* Added "has-[:focus]" wrapper to style the label dynamically when the input is active */}
         <div className="relative w-full has-[:focus]:text-black">
           {/* Floating Label */}

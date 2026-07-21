@@ -10,8 +10,8 @@ import SignUpPage from "@/app/carrier/(auth)/sign-up/page.jsx";
 import SignUpOtpPage from "@/app/carrier/(auth)/sign-up/otp/page";
 import CreateProfilePage from "@/app/carrier/(auth)/sign-up/create-profile/page";
 import CarrierProfilePage from "@/app/carrier/(auth)/carrier-profile/page";
-import PaymentPlanPage from "@/app/carrier/(auth)/subscription/page";
-import PaymentPage from "@/app/carrier/(auth)/subscription/payment/page";
+import PaymentPlanPage from "@/app/carrier/(auth)/payment-plan/page";
+import PaymentPage from "@/app/carrier/(auth)/payment-plan/[planId]/page";
 
 
 // // Protected layout
@@ -92,7 +92,7 @@ export const carrierRoutes =  (
         <Route path="/carrier-profile" element={<CarrierProfilePage />} />
         <Route path="/payment-plan">
           <Route index element={< PaymentPlanPage/>} />
-          <Route path="payment" element={<PaymentPage />} />
+          <Route path=":planId" element={<PaymentPage />} />
         </Route>
     
       </Route>

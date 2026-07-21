@@ -213,6 +213,19 @@ header .hamburger {
   font-size: 3rem;
 }
 
+.plan-page {
+  font-size: 0.6rem;
+}
+
+.plan-page .heading {
+  font-size: 1rem;
+}
+
+.plan-page .sub-heading {
+  font-size: 1rem;
+}
+
+
 .dropdown {
   font-size: 0.55rem;
 }
@@ -255,7 +268,7 @@ header .hamburger {
   font-size: 0.65rem;
 }
 
-.auth-input {
+.input {
   font-size: 0.55rem;
 }
 
@@ -466,6 +479,18 @@ header .icon {
   font-size: 6rem;
 }
 
+.plan-page {
+  font-size: 0.9rem;
+}
+
+.plan-page .heading {
+  font-size: 1.8rem;
+}
+
+.plan-page .sub-heading {
+  font-size: 1.2rem;
+}
+
 .dropdown {
   font-size: 0.9rem;
 }
@@ -511,7 +536,7 @@ header .icon {
   font-size: 1.1rem;
 }
 
-.auth-input {
+.input {
   font-size: 0.8rem;
 }
 

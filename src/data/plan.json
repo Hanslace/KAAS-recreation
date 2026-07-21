@@ -5,6 +5,8 @@
       "title": "Pilot Car",
       "billingPeriod": "Monthly",
       "price": "05",
+      "tax": "01",
+      "subtotal": "06",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "features": [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -21,6 +23,8 @@
       "title": "Pilot Car",
       "billingPeriod": "Yearly",
       "price": "50",
+      "tax": "05",
+      "subtotal": "55",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "features": [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -37,6 +41,8 @@
       "title": "Truck",
       "billingPeriod": "Monthly",
       "price": "05",
+      "tax": "01",
+      "subtotal": "06",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "features": [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -53,6 +59,8 @@
       "title": "Truck",
       "billingPeriod": "Yearly",
       "price": "50",
+      "tax": "05",
+      "subtotal": "55",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "features": [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
