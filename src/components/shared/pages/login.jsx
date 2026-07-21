@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useNavigate } from "react-router"; // Import the navigate for programmatic navigation
 import AuthInput from "@/components/ui/Input";
-import AuthButton from "@/components/ui/auth/uthButton";
+import AuthButton from "@/components/ui/BrandButton";
 
 // Define schema validation rules
 const loginSchema = z.object({
@@ -118,7 +118,7 @@ export default function LoginPage() {
         </div>
 
         {/* Removed href prop so it acts as a genuine submit button, and disabled it if form is invalid or submitting */}
-        <AuthButton type="submit" disabled={isSubmitting || !isValid}>
+        <AuthButton type="submit" className="w-full"  disabled={isSubmitting || !isValid}>
           {isSubmitting ? "Logging in..." : "Login"}
         </AuthButton>
       </form>

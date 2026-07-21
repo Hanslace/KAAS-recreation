@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useNavigate } from "react-router";
 import AuthInput from "@/components/ui/Input";
-import AuthButton from "@/components/ui/auth/uthButton";
+import AuthButton from "@/components/ui/BrandButton";
 import { Icon } from "@iconify/react";
 import UploadArea from "@/components/ui/UploadArea";
 import AttachmentImage from "@/components/ui/AttachmentImage";

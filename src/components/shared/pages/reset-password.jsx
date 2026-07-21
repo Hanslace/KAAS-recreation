@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import AuthInput from "@/components/ui/Input";
 import BackButton from "@/components/ui/BackButton";
-import AuthButton from "@/components/ui/auth/uthButton";
+import AuthButton from "@/components/ui/BrandButton";
 import { useNavigate } from "react-router";
 
 // 1. Define the Schema for Resetting Password with matching requirements
@@ -51,9 +51,9 @@ export default function ResetPasswordPage() {
   return (
     <div className="space-y-3">
       {/* Back button directs user back to the OTP screen if they need to check it */}
-      <BackButton href="/forgot-password/otp">Back</BackButton>
+      <BackButton>Back</BackButton>
       <div className="mb-6">
-        <AuthHeading text="Reset Password"/>
+        <h1 className="auth-heading">Reset Password</h1>
 
         <p className="auth-sub-heading">Please type your new password</p>
       </div>

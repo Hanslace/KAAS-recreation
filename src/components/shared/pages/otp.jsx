@@ -3,7 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import BackButton from "@/components/ui/BackButton";
-import AuthButton from "@/components/ui/auth/uthButton";
+import AuthButton from "@/components/ui/BrandButton";
 import { useNavigate } from 'react-router';
 
 const otpSchema = z.object({

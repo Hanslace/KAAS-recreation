@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Icon } from "@iconify/react";
 import AuthInput from "@/components/ui/Input";
 import BackButton from "@/components/ui/BackButton";
-import AuthButton from "@/components/ui/auth/uthButton";
+import AuthButton from "@/components/ui/BrandButton";
 import { useNavigate } from "react-router";
 import SuccessModal from "@/components/shared/modals/SuccessModal";
 import AvatarPicker from "@/components/ui/AvatarPicker";

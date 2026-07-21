@@ -8,7 +8,7 @@ import * as z from "zod";
 import AuthInput from "@/components/ui/Input";
 import BackButton from "@/components/ui/BackButton";
 
-import AuthButton from "@/components/ui/auth/uthButton";
+import AuthButton from "@/components/ui/BrandButton";
 import { useNavigate } from "react-router";
 
 

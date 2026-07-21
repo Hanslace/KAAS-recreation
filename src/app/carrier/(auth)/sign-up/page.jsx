@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Link, useNavigate } from "react-router";
 import AuthInput from "@/components/ui/Input";
-import AuthButton from "@/components/ui/auth/uthButton";
+import AuthButton from "@/components/ui/BrandButton";
 import ContentModal from "@/components/shared/modals/ContentModal";
 
 const signUpSchema = z
@@ -79,7 +79,7 @@ export default function SignUpPage() {
 
       <div className="space-y-[2em]">
         <div>
-          <AuthHeading text="Sign Up" />
+          <h1 className="auth-heading">Sign Up</h1>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-[2.5em]">
@@ -132,7 +132,7 @@ export default function SignUpPage() {
             </button>
           </div>
 
-          <AuthButton type="submit" disabled={isSubmitting || !isValid}>
+          <AuthButton type="submit" className="w-full" disabled={isSubmitting || !isValid}>
             {isSubmitting ? "Signing up..." : "Sign Up"}
           </AuthButton>
         </form>
