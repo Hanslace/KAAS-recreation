@@ -1,12 +1,14 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import BackButton from "@/components/ui/BackButton";
 import NotFound from "@/components/ui/NotFound";
 import Input from "@/components/ui/Input";
 import Button from "@/components/ui/BrandButton";
 import data from "@/data/plan.json";
+import SuccessModal from "@/components/shared/modals/SuccessModal";
 
 const paymentSchema = z.object({
   cardHolder: z
@@ -17,11 +19,7 @@ const paymentSchema = z.object({
     .string()
     .min(1, "Card number is required")
     .transform((v) => v.replace(/\s/g, ""))
-    .pipe(
-      z
-        .string()
-        .regex(/^\d{13,19}$/, "Enter a valid card number")
-    ),
+    .pipe(z.string().regex(/^\d{13,19}$/, "Enter a valid card number")),
   expiry: z
     .string()
     .min(1, "Expiry date is required")
@@ -41,6 +39,9 @@ const paymentSchema = z.object({
 
 export default function PaymentPage() {
   const { planId } = useParams();
+  const navigate = useNavigate();
+
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const plan = data.subscriptions.find((p) => String(p.id) === planId);
 
@@ -64,7 +65,8 @@ export default function PaymentPage() {
   const onSubmit = async (formData) => {
     try {
       console.log("Payment data:", formData, "Plan:", plan.id);
-      // call your payment API here
+      // await api.pay(formData) ...
+      setShowSuccess(true);
     } catch (error) {
       console.error("Payment failed:", error);
     }
@@ -132,7 +134,6 @@ export default function PaymentPage() {
             error={errors.cardNumber?.message}
             {...register("cardNumber", {
               onChange: (e) => {
-                // digits only, grouped in 4s, max 19 digits
                 const digits = e.target.value.replace(/\D/g, "").slice(0, 19);
                 e.target.value = digits.replace(/(.{4})/g, "$1 ").trim();
               },
@@ -176,6 +177,17 @@ export default function PaymentPage() {
           </Button>
         </form>
       </div>
+
+      <SuccessModal
+        open={showSuccess}
+        title="Successfully!"
+        description={`Your plan has been successfully purchased.\nEnjoy your ${plan.billingPeriod.toLowerCase()} subscription!`}
+        buttonText="Done"
+        onDone={() => {
+          setShowSuccess(false);
+          navigate("/home");
+        }}
+      />
     </div>
   );
 }

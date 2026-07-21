@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": "admin",
+      "name": "Admin",
+      "email": "admin.admin@gmail.com",
+      "avatar": "https://images.unsplash.com/photo-1783095627526-25c08072893f?w=900&auto=format&fit=crop&q=60"
+    },
+    {
+      "id": "john-smith",
+      "name": "John Smith",
+      "email": "johansmith@gmail.com",
+      "avatar": "https://images.unsplash.com/photo-1783095627526-25c08072893f?w=900&auto=format&fit=crop&q=60"
+    }
+  ]
+}

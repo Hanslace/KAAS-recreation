@@ -50,6 +50,7 @@ import SubscriptionEarningPage from "@/app/admin/(protected)/subscriptions/earni
 // Support
 import SupportPage from "@/app/admin/(protected)/support/page.jsx";
 import SupportDetailsPage from "@/app/admin/(protected)/support/[slug]/page.jsx";
+import userData from "@/data/user.json";
 
 function NotFoundPage() {
   return (
@@ -63,6 +64,29 @@ function NotFoundPage() {
     </div>
   );
 }
+
+const sidebarLinks = [
+  { name: 'Dashboard', href: '/dashboard', icon: 'ic:baseline-home', hasSubmenu: false },
+  { name: 'Bookings', href: '/bookings', icon: 'uis:calendar', hasSubmenu: false },
+  { name: 'Carriers Management', href: '/carrier-management', icon: 'fa6-solid:truck-moving', hasSubmenu: false },
+  {
+    name: 'Pilot Car Management',
+    href: '/pilot-cars',
+    icon: 'ph:car-fill',
+    hasSubmenu: true,
+    submenuItems: [
+      { name: 'Managers', href: '/pilot-car-management/managers' },
+      { name: 'Company Drivers', href: '/pilot-car-management/company-drivers' },
+      { name: 'Individual Drivers', href: '/pilot-car-management/individual-drivers' },
+    ],
+  },
+  { name: 'Subscription', href: '/subscriptions', icon: 'material-symbols:subscriptions', hasSubmenu: false },
+  { name: 'Support', href: '/support', icon: 'fluent:person-support-32-filled', hasSubmenu: false },
+  { name: 'Settings', href: '/settings', icon: 'material-symbols:settings', hasSubmenu: false },
+];
+
+const currentUser = userData.users.find((u) => u.id === "admin");
+  
 
 export const adminRoutes =  (
     <Routes>
@@ -80,7 +104,12 @@ export const adminRoutes =  (
       </Route>
 
       {/* Protected/admin routes */}
-      <Route element={<ProtectedLayout />}>
+      <Route element={
+        <ProtectedLayout
+          sidebarLinks={sidebarLinks}
+          user={currentUser}
+        />
+      }>
         <Route path="/dashboard" element={<DashboardPage />} />
 
         <Route path="/bookings">

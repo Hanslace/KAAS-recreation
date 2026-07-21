@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router';
 
-export default function LoginLayout() {
+export default function AuthLayout() {
   return (
     <main className="min-h-screen w-full ">
       <section className="md:grid min-h-screen  w-full flex flex-col md:grid-cols-2">

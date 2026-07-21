@@ -1,4 +1,6 @@
 import { Navigate, Route, Routes } from "react-router";
+import userData from "@/data/user.json";
+
 
 // Auth layout and pages
 import AuthLayout from "@/components/shared/layouts/AuthLayout.jsx";
@@ -14,11 +16,9 @@ import PaymentPlanPage from "@/app/carrier/(auth)/payment-plan/page";
 import PaymentPage from "@/app/carrier/(auth)/payment-plan/[planId]/page";
 
 
-// // Protected layout
-// import ProtectedLayout from "@/app/carrier/(protected)/layout.jsx";
+import ProtectedLayout from "@/components/shared/layouts/ProtectedLayout.jsx";
 
-// // Dashboard
-// import DashboardPage from "@/app/carrier/(protected)/dashboard/page.jsx";
+import CarrierHome from "@/app/carrier/(protected)/home/page.jsx";
 
 // // Bookings
 // import BookingsPage from "@/app/carrier/(protected)/bookings/page.jsx";
@@ -71,6 +71,19 @@ function NotFoundPage() {
   );
 }
 
+const sidebarLinks = [
+  { name: 'Home', href: '/home', icon: 'ic:baseline-home', hasSubmenu: false },
+  { name: 'Bookings', href: '/bookings', icon: 'uis:calendar', hasSubmenu: false },
+  { name: 'Trucks', href: '/trucks', icon: 'fa6-solid:truck-moving', hasSubmenu: false },
+  { name: 'Subscriptions', href: '/subscriptions', icon: 'material-symbols:subscriptions', hasSubmenu: false },
+  { name: 'Payments', href: '/payments', icon: 'solar:card-bold', hasSubmenu: false },
+  { name: 'Profile', href: '/profile', icon: 'ic:baseline-person', hasSubmenu: false },
+  { name: 'Support', href: '/support', icon: 'fluent:person-support-32-filled', hasSubmenu: false },
+  { name: 'Settings', href: '/settings', icon: 'material-symbols:settings', hasSubmenu: false },
+];
+const currentUser = userData.users.find((u) => u.id === "john-smith");
+
+
 export const carrierRoutes =  (
     <Routes>
       {/* Root redirect to Dashboard */}
@@ -97,10 +110,15 @@ export const carrierRoutes =  (
     
       </Route>
 
-      {/* <Route element={<ProtectedLayout />}>
-        <Route path="/dashboard" element={<DashboardPage />} />
+      <Route element={
+        <ProtectedLayout
+          sidebarLinks={sidebarLinks}
+          user={currentUser}
+        />
+      }>
+        <Route path="/home" element={<CarrierHome />} />
 
-        <Route path="/bookings">
+        {/* <Route path="/bookings">
           <Route index element={<BookingsPage />} />
           <Route path=":slug" element={<BookingDetailsPage />} />
         </Route>
@@ -151,8 +169,8 @@ export const carrierRoutes =  (
         <Route path="/support">
           <Route index element={<SupportPage />} />
           <Route path=":slug" element={<SupportDetailsPage />} />
-        </Route>
-      </Route> */}
+        </Route> */}
+      </Route>
 
       {/* Catch-all 404 handler */}
       <Route path="*" element={<NotFoundPage />} />
