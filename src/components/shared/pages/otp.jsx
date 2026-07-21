@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import BackButton from "@/components/ui/BackButton";
 import AuthButton from "@/components/ui/auth/AuthButton";
-import AuthHeading from '@/components/ui/auth/AuthHeading';
 import AuthSubHeading from '@/components/ui/auth/AuthSubHeading';
 import { useNavigate } from 'react-router';
 
@@ -130,7 +129,7 @@ export default function OtpPage({
       <div className="w-full max-w-md flex flex-col items-start space-y-2">
         <BackButton >Back</BackButton>
         <div>
-          <AuthHeading text="Enter OTP"/>
+          <h1 className="auth-heading">Enter OTP</h1>
           <AuthSubHeading>Please enter OTP sent to your email</AuthSubHeading>
         </div>
 

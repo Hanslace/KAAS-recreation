@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import AuthInput from '@/components/ui/auth/AuthInput';
+import AuthInput from '@/components/ui/Input';
 import ConfirmationModal from '@/components/shared/modals/ConfirmationModal';
 import BackButton from '@/components/ui/BackButton';
 import { useNavigate } from 'react-router';

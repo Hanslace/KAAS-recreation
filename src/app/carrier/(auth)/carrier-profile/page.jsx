@@ -3,139 +3,147 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useNavigate } from "react-router"; // Import the navigate for programmatic navigation
-import AuthInput from "@/components/ui/auth/AuthInput";
+import { useNavigate } from "react-router";
+import AuthInput from "@/components/ui/Input";
 import AuthButton from "@/components/ui/auth/AuthButton";
-import AuthHeading from "@/components/ui/auth/AuthHeading";
 import AuthSubHeading from "@/components/ui/auth/AuthSubHeading";
 import { Icon } from "@iconify/react";
 import UploadArea from "@/components/ui/UploadArea";
 import AttachmentImage from "@/components/ui/AttachmentImage";
+import { useState } from "react";
 
 // Define schema validation rules
-const loginSchema = z.object({
-  email: z
-    .string()
-    .min(1, "Email address is required")
-    .email("Please enter a valid email address"),
-  password: z
-    .string()
-    .min(1, "Password is required")
-    .min(8, "Password must be at least 8 characters long"),
-  rememberMe: z.boolean().optional(),
+const carrierSchema = z.object({
+  truckName: z.string().min(1, "Truck name is required"),
+  mcNumber: z.string().min(1, "MC number is required"),
+  dotNumber: z.string().min(1, "DOT number is required"),
+  licensePlate: z.string().min(1, "License plate number is required"),
+  registrationNumber: z.string().min(1, "Registration number is required"),
+  vinNumber: z.string().min(1, "VIN number is required"),
 });
 
-
 export default function CarrierProfilePage() {
-  const navigate = useNavigate(); // Initialize the navigate
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isValid }, // Extracted isValid to monitor form validity status
+    formState: { errors, isSubmitting, isValid },
   } = useForm({
-    resolver: zodResolver(loginSchema),
-    mode: "onChange", 
+    resolver: zodResolver(carrierSchema),
+    mode: "onChange",
     defaultValues: {
-      email: "",
-      password: "",
-      rememberMe: false,
+      truckName: "",
+      mcNumber: "",
+      dotNumber: "",
+      licensePlate: "",
+      registrationNumber: "",
+      vinNumber: "",
     },
   });
 
-  // This will ONLY execute if react-hook-form confirms all Zod validation rules pass
   const onSubmit = async (data) => {
     try {
       console.log("Validated Form Submission Data:", data);
-      
-      // Perform your API authentication call here if needed
-      // const response = await api.login(data);
-
-      // Route the user to dashboard programmatically after a successful check
-      navigate("/dashboard"); 
+      navigate("/dashboard");
     } catch (error) {
-      console.error("Login failed:", error);
+      console.error("Submission failed:", error);
     }
+  };
+
+  const [truckDoc, setTruckDoc] = useState(null);      // { url, name }
+  const [liabilityDoc, setLiabilityDoc] = useState(null);
+
+  const handleSelect = (setter) => (file) => {
+    if (!file) return;
+    setter({ url: URL.createObjectURL(file), name: file.name });
+  };
+
+  const handleRemove = (doc, setter) => () => {
+    if (doc?.url) URL.revokeObjectURL(doc.url);   // free memory
+    setter(null);
   };
 
   return (
     <div className="flex flex-col gap-[3em] max-h-[calc(100vh-80px)]">
       <div className="">
-        <AuthHeading text="Carrier Profile"/>
+        <h1 className="auth-heading">Carrier Profile</h1> 
         <AuthSubHeading>
-          <Icon icon={'bi:info-lg'} className="mr-1.5 w-[1.5em] bg-brand rounded-full text-white h-[1.5em] shrink-0 inline"/>
-          Each truck will be charged $5.</AuthSubHeading>
+          <Icon icon={'bi:info-lg'} className="mr-1.5 w-[1.5em] bg-brand rounded-full text-white h-[1.5em] shrink-0 inline" />
+          Each truck will be charged $5.
+        </AuthSubHeading>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className=" space-y-[2.5em]  md:overflow-y-auto flex flex-col md:flex-1 md:min-h-0 custom-scrollbar">
         <div className=" gap-[2.5em]  md:overflow-y-auto flex flex-col md:flex-1 md:min-h-0 custom-scrollbar">
-          <UploadArea onFileSelect={null}/>
-
-          <AttachmentImage src alt/>
-
-          <AuthInput
-            label="Email Address"
-            placeholder="Enter your password"
-            type="email"
-            icon="iconoir:mail" 
-            error={errors.email?.message}
-            {...register("email")}
-          />
+          <UploadArea onFileSelect={handleSelect(setTruckDoc)} />
+          {truckDoc && (
+            <AttachmentImage
+              src={truckDoc.url}
+              alt={truckDoc.name}
+              onRemove={handleRemove(truckDoc, setTruckDoc)}
+            />
+          )}
 
 
           <AuthInput
-            label="Password"
-            type="password"
-            placeholder="Enter your password"
-            showToggle
-            error={errors.password?.message}
-            {...register("password")}
+            label="Truck Name"
+            placeholder="Enter Truck Name"
+            type="text"
+            error={errors.truckName?.message}
+            {...register("truckName")}
           />
 
           <AuthInput
-            label="Email Address"
-            placeholder="Enter your password"
-            type="email"
-            icon="iconoir:mail" 
-            error={errors.email?.message}
-            {...register("email")}
+            label="MC Number"
+            placeholder="Enter MC Number"
+            type="text"
+            error={errors.mcNumber?.message}
+            {...register("mcNumber")}
           />
 
-
           <AuthInput
-            label="Password"
-            type="password"
-            placeholder="Enter your password"
-            showToggle
-            error={errors.password?.message}
-            {...register("password")}
+            label="DOT Number"
+            placeholder="Enter DOT Number"
+            type="text"
+            error={errors.dotNumber?.message}
+            {...register("dotNumber")}
           />
 
-
           <AuthInput
-            label="Email Address"
-            placeholder="Enter your password"
-            type="email"
-            icon="iconoir:mail" 
-            error={errors.email?.message}
-            {...register("email")}
+            label="License Plate Number"
+            placeholder="Enter License Plate Number"
+            type="text"
+            error={errors.licensePlate?.message}
+            {...register("licensePlate")}
           />
 
+          <AuthInput
+            label="Registration Number"
+            placeholder="Enter Registration Number"
+            type="text"
+            error={errors.registrationNumber?.message}
+            {...register("registrationNumber")}
+          />
 
           <AuthInput
-            label="Password"
-            type="password"
-            placeholder="Enter your password"
-            showToggle
-            error={errors.password?.message}
-            {...register("password")}
+            label="VIN Number"
+            placeholder="Enter VIN Number"
+            type="text"
+            error={errors.vinNumber?.message}
+            {...register("vinNumber")}
           />
 
           <span className="font-bold auth-h2">Liability</span>
 
-          <UploadArea onFileSelect={null} iconPosition="left"/>
-
-          <AttachmentImage src alt/>
+          <UploadArea onFileSelect={handleSelect(setLiabilityDoc)} iconPosition="left" />
+          {liabilityDoc && (
+            <AttachmentImage
+              src={liabilityDoc.url}
+              alt={liabilityDoc.name}
+              onRemove={handleRemove(liabilityDoc, setLiabilityDoc)}
+            />
+          )}
 
         </div>
 
@@ -148,19 +156,13 @@ export default function CarrierProfilePage() {
             <span>Add Another Carrier</span>
 
             <span className="flex h-6 w-6 items-center justify-center rounded-full bg-black text-white transition hover:scale-105">
-              <Icon
-                icon="lucide:plus"
-                className="h-4 w-4"
-              />
+              <Icon icon="lucide:plus" className="h-4 w-4" />
             </span>
           </button>
         </div>
 
-  
-
-        {/* Removed href prop so it acts as a genuine submit button, and disabled it if form is invalid or submitting */}
         <AuthButton type="submit" disabled={isSubmitting || !isValid}>
-          {isSubmitting ? "Logging in..." : "Login"}
+          {isSubmitting ? "Saving..." : "Save"}
         </AuthButton>
       </form>
     </div>

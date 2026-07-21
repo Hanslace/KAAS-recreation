@@ -5,9 +5,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Link, useNavigate } from "react-router";
-import AuthInput from "@/components/ui/auth/AuthInput";
+import AuthInput from "@/components/ui/Input";
 import AuthButton from "@/components/ui/auth/AuthButton";
-import AuthHeading from "@/components/ui/auth/AuthHeading";
 import ContentModal from "@/components/shared/modals/ContentModal";
 
 const signUpSchema = z
@@ -79,9 +78,7 @@ export default function PaymentPage() {
     <div className="md:relative space-y-[2em] flex flex-col justify-center md:min-h-[calc(100vh-80px)] ">
 
       <div className="space-y-[2em]">
-        <div>
-          <AuthHeading text="Sign Up" />
-        </div>
+        <h1 className="auth-heading">Sign Up</h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-[2.5em]">
           <AuthInput

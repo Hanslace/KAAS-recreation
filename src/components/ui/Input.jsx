@@ -1,7 +1,7 @@
 import { useState, forwardRef } from "react";
 import { Icon } from "@iconify/react"; // Import Iconify
 
-export const AuthInput = forwardRef(
+export const Input = forwardRef(
   (
     {
       label,
@@ -101,5 +101,5 @@ export const AuthInput = forwardRef(
   }
 );
 
-AuthInput.displayName = "AuthInput";
-export default AuthInput;
+Input.displayName = "Input";
+export default Input;

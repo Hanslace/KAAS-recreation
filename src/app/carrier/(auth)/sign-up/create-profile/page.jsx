@@ -3,10 +3,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useState } from "react";
 import { Icon } from "@iconify/react";
-import AuthInput from "@/components/ui/auth/AuthInput";
+import AuthInput from "@/components/ui/Input";
 import BackButton from "@/components/ui/BackButton";
 import AuthButton from "@/components/ui/auth/AuthButton";
-import AuthHeading from '@/components/ui/auth/AuthHeading';
 import AuthSubHeading from '@/components/ui/auth/AuthSubHeading';
 import { useNavigate } from "react-router";
 import SuccessModal from "@/components/shared/modals/SuccessModal";
@@ -63,7 +62,7 @@ export default function CreateProfilePage() {
     <div className="space-y-3">
       <BackButton href="/">Back</BackButton>
       <div className="mb-6">
-        <AuthHeading text="Create Profile" />
+        <h1 className="auth-heading">Create Profile</h1>
         <AuthSubHeading>Please enter your Personal information</AuthSubHeading>
       </div>
 

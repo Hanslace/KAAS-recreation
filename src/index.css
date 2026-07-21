@@ -261,15 +261,19 @@ header .hamburger {
 
 .auth-heading {
   font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--brand);
 }
 
 .auth-h2 {
   font-size: 0.75rem;
+ 
   
 }
 
 .auth-sub-heading {
   font-size: 0.55rem;
+
 }
 
 .auth-options {
@@ -513,6 +517,8 @@ header .icon {
 
 .auth-heading {
   font-size: 3rem;
+  font-weight: 700;
+  color: var(--brand);
 }
 
 .auth-h2 {

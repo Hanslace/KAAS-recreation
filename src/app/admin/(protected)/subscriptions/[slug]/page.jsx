@@ -7,7 +7,7 @@ import { Icon } from '@iconify/react';
 import BackButton from '@/components/ui/BackButton';
 import SuccessModal from '@/components/shared/modals/SuccessModal';
 import NotFound from '@/components/ui/NotFound';
-import AuthInput from '@/components/ui/auth/AuthInput'; // Adjust the import path as needed
+import AuthInput from '@/components/ui/Input'; // Adjust the import path as needed
 import { useNavigate, useParams } from 'react-router';
 
 export default function EditSubscriptionPage() {

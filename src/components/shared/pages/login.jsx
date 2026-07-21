@@ -4,9 +4,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useNavigate } from "react-router"; // Import the navigate for programmatic navigation
-import AuthInput from "@/components/ui/auth/AuthInput";
+import AuthInput from "@/components/ui/Input";
 import AuthButton from "@/components/ui/auth/AuthButton";
-import AuthHeading from "@/components/ui/auth/AuthHeading";
 import AuthSubHeading from "@/components/ui/auth/AuthSubHeading";
 
 // Define schema validation rules
@@ -58,7 +57,7 @@ export default function LoginPage() {
   return (
     <div className="">
       <div className="mb-[2em]">
-        <AuthHeading text="Welcome Back!"/>
+        <h1 className="auth-heading">Welcome Back!</h1>
         <AuthSubHeading>Please enter your credentials</AuthSubHeading>
       </div>
 
