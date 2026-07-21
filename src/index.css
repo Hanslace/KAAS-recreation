@@ -131,7 +131,16 @@ header .hamburger {
   font-size: 1rem;
 }
 
-.booking-card h4 {
+.booking-card heading {
+  font-size: 0.8rem;
+}
+
+
+.escort-card {
+  font-size: 0.45rem;
+}
+
+.escort-card .heading {
   font-size: 0.8rem;
 }
 
@@ -314,6 +323,10 @@ header .hamburger {
   font-size: 0.7rem;
 }
 
+.escort-booking-detail {
+    font-size: 0.6rem;
+}
+
 @media (min-width: 40rem) {
   .searchbar {
     width: 15.5rem;
@@ -395,7 +408,15 @@ header .icon {
   font-size: 2rem;
 }
 
-.booking-card h4 {
+.booking-card .heading {
+  font-size: 1.6rem;
+}
+
+.escort-card {
+  font-size: 0.9rem;
+}
+
+.escort-card .heading {
   font-size: 1.6rem;
 }
 
@@ -580,6 +601,11 @@ header .icon {
     padding-block: 2rem;
     font-size: 1rem;
   }
+
+  .escort-booking-detail {
+    font-size: 1rem;
+  }
+
 }
 
 

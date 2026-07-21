@@ -31,7 +31,7 @@ export default function BookingsCard({ booking }) {
       className="block w-full focus:outline-none booking-card"
       aria-label={`View booking for ${booking.companyName}`}
     >
-      <div className="w-full flex flex-col rounded-xl p-2.5 shadow-xl border bg-white border-gray-100 transition-all duration-300 ease-in-out hover:bg-[#FAF6EE] hover:border-brand/30 hover:shadow-md">
+      <div className="w-full flex flex-col rounded-xl p-3shadow-xl border bg-white border-gray-100 transition-all duration-300 ease-in-out hover:bg-[#FAF6EE] hover:border-brand/30 hover:shadow-md">
         
         <div className="relative aspect-[444/250]  rounded-2xl overflow-hidden shrink-0 group">
           <img
@@ -58,7 +58,7 @@ export default function BookingsCard({ booking }) {
             />
 
             <div className="flex flex-col min-w-0">
-              <h4 className=" font-bold text-gray-900 tracking-tight leading-tight truncate">
+              <h4 className="heading font-bold text-gray-900 tracking-tight leading-tight truncate">
                 {booking.companyName}
               </h4>
 

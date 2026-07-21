@@ -1,5 +1,6 @@
 import { useState, forwardRef } from "react";
 import { Icon } from "@iconify/react"; // Import Iconify
+import { twMerge } from "tailwind-merge";
 
 export const Input = forwardRef(
   (
@@ -58,7 +59,10 @@ export const Input = forwardRef(
                 ref={ref}
                 placeholder={placeholder}
                 {...props}
-                className="w-full bg-transparent font-light text-black/70 outline-none placeholder:text-black/35 resize-y min-h-[4em]"
+                className={twMerge(
+                  "w-full bg-transparent font-light text-black/70 outline-none placeholder:text-black/35 resize-y min-h-[4em]",
+                  props.className
+                )}
               />
             ) : (
               <input

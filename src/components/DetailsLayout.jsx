@@ -2,8 +2,9 @@ import { ReactNode, useState } from 'react';
 import BackButton from '@/components/ui/BackButton';
 import BrandButton from '@/components/ui/BrandButton';
 import BrandPill from '@/components/ui/BrandPill';
-import ReasonModal from '@/components/shared/modals/ReasonModal';
+import ReasonModal from '@/components/shared/modals/InputModal';
 import { useNavigate } from 'react-router';
+import InputModal from '@/components/shared/modals/InputModal';
 
 
 
@@ -119,10 +120,11 @@ export default function DetailsLayout({
         {children}
       </section>
 
-      <ReasonModal
+      <InputModal
         open={reasonAction !== null}
         onClose={() => setReasonAction(null) }
         onSubmit={handleReasonSubmit}
+        inputProps={{ as: "textarea", maxLength: 500, label: "Reason", className: "h-[12rem]"}}
 
       />
     </>
