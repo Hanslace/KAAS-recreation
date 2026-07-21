@@ -5,8 +5,7 @@ import { useState } from "react";
 import { Icon } from "@iconify/react";
 import AuthInput from "@/components/ui/Input";
 import BackButton from "@/components/ui/BackButton";
-import AuthButton from "@/components/ui/auth/AuthButton";
-import AuthSubHeading from '@/components/ui/auth/AuthSubHeading';
+import AuthButton from "@/components/ui/auth/uthButton";
 import { useNavigate } from "react-router";
 import SuccessModal from "@/components/shared/modals/SuccessModal";
 import AvatarPicker from "@/components/ui/AvatarPicker";
@@ -63,7 +62,7 @@ export default function CreateProfilePage() {
       <BackButton href="/">Back</BackButton>
       <div className="mb-6">
         <h1 className="auth-heading">Create Profile</h1>
-        <AuthSubHeading>Please enter your Personal information</AuthSubHeading>
+        <p className="auth-sub-heading">Please enter your Personal information</p>
       </div>
 
       <AvatarPicker onChange={(file) => console.log("Selected avatar:", file)} />

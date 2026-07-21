@@ -5,8 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useNavigate } from "react-router";
 import AuthInput from "@/components/ui/Input";
-import AuthButton from "@/components/ui/auth/AuthButton";
-import AuthSubHeading from "@/components/ui/auth/AuthSubHeading";
+import AuthButton from "@/components/ui/auth/uthButton";
 import { Icon } from "@iconify/react";
 import UploadArea from "@/components/ui/UploadArea";
 import AttachmentImage from "@/components/ui/AttachmentImage";
@@ -68,10 +67,10 @@ export default function CarrierProfilePage() {
     <div className="flex flex-col gap-[3em] max-h-[calc(100vh-80px)]">
       <div className="">
         <h1 className="auth-heading">Carrier Profile</h1> 
-        <AuthSubHeading>
+        <p className="auth-sub-heading">
           <Icon icon={'bi:info-lg'} className="mr-1.5 w-[1.5em] bg-brand rounded-full text-white h-[1.5em] shrink-0 inline" />
           Each truck will be charged $5.
-        </AuthSubHeading>
+        </p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className=" space-y-[2.5em]  md:overflow-y-auto flex flex-col md:flex-1 md:min-h-0 custom-scrollbar">
@@ -155,7 +154,7 @@ export default function CarrierProfilePage() {
           >
             <span>Add Another Carrier</span>
 
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-black text-white transition hover:scale-105">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-black text-white transition ">
               <Icon icon="lucide:plus" className="h-4 w-4" />
             </span>
           </button>

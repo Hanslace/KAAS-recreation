@@ -3,8 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import AuthInput from "@/components/ui/Input";
 import BackButton from "@/components/ui/BackButton";
-import AuthButton from "@/components/ui/auth/AuthButton";
-import AuthSubHeading from '@/components/ui/auth/AuthSubHeading';
+import AuthButton from "@/components/ui/auth/uthButton";
 import { useNavigate } from "react-router";
 
 // 1. Define the Schema for Resetting Password with matching requirements
@@ -56,7 +55,7 @@ export default function ResetPasswordPage() {
       <div className="mb-6">
         <AuthHeading text="Reset Password"/>
 
-        <AuthSubHeading>Please type your new password</AuthSubHeading>
+        <p className="auth-sub-heading">Please type your new password</p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6">

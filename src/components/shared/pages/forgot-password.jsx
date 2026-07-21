@@ -8,8 +8,7 @@ import * as z from "zod";
 import AuthInput from "@/components/ui/Input";
 import BackButton from "@/components/ui/BackButton";
 
-import AuthButton from "@/components/ui/auth/AuthButton";
-import AuthSubHeading from "@/components/ui/auth/AuthSubHeading";
+import AuthButton from "@/components/ui/auth/uthButton";
 import { useNavigate } from "react-router";
 
 
@@ -52,7 +51,7 @@ export default function ForgotPasswordPage() {
       <BackButton href="/login">Back</BackButton>
       <div className="mb-6">
         <h1 className="auth-heading">Forgot Password</h1> 
-        <AuthSubHeading>Please enter your email to reset your password</AuthSubHeading>
+        <p className="auth-sub-heading">Please enter your email to reset your password</p>
       </div>
    
 

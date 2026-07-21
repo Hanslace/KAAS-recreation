@@ -5,8 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useNavigate } from "react-router"; // Import the navigate for programmatic navigation
 import AuthInput from "@/components/ui/Input";
-import AuthButton from "@/components/ui/auth/AuthButton";
-import AuthSubHeading from "@/components/ui/auth/AuthSubHeading";
+import AuthButton from "@/components/ui/auth/uthButton";
 
 // Define schema validation rules
 const loginSchema = z.object({
@@ -58,7 +57,7 @@ export default function LoginPage() {
     <div className="">
       <div className="mb-[2em]">
         <h1 className="auth-heading">Welcome Back!</h1>
-        <AuthSubHeading>Please enter your credentials</AuthSubHeading>
+        <p className="auth-sub-heading">Please enter your credentials</p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-[2.5em]">

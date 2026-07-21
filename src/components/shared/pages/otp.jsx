@@ -3,8 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import BackButton from "@/components/ui/BackButton";
-import AuthButton from "@/components/ui/auth/AuthButton";
-import AuthSubHeading from '@/components/ui/auth/AuthSubHeading';
+import AuthButton from "@/components/ui/auth/uthButton";
 import { useNavigate } from 'react-router';
 
 const otpSchema = z.object({
@@ -130,7 +129,7 @@ export default function OtpPage({
         <BackButton >Back</BackButton>
         <div>
           <h1 className="auth-heading">Enter OTP</h1>
-          <AuthSubHeading>Please enter OTP sent to your email</AuthSubHeading>
+          <p className="auth-sub-heading">Please enter OTP sent to your email</p>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-3 flex flex-col items-center">

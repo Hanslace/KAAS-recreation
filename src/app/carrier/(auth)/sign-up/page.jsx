@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Link, useNavigate } from "react-router";
 import AuthInput from "@/components/ui/Input";
-import AuthButton from "@/components/ui/auth/AuthButton";
+import AuthButton from "@/components/ui/auth/uthButton";
 import ContentModal from "@/components/shared/modals/ContentModal";
 
 const signUpSchema = z
