@@ -10,9 +10,9 @@ import { Icon } from "@iconify/react";
 export default function Page() {
 
   return (
-    <div className="md:relative space-y-[2em] flex flex-col justify-center md:min-h-[calc(100vh-80px)] ">
+    <div className=" space-y-[2em] flex flex-col justify-between md:h-[calc(100vh-80px)] ">
       
-      <div className="space-y-[2em] ">
+      <div className="gap-[2em] justify-center h-full flex flex-col">
         <LoginPage  href="/home"/>
 
         <span className="flex justify-center auth-sub-heading">OR</span>
@@ -37,7 +37,7 @@ export default function Page() {
       </div>
 
 
-      <div className="flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2 md:bottom-5">
+      <div className="flex flex-col justify-end items-center">
         <span className="auth-sub-heading ">
           Don't have an account? <Link className="text-brand" to={"/sign-up"}>Sign Up</Link>
         </span>

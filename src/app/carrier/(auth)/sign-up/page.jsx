@@ -147,7 +147,7 @@ export default function SignUpPage() {
 
       <div className="flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2 md:bottom-5">
         <span className="auth-sub-heading ">
-          Already have an account? <Link className="text-brand" to={"/sign-up"}>Sign In</Link>
+          Already have an account? <Link className="text-brand" to={"/login"}>Sign In</Link>
         </span>
       </div>
     </div>

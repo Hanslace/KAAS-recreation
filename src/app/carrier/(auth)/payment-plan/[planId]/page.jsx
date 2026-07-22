@@ -76,7 +76,7 @@ export default function PaymentPage() {
     <div className="space-y-6">
       <BackButton>Buy Subscription</BackButton>
 
-      <div className="plan-page md:overflow-y-auto md:max-h-[85vh] custom-scrollbar space-y-8 px-10 -mx-10">
+      <div className="plan-page space-y-8 ">
         {/* Summary card */}
         <div className="rounded-2xl bg-white p-6 shadow-md space-y-6">
           <div className="space-y-2">
