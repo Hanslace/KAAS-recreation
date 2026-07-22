@@ -54,8 +54,8 @@ import CreateTicketPage from "@/app/carrier/(protected)/support/create-ticket/pa
 
 // Trucks
 import TrucksPage from "@/app/carrier/(protected)/trucks/page.jsx";
-import TruckDetailsPage from "@/app/carrier/(protected)/trucks/[id]/page.jsx";
-import EditTruckPage from "@/app/carrier/(protected)/trucks/[id]/edit/page.jsx";
+import TruckDetailsPage from "@/app/carrier/(protected)/trucks/[truckId]/page.jsx";
+import EditTruckPage from "@/app/carrier/(protected)/trucks/[truckId]/edit/page.jsx";
 import AddTruckPage from "@/app/carrier/(protected)/trucks/add/page.jsx";
 import NotFound from "@/components/ui/NotFound";
 
@@ -160,7 +160,7 @@ export const carrierRoutes = (
         <Route index element={<TrucksPage />} />
         {/* Static route above dynamic param */}
         <Route path="add" element={<AddTruckPage />} />
-        <Route path=":id">
+        <Route path=":truckId">
           <Route index element={<TruckDetailsPage />} />
           <Route path="edit" element={<EditTruckPage />} />
         </Route>

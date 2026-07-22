@@ -1,15 +1,5 @@
-
-
+import TruckForm from "@/components/shared/pages/truckForm";
 
 export default function Page() {
-
-
-
-
-  return (
-    <div className="">
-      
-
-    </div>
-  );
+  return <TruckForm mode="add" />;
 }
