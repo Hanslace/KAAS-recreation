@@ -48,7 +48,7 @@ export default function PaymentsPage() {
     <div className="space-y-4">
       <div className="flex justify-between flex-wrap gap-3">
         <h2 className=" main-heading font-bold text-black tracking-tight">
-          Dashboard
+          Payments
         </h2>
         <SearchBar value={searchValue} onChange={handleSearchChange} />
       </div>

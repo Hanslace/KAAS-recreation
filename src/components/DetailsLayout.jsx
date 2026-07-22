@@ -87,7 +87,7 @@ export default function DetailsLayout({
             Personal Info
           </h2>
 
-          <BrandPill>{status}</BrandPill>
+          {status && <BrandPill>{status}</BrandPill>}
         </div>
 
         <div className="relative flex flex-col items-center sm:items-start sm:flex-row gap-3 pb-3 after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-gray-100">

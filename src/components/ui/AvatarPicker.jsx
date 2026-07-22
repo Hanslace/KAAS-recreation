@@ -14,7 +14,7 @@ export default function AvatarPicker({ onChange }) {
   };
 
   return (
-    <div className="avatar-picker flex justify-center mb-6">
+    <div className="avatar-picker flex  mb-6">
       <label className="relative cursor-pointer">
         <div className="w-[6em] h-[6em] rounded-full bg-brand flex items-center justify-center overflow-hidden">
           {avatarPreview ? (
