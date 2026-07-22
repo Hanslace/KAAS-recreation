@@ -68,50 +68,52 @@ export default function CreateProfilePage() {
       <AvatarPicker onChange={(file) => console.log("Selected avatar:", file)} />
 
       <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6">
-        <AuthInput
-          label="Full Name."
-          type="text"
-          placeholder="Enter Your Name"
-          error={errors.fullName?.message}
-          {...register("fullName")}
-        />
+        <div className="w-full space-y-6 md:max-h-[37.5vh] md:overflow-y-auto md:pt-2 md:pl-2 custom-scrollbar">
+          <AuthInput
+            label="Full Name."
+            type="text"
+            placeholder="Enter Your Name"
+            error={errors.fullName?.message}
+            {...register("fullName")}
+          />
 
-        <AuthInput
-          label="Phone Number"
-          type="tel"
-          inputMode="numeric"
-          placeholder="Enter Phone Number"
-          error={errors.phoneNumber?.message}
-          {...register("phoneNumber", {
-            onChange: (e) => {
-              e.target.value = e.target.value.replace(/[^0-9+\-\s()]/g, "").slice(0, 15);
-            },
-          })}
-        />
+          <AuthInput
+            label="Phone Number"
+            type="tel"
+            inputMode="numeric"
+            placeholder="Enter Phone Number"
+            error={errors.phoneNumber?.message}
+            {...register("phoneNumber", {
+              onChange: (e) => {
+                e.target.value = e.target.value.replace(/[^0-9+\-\s()]/g, "").slice(0, 15);
+              },
+            })}
+          />
 
-        <AuthInput
-          label="Complete Address"
-          type="text"
-          placeholder="Enter Address"
-          error={errors.address?.message}
-          {...register("address")}
-        />
+          <AuthInput
+            label="Complete Address"
+            type="text"
+            placeholder="Enter Address"
+            error={errors.address?.message}
+            {...register("address")}
+          />
 
-        <AuthInput
-          label="State"
-          type="text"
-          placeholder="Autofill from Address"
-          error={errors.state?.message}
-          {...register("state")}
-        />
+          <AuthInput
+            label="State"
+            type="text"
+            placeholder="Autofill from Address"
+            error={errors.state?.message}
+            {...register("state")}
+          />
 
-        <AuthInput
-          label="City"
-          type="text"
-          placeholder="Autofill from Address"
-          error={errors.city?.message}
-          {...register("city")}
-        />
+          <AuthInput
+            label="City"
+            type="text"
+            placeholder="Autofill from Address"
+            error={errors.city?.message}
+            {...register("city")}
+          />
+        </div>
 
         <AuthButton
           type="submit"

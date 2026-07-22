@@ -22,22 +22,21 @@ export default function Page() {
   const handleContinue = () => {
     if (!selectedSlug) return;
     console.log("Continue with:", selectedSlug);
-    navigate(`/bookings/${selectedSlug}`);
+    navigate(`/home/escort/book`);
   };
 
   return (
-    <div className="space-y-6 pb-24">
-      <div className="flex items-center justify-between gap-4 flex-wrap">
+    <div className="flex h-full flex-col space-y-6">
+      <div className="flex items-center justify-between gap-4 flex-wrap shrink-0">
         <BackButton>All Bookings</BackButton>
         <SearchBar
           value={search}
           onChange={setSearch}
           placeholder="Search by name"
-          className="w-full sm:max-w-xs"
         />
       </div>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="grid flex-1 min-h-0 auto-rows-max grid-cols-1 gap-6 overflow-y-auto sm:grid-cols-2 xl:grid-cols-3 custom-scrollbar">
         {visible.map((booking) => (
           <BookingsCard
             key={booking.slug}
@@ -53,7 +52,7 @@ export default function Page() {
       )}
 
       {/* Continue button — bottom left, enabled only when one is selected */}
-      <div className="fixed bottom-6 left-6 z-20">
+      <div className="shrink-0">
         <Button
           type="button"
           onClick={handleContinue}

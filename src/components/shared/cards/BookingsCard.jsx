@@ -24,8 +24,7 @@ export default function BookingsCard({ booking, selected = false, onSelect }) {
       aria-label={`Select booking for ${booking.companyName}`}
     >
       <div
-        className={`w-full flex flex-col rounded-xl p-3 shadow-xl border bg-white transition-all duration-300 ease-in-out hover:bg-[#FAF6EE] hover:shadow-md ${
-          selected ? 'border-brand ring-1 ring-brand' : 'border-gray-100 hover:border-brand/30'
+        className={`w-full flex flex-col rounded-xl p-3 shadow-xl border bg-white transition-all duration-300 ease-in-out hover:bg-[#FAF6EE] hover:shadow-md border-gray-100 hover:border-brand/30'
         }`}
       >
         <div className="relative aspect-[444/250] rounded-2xl overflow-hidden shrink-0 group">
@@ -41,13 +40,13 @@ export default function BookingsCard({ booking, selected = false, onSelect }) {
 
           {/* Checkbox replacing the status pill */}
           <span
-            className={`absolute top-3 right-3 flex h-7 w-7 items-center justify-center rounded-full border-2 transition-colors ${
+            className={`absolute top-3 right-3 flex border-white h-[2.5em] w-[2.5em] items-center justify-center rounded-full border-2 transition-colors ${
               selected
-                ? 'bg-brand border-brand'
-                : 'bg-white/30 border-white backdrop-blur-md'
+                ? 'bg-white '
+                : ''
             }`}
           >
-            {selected && <Icon icon="lucide:check" className="h-4 w-4 text-white" />}
+            {selected && <Icon icon="lucide:check" className="h-[2em] w-[2em] text-black" />}
           </span>
         </div>
 
