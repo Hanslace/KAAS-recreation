@@ -57,19 +57,9 @@ import TrucksPage from "@/app/carrier/(protected)/trucks/page.jsx";
 import TruckDetailsPage from "@/app/carrier/(protected)/trucks/[id]/page.jsx";
 import EditTruckPage from "@/app/carrier/(protected)/trucks/[id]/edit/page.jsx";
 import AddTruckPage from "@/app/carrier/(protected)/trucks/add/page.jsx";
+import NotFound from "@/components/ui/NotFound";
 
-function NotFoundPage() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50">
-      <div className="text-center">
-        <h1 className="text-6xl font-bold text-black">404</h1>
-        <p className="mt-3 text-black/50">
-          The page you are looking for does not exist.
-        </p>
-      </div>
-    </div>
-  );
-}
+
 
 const sidebarLinks = [
   { name: 'Home', href: '/home', icon: 'ic:baseline-home', hasSubmenu: false },
@@ -178,6 +168,6 @@ export const carrierRoutes = (
     </Route>
 
     {/* Catch-all 404 */}
-    <Route path="*" element={<NotFoundPage />} />
+    <Route path="*" element={<NotFound />} />
   </Routes>
 );

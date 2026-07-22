@@ -21,7 +21,7 @@ const loginSchema = z.object({
 });
 
 
-export default function LoginPage() {
+export default function LoginPage({ href }) {
   const navigate = useNavigate(); // Initialize the navigate
 
   const {
@@ -47,7 +47,7 @@ export default function LoginPage() {
       // const response = await api.login(data);
 
       // Route the user to dashboard programmatically after a successful check
-      navigate("/dashboard"); 
+      navigate(href); 
     } catch (error) {
       console.error("Login failed:", error);
     }

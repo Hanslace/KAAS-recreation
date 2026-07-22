@@ -7,6 +7,6 @@ export default function Page() {
 
 
   return (
-    <LoginPage/>
+    <LoginPage  href="/dashboard"/>
   );
 }

@@ -13,7 +13,7 @@ export default function Page() {
     <div className="md:relative space-y-[2em] flex flex-col justify-center md:min-h-[calc(100vh-80px)] ">
       
       <div className="space-y-[2em] ">
-        <LoginPage/>
+        <LoginPage  href="/home"/>
 
         <span className="flex justify-center auth-sub-heading">OR</span>
 

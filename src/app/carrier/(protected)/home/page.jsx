@@ -66,7 +66,7 @@ export default function CarrierHomePage() {
   );
 
   return (
-    <div className="space-y-6 w-full p-6">
+    <div className="space-y-6 w-full">
       <div className="flex w-full flex-wrap items-center justify-end gap-4">
 
         <Dropdown

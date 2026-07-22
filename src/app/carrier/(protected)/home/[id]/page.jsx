@@ -1,9 +1,11 @@
 import { useState } from "react";
 import BackButton from "@/components/ui/BackButton";
-import Button from "@/components/ui/BrandButton";
+import BrandButton from "@/components/ui/BrandButton";
 import { Icon } from "@iconify/react";
+import { useLocation } from "react-router";
 
 const service = {
+  id: 1,
   companyName: "Patriot Escort Services",
   companyLogoUrl: "/images/company-logo-2.jpg",
   rating: 4.8,
@@ -18,6 +20,7 @@ const service = {
 
 export default function Page() {
   const [activeImage, setActiveImage] = useState(service.images[0]);
+  const path = useLocation().pathname
 
   return (
     <div className="space-y-6">
@@ -89,17 +92,19 @@ export default function Page() {
           <p className="text-black/50 leading-relaxed">{service.description}</p>
 
           {/* Fares */}
-          <div className="space-y-1">
-            <div className="flex items-center gap-2">
-              <Icon icon="solar:wallet-bold" className="w-[1.25em] h-[1.25em] text-brand" />
-              <span className="font-bold text-black">Fares Info:</span>
+          
+            <div className="flex items-start gap-2">
+              <Icon icon="solar:wallet-bold" className="w-[1.25em] h-[1.25em] mt-1 text-brand" />
+              <div className="space-y-1">
+                <span className="font-bold text-black">Fares Info:</span>
+                <div className="flex flex-wrap gap-x-6 gap-y-1  text-black/70">
+                  <span><span className="font-bold text-black">Per Day:</span> {service.fares.perDay}</span>
+                  <span><span className="font-bold text-black">Per Mile:</span> {service.fares.perMile}</span>
+                  <span><span className="font-bold text-black">Overnight:</span> {service.fares.overnight}</span>
+                </div>
+              </div>
             </div>
-            <div className="flex flex-wrap gap-x-6 gap-y-1 pl-7 text-black/70">
-              <span><span className="font-bold text-black">Per Day:</span> {service.fares.perDay}</span>
-              <span><span className="font-bold text-black">Per Mile:</span> {service.fares.perMile}</span>
-              <span><span className="font-bold text-black">Overnight:</span> {service.fares.overnight}</span>
-            </div>
-          </div>
+            
 
           {/* Payment method */}
           <div className="flex items-center gap-2">
@@ -109,9 +114,9 @@ export default function Page() {
           </div>
 
           {/* Book Now */}
-          <Button type="button" className="px-20 ">
+          <BrandButton type="button" to={`${path}/book`} className="px-20  w-[20em]">
             Book Now
-          </Button>
+          </BrandButton>
         </div>
       </div>
 
