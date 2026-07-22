@@ -340,6 +340,10 @@ header .hamburger {
     font-size: 0.6rem;
 }
 
+.pagination {
+    font-size: 0.6rem;
+  }
+
 @media (min-width: 40rem) {
   .searchbar {
     width: 15.5rem;
@@ -625,6 +629,10 @@ header .icon {
 
   .escort-booking-detail {
     font-size: 1rem;
+  }
+
+  .pagination {
+    font-size: 0.8rem;
   }
 
 }

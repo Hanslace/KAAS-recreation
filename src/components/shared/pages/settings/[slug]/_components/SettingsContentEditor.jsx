@@ -4,7 +4,7 @@ import StarterKit from "@tiptap/starter-kit";
 
 import BackButton from "@/components/ui/BackButton";
 
-
+const role = import.meta.env.VITE_APP_ROLE ?? "admin";
 
 
 
@@ -120,21 +120,23 @@ export default function SettingsContentEditor({
         <BackButton href="/settings">{title}</BackButton>
 
         {!isEditing ? (
-          <button
-            type="button"
-            onClick={handleEdit}
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-green-100 text-green-500 transition hover:scale-105 hover:bg-green-200"
-            aria-label={`Edit ${title}`}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="h-5 w-5"
+          role === "admin" && (
+            <button
+              type="button"
+              onClick={handleEdit}
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-green-100 text-green-500 transition hover:scale-105 hover:bg-green-200"
+              aria-label={`Edit ${title}`}
             >
-              <path d="M16.862 3.487a1.875 1.875 0 0 1 2.651 2.651l-.776.776-2.651-2.651.776-.776ZM14.76 5.589 4.5 15.849V18.5h2.651l10.26-10.26-2.651-2.651Z" />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="h-5 w-5"
+              >
+                <path d="M16.862 3.487a1.875 1.875 0 0 1 2.651 2.651l-.776.776-2.651-2.651.776-.776ZM14.76 5.589 4.5 15.849V18.5h2.651l10.26-10.26-2.651-2.651Z" />
+              </svg>
+            </button>
+          )
         ) : (
           <div className="flex items-center gap-3">
             <button

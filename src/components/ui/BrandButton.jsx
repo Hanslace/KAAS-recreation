@@ -9,7 +9,9 @@ export default function BrandButton(props) {
     'brand-button flex  items-center justify-center rounded-md bg-brand-gradient py-3 px-11  font-bold text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0';
 
   // ✅ Check for 'to' instead of Next.js 'href'
-  if ('to' in props && typeof props.to === 'string') {
+  // `to` may be a string or a react-router Partial<Path> object, so only
+  // check for presence/truthiness here rather than restricting to strings.
+  if (props.to) {
     const {
       to,
       children,
@@ -33,7 +35,7 @@ export default function BrandButton(props) {
     return (
       <Link
         {...linkProps}
-        to={to} // ✅ Keep 'to' placed AFTER the spread to prevent typescript syntax overwrites
+        to={to}
         onClick={handleClick}
         aria-disabled={disabled}
         tabIndex={disabled ? -1 : linkProps.tabIndex}

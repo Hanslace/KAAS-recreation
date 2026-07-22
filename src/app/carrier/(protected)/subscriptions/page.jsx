@@ -1,15 +1,7 @@
+import PlansPage from "@/components/shared/pages/plans";
 
-
-
-export default function Page() {
-
-
-
-
+export default function SubscriptionPage() {
   return (
-    <div className="">
-      
-
-    </div>
+    <PlansPage mine/>
   );
 }

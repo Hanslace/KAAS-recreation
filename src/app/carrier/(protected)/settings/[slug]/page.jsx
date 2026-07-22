@@ -1,67 +1,10 @@
-import NotFound from "@/components/ui/NotFound";
-import SettingsContentEditor from "./_components/SettingsContentEditor";
-import { useParams } from "react-router";
+import SettingsContentPage from "@/components/shared/pages/settings/[slug]/page";
 
 
-
-const pages = [
-  {
-    slug: "privacy-policy",
-    title: "Privacy Policy",
-    content: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur nisl sapien, in consectetur turpis posuere in. Vestibulum arcu metus, vestibulum in egestas quis, facilisis vel nisl.",
-      "Proin nec leo viverra, sollicitudin felis in, luctus dui. Nullam erat nisl, tempor at est id, consequat fringilla velit.",
-      "Aenean ullamcorper, turpis vel vehicula porta, ex lacus faucibus risus, non pellentesque tortor turpis vulputate nunc.",
-    ],
-  },
-  {
-    slug: "about-us",
-    title: "About Us",
-    content: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur nisl sapien, in consectetur turpis posuere in. Vestibulum arcu metus, vestibulum in egestas quis, facilisis vel nisl.",
-      "Proin nec leo viverra, sollicitudin felis in, luctus dui. Nullam erat nisl, tempor at est id, consequat fringilla velit.",
-      "Aenean ullamcorper, turpis vel vehicula porta, ex lacus faucibus risus, non pellentesque tortor turpis vulputate nunc.",
-    ],
-  },
-  {
-    slug: "terms-conditions",
-    title: "Terms & Conditions",
-    content: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur nisl sapien, in consectetur turpis posuere in. Vestibulum arcu metus, vestibulum in egestas quis, facilisis vel nisl.",
-      "Proin nec leo viverra, sollicitudin felis in, luctus dui. Nullam erat nisl, tempor at est id, consequat fringilla velit.",
-      "Aenean ullamcorper, turpis vel vehicula porta, ex lacus faucibus risus, non pellentesque tortor turpis vulputate nunc.",
-    ],
-  },
-];
-
-
-
-export function generateStaticParams() {
-  return pages.map((page) => ({
-    slug: page.slug,
-  }));
-}
-
-export default async function SettingsContentPage() {
-  const { slug } = useParams();
-
-  const page = pages.find((item) => item.slug === slug);
-
-  if (!page) {
-    return (
-      <NotFound/>
-    );
-  }
-
-  const initialContent = page.content
-    .map((paragraph) => `<p>${paragraph}</p>`)
-    .join("");
+export default async function Page() {
 
   return (
-    <SettingsContentEditor
-      slug={page.slug}
-      title={page.title}
-      initialContent={initialContent}
+    <SettingsContentPage
     />
   );
 }

@@ -138,7 +138,6 @@ export default function BlankPage() {
       <DataTable
         data={filteredTransactions}
         columns={subscriptionColumns}
-        path="/subscriptions/earning"
       />
         
         

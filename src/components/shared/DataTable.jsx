@@ -68,13 +68,17 @@ export default function DataTable({ data, columns, path }) {
           {data.map((row, rowIndex) => (
             <tr
               key={row.id}
-              onClick={() => goToDetails(row.slug)}
-              onKeyDown={(event) => {
-                if (event.key === 'Enter') goToDetails(row.slug);
-              }}
-              tabIndex={0}
-              role="link"
-              className={`cursor-pointer transition-all hover:bg-brand/10 focus:outline-none focus:ring-1 focus:ring-brand ${
+              {...(path && {
+                onClick: () => goToDetails(row.slug),
+                onKeyDown: (event) => {
+                  if (event.key === 'Enter') goToDetails(row.slug);
+                },
+                tabIndex: 0,
+                role: 'link',
+              })}
+              className={`transition-all focus:outline-none focus:ring-1 focus:ring-brand ${
+                path ? 'cursor-pointer hover:bg-brand/10' : ''
+              } ${
                 rowIndex % 2 === 0 ? 'bg-white' : 'bg-[#FAF8F2]'
               }`}
             >

@@ -1,5 +1,5 @@
 import BrandButton from "@/components/ui/BrandButton";
-import PlanCard from './_components/PlanCard';
+import PlanCard from '../../../../components/shared/cards/PlanCard';
 import data from '@/data/plan.json';
 
 

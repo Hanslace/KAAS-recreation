@@ -11,11 +11,12 @@ export default function PlanCard({
   description,
   features,
   href,
+  onButtonClick,
   buttonText = 'Edit Now',
   disabled = false,
 }) {
   return (
-    <div className="plan-card w-full rounded-[15px] bg-white p-4 shadow-[0_12px_28px_rgba(0,0,0,0.12)] space-y-3">
+    <div className="plan-card w-full max-w-[30rem] rounded-[15px] bg-white p-4 shadow-[0_12px_28px_rgba(0,0,0,0.12)] space-y-3">
       {/* Top section */}
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
@@ -64,7 +65,7 @@ export default function PlanCard({
       {/* Button */}
       <div className="flex justify-center">
         <BrandButton
-          to={href}
+          {...(onButtonClick ? { onClick: onButtonClick } : { to: href })}
           disabled={disabled}
           className="h-[3em] aspect-[530/60]  max-w-full   "
         >

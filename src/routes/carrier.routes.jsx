@@ -40,13 +40,13 @@ import ProfilePage from "@/app/carrier/(protected)/profile/page.jsx";
 import EditProfilePage from "@/app/carrier/(protected)/profile/edit/page.jsx";
 
 // Settings
-import SettingsPage from "@/app/carrier/(protected)/settings/page.jsx";
-import SettingsContentPage from "@/app/carrier/(protected)/settings/[slug]/page.jsx";
-import ChangePasswordPage from "@/app/carrier/(protected)/settings/change-password/page.jsx";
+import SettingsPage from "@/components/shared/pages/settings/page.jsx";
+import SettingsContentPage from "@/components/shared/pages/settings/[slug]/page.jsx";
+import ChangePasswordPage from "@/components/shared/pages/settings/change-password/page.jsx";
 
 // Subscriptions
 import SubscriptionsPage from "@/app/carrier/(protected)/subscriptions/page.jsx";
-import SubscriptionPaymentPage from "@/app/carrier/(protected)/subscriptions/payment/page.jsx";
+import SubscriptionPaymentPage from "@/app/carrier/(protected)/subscriptions/[planId]/page.jsx";
 
 // Support
 import SupportPage from "@/app/carrier/(protected)/support/page.jsx";
@@ -146,7 +146,7 @@ export const carrierRoutes = (
       {/* Subscriptions */}
       <Route path="/subscriptions">
         <Route index element={<SubscriptionsPage />} />
-        <Route path="payment" element={<SubscriptionPaymentPage />} />
+        <Route path=":planId" element={<SubscriptionPaymentPage />} />
       </Route>
 
       {/* Support */}

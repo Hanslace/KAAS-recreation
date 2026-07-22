@@ -1,27 +1,7 @@
-import PlanCard from "@/app/admin/(protected)/subscriptions/_components/PlanCard";
-import BackButton from "@/components/ui/BackButton";
-import data from "@/data/plan.json";
+import PlansPage from "@/components/shared/pages/plans";
 
-export default function PaymentPlanPage() {
+export default function SubscriptionPage() {
   return (
-    <div className="gap-6 flex flex-col justify-center h-full min-h-fit ">
-      <BackButton>Subscription</BackButton>
-      <div className="flex flex-wrap w-full   gap-6  ">
-        {data.subscriptions
-          .filter((plan) => plan.title === "Truck")
-          .map((plan) => (
-            <PlanCard
-              key={plan.id}
-              title={plan.title}
-              billingPeriod={plan.billingPeriod}
-              price={plan.price}
-              description={plan.description}
-              features={plan.features}
-              href={`/payment-plan/${plan.id}`}
-              buttonText="Buy Now"
-            />
-          ))}
-      </div>
-    </div>
+    <PlansPage/>
   );
 }
