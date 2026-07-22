@@ -3,12 +3,27 @@
 import AnalyticsCard from "@/components/shared/cards/AnalyticsCard";
 import FiltersHeader from "@/components/shared/FiltersHeader";
 import data from '@/data/data.json';
-import  { useState } from 'react';
+import { useSearchParams } from 'react-router';
 import BookingsGrid from "@/components/shared/BookingsGrid";
 
 export default function BookingsPage() {
-  const [activeTab, setActiveTab] = useState('all');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeTab = searchParams.get('tab') || 'all';
+  const searchQuery = searchParams.get('q') || '';
+
+  const updateParams = (updates) => {
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      Object.entries(updates).forEach(([key, value]) => {
+        if (value) next.set(key, value);
+        else next.delete(key);
+      });
+      return next;
+    }, { replace: true });
+  };
+
+  const setActiveTab = (tab) => updateParams({ tab: tab === 'all' ? '' : tab });
+  const setSearchQuery = (query) => updateParams({ q: query });
 
   const filterTabs = [
     { id: 'all', label: 'All' },

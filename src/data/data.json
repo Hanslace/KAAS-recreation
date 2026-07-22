@@ -175,6 +175,7 @@
       "imageUrl": "/images/truck.jpg",
       "companyLogoUrl": "/images/company-logo.png",
       "companyName": "ABC Logistics LLC",
+      "phone": "+15551234567",
       "rating": 4.8,
       "reviewCount": 124,
       "dateTime": "Mar 16, 2026 | 12:00 PM",
@@ -214,6 +215,7 @@
       "imageUrl": "/images/truck.jpg",
       "companyLogoUrl": "/images/company-logo.png",
       "companyName": "USA Heavy Haul Carriers",
+      "phone": "+15552345678",
       "rating": 4.9,
       "reviewCount": 98,
       "dateTime": "Mar 18, 2026 | 09:30 AM",
@@ -273,6 +275,7 @@
       "imageUrl": "/images/truck.jpg",
       "companyLogoUrl": "/images/company-logo.png",
       "companyName": "Prime Carrier Services",
+      "phone": "+15553456789",
       "rating": 4.7,
       "reviewCount": 210,
       "dateTime": "Mar 16, 2026 | 02:15 PM",
@@ -322,6 +325,7 @@
       "imageUrl": "/images/truck.jpg",
       "companyLogoUrl": "/images/company-logo.png",
       "companyName": "Apex Freight Lines",
+      "phone": "+15554567890",
       "rating": 5,
       "reviewCount": 64,
       "dateTime": "Mar 12, 2026 | 11:00 AM",
@@ -367,9 +371,11 @@
       "slug": "abc-logistics-5",
       "price": "$630",
       "status": "Cancelled",
+      "reason" :  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
       "imageUrl": "/images/truck.jpg",
       "companyLogoUrl": "/images/company-logo.png",
       "companyName": "National Transit Group",
+      "phone": "+15555678901",
       "rating": 4.5,
       "reviewCount": 182,
       "dateTime": "Mar 14, 2026 | 04:00 PM",
@@ -395,19 +401,7 @@
         "logoUrl": "/images/company-logo.png",
         "name": "Sunshine Escort Services",
         "rating": 4.5,
-        "reviewCount": 182,
-        "drivers": [
-          {
-            "name": "Nathan Brooks",
-            "role": "Front Escort",
-            "imageUrl": "https://i.pravatar.cc/120?img=51"
-          },
-          {
-            "name": "Carlos Rivera",
-            "role": "Support Driver",
-            "imageUrl": "https://i.pravatar.cc/120?img=52"
-          }
-        ]
+        "reviewCount": 182
       }
     },
     {
@@ -419,6 +413,7 @@
       "imageUrl": "/images/truck.jpg",
       "companyLogoUrl": "/images/company-logo.png",
       "companyName": "Vanguard Hauling",
+      "phone": "+15556789012",
       "rating": 4.8,
       "reviewCount": 143,
       "dateTime": "Mar 20, 2026 | 01:00 PM",

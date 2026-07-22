@@ -4,10 +4,12 @@ import BrandPill from "@/components/ui/BrandPill";
 import NotFound from "@/components/ui/NotFound";
 import data from "@/data/data.json"
 import { Icon } from "@iconify/react";
-import { useParams } from 'react-router';
+import { useState } from "react";
+import { useNavigate, useParams } from 'react-router';
 import ReviewCard from "@/components/shared/cards/ReviewCard";
 import BookingLocationMap from "@/components/ui/BookingLocationMap";
 import BrandButton from "@/components/ui/BrandButton";
+import InputModal from "@/components/shared/modals/InputModal";
 
 
 function RatingRow({
@@ -48,7 +50,9 @@ function DetailRow({
 
 export default  function BookingDetailPage({ role  }) {
   const { bookingId } = useParams();
-  
+  const navigate = useNavigate();
+  const [reasonAction, setReasonAction] = useState(null);
+
   const booking = data.bookingDetails.find((item) => item.slug === bookingId);
 
   if (!booking) {
@@ -57,13 +61,18 @@ export default  function BookingDetailPage({ role  }) {
     );
   }
 
+  const handleReasonSubmit = async () => {
+    setReasonAction(null);
+    navigate("/bookings?tab=cancelled");
+  };
+
   return (
     <div className=" booking-detail space-y-6">
       <div className="flex flex-wrap justify-between gap-3">
         <BackButton>Details</BackButton>
         {role === 'carrier' && (
-            <BrandButton onClick={() => navigate(-1)}>
-                Approve
+            <BrandButton onClick={() => window.location.href = `tel:${booking.phone}`}>
+                Call Now
             </BrandButton>
         )}
         
@@ -320,10 +329,10 @@ export default  function BookingDetailPage({ role  }) {
           </div>
           {role === 'carrier' && (
  
-                <>
+            <div className="py-3">
                 {booking.status === 'Pending' && (
                 <div className="min-[26.56rem]:mx-0 mx-auto flex  gap-3">
-                    <BrandButton onClick={() => navigate(-1)} className="w-[25ch]">
+                    <BrandButton onClick={() => navigate("/bookings?tab=upcoming")} className="w-[25ch]">
                     Accept for {booking.price}
                     </BrandButton>
 
@@ -340,22 +349,31 @@ export default  function BookingDetailPage({ role  }) {
               
                 {booking.status === 'Upcoming' && (
                 <div className="min-[26.56rem]:mx-0 mx-auto flex  gap-3">
-                    <BrandButton onClick={() => navigate(-1)}>
-                    Approve
+                    <BrandButton onClick={() => setReasonAction('cancel')} className="w-[25ch]">
+                    Cancel Booking
                     </BrandButton>
 
                     <BrandButton
                     type="button"
-                    onClick={() => setReasonAction('cancel')}
-                    className="bg-black"
+                    onClick={() => navigate(`/bookings/reschedule/${bookingId}`)}
+                    className="bg-black w-[25ch]"
                     >
-                    Cancel
+                    Reschedule Booking
                     </BrandButton>
                 </div>
                 )}
+
+                {booking.status === 'Completed' && (
+                <div className="min-[26.56rem]:mx-0 mx-auto flex  gap-3">
+                    <BrandButton onClick={() => navigate("/bookings?tab=cancelled")} className="w-[25ch]">
+                    Write a Review
+                    </BrandButton>
+
+                </div>
+                )}
              
-                </>
-            )}
+            </div>
+          )}
         </div>
           
         {booking.routeImageUrl && (
@@ -403,7 +421,12 @@ export default  function BookingDetailPage({ role  }) {
         </div>
       )}
 
-
+      <InputModal
+        open={reasonAction !== null}
+        onClose={() => setReasonAction(null)}
+        onSubmit={handleReasonSubmit}
+        inputProps={{ as: "textarea", maxLength: 500, label: "Reason", className: "h-[12rem]" }}
+      />
     </div>
   );
 }
