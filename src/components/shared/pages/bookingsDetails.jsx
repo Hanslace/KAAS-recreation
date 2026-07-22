@@ -10,6 +10,9 @@ import ReviewCard from "@/components/shared/cards/ReviewCard";
 import BookingLocationMap from "@/components/ui/BookingLocationMap";
 import BrandButton from "@/components/ui/BrandButton";
 import InputModal from "@/components/shared/modals/InputModal";
+import FeedbackModal from "@/components/shared/modals/FeedbackModal";
+import SuccessModal from "@/components/shared/modals/SuccessModal";
+import ConfirmationModal from "@/components/shared/modals/ConfirmationModal";
 
 
 function RatingRow({
@@ -52,6 +55,11 @@ export default  function BookingDetailPage({ role  }) {
   const { bookingId } = useParams();
   const navigate = useNavigate();
   const [reasonAction, setReasonAction] = useState(null);
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const [isEditingReview, setIsEditingReview] = useState(false);
+  const [feedbackSuccessOpen, setFeedbackSuccessOpen] = useState(false);
+  const [deleteReviewOpen, setDeleteReviewOpen] = useState(false);
+  const [myReviewDeleted, setMyReviewDeleted] = useState(false);
 
   const booking = data.bookingDetails.find((item) => item.slug === bookingId);
 
@@ -64,6 +72,16 @@ export default  function BookingDetailPage({ role  }) {
   const handleReasonSubmit = async () => {
     setReasonAction(null);
     navigate("/bookings?tab=cancelled");
+  };
+
+  const handleFeedbackSubmit = async () => {
+    setFeedbackOpen(false);
+    setFeedbackSuccessOpen(true);
+  };
+
+  const handleDeleteReviewConfirm = async () => {
+    setMyReviewDeleted(true);
+    setDeleteReviewOpen(false);
   };
 
   return (
@@ -365,7 +383,7 @@ export default  function BookingDetailPage({ role  }) {
 
                 {booking.status === 'Completed' && (
                 <div className="min-[26.56rem]:mx-0 mx-auto flex  gap-3">
-                    <BrandButton onClick={() => navigate("/bookings?tab=cancelled")} className="w-[25ch]">
+                    <BrandButton onClick={() => { setIsEditingReview(false); setFeedbackOpen(true); }} className="w-[25ch]">
                     Write a Review
                     </BrandButton>
 
@@ -403,13 +421,18 @@ export default  function BookingDetailPage({ role  }) {
         <div className="space-y-3">
           <h2 className="font-bold text-black tracking-tight">Rating and Reviews</h2>
 
-          <ReviewCard
-            logoUrl={booking.companyLogoUrl}
-            companyName="Patriot Escort Services"
-            rating={5}
-            title="Great Work"
-            review="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          />
+          {!myReviewDeleted && (
+            <ReviewCard
+              logoUrl={booking.companyLogoUrl}
+              companyName="Patriot Escort Services"
+              rating={5}
+              mine
+              title="Great Work"
+              review="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              onEdit={() => { setIsEditingReview(true); setFeedbackOpen(true); }}
+              onDelete={() => setDeleteReviewOpen(true)}
+            />
+          )}
 
           <ReviewCard
             logoUrl={booking.companyLogoUrl}
@@ -426,6 +449,38 @@ export default  function BookingDetailPage({ role  }) {
         onClose={() => setReasonAction(null)}
         onSubmit={handleReasonSubmit}
         inputProps={{ as: "textarea", maxLength: 500, label: "Reason", className: "h-[12rem]" }}
+      />
+
+      <FeedbackModal
+        open={feedbackOpen}
+        onClose={() => setFeedbackOpen(false)}
+        onSubmit={handleFeedbackSubmit}
+        title="Write a Review"
+        placeholder="Write your review"
+        buttonText="Submit"
+      />
+
+      <SuccessModal
+        open={feedbackSuccessOpen}
+        title="Successfully!"
+        description={
+          isEditingReview
+            ? "Your rating & reviews has been updated successfully."
+            : "Your rating & reviews has been submitted successfully."
+        }
+        buttonText="Done"
+        onDone={() => setFeedbackSuccessOpen(false)}
+      />
+
+      <ConfirmationModal
+        open={deleteReviewOpen}
+        icon="lucide:trash-2"
+        title="Delete!"
+        description="Are you sure you want to delete your review?"
+        cancelText="No"
+        confirmText="Yes"
+        onCancel={() => setDeleteReviewOpen(false)}
+        onConfirm={handleDeleteReviewConfirm}
       />
     </div>
   );

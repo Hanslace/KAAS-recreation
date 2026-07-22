@@ -160,8 +160,20 @@ header .hamburger {
   font-size: 0.8rem;
 }
 
-.booking-detail .review {
+.review-card {
   font-size: 1rem;
+}
+
+.review-card {
+  font-size: 0.6rem;
+}
+
+.review-card .heading {
+  font-size: 1rem;
+}
+
+.review-card .sub-heading {
+  font-size: 0.9rem;
 }
 
 .booking-detail .price {
@@ -250,6 +262,7 @@ header .hamburger {
 
 .modal {
   font-size: 0.8rem;
+  padding-inline: 1rem;
 }
 
 .modal .heading {
@@ -436,7 +449,15 @@ header .icon {
   font-size: 1.6rem;
 }
 
-.booking-detail .review {
+.review-card {
+  font-size: 1rem;
+}
+
+.review-card .heading {
+  font-size: 1.6rem;
+}
+
+.review-card .sub-heading {
   font-size: 1.3rem;
 }
 

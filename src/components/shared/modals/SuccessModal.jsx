@@ -12,7 +12,7 @@ export default function SuccessModal({
     : String(description).split('\n');
 
   return (
-    <div className="modal fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4">
+    <div className="modal fixed inset-0 z-50 flex items-center justify-center bg-black/80 ">
       <div className=" flex flex-col items-center min-w-[25em] w-fit rounded-[3em] bg-white  pt-[3em] pb-[1.5em] px-[3.5em] text-center shadow-xl space-y-3 ">
         <div className=" flex h-[6em] w-[6em] items-center justify-center">
           <div
@@ -43,9 +43,9 @@ export default function SuccessModal({
           {title}
         </h2>
 
-        <div className=" text-black/50 space-y-2 w-[50ch]">
+        <div className=" text-black/50 space-y-2 max-w-[30ch]">
           {paragraphs.map((para, i) => (
-            <p key={i}>{para}</p>
+            <p className="" key={i}>{para}</p>
           ))}
         </div>
 

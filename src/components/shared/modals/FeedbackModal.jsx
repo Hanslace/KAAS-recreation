@@ -46,7 +46,7 @@ export default function FeedbackModal({
 
   return (
     <div
-      className="modal fixed inset-0 z-50 flex items-center justify-center bg-black/80 pt-10 pb-5 px-10"
+      className="modal fixed inset-0 z-50 flex items-center justify-center bg-black/80 pt-10 pb-5 "
       role="dialog"
       aria-modal="true"
       aria-labelledby="reason-modal-title"
@@ -123,7 +123,7 @@ export default function FeedbackModal({
               placeholder={placeholder}
               required
               maxLength={1000}
-              className="h-[12rem] w-full resize-none rounded-lg border border-brand bg-white px-5 py-4 font-normal text-black/70 shadow-[0_12px_25px_rgba(0,0,0,0.12)] outline-none transition placeholder:text-black/25 focus:border-brand focus:ring-1 focus:ring-brand"
+              className="h-[12em] w-full resize-none rounded-lg border border-brand bg-white px-5 py-4 font-normal text-black/70 shadow-[0_12px_25px_rgba(0,0,0,0.12)] outline-none transition placeholder:text-black/25 focus:border-brand focus:ring-1 focus:ring-brand"
             />
           </div>
 
