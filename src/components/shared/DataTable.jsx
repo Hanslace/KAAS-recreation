@@ -3,6 +3,7 @@
 import { Icon } from '@iconify/react';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router';
+import AttachmentImage from '@/components/ui/AttachmentImage';
 
 const statusClasses = {
   Pending: 'bg-yellow-100 text-yellow-500',
@@ -121,6 +122,32 @@ export default function DataTable({ data, columns, path }) {
                         <span className="whitespace-nowrap text-black/50">
                           {String(value)}
                         </span>
+                      </div>
+                    </td>
+                  );
+                }
+
+                if (column.type === 'attachments') {
+                  const attachments = Array.isArray(value) ? value : [];
+
+                  return (
+                    <td
+                      key={String(column.key)}
+                      className={`${cellRounded}`}
+                    >
+                      <div
+                        className="flex flex-wrap gap-[1em] p-[1em]"
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        {attachments.map((src, attachmentIndex) => (
+                          <AttachmentImage
+                            key={`${src}-${attachmentIndex}`}
+                            src={src}
+                            alt={`Attachment ${attachmentIndex + 1}`}
+                            w="2.5em"
+                            h="2.5em"
+                          />
+                        ))}
                       </div>
                     </td>
                   );

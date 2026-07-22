@@ -38,7 +38,6 @@ export default function FiltersHeader({
         value={searchValue}
         onChange={onSearchChange}
         placeholder={searchPlaceholder}
-        className='mt'
       />
     </div>
   );

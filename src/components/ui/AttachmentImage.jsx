@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-export default function AttachmentImage({ src, alt, onRemove }) {
+export default function AttachmentImage({ src, alt, onRemove, w = '5rem', h = '6rem' }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -17,9 +17,8 @@ export default function AttachmentImage({ src, alt, onRemove }) {
           <img
             src={src}
             alt={alt}
-            width={130}
-            height={105}
-            className="h-[6rem] w-[5rem] rounded-lg object-cover shadow-md cursor-zoom-in transition group-hover:opacity-90"
+            style={{ width: w, height: h }}
+            className="rounded-lg object-cover shadow-md cursor-zoom-in transition group-hover:opacity-90"
           />
         </button>
 

@@ -29,7 +29,8 @@
       "subject": "Lorem ipsum dolor sit",
       "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
       "dateTime": "15 January, 2026 | 10:23 PM",
-      "status": "Pending"
+      "status": "Pending",
+      "attachments": ["/images/id-front.jpg", "/images/id-back.jpg", "/images/permit-1.jpg"]
     },
     {
       "id": 2,
@@ -41,7 +42,8 @@
       "subject": "Lorem ipsum dolor sit",
       "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
       "dateTime": "15 January, 2026 | 10:23 PM",
-      "status": "Closed"
+      "status": "Closed",
+      "attachments": ["/images/permit-2.jpg", "/images/liability-doc.jpg"]
     },
     {
       "id": 3,
@@ -53,7 +55,8 @@
       "subject": "Lorem ipsum dolor sit",
       "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
       "dateTime": "15 January, 2026 | 10:23 PM",
-      "status": "Opened"
+      "status": "Opened",
+      "attachments": ["/images/id-front.jpg", "/images/permit-2.jpg"]
     },
     {
       "id": 4,
@@ -65,7 +68,8 @@
       "subject": "Lorem ipsum dolor sit",
       "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
       "dateTime": "15 January, 2026 | 10:23 PM",
-      "status": "Pending"
+      "status": "Pending",
+      "attachments": ["/images/id-front.jpg", "/images/id-back.jpg", "/images/permit-1.jpg"]
     },
     {
       "id": 5,
@@ -77,7 +81,8 @@
       "subject": "Lorem ipsum dolor sit",
       "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
       "dateTime": "15 January, 2026 | 10:23 PM",
-      "status": "Closed"
+      "status": "Closed",
+      "attachments": ["/images/permit-1.jpg", "/images/liability-doc.jpg"]
     },
     {
       "id": 6,
@@ -89,7 +94,8 @@
       "subject": "Lorem ipsum dolor sit",
       "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
       "dateTime": "15 January, 2026 | 10:23 PM",
-      "status": "Opened"
+      "status": "Opened",
+      "attachments": ["/images/id-back.jpg", "/images/permit-1.jpg"]
     },
     {
       "id": 7,
@@ -101,7 +107,8 @@
       "subject": "Lorem ipsum dolor sit",
       "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
       "dateTime": "15 January, 2026 | 10:23 PM",
-      "status": "Pending"
+      "status": "Pending",
+      "attachments": ["/images/id-front.jpg", "/images/id-back.jpg", "/images/permit-1.jpg"]
     },
     {
       "id": 8,
@@ -113,7 +120,8 @@
       "subject": "Lorem ipsum dolor sit",
       "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
       "dateTime": "15 January, 2026 | 10:23 PM",
-      "status": "Closed"
+      "status": "Closed",
+      "attachments": ["/images/id-front.jpg", "/images/liability-doc.jpg", "/images/permit-2.jpg"]
     }
   ]
 }
