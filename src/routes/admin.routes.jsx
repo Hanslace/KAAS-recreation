@@ -15,7 +15,7 @@ import DashboardPage from "@/app/admin/(protected)/dashboard/page.jsx";
 
 // Bookings
 import BookingsPage from "@/app/admin/(protected)/bookings/page.jsx";
-import BookingDetailsPage from "@/app/admin/(protected)/bookings/[slug]/page.jsx";
+import BookingDetailsPage from "@/app/admin/(protected)/bookings/[bookingId]/page.jsx";
 
 // Carrier management
 import CarrierManagementPage from "@/app/admin/(protected)/carrier-management/page.jsx";
@@ -114,7 +114,7 @@ export const adminRoutes =  (
 
         <Route path="/bookings">
           <Route index element={<BookingsPage />} />
-          <Route path=":slug" element={<BookingDetailsPage />} />
+          <Route path=":bookingId" element={<BookingDetailsPage />} />
         </Route>
 
         <Route path="/carrier-management">

@@ -25,9 +25,9 @@ import PreviousBookingsPage from "@/app/carrier/(protected)/home/previous-bookin
 
 // Bookings
 import BookingsPage from "@/app/carrier/(protected)/bookings/page.jsx";
-import BookingDetailsPage from "@/app/carrier/(protected)/bookings/[id]/page.jsx";
-import BookingProfilePage from "@/app/carrier/(protected)/bookings/profile/[id]/page.jsx";
-import BookingReschedulePage from "@/app/carrier/(protected)/bookings/reschedule/[id]/page.jsx";
+import BookingDetailsPage from "@/app/carrier/(protected)/bookings/[bookingId]/page.jsx";
+import BookingProfilePage from "@/app/carrier/(protected)/bookings/profile/[bookingId]/page.jsx";
+import BookingReschedulePage from "@/app/carrier/(protected)/bookings/reschedule/[bookingId]/page.jsx";
 
 // Notifications
 import NotificationsPage from "@/app/carrier/(protected)/notifications/page.jsx";
@@ -118,9 +118,9 @@ export const carrierRoutes = (
       <Route path="/bookings">
         <Route index element={<BookingsPage />} />
         {/* Static routes above dynamic param */}
-        <Route path="profile/:id" element={<BookingProfilePage />} />
-        <Route path="reschedule/:id" element={<BookingReschedulePage />} />
-        <Route path=":id" element={<BookingDetailsPage />} />
+        <Route path="profile/:bookingId" element={<BookingProfilePage />} />
+        <Route path="reschedule/:bookingId" element={<BookingReschedulePage />} />
+        <Route path=":bookingId" element={<BookingDetailsPage />} />
       </Route>
 
       {/* Notifications */}

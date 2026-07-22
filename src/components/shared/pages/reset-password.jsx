@@ -49,7 +49,7 @@ export default function ResetPasswordPage() {
   };
 
   return (
-    <div className="space-y-3">
+    <div className="gap-3 flex flex-col justify-center h-full min-h-fit">
       {/* Back button directs user back to the OTP screen if they need to check it */}
       <BackButton>Back</BackButton>
       <div className="mb-6">

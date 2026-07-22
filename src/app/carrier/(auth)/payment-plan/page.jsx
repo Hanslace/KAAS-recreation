@@ -4,7 +4,7 @@ import data from "@/data/plan.json";
 
 export default function PaymentPlanPage() {
   return (
-    <div className="space-y-6 ">
+    <div className="gap-6 flex flex-col justify-center h-full min-h-fit ">
       <BackButton>Subscription</BackButton>
       <div className="flex flex-wrap w-full   gap-6  ">
         {data.subscriptions

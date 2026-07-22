@@ -124,7 +124,7 @@ export default function OtpPage({
   };
 
   return (
-    <div className="flex flex-col items-center justify-center max-h-screen ">
+    <div className="flex flex-col items-center justify-center h-full min-h-fit ">
       <div className="w-full max-w-md flex flex-col items-start space-y-2">
         <BackButton >Back</BackButton>
         <div>

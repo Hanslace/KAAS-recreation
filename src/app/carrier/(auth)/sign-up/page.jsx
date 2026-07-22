@@ -75,9 +75,9 @@ export default function SignUpPage() {
   const active = activeModal ? LEGAL_CONTENT[activeModal] : null;
 
   return (
-    <div className="md:relative space-y-[2em] flex flex-col justify-center md:min-h-[calc(100vh-80px)] ">
+    <div className=" space-y-[2em] flex flex-col justify-between md:h-full">
 
-      <div className="space-y-[2em]">
+      <div className="gap-[2em] justify-center h-full flex flex-col">
         <div>
           <h1 className="auth-heading">Sign Up</h1>
         </div>
@@ -145,7 +145,7 @@ export default function SignUpPage() {
         />
       </div>
 
-      <div className="flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2 md:bottom-5">
+      <div className="flex flex-col justify-end items-center">
         <span className="auth-sub-heading ">
           Already have an account? <Link className="text-brand" to={"/login"}>Sign In</Link>
         </span>

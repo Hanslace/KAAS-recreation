@@ -1,5 +1,6 @@
 'use client';
 
+import { Link } from 'react-router';
 import { Icon } from '@iconify/react';
 
 function BookingDetailRow({ icon, label, value }) {
@@ -14,16 +15,9 @@ function BookingDetailRow({ icon, label, value }) {
   );
 }
 
-export default function BookingsCard({ booking, selected = false, onSelect }) {
-  return (
-    <button
-      type="button"
-      onClick={() => onSelect?.(booking.slug)}
-      className="block w-full text-left focus:outline-none booking-card"
-      aria-pressed={selected}
-      aria-label={`Select booking for ${booking.companyName}`}
-    >
-      <div
+export default function BookingsCard({ booking, selectable = false, selected = false, onSelect }) {
+  const card = (
+    <div
         className={`w-full flex flex-col rounded-xl p-3 shadow-xl border bg-white transition-all duration-300 ease-in-out hover:bg-[#FAF6EE] hover:shadow-md border-gray-100 hover:border-brand/30'
         }`}
       >
@@ -38,16 +32,21 @@ export default function BookingsCard({ booking, selected = false, onSelect }) {
             {booking.price}
           </span>
 
-          {/* Checkbox replacing the status pill */}
-          <span
-            className={`absolute top-3 right-3 flex border-white h-[2.5em] w-[2.5em] items-center justify-center rounded-full border-2 transition-colors ${
-              selected
-                ? 'bg-white '
-                : ''
-            }`}
-          >
-            {selected && <Icon icon="lucide:check" className="h-[2em] w-[2em] text-black" />}
-          </span>
+          {selectable ? (
+            <span
+              className={`absolute top-3 right-3 flex border-white h-[2.5em] w-[2.5em] items-center justify-center rounded-full border-2 transition-colors ${
+                selected
+                  ? 'bg-white '
+                  : ''
+              }`}
+            >
+              {selected && <Icon icon="lucide:check" className="h-[2em] w-[2em] text-black" />}
+            </span>
+          ) : (
+            <span className="absolute pill top-3 right-3  tracking-wide uppercase px-1.5 py-1 rounded-full backdrop-blur-md bg-brand/40 text-white border border-brand">
+              {booking.status}
+            </span>
+          )}
         </div>
 
         <div className="mt-4 flex flex-col space-y-1 text-left flex-1">
@@ -87,6 +86,29 @@ export default function BookingsCard({ booking, selected = false, onSelect }) {
           </div>
         </div>
       </div>
-    </button>
+  );
+
+  if (selectable) {
+    return (
+      <button
+        type="button"
+        onClick={() => onSelect?.(booking.slug)}
+        className="block w-full text-left focus:outline-none booking-card"
+        aria-pressed={selected}
+        aria-label={`Select booking for ${booking.companyName}`}
+      >
+        {card}
+      </button>
+    );
+  }
+
+  return (
+    <Link
+      to={`/bookings/${booking.slug}`}
+      className="block w-full text-left focus:outline-none booking-card"
+      aria-label={`View booking for ${booking.companyName}`}
+    >
+      {card}
+    </Link>
   );
 }

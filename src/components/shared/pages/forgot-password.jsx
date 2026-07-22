@@ -47,7 +47,7 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="space-y-3">
+    <div className="gap-3 flex flex-col justify-center h-full min-h-fit">
       <BackButton href="/login">Back</BackButton>
       <div className="mb-6">
         <h1 className="auth-heading">Forgot Password</h1> 

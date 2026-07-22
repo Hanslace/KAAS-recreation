@@ -5,8 +5,9 @@ import NotFound from "@/components/ui/NotFound";
 import data from "@/data/data.json"
 import { Icon } from "@iconify/react";
 import { useParams } from 'react-router';
-import BookingLocationMap from "./_components/BookingLocationMap";
 import ReviewCard from "@/components/shared/cards/ReviewCard";
+import BookingLocationMap from "@/components/ui/BookingLocationMap";
+import BrandButton from "@/components/ui/BrandButton";
 
 
 function RatingRow({
@@ -45,10 +46,10 @@ function DetailRow({
   );
 }
 
-export default  function BookingDetailPage() {
-  const { slug } = useParams();
+export default  function BookingDetailPage({ role  }) {
+  const { bookingId } = useParams();
   
-  const booking = data.bookingDetails.find((item) => item.slug === slug);
+  const booking = data.bookingDetails.find((item) => item.slug === bookingId);
 
   if (!booking) {
     return (
@@ -58,7 +59,16 @@ export default  function BookingDetailPage() {
 
   return (
     <div className=" booking-detail space-y-6">
-      <BackButton href="/bookings"> Details</BackButton>
+      <div className="flex flex-wrap justify-between gap-3">
+        <BackButton>Details</BackButton>
+        {role === 'carrier' && (
+            <BrandButton onClick={() => navigate(-1)}>
+                Approve
+            </BrandButton>
+        )}
+        
+    </div>
+      
       <div className=" rounded-[20px]   items-center lg:items-stretch p-[0.75rem] gap-[0.75rem] w-full shadow-lg flex flex-col lg:flex-row">
         <div className="w-[27rem] max-w-full aspect-square overflow-hidden items-center rounded-2xl">
           <img
@@ -74,10 +84,11 @@ export default  function BookingDetailPage() {
 
             <div className="shrink-0 w-full sm:w-auto flex items-center gap-0.5 justify-between flex-row-reverse sm:flex-col text-right">
               <BrandPill>{booking.status}</BrandPill>
-
+              { booking.status !== 'Pending' && (  
               <h2 className=" price font-black tracking-tight text-black">
                 {booking.price}
               </h2>
+              )}
             </div>
 
             <div>
@@ -247,22 +258,24 @@ export default  function BookingDetailPage() {
           </div>
 
           <div className="mt-8">
-            <div className="flex items-center gap-3">
-              <img
-                src={booking.escortCompany.logoUrl}
-                alt={booking.escortCompany.name}
-                className="h-[3em] w-[3em] rounded-full border border-gray-200 object-cover"
-              />
-              <div className="mt-3">
-                <h1 className=" font-bold leading-tight tracking-tight text-black">
-                  {booking.escortCompany.name}
-                </h1>
-                <RatingRow
-                  rating={booking.escortCompany.rating}
-                  reviewCount={booking.escortCompany.reviewCount}
+            { role === 'admin' && (
+                <div className="flex items-center gap-3">
+                <img
+                    src={booking.escortCompany.logoUrl}
+                    alt={booking.escortCompany.name}
+                    className="h-[3em] w-[3em] rounded-full border border-gray-200 object-cover"
                 />
-              </div>
-            </div>
+                <div className="mt-3">
+                    <h1 className=" font-bold leading-tight tracking-tight text-black">
+                    {booking.escortCompany.name}
+                    </h1>
+                    <RatingRow
+                    rating={booking.escortCompany.rating}
+                    reviewCount={booking.escortCompany.reviewCount}
+                    />
+                </div>
+                </div>
+            )}
 
        
               {booking.escortCompany.drivers &&
@@ -270,8 +283,8 @@ export default  function BookingDetailPage() {
               Drivers:
             </h2>
                 }
-                          {booking.reason &&
-                          <>
+            {booking.reason &&
+            <>
             <h2 className="mt-8 font-bold tracking-tight text-black">
               Reason:
             </h2>
@@ -305,6 +318,44 @@ export default  function BookingDetailPage() {
               ))}
             </div>
           </div>
+          {role === 'carrier' && (
+ 
+                <>
+                {booking.status === 'Pending' && (
+                <div className="min-[26.56rem]:mx-0 mx-auto flex  gap-3">
+                    <BrandButton onClick={() => navigate(-1)} className="w-[25ch]">
+                    Accept for {booking.price}
+                    </BrandButton>
+
+                    <BrandButton
+                    type="button"
+                    onClick={() => navigate(-1)}
+                    className="bg-black w-[25ch]"
+                    >
+                    Reject
+                    </BrandButton>
+                </div>
+                )}
+
+              
+                {booking.status === 'Upcoming' && (
+                <div className="min-[26.56rem]:mx-0 mx-auto flex  gap-3">
+                    <BrandButton onClick={() => navigate(-1)}>
+                    Approve
+                    </BrandButton>
+
+                    <BrandButton
+                    type="button"
+                    onClick={() => setReasonAction('cancel')}
+                    className="bg-black"
+                    >
+                    Cancel
+                    </BrandButton>
+                </div>
+                )}
+             
+                </>
+            )}
         </div>
           
         {booking.routeImageUrl && (

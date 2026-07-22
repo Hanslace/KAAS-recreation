@@ -73,7 +73,7 @@ export default function PaymentPage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="gap-6 flex flex-col justify-center h-full min-h-fit">
       <BackButton>Buy Subscription</BackButton>
 
       <div className="plan-page space-y-8 ">

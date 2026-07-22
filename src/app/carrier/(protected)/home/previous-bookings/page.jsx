@@ -41,6 +41,7 @@ export default function Page() {
           <BookingsCard
             key={booking.slug}
             booking={booking}
+            selectable
             selected={selectedSlug === booking.slug}
             onSelect={setSelectedSlug}
           />

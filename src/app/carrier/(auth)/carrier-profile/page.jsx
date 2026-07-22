@@ -111,7 +111,7 @@ export default function CarrierProfilePage() {
   };
 
   return (
-    <div className="flex flex-col gap-[3em] max-h-[calc(100vh-80px)]">
+    <div className="gap-[3em] flex flex-col justify-center h-full min-h-fit">
       <div className="">
         <h1 className="auth-heading">Carrier Profile</h1>
         <p className="auth-sub-heading">
