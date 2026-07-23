@@ -9,6 +9,7 @@ import ForgotPasswordOtpPage from "@/app/(auth)/forgot-password/otp/page.jsx";
 import ResetPasswordPage from "@/app/(auth)/forgot-password/reset/page.jsx";
 import SignUpPage from "@/app/(auth)/sign-up/page.jsx";
 import SignUpOtpPage from "@/app/(auth)/sign-up/otp/page";
+import RoleSelectPage from "@/app/(auth)/sign-up/role-select/page";
 import CreateProfilePage from "@/app/(auth)/sign-up/create-profile/page";
 import CarrierProfilePage from "@/app/(auth)/carrier-profile/page";
 import PaymentPlanPage from "@/app/(auth)/payment-plan/page";
@@ -62,11 +63,10 @@ import NotFound from "@/components/ui/NotFound";
 
 
 const sidebarLinks = [
-  { name: 'Home', href: '/home', icon: 'ic:baseline-home', hasSubmenu: false },
+  { name: 'Dashboard', href: '/dashboard', icon: 'ic:baseline-home', hasSubmenu: false },
   { name: 'Bookings', href: '/bookings', icon: 'uis:calendar', hasSubmenu: false },
-  { name: 'Trucks', href: '/trucks', icon: 'fa6-solid:truck-moving', hasSubmenu: false },
-  { name: 'Subscriptions', href: '/subscriptions', icon: 'material-symbols:subscriptions', hasSubmenu: false },
-  { name: 'Payments', href: '/payments', icon: 'solar:card-bold', hasSubmenu: false },
+  { name: 'Subscription', href: '/subscriptions', icon: 'material-symbols:subscriptions', hasSubmenu: false },
+  { name: 'Earnings', href: '/earnings', icon: 'solar:wallet-money-bold', hasSubmenu: false },
   { name: 'Profile', href: '/profile', icon: 'ic:baseline-person', hasSubmenu: false },
   { name: 'Support', href: '/support', icon: 'fluent:person-support-32-filled', hasSubmenu: false },
   { name: 'Settings', href: '/settings', icon: 'material-symbols:settings', hasSubmenu: false },
@@ -74,7 +74,7 @@ const sidebarLinks = [
 
 const currentUser = userData.users.find((u) => u.id === "john-smith");
 
-export const carrierRoutes = (
+export const pilotCarIndividualRoutes = (
   <Routes>
     {/* Root redirect to Home */}
     <Route path="/" element={<Navigate to="/home" replace />} />
@@ -91,6 +91,7 @@ export const carrierRoutes = (
         <Route index element={<SignUpPage />} />
         <Route path="otp" element={<SignUpOtpPage />} />
         <Route path="create-profile" element={<CreateProfilePage />} />
+        <Route path="role-select" element={<RoleSelectPage />} />
       </Route>
       <Route path="/carrier-profile" element={<CarrierProfilePage />} />
       <Route path="/payment-plan">

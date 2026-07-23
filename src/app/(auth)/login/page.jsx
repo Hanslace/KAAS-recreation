@@ -13,6 +13,10 @@ export default function Page() {
     return (<LoginPage href={"/dashboard"}/>)
   }
 
+  if (role === "pilot-car-driver") {
+    return (<LoginPage href={"/home"}/>)
+  }
+
   return (
     <div className="  flex flex-col justify-between md:h-full md:min-h-fit ">
 
