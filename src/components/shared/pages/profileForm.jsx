@@ -43,17 +43,11 @@ export default function ProfileFormPage({ mode = "create" }) {
     // resolver: zodResolver(createProfileSchema),
     mode: "onChange",
   });
-  const role = import.meta.env.VITE_APP_ROLE ?? "admin";
 
-  const pilot = role.startsWith("pilot-car")
   const onSubmit = async (data) => {
     try {
       console.log("Submitting Profile Data:", { ...data, avatarFile });
-      if (mode === "create" && pilot ){
-      navigate("/sign-up/details")
-      } else {
       setShowSuccess(true);
-      }
     } catch (error) {
       console.error("Failed to create profile:", error);
     }

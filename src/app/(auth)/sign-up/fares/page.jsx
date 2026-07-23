@@ -59,7 +59,7 @@ export default function FaresPage() {
   const onSubmit = async (data) => {
     try {
       console.log("Fares:", data);
-      navigate("/home");
+      navigate("/dashboard");
     } catch (error) {
       console.error("Submission failed:", error);
     }

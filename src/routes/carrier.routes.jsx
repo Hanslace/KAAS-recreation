@@ -91,7 +91,7 @@ export const carrierRoutes = (
         <Route index element={<SignUpPage />} />
         <Route path="otp" element={<SignUpOtpPage />} />
         <Route path="create-profile" element={<CreateProfilePage />} />
-        <Route path="carrier-profile" element={<VehiclesPage />} />
+        <Route path="vehicles" element={<VehiclesPage />} />
         <Route path="payment">
           <Route index element={<PaymentPlanPage />} />
           <Route path=":planId" element={<PaymentPage />} />

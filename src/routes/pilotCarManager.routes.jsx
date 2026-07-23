@@ -61,6 +61,7 @@ import TruckDetailsPage from "@/app/carrier/trucks/[truckId]/page.jsx";
 import EditTruckPage from "@/app/carrier/trucks/[truckId]/edit/page.jsx";
 import AddTruckPage from "@/app/carrier/trucks/add/page.jsx";
 import NotFound from "@/components/ui/NotFound";
+import ManagerDashboard from "@/app/pilot-car-manager/dashboard/page";
 
 
 
@@ -97,7 +98,7 @@ export const pilotCarManagerRoutes = (
         <Route path="create-profile" element={<CreateProfilePage />} />
         <Route path="role-select" element={<RoleSelectPage />} />
         <Route path="details" element={<CompanyDetailsPage />} />
-        <Route path="cars" element={<VehiclesPage />} />
+        <Route path="vehicles" element={<VehiclesPage />} />
         <Route path="fares" element={<FaresPage />} />
         <Route path="payment">
           <Route index element={<PaymentPlanPage />} />
@@ -114,12 +115,9 @@ export const pilotCarManagerRoutes = (
       />
     }>
       {/* Home */}
-      <Route path="/home">
-        <Route index element={<CarrierHome />} />
-        <Route path="previous-bookings" element={<PreviousBookingsPage />} />
-        <Route path=":id" element={<DriverDetailPage />} />
-        <Route path=":id/book" element={<BookDriverPage />} />
-      </Route>
+      <Route path="/dashboard" element={<ManagerDashboard />}/>
+   
+      
 
       {/* Bookings */}
       <Route path="/bookings">

@@ -36,11 +36,11 @@ import ManagerEscortsPage from "@/app/admin/pilot-car-management/managers/[manag
 import ManagerEscortDetailsPage from "@/app/admin/pilot-car-management/managers/[managerid]/escorts/[escortid]/page.jsx";
 
 // Settings
-import SettingsPage from "@/app/admin/settings/page.jsx";
-import SettingsContentPage from "@/app/admin/settings/[slug]/page.jsx";
-import ChangePasswordPage from "@/app/admin/settings/change-password/page.jsx";
-import DeletedAccountsPage from "@/app/admin/settings/deleted-accounts/page.jsx";
-import DeletedAccountDetailsPage from "@/app/admin/settings/deleted-accounts/[slug]/page.jsx";
+import SettingsPage from "@/components/shared/pages/settings/page";
+import ChangePasswordPage from "@/components/shared/pages/settings/change-password/page";
+import DeletedAccountsPage from "@/components/shared/pages/settings/deleted-accounts/page";
+import DeletedAccountDetailsPage from "@/components/shared/pages/settings/deleted-accounts/[slug]/page";
+import SettingsContentPage from "@/components/shared/pages/settings/[slug]/page";
 
 // Subscriptions
 import SubscriptionsPage from "@/app/admin/subscriptions/page.jsx";

@@ -2,7 +2,7 @@
 
 import AnalyticsCard from "@/components/shared/cards/AnalyticsCard";
 import FiltersHeader from "@/components/shared/FiltersHeader";
-import data from '@/data/data.json';
+import data from '@/data/bookings.json';
 import { useSearchParams } from 'react-router';
 import BookingsGrid from "@/components/shared/BookingsGrid";
 

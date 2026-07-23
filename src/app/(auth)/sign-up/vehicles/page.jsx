@@ -94,7 +94,7 @@ export default function VehiclesPage() {
   const onSubmit = async (data) => {
     try {
       console.log("Validated Form Submission Data:", data);
-      navigate("/home");
+      navigate(isPilotCar ? "/sign-up/fares" : "/home");
     } catch (error) {
       console.error("Submission failed:", error);
     }

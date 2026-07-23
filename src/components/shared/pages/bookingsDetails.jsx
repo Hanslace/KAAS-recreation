@@ -2,7 +2,7 @@ import AttachmentImage from "@/components/ui/AttachmentImage";
 import BackButton from "@/components/ui/BackButton";
 import BrandPill from "@/components/ui/BrandPill";
 import NotFound from "@/components/ui/NotFound";
-import data from "@/data/data.json"
+import data from "@/data/bookings.json"
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import { Link, useNavigate, useParams } from 'react-router';
@@ -51,7 +51,8 @@ function DetailRow({
   );
 }
 
-export default  function BookingDetailPage({ role  }) {
+export default  function BookingDetailPage() {
+  const role = import.meta.env.VITE_APP_ROLE ?? "admin";
   const { bookingId } = useParams();
   const navigate = useNavigate();
   const [reasonAction, setReasonAction] = useState(null);
@@ -307,7 +308,7 @@ export default  function BookingDetailPage({ role  }) {
           </div>
 
           <div className="mt-8">
-            { role === 'admin' && (
+            { role === 'admin' && booking.escortCompany && (
                 <div className="flex items-center gap-3">
                 <img
                     src={booking.escortCompany.logoUrl}
@@ -326,8 +327,13 @@ export default  function BookingDetailPage({ role  }) {
                 </div>
             )}
 
-       
-              {booking.escortCompany.drivers &&
+            {role === 'admin' && !booking.escortCompany && (
+              <BrandButton onClick={() => setAssignDriverOpen(true)}>
+                Assign Driver
+              </BrandButton>
+            )}
+
+              {booking.escortCompany?.drivers &&
             <h2 className="mt-8 font-bold tracking-tight text-black">
               Drivers:
             </h2>
@@ -343,7 +349,7 @@ export default  function BookingDetailPage({ role  }) {
               </>
               }
             <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-2">
-              {booking.escortCompany.drivers && booking.escortCompany.drivers.map((driver) => (
+              {booking.escortCompany?.drivers && booking.escortCompany.drivers.map((driver) => (
                 <div
                   key={driver.name}
                   className="flex items-center gap-4 rounded-xl bg-white px-3 py-2 shadow-xl shadow-black/5"
