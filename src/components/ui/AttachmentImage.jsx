@@ -10,6 +10,7 @@ export default function AttachmentImage({ src, alt, onRemove, w = '5rem', h = '6
       {/* Thumbnail with corner remove button */}
       <div className="relative inline-block w-fit shrink-0">
         <button
+          type="button"
           onClick={() => setIsOpen(true)}
           className="group relative block text-left focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
           aria-label={`View larger version of ${alt}`}
@@ -46,6 +47,7 @@ export default function AttachmentImage({ src, alt, onRemove, w = '5rem', h = '6
           aria-modal="true"
         >
           <button
+            type="button"
             onClick={() => setIsOpen(false)}
             className="absolute top-4 right-4 text-white text-3xl font-bold hover:text-gray-300 focus:outline-none"
             aria-label="Close image viewer"

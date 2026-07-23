@@ -13,7 +13,9 @@ export default function CreateProfilePage() {
           <h1 className="auth-heading">Create Profile</h1>
           <p className="auth-sub-heading">Please enter your Personal information</p>
         </div>
-        <ProfileFormPage/>
+        <div className=" gap-[2.5em]  md:overflow-y-auto flex flex-col md:flex-1 md:min-h-0 custom-scrollbar md:pr-3">
+          <ProfileFormPage/>
+        </div>
     </div>
   );
 }

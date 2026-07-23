@@ -31,7 +31,7 @@ export default function AuthLayout() {
 
 
         <div className='custom-scrollbar md:max-h-screen md:overflow-y-auto w-full md:h-full p-10'>
-          <div className=" w-full md:m-auto md:h-full space-y-10 md:max-w-[25rem] xl:max-w-[35rem]  ">
+          <div className=" w-full md:m-auto md:h-full space-y-10 md:max-w-[20rem] xl:max-w-[25rem] 2xl:max-w-[35rem] ">
             <div className="md:hidden mt-20  flex items-center justify-center ">
               <img
                 src="/logo.png"

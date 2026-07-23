@@ -206,6 +206,7 @@ header .hamburger {
   font-size: 0.6rem;
 }
 
+
 .info-cell {
   font-size: 0.6rem;
 }
@@ -224,6 +225,7 @@ header .hamburger {
 
 .plan-card {
   font-size: 0.6rem;
+  max-width: 25rem;
 }
 
 .plan-card .heading {
@@ -515,6 +517,7 @@ header .icon {
 
 .plan-card {
   font-size: 0.9rem;
+  max-width: 30rem;
 }
 
 .plan-card .heading {
@@ -603,13 +606,13 @@ header .icon {
 }
 
 .auth-options-button {
-  height: 3.5rem;
-  width: 3.5rem ;
-  margin: 1.5rem;
+  height: 3rem;
+  width: 3rem ;
+  margin: 1rem;
 }
 
 .auth-options {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
  .month-picker-popover {

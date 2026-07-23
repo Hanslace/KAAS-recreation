@@ -18,7 +18,8 @@ export default function PlansPage({ mine = false }) {
   return (
     <div className="gap-6 flex flex-col justify-center h-full min-h-fit ">
       <BackButton>Subscription</BackButton>
-      <div className="flex flex-wrap  w-full   gap-6  ">
+      <div className=" gap-[2.5em]  md:overflow-y-auto flex flex-col md:flex-1 md:min-h-0 custom-scrollbar md:-m-5 md:p-5">
+      <div className="flex flex-wrap justify-center lg:justify-start w-full   gap-6  ">
         {plans.map((plan, index) => {
           const isCancelCard = mine && index === 0;
 
@@ -36,6 +37,7 @@ export default function PlansPage({ mine = false }) {
             />
           );
         })}
+      </div>
       </div>
 
       <ConfirmationModal

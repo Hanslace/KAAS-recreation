@@ -10,6 +10,7 @@ import { Icon } from "@iconify/react";
 import UploadArea from "@/components/ui/UploadArea";
 import AttachmentImage from "@/components/ui/AttachmentImage";
 import { useState } from "react";
+import BackButton from "@/components/ui/BackButton";
 
 // Single carrier schema
 const carrierSchema = z.object({
@@ -111,7 +112,9 @@ export default function CarrierProfilePage() {
   };
 
   return (
-    <div className="gap-[3em] flex flex-col justify-center h-full min-h-fit">
+    <div className="gap-[1em] flex flex-col justify-center h-full min-h-fit">
+      <BackButton>Back</BackButton>
+      
       <div className="">
         <h1 className="auth-heading">Carrier Profile</h1>
         <p className="auth-sub-heading">
@@ -120,7 +123,7 @@ export default function CarrierProfilePage() {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className=" space-y-[2.5em]  md:overflow-y-auto flex flex-col md:flex-1 md:min-h-0 custom-scrollbar ">
+      <form onSubmit={handleSubmit(onSubmit)} className=" space-y-[1.5em]  md:overflow-y-auto flex flex-col md:flex-1 md:min-h-0 custom-scrollbar ">
         <div className=" gap-[2.5em]  md:overflow-y-auto flex flex-col md:flex-1 md:min-h-0 custom-scrollbar md:pr-3">
           {fields.map((field, index) => {
             const carrierErrors = errors.carriers?.[index] || {};

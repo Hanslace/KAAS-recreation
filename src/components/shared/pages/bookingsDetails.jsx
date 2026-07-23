@@ -5,7 +5,7 @@ import NotFound from "@/components/ui/NotFound";
 import data from "@/data/data.json"
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-import { useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 import ReviewCard from "@/components/shared/cards/ReviewCard";
 import BookingLocationMap from "@/components/ui/BookingLocationMap";
 import BrandButton from "@/components/ui/BrandButton";
@@ -119,22 +119,44 @@ export default  function BookingDetailPage({ role  }) {
             </div>
 
             <div>
-              <div className="flex items-center gap-1">
-                <img
-                  src={booking.companyLogoUrl}
-                  alt={booking.companyName}
-                  className="h-[3em] w-[3em] rounded-full border border-gray-200 object-cover"
-                />
-                <div className="mt-2">
-                  <h1 className=" font-bold leading-tight tracking-tight text-black">
-                    {booking.companyName}
-                  </h1>
-                  <RatingRow
-                    rating={booking.rating}
-                    reviewCount={booking.reviewCount}
+              {role === 'carrier' ? (
+                <Link
+                  to={`/bookings/profile/${bookingId}`}
+                  className="flex items-center gap-1"
+                >
+                  <img
+                    src={booking.companyLogoUrl}
+                    alt={booking.companyName}
+                    className="h-[3em] w-[3em] rounded-full border border-gray-200 object-cover"
                   />
+                  <div className="mt-2">
+                    <h1 className=" font-bold leading-tight tracking-tight text-black">
+                      {booking.companyName}
+                    </h1>
+                    <RatingRow
+                      rating={booking.rating}
+                      reviewCount={booking.reviewCount}
+                    />
+                  </div>
+                </Link>
+              ) : (
+                <div className="flex items-center gap-1">
+                  <img
+                    src={booking.companyLogoUrl}
+                    alt={booking.companyName}
+                    className="h-[3em] w-[3em] rounded-full border border-gray-200 object-cover"
+                  />
+                  <div className="mt-2">
+                    <h1 className=" font-bold leading-tight tracking-tight text-black">
+                      {booking.companyName}
+                    </h1>
+                    <RatingRow
+                      rating={booking.rating}
+                      reviewCount={booking.reviewCount}
+                    />
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
             

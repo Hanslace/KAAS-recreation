@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import AttachmentImage from '@/components/ui/AttachmentImage';
+import Pagination from '@/components/ui/Pagination';
 
 const statusClasses = {
   Pending: 'bg-yellow-100 text-yellow-500',
@@ -16,12 +17,26 @@ const statusClasses = {
   Refunded: 'bg-red-100 text-red-500',
 };
 
-export default function DataTable({ data, columns, path }) {
+const PAGE_SIZE = 10;
+
+export default function DataTable({ data, columns, path, pageSize = PAGE_SIZE }) {
   const navigate = useNavigate();
 
   // Tracks the slug of the row that currently has its menu open
   const [openDropdownSlug, setOpenDropdownSlug] = useState(null);
   const dropdownRef = useRef(null);
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Reset to page 1 whenever the (filtered) dataset changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [data]);
+
+  const paginatedData = data.slice(
+    (currentPage - 1) * pageSize,
+    currentPage * pageSize
+  );
 
   // Close dropdown if user clicks anywhere outside of it
   useEffect(() => {
@@ -44,6 +59,7 @@ export default function DataTable({ data, columns, path }) {
   };
 
   return (
+    <div className="space-y-3">
     <div className="data-table w-full overflow-x-auto custom-scrollbar pb-2">
       <table className="w-full min-w-fit border-separate border-spacing-0 ">
         <thead>
@@ -66,7 +82,7 @@ export default function DataTable({ data, columns, path }) {
         </thead>
 
         <tbody>
-          {data.map((row, rowIndex) => (
+          {paginatedData.map((row, rowIndex) => (
             <tr
               key={row.id}
               {...(path && {
@@ -264,6 +280,14 @@ export default function DataTable({ data, columns, path }) {
           ))}
         </tbody>
       </table>
+    </div>
+
+      <Pagination
+        currentPage={currentPage}
+        totalItems={data.length}
+        pageSize={pageSize}
+        onPageChange={setCurrentPage}
+      />
     </div>
   );
 }

@@ -124,8 +124,8 @@ export default function OtpPage({
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-full min-h-fit ">
-      <div className="w-full max-w-md flex flex-col items-start space-y-2">
+    <div className="flex flex-col items-center justify-center h-full w-full min-h-fit ">
+      <div className="w-full  flex flex-col items-start space-y-2">
         <BackButton >Back</BackButton>
         <div>
           <h1 className="auth-heading">Enter OTP</h1>
@@ -138,7 +138,7 @@ export default function OtpPage({
             name="otp"
             control={control}
             render={({ field: { onChange, value } }) => (
-              <div className="flex justify-between items-center gap-2 sm:gap-3 py-2 w-full mx-auto">
+              <div className="flex justify-between items-center gap-2 sm:gap-5 py-2 w-full mx-auto">
                 {value.map((digit, index) => {
                   const hasValue = digit !== "";
                   return (

@@ -1,6 +1,6 @@
 'use client';
 
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { Icon } from '@iconify/react';
 
 function BookingDetailRow({ icon, label, value }) {
@@ -16,6 +16,41 @@ function BookingDetailRow({ icon, label, value }) {
 }
 
 export default function BookingsCard({ booking, selectable = false, selected = false, onSelect }) {
+  const role = import.meta.env.VITE_APP_ROLE ?? "admin";
+  const navigate = useNavigate();
+
+  const handleProfileClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigate(`/bookings/profile/${booking.slug}`);
+  };
+
+  const companyInfo = (
+    <>
+      <img
+        src={booking.companyLogoUrl}
+        alt={`${booking.companyName} Logo`}
+        className="w-8 h-8 rounded-full object-cover shadow-sm bg-black border border-gray-100 shrink-0"
+      />
+
+      <div className="flex flex-col min-w-0">
+        <h4 className="heading font-bold text-gray-900 tracking-tight leading-tight truncate">
+          {booking.companyName}
+        </h4>
+
+        <div className="flex flex-row items-center gap-1 mt-1">
+          <div className="flex gap-[1px] text-amber-400">
+            {[...Array(5)].map((_, i) => (
+              <Icon key={i} icon="solar:star-bold" className="w-[0.85em] h-[0.85em]" />
+            ))}
+          </div>
+          <span className="font-bold text-black ml-1">{booking.rating} | </span>
+          <span className="text-brand">{booking.reviewCount} Reviews</span>
+        </div>
+      </div>
+    </>
+  );
+
   const card = (
     <div
         className={`w-full flex flex-col rounded-xl p-3 shadow-xl border bg-white transition-all duration-300 ease-in-out hover:bg-[#FAF6EE] hover:shadow-md border-gray-100 hover:border-brand/30'
@@ -50,29 +85,23 @@ export default function BookingsCard({ booking, selectable = false, selected = f
         </div>
 
         <div className="mt-4 flex flex-col space-y-1 text-left flex-1">
-          <div className="flex items-start gap-1">
-            <img
-              src={booking.companyLogoUrl}
-              alt={`${booking.companyName} Logo`}
-              className="w-8 h-8 rounded-full object-cover shadow-sm bg-black border border-gray-100 shrink-0"
-            />
-
-            <div className="flex flex-col min-w-0">
-              <h4 className="heading font-bold text-gray-900 tracking-tight leading-tight truncate">
-                {booking.companyName}
-              </h4>
-
-              <div className="flex flex-row items-center gap-0.2 mt-1">
-                <div className="flex gap-[1px] text-amber-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Icon key={i} icon="solar:star-bold" className="w-[0.85em] h-[0.85em]" />
-                  ))}
-                </div>
-                <span className="font-bold text-black ml-1">{booking.rating} |</span>
-                <span className="text-brand">{booking.reviewCount} Reviews</span>
-              </div>
+          {role === 'carrier' ? (
+            <div
+              role="link"
+              tabIndex={0}
+              onClick={handleProfileClick}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') handleProfileClick(e);
+              }}
+              className="flex items-start gap-1 -m-1 rounded-lg p-1 transition-colors hover:bg-brand/10"
+            >
+              {companyInfo}
             </div>
-          </div>
+          ) : (
+            <div className="flex items-start gap-1">
+              {companyInfo}
+            </div>
+          )}
 
           <div className="space-y-1 border-t border-gray-100/50 pt-1 font-medium text-gray-500">
             <BookingDetailRow icon="uil:calendar" label="Date & Time" value={booking.dateTime} />

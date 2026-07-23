@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import SearchBar from "@/components/ui/SearchBar";
 import DataTable from "@/components/shared/DataTable";
-import Pagination from "@/components/ui/Pagination";
 import data from "@/data/pilot-car-bookings.json";
 
 const columns = [
@@ -16,11 +15,8 @@ const columns = [
   { key: 'amount', label: 'Amount', type: 'text' },
 ];
 
-const PAGE_SIZE = 10;
-
 export default function PaymentsPage() {
   const [searchValue, setSearchValue] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
 
   const filteredData = useMemo(() => {
     const search = searchValue.toLowerCase().trim();
@@ -34,33 +30,16 @@ export default function PaymentsPage() {
     );
   }, [searchValue]);
 
-  const paginatedData = filteredData.slice(
-    (currentPage - 1) * PAGE_SIZE,
-    currentPage * PAGE_SIZE
-  );
-
-  const handleSearchChange = (value) => {
-    setSearchValue(value);
-    setCurrentPage(1);
-  };
-
   return (
     <div className="space-y-4">
       <div className="flex justify-between flex-wrap gap-3">
         <h2 className=" main-heading font-bold text-black tracking-tight">
           Payments
         </h2>
-        <SearchBar value={searchValue} onChange={handleSearchChange} />
+        <SearchBar value={searchValue} onChange={setSearchValue} />
       </div>
 
-      <DataTable  data={paginatedData} columns={columns} />
-
-      <Pagination
-        currentPage={currentPage}
-        totalItems={filteredData.length}
-        pageSize={PAGE_SIZE}
-        onPageChange={setCurrentPage}
-      />
+      <DataTable data={filteredData} columns={columns} />
     </div>
   );
 }

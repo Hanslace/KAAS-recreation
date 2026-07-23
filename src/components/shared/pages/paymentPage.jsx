@@ -75,10 +75,10 @@ export default function PaymentPage() {
   return (
     <div className="gap-6 flex flex-col justify-center h-full min-h-fit">
       <BackButton>Buy Subscription</BackButton>
-
+      <div className=" gap-[2.5em]  md:overflow-y-auto flex flex-col md:flex-1 md:min-h-0 custom-scrollbar md:-m-5 md:p-5">
       <div className="plan-page gap-8 flex flex-wrap">
         {/* Summary card */}
-        <div className="rounded-2xl bg-white p-6 h-fit shadow-md space-y-6">
+        <div className="rounded-2xl md:max-w-[20rem] xl:max-w-[25rem] 2xl:max-w-[35rem] bg-white p-6 h-fit shadow-md space-y-6">
           <div className="space-y-2">
             <h2 className="heading font-bold text-brand">{plan.title} {plan.billingPeriod} Membership</h2>
             <p className="text-black/50 ">{plan.description}</p>
@@ -112,7 +112,7 @@ export default function PaymentPage() {
         
 
         {/* Card form */}
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 max-w-[35rem] w-full">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 md:max-w-[20rem] xl:max-w-[25rem] 2xl:max-w-[35rem] w-full">
           <div className="space-y-4">
             <h3 className=" sub-heading font-bold">Payment Method</h3>
             <div className="flex items-center gap-3">
@@ -177,6 +177,7 @@ export default function PaymentPage() {
             {isSubmitting ? "Processing..." : "Pay Now"}
           </Button>
         </form>
+      </div>
       </div>
 
       <SuccessModal
