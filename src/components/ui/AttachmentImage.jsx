@@ -8,7 +8,7 @@ export default function AttachmentImage({ src, alt, onRemove, w = '5rem', h = '6
   return (
     <>
       {/* Thumbnail with corner remove button */}
-      <div className="relative inline-block w-fit">
+      <div className="relative inline-block w-fit shrink-0">
         <button
           onClick={() => setIsOpen(true)}
           className="group relative block text-left focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"

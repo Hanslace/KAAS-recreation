@@ -136,7 +136,7 @@ export default function DataTable({ data, columns, path }) {
                       className={`${cellRounded}`}
                     >
                       <div
-                        className="flex flex-wrap gap-[1em] p-[1em]"
+                        className="flex w-[7rem] xl:w-[13rem] gap-[1em] p-[1em]"
                         onClick={(event) => event.stopPropagation()}
                       >
                         {attachments.map((src, attachmentIndex) => (
