@@ -210,7 +210,7 @@ export default function ProtectedLayout({
           </div>
         </header>
 
-        <main className="overflow-y-auto pb-[1.5rem] px-[1.5rem] py-[1rem] custom-scrollbar">
+        <main className="overflow-y-auto h-full pb-[1.5rem] px-[1.5rem] py-[1rem] custom-scrollbar">
           <Outlet />
         </main>
       </div>

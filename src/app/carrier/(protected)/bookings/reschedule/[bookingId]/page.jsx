@@ -5,6 +5,7 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useNavigate } from "react-router";
+import dayjs from "dayjs";
 import BackButton from "@/components/ui/BackButton";
 import Button from "@/components/ui/BrandButton";
 import Input from "@/components/ui/Input";
@@ -13,6 +14,7 @@ import Selector from "@/components/ui/Selector";
 import UploadArea from "@/components/ui/UploadArea";
 import AttachmentImage from "@/components/ui/AttachmentImage";
 import Dropdown from "@/components/ui/Dropdown";
+import { DayPicker } from "@/components/ui/Calendar";
 
 
 
@@ -97,7 +99,7 @@ export default function Page({ prefill }) {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 h-full">
         <BackButton>Reschedule Booking</BackButton>
 
 
@@ -127,11 +129,17 @@ export default function Page({ prefill }) {
           {...register("miles")}
         />
 
-        <Input
-          label="Date"
-          type="date"
-          error={errors.date?.message}
-          {...register("date")}
+        <Controller
+          control={control}
+          name="date"
+          render={({ field }) => (
+            <DayPicker
+              label="Date"
+              value={field.value ? dayjs(field.value) : null}
+              onChange={(day) => field.onChange(day.format("YYYY-MM-DD"))}
+              error={errors.date?.message}
+            />
+          )}
         />
 
         <Controller
