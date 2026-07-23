@@ -7,7 +7,7 @@ export default function CreateProfilePage() {
  
 
   return (
-    <div className="">
+    <div className="space-y-6">
       <BackButton>Edit Personal Info</BackButton>
       <ProfileFormPage mode="edit"/>
     </div>

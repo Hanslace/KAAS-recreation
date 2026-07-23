@@ -66,29 +66,41 @@ export default function SupportPage() {
 
   return (
     <div className="w-full space-y-[1em] lg:space-y-[1.5em]">
-      <div className="flex flex-col gap-5 min-[43.75rem]:flex-row min-[43.75rem]:items-center min-[43.75rem]:justify-between">
-        <h2 className="main-heading font-bold tracking-tight text-black">
+      <div className="flex flex-col min-[23.4375rem]:flex-row gap-5 items-start justify-between">
+        <h2 className="main-heading  font-bold tracking-tight text-black">
           Support
         </h2>
+       
 
-        <div className="flex w-full flex-col items-end gap-4 min-[40.625rem]:flex-row min-[40.625rem]:items-center min-[40.625rem]:justify-end ">
+        <div className="flex   gap-4 self-end items-center justify-end flex-1">
+          
           <Dropdown
             filters={data.filters}
             activeFilter={activeFilter}
             onFilterChange={setActiveFilter}
             labelText="Sort By:"
+            className=''
           />
+          <BrandButton to="/support/create-ticket" className="min-w-fit sm:hidden ">Create Ticket</BrandButton>
+
 
           <SearchBar
             value={searchValue}
             onChange={setSearchValue}
             placeholder="Search here"
-            className='min-[40.625rem]:max-w-[30rem]'
+            className='sm:block hidden'
           />
 
-          <BrandButton to="/support/create-ticket">Create Ticket</BrandButton>
+          <BrandButton to="/support/create-ticket" className="min-w-fit hidden sm:block ">Create Ticket</BrandButton>
         </div>
       </div>
+
+        <SearchBar
+            value={searchValue}
+            onChange={setSearchValue}
+            placeholder="Search here"
+            className='sm:hidden'
+        />
 
 
         <DataTable

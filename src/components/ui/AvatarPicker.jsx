@@ -27,8 +27,8 @@ export default function AvatarPicker({ onChange }) {
             <Icon icon="pepicons-pencil:person" className="w-[3em] h-[3em] text-white" />
           )}
         </div>
-        <span className="absolute bottom-0 right-0 w-8 h-8 rounded-full bg-brand border-2 border-white flex items-center justify-center">
-          <Icon icon="mdi:camera" className="w-4 h-4 text-white" />
+        <span className="absolute bottom-0 right-0 w-[2em] h-[2em] rounded-full bg-brand border-2 border-white flex items-center justify-center">
+          <Icon icon="mdi:camera" className="w-[1em] h-[1em] text-white" />
         </span>
         <input
           type="file"
