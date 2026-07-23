@@ -14,7 +14,7 @@ import BackButton from "@/components/ui/BackButton";
 
 // Single carrier schema
 const carrierSchema = z.object({
-  truckName: z.string().min(1, "Truck name is required"),
+  name: z.string().min(1, "Name is required"),
   mcNumber: z
     .string()
     .min(1, "MC number is required")
@@ -41,7 +41,7 @@ const formSchema = z.object({
 });
 
 const emptyCarrier = {
-  truckName: "",
+  name: "",
   mcNumber: "",
   dotNumber: "",
   licensePlate: "",
@@ -49,8 +49,12 @@ const emptyCarrier = {
   vinNumber: "",
 };
 
-export default function CarrierProfilePage() {
+export default function VehiclesPage() {
   const navigate = useNavigate();
+
+  const role = import.meta.env.VITE_APP_ROLE ?? "admin";
+  const isPilotCar = role.startsWith("pilot-car");
+  const vehicleLabel = isPilotCar ? "Pilot Car" : "Truck";
 
   const {
     register,
@@ -116,10 +120,10 @@ export default function CarrierProfilePage() {
       <BackButton>Back</BackButton>
       
       <div className="">
-        <h1 className="auth-heading">Carrier Profile</h1>
+        <h1 className="auth-heading">{isPilotCar ? "Add Pilot Car" : "Carrier Profile"}</h1>
         <p className="auth-sub-heading">
           <Icon icon={'bi:info-lg'} className="mr-1.5 w-[1.5em] bg-brand rounded-full text-white h-[1.5em] shrink-0 inline" />
-          Each truck will be charged $5.
+          Each {vehicleLabel.toLowerCase()} will be charged $5.
         </p>
       </div>
 
@@ -134,7 +138,9 @@ export default function CarrierProfilePage() {
                 {/* Carrier label between blocks */}
                 {index !== 0 && (
                   <div className="flex items-center justify-between">
-                    <span className="font-bold auth-h2">Carrier #{index + 1}</span>
+                    <span className="font-bold auth-h2">
+                      {isPilotCar ? "Pilot Car" : "Carrier"} #{index + 1}
+                    </span>
                     <button
                       type="button"
                       onClick={() => removeCarrier(index, field.id)}
@@ -145,7 +151,10 @@ export default function CarrierProfilePage() {
                   </div>
                 )}
 
-                <UploadArea onFileSelect={setDoc(field.id, "truck")} />
+                <UploadArea
+                  label={`Upload ${vehicleLabel} Photo`}
+                  onFileSelect={setDoc(field.id, "truck")}
+                />
                 {carrierDocs.truck && (
                   <AttachmentImage
                     src={carrierDocs.truck.url}
@@ -155,11 +164,11 @@ export default function CarrierProfilePage() {
                 )}
 
                 <AuthInput
-                  label="Truck Name"
-                  placeholder="Enter Truck Name"
+                  label={`${vehicleLabel} Name`}
+                  placeholder={`Enter ${vehicleLabel} Name`}
                   type="text"
-                  error={carrierErrors.truckName?.message}
-                  {...register(`carriers.${index}.truckName`)}
+                  error={carrierErrors.name?.message}
+                  {...register(`carriers.${index}.name`)}
                 />
 
                 <AuthInput
@@ -206,7 +215,11 @@ export default function CarrierProfilePage() {
 
                 <span className="font-bold auth-h2">Liability</span>
 
-                <UploadArea onFileSelect={setDoc(field.id, "liability")} iconPosition="left" />
+                <UploadArea
+                  label="Upload Liability Document"
+                  onFileSelect={setDoc(field.id, "liability")}
+                  iconPosition="left"
+                />
                 {carrierDocs.liability && (
                   <AttachmentImage
                     src={carrierDocs.liability.url}
@@ -230,7 +243,7 @@ export default function CarrierProfilePage() {
             onClick={addCarrier}
             className="flex items-center gap-3 font-medium text-black"
           >
-            <span className="">Add Another Carrier</span>
+            <span className="">{isPilotCar ? "Add Pilot Car" : "Add Another Carrier"}</span>
             <span className="flex h-[1.5em] w-[1.5em] items-center justify-center rounded-full bg-black text-white transition hover:scale-105">
               <Icon icon="lucide:plus" className="h-[1em] w-[1em]" />
             </span>

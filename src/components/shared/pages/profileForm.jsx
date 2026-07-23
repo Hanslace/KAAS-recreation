@@ -49,7 +49,7 @@ export default function ProfileFormPage({ mode = "create" }) {
   const onSubmit = async (data) => {
     try {
       console.log("Submitting Profile Data:", { ...data, avatarFile });
-      if (mode === "create" || pilot ){
+      if (mode === "create" && pilot ){
       navigate("/sign-up/details")
       } else {
       setShowSuccess(true);
@@ -154,7 +154,7 @@ export default function ProfileFormPage({ mode = "create" }) {
         buttonText="Next"
         onDone={() => {
           setShowSuccess(false);
-          navigate("/payment-plan");
+          navigate("/sign-up/payment");
         }}
       />
     </>

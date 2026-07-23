@@ -12,9 +12,10 @@ import SignUpOtpPage from "@/app/(auth)/sign-up/otp/page";
 import RoleSelectPage from "@/app/(auth)/sign-up/role-select/page";
 import CompanyDetailsPage from "@/app/(auth)/sign-up/details/page";
 import CreateProfilePage from "@/app/(auth)/sign-up/create-profile/page";
-import CarrierProfilePage from "@/app/(auth)/carrier-profile/page";
-import PaymentPlanPage from "@/app/(auth)/payment-plan/page";
-import PaymentPage from "@/app/(auth)/payment-plan/[planId]/page";
+import VehiclesPage from "@/app/(auth)/sign-up/vehicles/page";
+import FaresPage from "@/app/(auth)/sign-up/fares/page";
+import PaymentPlanPage from "@/app/(auth)/sign-up/payment/page";
+import PaymentPage from "@/app/(auth)/sign-up/payment/[planId]/page";
 
 // Protected layout
 import ProtectedLayout from "@/components/shared/layouts/ProtectedLayout.jsx";
@@ -94,11 +95,12 @@ export const pilotCarIndividualRoutes = (
         <Route path="create-profile" element={<CreateProfilePage />} />
         <Route path="role-select" element={<RoleSelectPage />} />
         <Route path="details" element={<CompanyDetailsPage />} />
-      </Route>
-      <Route path="/carrier-profile" element={<CarrierProfilePage />} />
-      <Route path="/payment-plan">
-        <Route index element={<PaymentPlanPage />} />
-        <Route path=":planId" element={<PaymentPage />} />
+        <Route path="cars" element={<VehiclesPage />} />
+        <Route path="fares" element={<FaresPage />} />
+        <Route path="payment">
+          <Route index element={<PaymentPlanPage />} />
+          <Route path=":planId" element={<PaymentPage />} />
+        </Route>
       </Route>
     </Route>
 

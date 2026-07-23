@@ -187,7 +187,7 @@ export default function PaymentPage() {
         buttonText="Done"
         onDone={() => {
           setShowSuccess(false);
-          navigate("/carrier-profile");
+          navigate("/sign-up/carrier-profile");
         }}
       />
     </div>

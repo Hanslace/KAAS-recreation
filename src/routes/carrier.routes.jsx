@@ -10,9 +10,9 @@ import ResetPasswordPage from "@/app/(auth)/forgot-password/reset/page.jsx";
 import SignUpPage from "@/app/(auth)/sign-up/page.jsx";
 import SignUpOtpPage from "@/app/(auth)/sign-up/otp/page";
 import CreateProfilePage from "@/app/(auth)/sign-up/create-profile/page";
-import CarrierProfilePage from "@/app/(auth)/carrier-profile/page";
-import PaymentPlanPage from "@/app/(auth)/payment-plan/page";
-import PaymentPage from "@/app/(auth)/payment-plan/[planId]/page";
+import VehiclesPage from "@/app/(auth)/sign-up/vehicles/page";
+import PaymentPlanPage from "@/app/(auth)/sign-up/payment/page";
+import PaymentPage from "@/app/(auth)/sign-up/payment/[planId]/page";
 
 // Protected layout
 import ProtectedLayout from "@/components/shared/layouts/ProtectedLayout.jsx";
@@ -91,12 +91,13 @@ export const carrierRoutes = (
         <Route index element={<SignUpPage />} />
         <Route path="otp" element={<SignUpOtpPage />} />
         <Route path="create-profile" element={<CreateProfilePage />} />
+        <Route path="carrier-profile" element={<VehiclesPage />} />
+        <Route path="payment">
+          <Route index element={<PaymentPlanPage />} />
+          <Route path=":planId" element={<PaymentPage />} />
+        </Route>
       </Route>
-      <Route path="/carrier-profile" element={<CarrierProfilePage />} />
-      <Route path="/payment-plan">
-        <Route index element={<PaymentPlanPage />} />
-        <Route path=":planId" element={<PaymentPage />} />
-      </Route>
+      
     </Route>
 
     {/* Protected routes */}
