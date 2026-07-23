@@ -10,6 +10,7 @@ import ResetPasswordPage from "@/app/(auth)/forgot-password/reset/page.jsx";
 import SignUpPage from "@/app/(auth)/sign-up/page.jsx";
 import SignUpOtpPage from "@/app/(auth)/sign-up/otp/page";
 import RoleSelectPage from "@/app/(auth)/sign-up/role-select/page";
+import CompanyDetailsPage from "@/app/(auth)/sign-up/details/page";
 import CreateProfilePage from "@/app/(auth)/sign-up/create-profile/page";
 import CarrierProfilePage from "@/app/(auth)/carrier-profile/page";
 import PaymentPlanPage from "@/app/(auth)/payment-plan/page";
@@ -94,6 +95,7 @@ export const pilotCarManagerRoutes = (
         <Route path="otp" element={<SignUpOtpPage />} />
         <Route path="create-profile" element={<CreateProfilePage />} />
         <Route path="role-select" element={<RoleSelectPage />} />
+        <Route path="details" element={<CompanyDetailsPage />} />
       </Route>
       <Route path="/carrier-profile" element={<CarrierProfilePage />} />
       <Route path="/payment-plan">

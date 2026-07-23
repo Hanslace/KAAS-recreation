@@ -33,12 +33,12 @@ export default function RoleSelectPage() {
               key={option.id}
               type="button"
               onClick={() => setSelected(option.id)}
-              className="flex flex-col items-center gap-2"
+              className="flex flex-col items-center gap-2 auth-h2"
               role="radio"
               aria-checked={isSelected}
             >
               <span
-                className={`flex h-[9em] w-[9em] items-center justify-center rounded-2xl border transition-all ${
+                className={`flex h-[7em] w-[7em] items-center justify-center rounded-2xl border transition-all ${
                   isSelected
                     ? "border-brand bg-brand-gradient shadow-lg"
                     : "border-black/10 bg-white"
@@ -46,7 +46,7 @@ export default function RoleSelectPage() {
               >
                 <Icon
                   icon={option.icon}
-                  className={`h-[4em] w-[4em] ${
+                  className={`h-[3.5em] w-[3.5em] ${
                     isSelected ? "text-white" : "text-brand/15"
                   }`}
                 />
