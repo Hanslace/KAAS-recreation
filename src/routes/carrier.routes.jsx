@@ -3,41 +3,41 @@ import userData from "@/data/user.json";
 
 // Auth layout and pages
 import AuthLayout from "@/components/shared/layouts/AuthLayout.jsx";
-import LoginPage from "@/app/carrier/(auth)/login/page.jsx";
-import ForgotPasswordPage from "@/app/carrier/(auth)/forgot-password/page.jsx";
-import ForgotPasswordOtpPage from "@/app/carrier/(auth)/forgot-password/otp/page.jsx";
-import ResetPasswordPage from "@/app/carrier/(auth)/forgot-password/reset/page.jsx";
-import SignUpPage from "@/app/carrier/(auth)/sign-up/page.jsx";
-import SignUpOtpPage from "@/app/carrier/(auth)/sign-up/otp/page";
-import CreateProfilePage from "@/app/carrier/(auth)/sign-up/create-profile/page";
-import CarrierProfilePage from "@/app/carrier/(auth)/carrier-profile/page";
-import PaymentPlanPage from "@/app/carrier/(auth)/payment-plan/page";
-import PaymentPage from "@/app/carrier/(auth)/payment-plan/[planId]/page";
+import LoginPage from "@/app/(auth)/login/page.jsx";
+import ForgotPasswordPage from "@/app/(auth)/forgot-password/page.jsx";
+import ForgotPasswordOtpPage from "@/app/(auth)/forgot-password/otp/page.jsx";
+import ResetPasswordPage from "@/app/(auth)/forgot-password/reset/page.jsx";
+import SignUpPage from "@/app/(auth)/sign-up/page.jsx";
+import SignUpOtpPage from "@/app/(auth)/sign-up/otp/page";
+import CreateProfilePage from "@/app/(auth)/sign-up/create-profile/page";
+import CarrierProfilePage from "@/app/(auth)/carrier-profile/page";
+import PaymentPlanPage from "@/app/(auth)/payment-plan/page";
+import PaymentPage from "@/app/(auth)/payment-plan/[planId]/page";
 
 // Protected layout
 import ProtectedLayout from "@/components/shared/layouts/ProtectedLayout.jsx";
 
 // Home
-import CarrierHome from "@/app/carrier/(protected)/home/page.jsx";
-import BookDriverPage from "@/app/carrier/(protected)/home/[id]/book/page.jsx";
-import DriverDetailPage from "@/app/carrier/(protected)/home/[id]/page.jsx";
-import PreviousBookingsPage from "@/app/carrier/(protected)/home/previous-bookings/page.jsx";
+import CarrierHome from "@/app/carrier/home/page.jsx";
+import BookDriverPage from "@/app/carrier/home/[id]/book/page.jsx";
+import DriverDetailPage from "@/app/carrier/home/[id]/page.jsx";
+import PreviousBookingsPage from "@/app/carrier/home/previous-bookings/page.jsx";
 
 // Bookings
-import BookingsPage from "@/app/carrier/(protected)/bookings/page.jsx";
-import BookingDetailsPage from "@/app/carrier/(protected)/bookings/[bookingId]/page.jsx";
-import BookingProfilePage from "@/app/carrier/(protected)/bookings/profile/[escortId]/page.jsx";
-import BookingReschedulePage from "@/app/carrier/(protected)/bookings/reschedule/[bookingId]/page.jsx";
+import BookingsPage from "@/app/carrier/bookings/page.jsx";
+import BookingDetailsPage from "@/app/carrier/bookings/[bookingId]/page.jsx";
+import BookingProfilePage from "@/app/carrier/bookings/profile/[escortId]/page.jsx";
+import BookingReschedulePage from "@/app/carrier/bookings/reschedule/[bookingId]/page.jsx";
 
 // Notifications
-import NotificationsPage from "@/app/carrier/(protected)/notifications/page.jsx";
+import NotificationsPage from "@/app/carrier/notifications/page.jsx";
 
 // Payments
-import PaymentsPage from "@/app/carrier/(protected)/payments/page.jsx";
+import PaymentsPage from "@/app/carrier/payments/page.jsx";
 
 // Profile
-import ProfilePage from "@/app/carrier/(protected)/profile/page.jsx";
-import EditProfilePage from "@/app/carrier/(protected)/profile/edit/page.jsx";
+import ProfilePage from "@/app/carrier/profile/page.jsx";
+import EditProfilePage from "@/app/carrier/profile/edit/page.jsx";
 
 // Settings
 import SettingsPage from "@/components/shared/pages/settings/page.jsx";
@@ -45,18 +45,18 @@ import SettingsContentPage from "@/components/shared/pages/settings/[slug]/page.
 import ChangePasswordPage from "@/components/shared/pages/settings/change-password/page.jsx";
 
 // Subscriptions
-import SubscriptionsPage from "@/app/carrier/(protected)/subscriptions/page.jsx";
-import SubscriptionPaymentPage from "@/app/carrier/(protected)/subscriptions/[planId]/page.jsx";
+import SubscriptionsPage from "@/app/carrier/subscriptions/page.jsx";
+import SubscriptionPaymentPage from "@/app/carrier/subscriptions/[planId]/page.jsx";
 
 // Support
-import SupportPage from "@/app/carrier/(protected)/support/page.jsx";
-import CreateTicketPage from "@/app/carrier/(protected)/support/create-ticket/page.jsx";
+import SupportPage from "@/app/carrier/support/page.jsx";
+import CreateTicketPage from "@/app/carrier/support/create-ticket/page.jsx";
 
 // Trucks
-import TrucksPage from "@/app/carrier/(protected)/trucks/page.jsx";
-import TruckDetailsPage from "@/app/carrier/(protected)/trucks/[truckId]/page.jsx";
-import EditTruckPage from "@/app/carrier/(protected)/trucks/[truckId]/edit/page.jsx";
-import AddTruckPage from "@/app/carrier/(protected)/trucks/add/page.jsx";
+import TrucksPage from "@/app/carrier/trucks/page.jsx";
+import TruckDetailsPage from "@/app/carrier/trucks/[truckId]/page.jsx";
+import EditTruckPage from "@/app/carrier/trucks/[truckId]/edit/page.jsx";
+import AddTruckPage from "@/app/carrier/trucks/add/page.jsx";
 import NotFound from "@/components/ui/NotFound";
 
 

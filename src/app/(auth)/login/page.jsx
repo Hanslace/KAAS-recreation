@@ -8,10 +8,14 @@ import { Icon } from "@iconify/react";
 
 
 export default function Page() {
+  const role = import.meta.env.VITE_APP_ROLE ?? "admin";
+  if (role === "admin") {
+    return (<LoginPage href={"/dashboard"}/>)
+  }
 
   return (
     <div className="  flex flex-col justify-between md:h-full md:min-h-fit ">
-      
+
       <div className="gap-[2em] pb-[3em] justify-center h-full min-h-fit flex flex-col">
         <LoginPage  href="/home"/>
 
