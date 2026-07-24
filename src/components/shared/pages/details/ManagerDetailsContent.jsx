@@ -64,7 +64,7 @@ export default function ManagerDetailsContent({ mine = false }) {
 
       <InfoGrid
         heading="Company Info"
-        editHref={mine ? `${pathname}/company-details` : undefined}
+        editHref={mine ? `${pathname}/edit/company-details` : undefined}
         fields={[
           {
             label: 'MC Number',
@@ -101,7 +101,7 @@ export default function ManagerDetailsContent({ mine = false }) {
 
       <InfoGrid
         heading="Fares Info"
-        editHref={mine ? `${pathname}/fares` : undefined}
+        editHref={mine ? `${pathname}/edit/fares` : undefined}
         fields={[
           {
             label: 'Per Day',

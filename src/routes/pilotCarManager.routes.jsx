@@ -60,6 +60,8 @@ import DriversPage from "@/app/pilot-car-manager/driver/page";
 import DriverDetailPage from "@/app/pilot-car-manager/driver/[driverId]/page";
 import DriverAddPage from "@/app/pilot-car-manager/driver/add/page";
 import DriverEditPage from "@/app/pilot-car-manager/driver/[driverId]/edit/page";
+import CompanyDetailsEditPage from "@/app/pilot-car-manager/profile/edit/company-details/page";
+import FaresEditPage from "@/app/pilot-car-manager/profile/edit/fares/page";
 
 
 const sidebarLinks = [
@@ -145,7 +147,11 @@ export const pilotCarManagerRoutes = (
       {/* Profile */}
       <Route path="/profile">
         <Route index element={<ProfilePage />} />
-        <Route path="edit" element={<EditProfilePage />} />
+        <Route path="edit" >
+          <Route index element={<EditProfilePage />} />
+          <Route path="company-details" element={<CompanyDetailsEditPage />} />
+          <Route path="fares" element={<FaresEditPage/>} />
+        </Route>
       </Route>
 
       {/* Settings */}
