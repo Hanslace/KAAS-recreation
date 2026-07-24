@@ -5,6 +5,7 @@ import BrandPill from '@/components/ui/BrandPill';
 import ReasonModal from '@/components/shared/modals/InputModal';
 import { useNavigate } from 'react-router';
 import InputModal from '@/components/shared/modals/InputModal';
+import ConfirmationModal from '@/components/shared/modals/ConfirmationModal';
 
 
 
@@ -23,6 +24,7 @@ export default function DetailsLayout({
 }) {
      const navigate = useNavigate();
   const [reasonAction, setReasonAction] = useState(null);
+  const [restoreOpen, setRestoreOpen] = useState(false);
 
   const headingId = `${slugName}-personal-info`;
 
@@ -30,6 +32,11 @@ export default function DetailsLayout({
 
 
     setReasonAction(null);
+    navigate(-1);
+  };
+
+  const handleRestoreConfirm = async () => {
+    setRestoreOpen(false);
     navigate(-1);
   };
 
@@ -71,6 +78,19 @@ export default function DetailsLayout({
                 View Escorts
               </BrandButton>
             )}
+          </div>
+        )}
+
+        {status === 'Deleted' && (
+          <div className="min-[26.56rem]:mx-0 mx-auto flex w-fit gap-3">
+            <BrandButton
+              type="button"
+              onClick={() => setRestoreOpen(true)}
+            >
+              Restore
+            </BrandButton>
+
+
           </div>
         )}
       </div>
@@ -126,6 +146,17 @@ export default function DetailsLayout({
         onSubmit={handleReasonSubmit}
         inputProps={{ as: "textarea", maxLength: 500, label: "Reason", className: "h-[12rem]"}}
 
+      />
+
+      <ConfirmationModal
+        open={restoreOpen}
+        icon="ic:baseline-restore-from-trash"
+        title="Restore!"
+        description="Are you sure you want to restore this account?"
+        cancelText="No"
+        confirmText="Yes"
+        onCancel={() => setRestoreOpen(false)}
+        onConfirm={handleRestoreConfirm}
       />
     </>
   );

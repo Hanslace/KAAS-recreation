@@ -1,26 +1,7 @@
-
 import CarrierDetailsContent from '@/components/CarrierDetailsContent';
-import NotFound from '@/components/ui/NotFound';
-import carrierData from '@/data/carriers.json';
-import { useParams } from 'react-router';
-
 
 export default function Page() {
-  const { carrierid } = useParams();
-
-  const currentCarrier = carrierData.tableData.find(
-    (carrier) => carrier.slug === carrierid,
-  );
-
-  if (!currentCarrier) {
-     return (
-      <NotFound/>
-    );
-  }
-
   return (
-    <CarrierDetailsContent
-      currentCarrier={currentCarrier}
-    />
+    <CarrierDetailsContent/>
   );
 }

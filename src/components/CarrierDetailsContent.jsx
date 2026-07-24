@@ -1,7 +1,8 @@
 import BookingsGrid from '@/components/shared/BookingsGrid';
 import InfoGrid from '@/components/shared/InfoGrid';
 import DetailsLayout from '@/components/DetailsLayout';
-
+import NotFound from '@/components/ui/NotFound';
+import { useParams } from 'react-router';
 
 import vehicles from '@/data/trucks.json';
 import bookings from '@/data/data.json';
@@ -27,9 +28,19 @@ const truckFields = [
 
 
 
-export default function CarrierDetailsContent({
-  currentCarrier,
-}) {
+export default function CarrierDetailsContent() {
+  const { carrierid } = useParams();
+
+  const currentCarrier = carrierData.tableData.find(
+    (carrier) => carrier.slug === carrierid,
+  );
+
+  if (!currentCarrier) {
+    return (
+      <NotFound/>
+    );
+  }
+
   const status = currentCarrier.status;
 
   return (

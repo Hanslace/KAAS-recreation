@@ -2,14 +2,27 @@ import BookingsGrid from '@/components/shared/BookingsGrid';
 import DetailsLayout from '@/components/DetailsLayout';
 import DocumentsSection from '@/components/shared/DocumentsSection';
 import InfoGrid from '@/components/shared/InfoGrid';
+import NotFound from '@/components/ui/NotFound';
+import { useParams } from 'react-router';
 
 import bookings from '@/data/data.json';
+import managerData from '@/data/managers.json';
 
 
 
-export default function ManagerDetailsContent({
-  currentManager,
-}) {
+export default function ManagerDetailsContent() {
+  const { managerid } = useParams();
+
+  const currentManager = managerData.tableData.find(
+    (manager) => manager.slug === managerid,
+  );
+
+  if (!currentManager) {
+    return (
+      <NotFound/>
+    );
+  }
+
   const status = currentManager.status;
 
   return (

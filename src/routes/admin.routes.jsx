@@ -38,8 +38,8 @@ import ManagerEscortDetailsPage from "@/app/admin/pilot-car-management/managers/
 // Settings
 import SettingsPage from "@/components/shared/pages/settings/page";
 import ChangePasswordPage from "@/components/shared/pages/settings/change-password/page";
-import DeletedAccountsPage from "@/components/shared/pages/settings/deleted-accounts/page";
-import DeletedAccountDetailsPage from "@/components/shared/pages/settings/deleted-accounts/[slug]/page";
+import DeletedAccountsPage from "@/app/admin/deleted-accounts/page";
+import DeletedAccountDetailsPage from "@/app/admin/deleted-accounts/[slug]/page";
 import SettingsContentPage from "@/components/shared/pages/settings/[slug]/page";
 
 // Subscriptions
@@ -51,19 +51,9 @@ import SubscriptionEarningPage from "@/app/admin/subscriptions/earning/page.jsx"
 import SupportPage from "@/app/admin/support/page.jsx";
 import SupportDetailsPage from "@/app/admin/support/[slug]/page.jsx";
 import userData from "@/data/user.json";
+import NotFound from "@/components/ui/NotFound";
 
-function NotFoundPage() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50">
-      <div className="text-center">
-        <h1 className="text-6xl font-bold text-black">404</h1>
-        <p className="mt-3 text-black/50">
-          The page you are looking for does not exist.
-        </p>
-      </div>
-    </div>
-  );
-}
+
 
 const sidebarLinks = [
   { name: 'Dashboard', href: '/dashboard', icon: 'ic:baseline-home', hasSubmenu: false },
@@ -168,7 +158,7 @@ export const adminRoutes =  (
       </Route>
 
       {/* Catch-all 404 handler */}
-      <Route path="*" element={<NotFoundPage />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 
