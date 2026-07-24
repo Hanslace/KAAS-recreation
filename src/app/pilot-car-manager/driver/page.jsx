@@ -113,7 +113,7 @@ export default function DriversPage() {
       <DataTable
         data={filteredData}
         columns={driverColumns}
-        path={"/driver"}
+        path={"/drivers"}
       />
     </div>
   );

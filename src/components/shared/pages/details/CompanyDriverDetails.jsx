@@ -10,10 +10,12 @@ import NotFound from '@/components/ui/NotFound';
 
 
 export default function CompanyDriverContent() {
-  const { driverid } = useParams();
+  const { id } = useParams();
+  const role = import.meta.env.VITE_APP_ROLE ?? 'admin';
+  
   
   const currentDriver = drivers.tableData.find(
-    (item) => item.slug === driverid
+    (item) => item.slug === id
   );
 
   // 3. Fallback to 404 page if someone enters an invalid URL driverid
@@ -38,10 +40,14 @@ export default function CompanyDriverContent() {
 
       <InfoGrid
         fields={[
-          {
-            label: 'Company Name',
-            value: 'Patriot Escort Services',
-          },
+          ...(role === 'admin'
+            ? [
+                {
+                  label: 'Company Name',
+                  value: 'Patriot Escort Services',
+                },
+              ]
+            : []),
           {
             label: 'Escort Name',
             value: 'Falcon Hauler',
@@ -116,7 +122,7 @@ export default function CompanyDriverContent() {
         </div>
       )}
 
-      { status === "Approved" &&
+      { status === "Approved" && role === 'admin' &&
         <>
 
         <div className="mt-8 flex flex-col gap-4">

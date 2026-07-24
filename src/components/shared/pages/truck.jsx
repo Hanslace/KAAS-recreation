@@ -5,8 +5,8 @@ import InfoGrid from "@/components/shared/InfoGrid";
 import AttachmentImage from "@/components/ui/AttachmentImage";
 import { useLocation, useNavigate, useParams } from "react-router";
 import NotFound from "@/components/ui/NotFound";
-import { Icon } from "@iconify/react";
 import ConfirmationModal from "@/components/shared/modals/ConfirmationModal";
+import EditDeleteActions from "@/components/ui/EditDeleteActions";
 
 
 
@@ -51,25 +51,11 @@ export default function TruckPage() {
                 Truck Info
             </h2>
             {role === "carrier" && (
-            <div className=" flex items-center gap-2">
-                <button
-                type="button"
-                onClick={() => setDeleteOpen(true)}
-                aria-label="Delete truck"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-white transition duration-200 hover:scale-110 active:scale-95"
-                >
-                <Icon icon="lucide:trash-2" className="h-4 w-4" />
-                </button>
-
-                <button
-                type="button"
-                onClick={() => navigate(`${pathname}/edit`)}
-                aria-label="Edit truck"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500 text-white transition duration-200 hover:scale-110 active:scale-95"
-                >
-                <Icon icon="lucide:pencil" className="h-4 w-4" />
-                </button>
-            </div>
+              <EditDeleteActions
+                label="truck"
+                onDelete={() => setDeleteOpen(true)}
+                onEdit={() => navigate(`${pathname}/edit`)}
+              />
             )}
             </div>
 

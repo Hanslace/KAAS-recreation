@@ -12,10 +12,10 @@ import NotFound from '@/components/ui/NotFound';
 // Assuming VehicleCard is stored here
 
 export default  function IndividualDriverContent() {
-  const { driverid } = useParams();
+  const { id } = useParams();
   
   const currentDriver = drivers.tableData.find(
-    (item) => item.slug === driverid
+    (item) => item.slug === id
   );
 
   // 3. Fallback to 404 page if someone enters an invalid URL driverid
