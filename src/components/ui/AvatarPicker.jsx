@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 
-export default function AvatarPicker({ onChange }) {
-  const [avatarPreview, setAvatarPreview] = useState(null);
+export default function AvatarPicker({ onChange, defaultPreview = null }) {
+  const [avatarPreview, setAvatarPreview] = useState(defaultPreview);
 
   const handleAvatarChange = (e) => {
     const file = e.target.files?.[0];

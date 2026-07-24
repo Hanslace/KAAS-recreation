@@ -58,6 +58,8 @@ import EarningsPage from "@/app/pilot-car-manager/earnings/page";
 import EarningDetailPage from "@/components/shared/pages/earningDetail";
 import DriversPage from "@/app/pilot-car-manager/driver/page";
 import DriverDetailPage from "@/app/pilot-car-manager/driver/[driverId]/page";
+import DriverAddPage from "@/app/pilot-car-manager/driver/add/page";
+import DriverEditPage from "@/app/pilot-car-manager/driver/[driverId]/edit/page";
 
 
 const sidebarLinks = [
@@ -131,11 +133,13 @@ export const pilotCarManagerRoutes = (
         <Route path=":bookingId" element={<EarningDetailPage />} />
       </Route>
 
-      <Route path="/drivers" element={<DriversPage/>} />
-
+      {/* Drivers */}
       <Route path="/drivers">
         <Route index element={<DriversPage />} />
+        {/* Static route above dynamic param */}
+        <Route path="add" element={<DriverAddPage />} />
         <Route path=":id" element={<DriverDetailPage />} />
+        <Route path=":id/edit" element={<DriverEditPage />} />
       </Route>
 
       {/* Profile */}
