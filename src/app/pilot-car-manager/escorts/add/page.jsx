@@ -1,5 +1,5 @@
-import TruckForm from "@/components/shared/pages/truckForm";
+import VehicleForm from "@/components/shared/pages/vehicleForm";
 
 export default function Page() {
-  return <TruckForm mode="add" />;
+  return <VehicleForm mode="add" />;
 }

@@ -12,7 +12,7 @@ import SignUpOtpPage from "@/app/(auth)/sign-up/otp/page";
 import RoleSelectPage from "@/app/(auth)/sign-up/role-select/page";
 import CompanyDetailsPage from "@/app/(auth)/sign-up/details/page";
 import CreateProfilePage from "@/app/(auth)/sign-up/create-profile/page";
-import VehiclesPage from "@/app/(auth)/sign-up/vehicles/page";
+import VehiclesPage from "@/app/(auth)/sign-up/add-vehicles/page";
 import FaresPage from "@/app/(auth)/sign-up/fares/page";
 import PaymentPlanPage from "@/app/(auth)/sign-up/payment/page";
 import PaymentPage from "@/app/(auth)/sign-up/payment/[planId]/page";

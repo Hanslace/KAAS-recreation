@@ -187,7 +187,7 @@ export default function PaymentPage() {
         buttonText="Done"
         onDone={() => {
           setShowSuccess(false);
-          navigate("/sign-up/vehicles");
+          navigate("/sign-up/add-vehicles");
         }}
       />
     </div>

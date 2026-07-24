@@ -12,10 +12,11 @@ import SignUpOtpPage from "@/app/(auth)/sign-up/otp/page";
 import RoleSelectPage from "@/app/(auth)/sign-up/role-select/page";
 import CompanyDetailsPage from "@/app/(auth)/sign-up/details/page";
 import CreateProfilePage from "@/app/(auth)/sign-up/create-profile/page";
-import VehiclesPage from "@/app/(auth)/sign-up/vehicles/page";
 import FaresPage from "@/app/(auth)/sign-up/fares/page";
 import PaymentPlanPage from "@/app/(auth)/sign-up/payment/page";
 import PaymentPage from "@/app/(auth)/sign-up/payment/[planId]/page";
+import AddVehiclesPage from "@/app/(auth)/sign-up/add-vehicles/page";
+
 
 // Protected layout
 import ProtectedLayout from "@/components/shared/layouts/ProtectedLayout.jsx";
@@ -62,7 +63,7 @@ import ManagerDashboard from "@/app/pilot-car-manager/dashboard/page";
 const sidebarLinks = [
   { name: 'Dashboard', href: '/dashboard', icon: 'ic:baseline-home', hasSubmenu: false },
   { name: 'Bookings', href: '/bookings', icon: 'uis:calendar', hasSubmenu: false },
-  { name: 'corts', href: '/escorts', icon: 'mdi:car-side', hasSubmenu: false },
+  { name: 'Escorts', href: '/escorts', icon: 'mdi:car-side', hasSubmenu: false },
   { name: 'Subscription', href: '/subscriptions', icon: 'material-symbols:subscriptions', hasSubmenu: false },
   { name: 'Drivers', href: '/drivers', icon: 'mdi:account-group', hasSubmenu: false },
   { name: 'Earnings', href: '/earnings', icon: 'solar:wallet-money-bold', hasSubmenu: false },
@@ -92,7 +93,7 @@ export const pilotCarManagerRoutes = (
         <Route path="create-profile" element={<CreateProfilePage />} />
         <Route path="role-select" element={<RoleSelectPage />} />
         <Route path="details" element={<CompanyDetailsPage />} />
-        <Route path="vehicles" element={<VehiclesPage />} />
+        <Route path="add-vehicles" element={<AddVehiclesPage />} />
         <Route path="fares" element={<FaresPage />} />
         <Route path="payment">
           <Route index element={<PaymentPlanPage />} />

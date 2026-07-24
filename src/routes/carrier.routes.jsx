@@ -10,7 +10,7 @@ import ResetPasswordPage from "@/app/(auth)/forgot-password/reset/page.jsx";
 import SignUpPage from "@/app/(auth)/sign-up/page.jsx";
 import SignUpOtpPage from "@/app/(auth)/sign-up/otp/page";
 import CreateProfilePage from "@/app/(auth)/sign-up/create-profile/page";
-import VehiclesPage from "@/app/(auth)/sign-up/vehicles/page";
+import VehiclesPage from "@/app/(auth)/sign-up/add-vehicles/page";
 import PaymentPlanPage from "@/app/(auth)/sign-up/payment/page";
 import PaymentPage from "@/app/(auth)/sign-up/payment/[planId]/page";
 

@@ -33,7 +33,7 @@ import IndividualDriverDetailsPage from "@/app/admin/pilot-car-management/indivi
 import ManagersPage from "@/app/admin/pilot-car-management/managers/page.jsx";
 import ManagerDetailsPage from "@/app/admin/pilot-car-management/managers/[managerid]/page.jsx";
 import ManagerEscortsPage from "@/app/admin/pilot-car-management/managers/[managerid]/escorts/page.jsx";
-import ManagerEscortDetailsPage from "@/app/admin/pilot-car-management/managers/[managerid]/escorts/[escortid]/page.jsx";
+import ManagerEscortDetailsPage from "@/app/admin/pilot-car-management/managers/[managerid]/escorts/[escortId]/page.jsx";
 
 // Settings
 import SettingsPage from "@/components/shared/pages/settings/page";
@@ -140,7 +140,7 @@ export const adminRoutes =  (
             <Route index element={<ManagersPage />} />
             <Route path=":managerid" element={<ManagerDetailsPage />} />
             <Route path=":managerid/escorts" element={<ManagerEscortsPage />} />
-            <Route path=":managerid/escorts/:escortid" element={<ManagerEscortDetailsPage />} />
+            <Route path=":managerid/escorts/:escortId" element={<ManagerEscortDetailsPage />} />
           </Route>
         </Route>
 
