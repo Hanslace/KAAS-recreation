@@ -62,7 +62,7 @@ export default function DriverAssignmentModal({
       aria-modal="true"
       aria-labelledby="driver-assignment-title"
     >
-      <div className="relative w-full max-w-[85rem] max-h-full overflow-hidden rounded-[2em] bg-white px-7 pb-7 pt-10 shadow-2xl sm:px-10">
+      <div className="relative flex w-full max-w-[85rem] max-h-[80vh] flex-col overflow-hidden rounded-[2em] bg-white px-7 pb-7 pt-10 shadow-2xl sm:px-10">
         <button
           type="button"
           onClick={onClose}
@@ -86,26 +86,26 @@ export default function DriverAssignmentModal({
 
         <h2
           id="driver-assignment-title"
-          className="heading text-center font-bold leading-tight text-brand"
+          className="shrink-0 heading text-center font-bold leading-tight text-brand"
         >
           {title}
         </h2>
 
         {description && (
-          <p className="mx-auto mt-2 max-w-[42em] text-center text-black/50">
+          <p className="mx-auto mt-2 max-w-[42em] shrink-0 text-center text-black/50">
             {description}
           </p>
         )}
 
-        <div className="custom-scrollbar mt-7 max-h-[32em] overflow-y-auto pr-1">
-          <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="custom-scrollbar mt-7 min-h-0 flex-1 overflow-y-auto pr-1">
+          <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
             {drivers.map((driver) => {
               const isChecked = assignments[driver.id] !== undefined;
 
               return (
                 <div
                   key={driver.id}
-                  className="rounded-2xl border border-black/5 bg-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
+                  className="mb-4 break-inside-avoid rounded-2xl border border-black/5 bg-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
                 >
                   <div className="flex items-center gap-3">
                     <img
@@ -130,8 +130,8 @@ export default function DriverAssignmentModal({
                   </div>
 
                   {isChecked && (
-                    <div className="mt-4">
-                      <p className="mb-2 font-bold text-brand">Escort Place:</p>
+                    <div className="mt-2">
+                      <p className="mb-1 font-bold text-brand">Escort Place:</p>
 
                       <OptionGroup
                         options={escortPlaces}
@@ -146,7 +146,7 @@ export default function DriverAssignmentModal({
           </div>
         </div>
 
-        <div className="mt-7 w-full max-w-[20.5rem]">
+        <div className="mt-7 w-full max-w-[20.5rem] shrink-0">
           <button
             type="button"
             onClick={handleAssign}

@@ -344,7 +344,12 @@ header .hamburger {
 
 .pagination {
     font-size: 0.6rem;
-  }
+}
+
+.options-group {
+    font-size: 0.6rem;
+}
+
 
 @media (min-width: 40rem) {
   .searchbar {
@@ -635,6 +640,9 @@ header .icon {
   }
 
   .pagination {
+    font-size: 0.8rem;
+  }
+  .options-group {
     font-size: 0.8rem;
   }
 

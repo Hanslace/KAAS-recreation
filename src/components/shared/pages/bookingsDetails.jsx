@@ -9,10 +9,12 @@ import { Link, useNavigate, useParams } from 'react-router';
 import ReviewCard from "@/components/shared/cards/ReviewCard";
 import BookingLocationMap from "@/components/ui/BookingLocationMap";
 import BrandButton from "@/components/ui/BrandButton";
+import Input from "@/components/ui/Input";
 import InputModal from "@/components/shared/modals/InputModal";
 import FeedbackModal from "@/components/shared/modals/FeedbackModal";
 import SuccessModal from "@/components/shared/modals/SuccessModal";
 import ConfirmationModal from "@/components/shared/modals/ConfirmationModal";
+import DriverAssignmentModal from "@/components/shared/modals/DriverAssignmentModal";
 
 
 function RatingRow({
@@ -61,6 +63,10 @@ export default  function BookingDetailPage() {
   const [feedbackSuccessOpen, setFeedbackSuccessOpen] = useState(false);
   const [deleteReviewOpen, setDeleteReviewOpen] = useState(false);
   const [myReviewDeleted, setMyReviewDeleted] = useState(false);
+  const [fare, setFare] = useState("");
+  const [fareSuccessOpen, setFareSuccessOpen] = useState(false);
+  const [assignDriverOpen, setAssignDriverOpen] = useState(false);
+  const [driverAssignSuccessOpen, setDriverAssignSuccessOpen] = useState(false);
 
   const booking = data.bookingDetails.find((item) => item.slug === bookingId);
 
@@ -89,7 +95,7 @@ export default  function BookingDetailPage() {
     <div className=" booking-detail space-y-6">
       <div className="flex flex-wrap justify-between gap-3">
         <BackButton>Details</BackButton>
-        {role === 'carrier' && (
+        {role !== 'admin' && (
             <BrandButton onClick={() => window.location.href = `tel:${booking.phone}`}>
                 Call Now
             </BrandButton>
@@ -420,7 +426,72 @@ export default  function BookingDetailPage() {
              
             </div>
           )}
+
+          {role === 'pilot-car-manager' && (
+ 
+            <div className="py-3">
+                {booking.status === 'Pending' && (
+                <div className="min-[26.56rem]:mx-0 mx-auto max-w-[50ch] w-full  flex flex-col gap-6">
+                    <h2 className="font-bold tracking-tight text-black">Fare:</h2>
+
+                    <Input
+                      label="Set Fare"
+                      placeholder="$550"
+                      type="number"
+                      value={fare}
+                      onChange={(event) => setFare(event.target.value)}
+                    />
+
+                    <BrandButton onClick={() => setFareSuccessOpen(true)} className="w-full">
+                      Submit
+                    </BrandButton>
+                </div>
+                )}
+
+                {booking.status === 'Unassigned' && (
+                <div className="min-[26.56rem]:mx-0 mx-auto flex  gap-3">
+                    <BrandButton
+                    type="button"
+                    onClick={() => setAssignDriverOpen(true)}
+                    className="max-w-[50ch] w-full "
+                    >
+                    Assign Driver
+                    </BrandButton>
+                </div>
+                )}
+
+                {booking.status === 'Upcoming' && (
+                <div className="min-[26.56rem]:mx-0 mx-auto flex  gap-3">
+                    <BrandButton onClick={() => setReasonAction('cancel')} className="w-[25ch]">
+                    Cancel Booking
+                    </BrandButton>
+
+                    <BrandButton
+                    type="button"
+                    onClick={() => navigate(`/bookings/reschedule/${bookingId}`)}
+                    className="bg-black w-[25ch]"
+                    >
+                    Reschedule Booking
+                    </BrandButton>
+                </div>
+                )}
+
+                {booking.status === 'Completed' && (
+                <div className="min-[26.56rem]:mx-0 mx-auto flex  gap-3">
+                    <BrandButton onClick={() => { setIsEditingReview(false); setFeedbackOpen(true); }} className="w-[25ch]">
+                    Write a Review
+                    </BrandButton>
+
+                </div>
+                )}
+             
+            </div>
+          )}
+          
         </div>
+
+        
+          
           
         {booking.routeImageUrl && (
           <img
@@ -498,6 +569,31 @@ export default  function BookingDetailPage() {
         }
         buttonText="Done"
         onDone={() => setFeedbackSuccessOpen(false)}
+      />
+
+      <SuccessModal
+        open={fareSuccessOpen}
+        title="Successfully!"
+        description="Your payment has been successfully submitted for this booking."
+        buttonText="Done"
+        onDone={() => navigate("/bookings?tab=unassigned")}
+      />
+
+      <DriverAssignmentModal
+        open={assignDriverOpen}
+        onClose={() => setAssignDriverOpen(false)}
+        onAssign={(assignments) => {
+          console.log("Assigned drivers:", assignments);
+          setDriverAssignSuccessOpen(true);
+        }}
+      />
+
+      <SuccessModal
+        open={driverAssignSuccessOpen}
+        title="Successfully!"
+        description="You have successfully assigned a driver."
+        buttonText="Done"
+        onDone={() => setDriverAssignSuccessOpen(false)}
       />
 
       <ConfirmationModal

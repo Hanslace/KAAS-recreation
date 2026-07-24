@@ -7,7 +7,7 @@ export default function OptionGroup({
   className = "",
 }) {
   return (
-    <div className={`flex flex-wrap gap-x-8 gap-y-4 ${className}`}>
+    <div className={`options-group grid grid-cols-3 w-fit gap-x-4 gap-y-4 ${className}`}>
       {options.map((option) => {
         const isSelected = value === option;
         return (
@@ -20,12 +20,12 @@ export default function OptionGroup({
             aria-checked={isSelected}
           >
             <span
-              className={`flex h-6 w-6 items-center justify-center rounded-full border transition-colors ${
+              className={`flex h-[1.5em] w-[1.5em] items-center justify-center rounded-full border transition-colors ${
                 isSelected ? "bg-brand border-brand" : "border-brand/50 bg-white"
               }`}
             >
               {isSelected && (
-                <Icon icon="lucide:check" className="h-3.5 w-3.5 text-white" />
+                <Icon icon="lucide:check" className="h-[1em] w-[1em] text-white" />
               )}
             </span>
             <span className="text-black/70">{option}</span>

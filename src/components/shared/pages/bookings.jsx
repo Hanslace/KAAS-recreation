@@ -7,6 +7,7 @@ import { useSearchParams } from 'react-router';
 import BookingsGrid from "@/components/shared/BookingsGrid";
 
 export default function BookingsPage() {
+  const role = import.meta.env.VITE_APP_ROLE ?? "admin";
   const [searchParams, setSearchParams] = useSearchParams();
   const activeTab = searchParams.get('tab') || 'all';
   const searchQuery = searchParams.get('q') || '';
@@ -28,6 +29,7 @@ export default function BookingsPage() {
   const filterTabs = [
     { id: 'all', label: 'All' },
     { id: 'pending', label: 'Pending' },
+    ...(role === 'pilot-car-manager' ? [{ id: 'unassigned', label: 'Unassigned' }] : []),
     { id: 'upcoming', label: 'Upcoming' },
     { id: 'ongoing', label: 'Ongoing' },
     { id: 'cancelled', label: 'Cancelled' },
