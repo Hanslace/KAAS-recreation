@@ -1,4 +1,4 @@
-import PaymentPage from "@/components/shared/pages/paymentPage";
+import PaymentPage from "@/components/shared/pages/payment";
 
 export default function Page() {
 

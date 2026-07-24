@@ -13,8 +13,6 @@ import RoleSelectPage from "@/app/(auth)/sign-up/role-select/page";
 import CompanyDetailsPage from "@/app/(auth)/sign-up/details/page";
 import CreateProfilePage from "@/app/(auth)/sign-up/create-profile/page";
 import FaresPage from "@/app/(auth)/sign-up/fares/page";
-import PaymentPlanPage from "@/app/(auth)/sign-up/payment/page";
-import PaymentPage from "@/app/(auth)/sign-up/payment/[planId]/page";
 import AddVehiclesPage from "@/app/(auth)/sign-up/add-vehicles/page";
 
 
@@ -31,7 +29,6 @@ import BookingReschedulePage from "@/app/pilot-car-manager/bookings/reschedule/[
 import NotificationsPage from "@/components/shared/pages/notification";
 
 // Payments
-import PaymentsPage from "@/app/carrier/payments/page.jsx";
 
 // Profile
 import ProfilePage from "@/app/carrier/profile/page.jsx";
@@ -43,12 +40,12 @@ import SettingsContentPage from "@/components/shared/pages/settings/[slug]/page.
 import ChangePasswordPage from "@/components/shared/pages/settings/change-password/page.jsx";
 
 // Subscriptions
-import SubscriptionsPage from "@/app/carrier/subscriptions/page.jsx";
-import SubscriptionPaymentPage from "@/app/carrier/subscriptions/[planId]/page.jsx";
+import PlansPage from "@/components/shared/pages/plans";
+import PaymentPage from "@/components/shared/pages/payment";
 
 // Support
-import SupportPage from "@/app/carrier/support/page.jsx";
-import CreateTicketPage from "@/app/carrier/support/create-ticket/page.jsx";
+import SupportPage from "@/components/shared/pages/support.jsx";
+import CreateTicketPage from "@/components/shared/pages/create-ticket.jsx";
 
 // Escorts
 import EscortsPage from "@/app/pilot-car-manager/escorts/page.jsx";
@@ -96,7 +93,7 @@ export const pilotCarManagerRoutes = (
         <Route path="add-vehicles" element={<AddVehiclesPage />} />
         <Route path="fares" element={<FaresPage />} />
         <Route path="payment">
-          <Route index element={<PaymentPlanPage />} />
+          <Route index element={<PlansPage />} />
           <Route path=":planId" element={<PaymentPage />} />
         </Route>
       </Route>
@@ -126,7 +123,8 @@ export const pilotCarManagerRoutes = (
       <Route path="/notifications" element={<NotificationsPage />} />
 
       {/* Payments */}
-      <Route path="/payments" element={<PaymentsPage />} />
+      <Route path="/earnings" element={<></>} />
+      <Route path="/drivers" element={<></>} />
 
       {/* Profile */}
       <Route path="/profile">
@@ -144,8 +142,8 @@ export const pilotCarManagerRoutes = (
 
       {/* Subscriptions */}
       <Route path="/subscriptions">
-        <Route index element={<SubscriptionsPage />} />
-        <Route path=":planId" element={<SubscriptionPaymentPage />} />
+        <Route index element={<PlansPage />} />
+        <Route path=":planId" element={<PaymentPage />} />
       </Route>
 
       {/* Support */}

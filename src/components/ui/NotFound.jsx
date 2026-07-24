@@ -5,6 +5,8 @@ import { Icon } from "@iconify/react";
 
 export default function NotFound(){
   const navigate = useNavigate();
+  const role = import.meta.env.VITE_APP_ROLE ?? "admin";
+  const homeHref = role === "carrier" || role === "pilot-car-driver" ? "/home" : "/dashboard";
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50 px-6">
@@ -29,7 +31,7 @@ export default function NotFound(){
         {/* Actions */}
         <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:justify-center">
           <Link
-            to="/"
+            to={homeHref}
             className="flex items-center justify-center gap-2 rounded-lg bg-brand-gradient px-6 py-3 font-bold text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95"
           >
             <Icon icon="ic:baseline-home" className="h-5 w-5" />

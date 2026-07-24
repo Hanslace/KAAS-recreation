@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useParams, useNavigate } from "react-router";
+import { useParams, useNavigate, useLocation } from "react-router";
 import BackButton from "@/components/ui/BackButton";
 import NotFound from "@/components/ui/NotFound";
 import Input from "@/components/ui/Input";
@@ -40,6 +40,7 @@ const paymentSchema = z.object({
 export default function PaymentPage() {
   const { planId } = useParams();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const [showSuccess, setShowSuccess] = useState(false);
 
@@ -187,7 +188,11 @@ export default function PaymentPage() {
         buttonText="Done"
         onDone={() => {
           setShowSuccess(false);
-          navigate("/sign-up/add-vehicles");
+          if (pathname.startsWith("/sign-up")) {
+            navigate("/sign-up/add-vehicles");
+          } else {
+            navigate(-1);
+          }
         }}
       />
     </div>

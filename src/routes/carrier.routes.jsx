@@ -11,8 +11,6 @@ import SignUpPage from "@/app/(auth)/sign-up/page.jsx";
 import SignUpOtpPage from "@/app/(auth)/sign-up/otp/page";
 import CreateProfilePage from "@/app/(auth)/sign-up/create-profile/page";
 import VehiclesPage from "@/app/(auth)/sign-up/add-vehicles/page";
-import PaymentPlanPage from "@/app/(auth)/sign-up/payment/page";
-import PaymentPage from "@/app/(auth)/sign-up/payment/[planId]/page";
 
 // Protected layout
 import ProtectedLayout from "@/components/shared/layouts/ProtectedLayout.jsx";
@@ -30,10 +28,13 @@ import BookingProfilePage from "@/app/carrier/bookings/profile/[escortId]/page.j
 import BookingReschedulePage from "@/app/carrier/bookings/reschedule/[bookingId]/page.jsx";
 
 // Notifications
-import NotificationsPage from "@/components/shared/pages/notification";
+import NotificationsPage from "@/components/shared/pages/notification.jsx";
 
 // Payments
-import PaymentsPage from "@/app/carrier/payments/page.jsx";
+import PaymentsPage from "@/app/carrier/payments/page";
+
+import PlansPage from "@/components/shared/pages/plans.jsx";
+import PaymentPage from "@/components/shared/pages/payment.jsx";
 
 // Profile
 import ProfilePage from "@/app/carrier/profile/page.jsx";
@@ -44,13 +45,9 @@ import SettingsPage from "@/components/shared/pages/settings/page.jsx";
 import SettingsContentPage from "@/components/shared/pages/settings/[slug]/page.jsx";
 import ChangePasswordPage from "@/components/shared/pages/settings/change-password/page.jsx";
 
-// Subscriptions
-import SubscriptionsPage from "@/app/carrier/subscriptions/page.jsx";
-import SubscriptionPaymentPage from "@/app/carrier/subscriptions/[planId]/page.jsx";
-
 // Support
-import SupportPage from "@/app/carrier/support/page.jsx";
-import CreateTicketPage from "@/app/carrier/support/create-ticket/page.jsx";
+import SupportPage from "@/components/shared/pages/support.jsx";
+import CreateTicketPage from "@/components/shared/pages/create-ticket.jsx";
 
 // Trucks
 import TrucksPage from "@/app/carrier/trucks/page.jsx";
@@ -91,9 +88,9 @@ export const carrierRoutes = (
         <Route index element={<SignUpPage />} />
         <Route path="otp" element={<SignUpOtpPage />} />
         <Route path="create-profile" element={<CreateProfilePage />} />
-        <Route path="vehicles" element={<VehiclesPage />} />
+        <Route path="add-vehicles" element={<VehiclesPage />} />
         <Route path="payment">
-          <Route index element={<PaymentPlanPage />} />
+          <Route index element={<PlansPage />} />
           <Route path=":planId" element={<PaymentPage />} />
         </Route>
       </Route>
@@ -146,8 +143,8 @@ export const carrierRoutes = (
 
       {/* Subscriptions */}
       <Route path="/subscriptions">
-        <Route index element={<SubscriptionsPage />} />
-        <Route path=":planId" element={<SubscriptionPaymentPage />} />
+        <Route index element={<PlansPage mine />} />
+        <Route path=":planId" element={<PaymentPage/>} />
       </Route>
 
       {/* Support */}
