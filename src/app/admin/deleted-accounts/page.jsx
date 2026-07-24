@@ -1,11 +1,11 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { Icon } from '@iconify/react';
 import BackButton from '@/components/ui/BackButton';
 import DataTable from '@/components/shared/DataTable';
-import data from '@/data/deleted-accounts.json';
 import SearchBar from '@/components/ui/SearchBar';
+import carriersData from '@/data/carriers.json';
+import managersData from '@/data/managers.json';
 
 
 const columns = [
@@ -31,11 +31,6 @@ const columns = [
     type: 'text',
   },
   {
-    key: 'licensePlateNumber',
-    label: 'License Plate Number',
-    type: 'text',
-  },
-  {
     key: 'address',
     label: 'Address',
     type: 'text',
@@ -52,21 +47,36 @@ const columns = [
   },
 ];
 
+const deletedAccounts = [
+  ...carriersData.tableData
+    .filter((carrier) => carrier.status === 'Deleted')
+    .map((carrier) => ({
+      ...carrier,
+      id: `carrier-${carrier.slug}`,
+      logo: carrier.logoUrl,
+    })),
+  ...managersData.tableData
+    .filter((manager) => manager.status === 'Deleted')
+    .map((manager) => ({
+      ...manager,
+      id: `manager-${manager.slug}`,
+    })),
+];
+
 export default function DeletedAccountsPage() {
   const [searchValue, setSearchValue] = useState('');
 
   const filteredData = useMemo(() => {
     const search = searchValue.toLowerCase().trim();
 
-    if (!search) return data.tableData;
+    if (!search) return deletedAccounts;
 
-    return data.tableData.filter((item) => {
+    return deletedAccounts.filter((item) => {
       return (
         item.name.toLowerCase().includes(search) ||
         item.email.toLowerCase().includes(search) ||
         item.phoneNumber.toLowerCase().includes(search) ||
-        item.mcNumber.toLowerCase().includes(search) ||
-        item.licensePlateNumber.toLowerCase().includes(search) ||
+        (item.mcNumber ?? '').toLowerCase().includes(search) ||
         item.address.toLowerCase().includes(search) ||
         item.status.toLowerCase().includes(search)
       );
@@ -79,7 +89,7 @@ export default function DeletedAccountsPage() {
         <BackButton href="/settings">Deleted Accounts</BackButton>
 
         <SearchBar value={searchValue} onChange={(event) => setSearchValue(event.target.value)} placeholder="Search here"/>
-          
+
       </div>
 
       <div className="mt-7">

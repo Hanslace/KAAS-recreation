@@ -1,5 +1,5 @@
 import BookingsGrid from '@/components/shared/BookingsGrid';
-import DetailsLayout from '@/components/DetailsContent';
+import DetailsLayout from '@/components/shared/pages/details/DetailsLayout';
 import DocumentsSection from '@/components/shared/DocumentsSection';
 import InfoGrid from '@/components/shared/InfoGrid';
 import NotFound from '@/components/ui/NotFound';
@@ -11,10 +11,10 @@ import managerData from '@/data/managers.json';
 
 
 export default function ManagerDetailsContent() {
-  const { managerid } = useParams();
+  const { id } = useParams();
 
   const currentManager = managerData.tableData.find(
-    (manager) => manager.slug === managerid,
+    (manager) => manager.slug === id,
   );
 
   if (!currentManager) {

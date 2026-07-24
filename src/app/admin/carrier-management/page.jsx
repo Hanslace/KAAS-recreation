@@ -1,6 +1,6 @@
 'use client';
 
-import ListPage from '@/components/ListPage';
+import ListPage from '@/components/shared/ListPage';
 import data from '@/data/carriers.json';
 
 

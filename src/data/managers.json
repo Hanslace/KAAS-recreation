@@ -18,103 +18,113 @@
     }
   ],
   "tableData": [
-  {
-    "id": 1,
-    "slug": "patriot-escort-services-1",
-    "name": "Patriot Escort Services",
-    "logo": "/images/company-logo.png",
-    "email": "patriot.escort@gmail.com",
-    "phoneNumber": "+123 456 7890",
-    "mcNumber": "MC-00001",
-    "dotNumber": "USDOT 2983745",
-    "address": "53C, 14th street, Empire state, USA",
-    "status": "Pending"
-  },
-  {
-    "id": 2,
-    "slug": "patriot-escort-services-2",
-    "name": "Patriot Escort Services",
-    "logo": "/images/company-logo.png",
-    "email": "patriot.escort@gmail.com",
-    "phoneNumber": "+123 456 7890",
-    "mcNumber": "DRV-00001",
-    "dotNumber": "USDOT 2983745",
-    "address": "53C, 14th street, Empire state, USA",
-    "status": "Cancelled"
-  },
-  {
-    "id": 3,
-    "slug": "patriot-escort-services-3",
-    "name": "Patriot Escort Services",
-    "logo": "/images/company-logo.png",
-    "email": "patriot.escort@gmail.com",
-    "phoneNumber": "+123 456 7890",
-    "mcNumber": "DRV-00001",
-    "dotNumber": "USDOT 2983745",
-    "address": "53C, 14th street, Empire state, USA",
-    "status": "Approved"
-  },
-  {
-    "id": 4,
-    "slug": "patriot-escort-services-4",
-    "name": "Patriot Escort Services",
-    "logo": "/images/company-logo.png",
-    "email": "patriot.escort@gmail.com",
-    "phoneNumber": "+123 456 7890",
-    "mcNumber": "DRV-00001",
-    "dotNumber": "USDOT 2983745",
-    "address": "53C, 14th street, Empire state, USA",
-    "status": "Pending"
-  },
-  {
-    "id": 5,
-    "slug": "patriot-escort-services-5",
-    "name": "Patriot Escort Services",
-    "logo": "/images/company-logo.png",
-    "email": "patriot.escort@gmail.com",
-    "phoneNumber": "+123 456 7890",
-    "mcNumber": "DRV-00001",
-    "dotNumber": "USDOT 2983745",
-    "address": "53C, 14th street, Empire state, USA",
-    "status": "Cancelled"
-  },
-  {
-    "id": 6,
-    "slug": "patriot-escort-services-6",
-    "name": "Patriot Escort Services",
-    "logo": "/images/company-logo.png",
-    "email": "patriot.escort@gmail.com",
-    "phoneNumber": "+123 456 7890",
-    "mcNumber": "DRV-00001",
-    "dotNumber": "USDOT 2983745",
-    "address": "53C, 14th street, Empire state, USA",
-    "status": "Approved"
-  },
-  {
-    "id": 7,
-    "slug": "patriot-escort-services-7",
-    "name": "Patriot Escort Services",
-    "logo": "/images/company-logo.png",
-    "email": "patriot.escort@gmail.com",
-    "phoneNumber": "+123 456 7890",
-    "mcNumber": "DRV-00001",
-    "dotNumber": "USDOT 2983745",
-    "address": "53C, 14th street, Empire state, USA",
-    "status": "Pending"
-  },
-  {
-    "id": 8,
-    "slug": "patriot-escort-services-8",
-    "name": "Patriot Escort Services",
-    "logo": "/images/company-logo.png",
-    "email": "patriot.escort@gmail.com",
-    "phoneNumber": "+123 456 7890",
-    "mcNumber": "DRV-00001",
-    "dotNumber": "USDOT 2983745",
-    "address": "53C, 14th street, Empire state, USA",
-    "status": "Cancelled"
-  }
-]
+    {
+      "id": 9,
+      "slug": "patriot-escort-services-1",
+      "name": "Patriot Escort Services",
+      "logo": "/images/company-logo-2.jpg",
+      "email": "patriot.escort@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "MC-00001",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th Street, Empire State, USA",
+      "status": "Deleted"
+    },
+    {
+      "id": 1,
+      "slug": "patriot-escort-services-1",
+      "name": "Patriot Escort Services",
+      "logo": "/images/company-logo.png",
+      "email": "patriot.escort@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "MC-00001",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Pending"
+    },
+    {
+      "id": 2,
+      "slug": "patriot-escort-services-2",
+      "name": "Patriot Escort Services",
+      "logo": "/images/company-logo.png",
+      "email": "patriot.escort@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "DRV-00001",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Cancelled"
+    },
+    {
+      "id": 3,
+      "slug": "patriot-escort-services-3",
+      "name": "Patriot Escort Services",
+      "logo": "/images/company-logo.png",
+      "email": "patriot.escort@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "DRV-00001",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Approved"
+    },
+    {
+      "id": 4,
+      "slug": "patriot-escort-services-4",
+      "name": "Patriot Escort Services",
+      "logo": "/images/company-logo.png",
+      "email": "patriot.escort@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "DRV-00001",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Pending"
+    },
+    {
+      "id": 5,
+      "slug": "patriot-escort-services-5",
+      "name": "Patriot Escort Services",
+      "logo": "/images/company-logo.png",
+      "email": "patriot.escort@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "DRV-00001",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Cancelled"
+    },
+    {
+      "id": 6,
+      "slug": "patriot-escort-services-6",
+      "name": "Patriot Escort Services",
+      "logo": "/images/company-logo.png",
+      "email": "patriot.escort@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "DRV-00001",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Approved"
+    },
+    {
+      "id": 7,
+      "slug": "patriot-escort-services-7",
+      "name": "Patriot Escort Services",
+      "logo": "/images/company-logo.png",
+      "email": "patriot.escort@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "DRV-00001",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Pending"
+    },
+    {
+      "id": 8,
+      "slug": "patriot-escort-services-8",
+      "name": "Patriot Escort Services",
+      "logo": "/images/company-logo.png",
+      "email": "patriot.escort@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "mcNumber": "DRV-00001",
+      "dotNumber": "USDOT 2983745",
+      "address": "53C, 14th street, Empire state, USA",
+      "status": "Cancelled"
+    }
+  ]
 }
-
-

@@ -31,6 +31,7 @@ export default function DataTable({ data, columns, path, pageSize = PAGE_SIZE })
   const dropdownRef = useRef(null);
 
   const [deleteTarget, setDeleteTarget] = useState(null);
+  const [restoreTarget, setRestoreTarget] = useState(null);
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -77,6 +78,16 @@ export default function DataTable({ data, columns, path, pageSize = PAGE_SIZE })
   const handleDeleteConfirm = () => {
     console.log(`Deleting row ${deleteTarget?.slug}`);
     setDeleteTarget(null);
+  };
+
+  const handleRestoreClick = (row) => {
+    setOpenDropdownSlug(null);
+    setRestoreTarget(row);
+  };
+
+  const handleRestoreConfirm = () => {
+    console.log(`Restoring row ${restoreTarget?.slug}`);
+    setRestoreTarget(null);
   };
 
   return (
@@ -325,7 +336,7 @@ export default function DataTable({ data, columns, path, pageSize = PAGE_SIZE })
                           {/* 3. Actions Visible ONLY when status is Deleted */}
                           {currentStatus === 'Deleted' && (
                             <button
-                              onClick={() => handleAction('restore', row.slug)}
+                              onClick={() => handleRestoreClick(row)}
                               className="flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2  font-medium text-red-600 hover:bg-red-100/80 transition w-full text-left"
                             >
                               <Icon icon="solar:restart-bold" className="h-4 w-4" />
@@ -371,6 +382,17 @@ export default function DataTable({ data, columns, path, pageSize = PAGE_SIZE })
         confirmText="Yes"
         onCancel={() => setDeleteTarget(null)}
         onConfirm={handleDeleteConfirm}
+      />
+
+      <ConfirmationModal
+        open={restoreTarget !== null}
+        icon="ic:baseline-restore-from-trash"
+        title="Restore!"
+        description="Are you sure you want to restore this row?"
+        cancelText="No"
+        confirmText="Yes"
+        onCancel={() => setRestoreTarget(null)}
+        onConfirm={handleRestoreConfirm}
       />
     </div>
   );

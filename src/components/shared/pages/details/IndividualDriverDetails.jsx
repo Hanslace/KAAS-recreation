@@ -1,15 +1,17 @@
 
 import bookings from '@/data/data.json'
-import drivers from "@/data/company-drivers.json";
+import drivers from "@/data/individual-drivers.json";
 import BookingsGrid from "@/components/shared/BookingsGrid";
 import InfoGrid from "@/components/shared/InfoGrid";
-import DetailsLayout from "@/components/DetailsContent";
+import DetailsLayout from "@/components/shared/pages/details/DetailsLayout";
 import AttachmentImage from "@/components/ui/AttachmentImage";
+import DocumentsSection from '@/components/shared/DocumentsSection';
 import { useParams } from 'react-router';
 import NotFound from '@/components/ui/NotFound';
 
+// Assuming VehicleCard is stored here
 
-export default function CompanyDriverContent() {
+export default  function IndividualDriverContent() {
   const { driverid } = useParams();
   
   const currentDriver = drivers.tableData.find(
@@ -39,67 +41,90 @@ export default function CompanyDriverContent() {
       <InfoGrid
         fields={[
           {
-            label: 'Company Name',
-            value: 'Patriot Escort Services',
+            label: 'Address',
+            value: '53C, 14th Street, Empire State, USA',
           },
           {
+            label: 'MC Number',
+            value: 'MC-845672',
+          },
+          {
+            label: 'DOT Number',
+            value: 'USDOT 2983745',
+          },
+        ]}
+      />
+
+      <DocumentsSection/>
+
+      {/* Pilot car details */}
+      <InfoGrid
+        heading="Pilot Car Info"
+        fields={[
+          {
             label: 'Escort Name',
-            value: 'Falcon Hauler',
+            value: 'Road Guardian',
           },
           {
             label: 'Escort Type',
             value: 'Front Escort',
           },
           {
-            label: 'Driver ID',
-            value: 'DRV-00001',
+            label: 'License Plate Number',
+            value: 'CDL-A TX 5678901',
           },
           {
-            label: 'Address',
-            value: '53C, 14th Street, Empire State, USA',
+            label: 'VIN Number',
+            value: '1HGCM82633A123456',
+          },
+          {
+            label: 'Registration Number',
+            value: 'REG-TX-98213476',
           },
         ]}
       />
 
-      <div className="grid grid-cols-1 gap-10 min-[37.5rem]:grid-cols-2">
-        {/* License */}
-        <div className="border-b-[3px] border-gray-100 pb-5">
-          <h3 className="mb-5 main-heading font-bold tracking-tight text-black">
-            License:
-          </h3>
+      {/* Pilot car attachments */}
+      <div className="max-w-[15.25rem] border-b-[3px] border-gray-100 pb-5">
+        <h3 className="mb-4 main-heading font-bold tracking-tight text-black">
+          Attachment:
+        </h3>
 
-          <div className="flex flex-wrap items-start gap-4">
-            <AttachmentImage
-              src="/images/id-front.jpg"
-              alt="Driver license front"
-            />
+        <div className="flex flex-wrap items-start gap-4">
+          <AttachmentImage
+            src="/images/car.jpg"
+            alt="Pilot car attachment one"
+          />
 
-            <AttachmentImage
-              src="/images/id-back.jpg"
-              alt="Driver license back"
-            />
-          </div>
-        </div>
-
-        {/* Certification */}
-        <div className="border-b-[3px] border-gray-100 pb-5">
-          <h3 className="mb-5 main-heading font-bold tracking-tight text-black">
-            Certification:
-          </h3>
-
-          <div className="flex flex-wrap items-start gap-4">
-            <AttachmentImage
-              src="/images/permit-1.jpg"
-              alt="Driver certification"
-            />
-
-            <AttachmentImage
-              src="/images/permit-2.jpg"
-              alt="Training certification"
-            />
-          </div>
+          <AttachmentImage
+            src="/images/car.jpg"
+            alt="Pilot car attachment two"
+          />
         </div>
       </div>
+
+      {/* Fare details */}
+      <InfoGrid
+        heading="Fares Info"
+        fields={[
+          {
+            label: 'Per Day',
+            value: '$600',
+          },
+          {
+            label: 'Per Mile',
+            value: '$2.5',
+          },
+          {
+            label: 'Overnight',
+            value: '$800',
+          },
+          {
+            label: 'Custom',
+            value: '$200',
+          },
+        ]}
+      />
 
       { status === "Cancelled" && (
         <div className="">
@@ -107,7 +132,7 @@ export default function CompanyDriverContent() {
             Reason:
           </h3>
 
-          <p className="mt-2 leading-relaxed tracking-tight text-black/50">
+          <p className="mt-2  leading-relaxed tracking-tight text-black/50">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

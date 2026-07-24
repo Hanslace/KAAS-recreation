@@ -19,7 +19,7 @@ import BookingDetailPage from "@/components/shared/pages/bookingsDetail";
 
 // Carrier management
 import CarrierManagementPage from "@/app/admin/carrier-management/page.jsx";
-import CarrierDetailsPage from "@/app/admin/carrier-management/CarrierDetailsPage.jsx";
+import CarrierDetailsPage from "@/app/admin/carrier-management/[id]/CarrierDetailsPage.jsx";
 import TruckDetailsPage from "@/app/admin/carrier-management/TruckDetailsPage.jsx";
 
 // Notifications
@@ -31,15 +31,15 @@ import CompanyDriverDetailsPage from "@/app/admin/pilot-car-management/company-d
 import IndividualDriversPage from "@/app/admin/pilot-car-management/individual-drivers/page.jsx";
 import IndividualDriverDetailsPage from "@/app/admin/pilot-car-management/individual-drivers/[driverid]/page.jsx";
 import ManagersPage from "@/app/admin/pilot-car-management/managers/page.jsx";
-import ManagerDetailsPage from "@/app/admin/pilot-car-management/managers/[managerid]/page.jsx";
-import ManagerEscortsPage from "@/app/admin/pilot-car-management/managers/[managerid]/escorts/page.jsx";
-import ManagerEscortDetailsPage from "@/app/admin/pilot-car-management/managers/[managerid]/escorts/[escortId]/page.jsx";
+import ManagerDetailsPage from "@/app/admin/pilot-car-management/managers/[id]/page.jsx";
+import ManagerEscortsPage from "@/app/admin/pilot-car-management/managers/[id]/escorts/page.jsx";
+import ManagerEscortDetailsPage from "@/app/admin/pilot-car-management/managers/[id]/escorts/[escortId]/page.jsx";
 
 // Settings
 import SettingsPage from "@/components/shared/pages/settings/page";
 import ChangePasswordPage from "@/components/shared/pages/settings/change-password/page";
 import DeletedAccountsPage from "@/app/admin/deleted-accounts/page";
-import DeletedAccountDetailsPage from "@/app/admin/deleted-accounts/[slug]/page";
+import DeletedAccountDetailsPage from "@/app/admin/deleted-accounts/[id]/page";
 import SettingsContentPage from "@/components/shared/pages/settings/[slug]/page";
 
 // Subscriptions
@@ -109,8 +109,8 @@ export const adminRoutes =  (
 
         <Route path="/carrier-management">
           <Route index element={<CarrierManagementPage />} />
-          <Route path=":carrierid" element={<CarrierDetailsPage />} />
-          <Route path=":carrierid/truck/:truckId" element={<TruckDetailsPage />} />
+          <Route path=":id" element={<CarrierDetailsPage />} />
+          <Route path=":id/truck/:truckId" element={<TruckDetailsPage />} />
         </Route>
 
         <Route path="/notifications" element={<NotificationsPage />} />
@@ -118,19 +118,19 @@ export const adminRoutes =  (
         <Route path="/pilot-car-management">
           <Route path="company-drivers">
             <Route index element={<CompanyDriversPage />} />
-            <Route path=":driverid" element={<CompanyDriverDetailsPage />} />
+            <Route path=":id" element={<CompanyDriverDetailsPage />} />
           </Route>
 
           <Route path="individual-drivers">
             <Route index element={<IndividualDriversPage />} />
-            <Route path=":driverid" element={<IndividualDriverDetailsPage />} />
+            <Route path=":id" element={<IndividualDriverDetailsPage />} />
           </Route>
 
           <Route path="managers">
             <Route index element={<ManagersPage />} />
-            <Route path=":managerid" element={<ManagerDetailsPage />} />
-            <Route path=":managerid/escorts" element={<ManagerEscortsPage />} />
-            <Route path=":managerid/escorts/:escortId" element={<ManagerEscortDetailsPage />} />
+            <Route path=":id" element={<ManagerDetailsPage />} />
+            <Route path=":id/escorts" element={<ManagerEscortsPage />} />
+            <Route path=":id/escorts/:escortId" element={<ManagerEscortDetailsPage />} />
           </Route>
         </Route>
 
@@ -140,7 +140,7 @@ export const adminRoutes =  (
           <Route path="change-password" element={<ChangePasswordPage />} />
           <Route path="deleted-accounts">
             <Route index element={<DeletedAccountsPage />} />
-            <Route path=":slug" element={<DeletedAccountDetailsPage />} />
+            <Route path=":id" element={<DeletedAccountDetailsPage />} />
           </Route>
           <Route path=":slug" element={<SettingsContentPage />} />
         </Route>

@@ -1,13 +1,13 @@
 import BookingsGrid from '@/components/shared/BookingsGrid';
 import InfoGrid from '@/components/shared/InfoGrid';
-import DetailsLayout from '@/components/DetailsContent';
+import DetailsLayout from '@/components/shared/pages/details/DetailsLayout';
 import NotFound from '@/components/ui/NotFound';
 import { useParams } from 'react-router';
 
 import vehicles from '@/data/trucks.json';
 import bookings from '@/data/data.json';
 import carrierData from '@/data/carriers.json';
-import VehicleGrid from './shared/VehicleGrid';
+import VehicleGrid from '../../VehicleGrid';
 
 
 
@@ -29,10 +29,10 @@ const truckFields = [
 
 
 export default function CarrierDetailsContent() {
-  const { carrierid } = useParams();
+  const { id } = useParams();
 
   const currentCarrier = carrierData.tableData.find(
-    (carrier) => carrier.slug === carrierid,
+    (carrier) => carrier.slug === id,
   );
 
   if (!currentCarrier) {

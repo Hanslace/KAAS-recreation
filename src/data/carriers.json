@@ -19,6 +19,16 @@
   ],
   "tableData": [
     {
+      "id": 9,
+      "slug": "abc-logistics-1",
+      "name": "ABC Logistics LLC",
+      "email": "abclogistics.llc@gmail.com",
+      "phoneNumber": "+123 456 7890",
+      "address": "53C, 14th Street, Empire State, USA",
+      "status": "Deleted",
+      "logoUrl": "/images/company-logo.png"
+    },
+    {
       "id": 1,
       "slug": "abc-logistics-1",
       "name": "ABC Logistics LLC",
