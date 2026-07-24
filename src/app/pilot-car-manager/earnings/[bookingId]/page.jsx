@@ -1,4 +1,4 @@
-import BookingDetailPage from "@/components/shared/pages/bookingsDetails";
+import BookingDetailPage from "@/components/shared/pages/bookingsDetail";
 
 
 

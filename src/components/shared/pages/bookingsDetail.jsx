@@ -150,7 +150,7 @@ export default  function BookingDetailPage() {
             <div>
               {role === 'carrier' ? (
                 <Link
-                  to={`/bookings/profile/${bookingId}`}
+                  to={`/profile/${bookingId}`}
                   className="flex items-center gap-1"
                 >
                   <img
@@ -658,7 +658,9 @@ export default  function BookingDetailPage() {
         originalFare={booking.price}
         onSubmit={({ option, fare }) => {
           console.log("Marked as paid:", { option, fare });
+          
           setPaymentModalOpen(false);
+          navigate(`/earnings/${bookingId}`)
         }}
       />
 

@@ -37,7 +37,7 @@
       "icon": "uis:calendar"
     }
   },
-    "bookingsList": [
+  "bookingsList": [
     {
       "id": 1,
       "slug": "abc-logistics-1",
@@ -96,7 +96,8 @@
       "dateTime": "Mar 12, 2026 | 11:00 AM",
       "pickupLocation": "IL, Michigan Ave Chicago, 405",
       "dropoffLocation": "12C, Corporate Parkway, Aurora, USA",
-      "distanceAway": "12.0 km away"
+      "distanceAway": "12.0 km away",
+      "paid": true
     },
     {
       "id": 5,
@@ -143,6 +144,22 @@
       "pickupLocation": "OH, Cedar Point Rd Sandusky, 19",
       "dropoffLocation": "228, Riverside Dr, Columbus, USA",
       "distanceAway": "5.4 km away"
+    },
+    {
+      "id": 8,
+      "slug": "abc-logistics-8",
+      "price": "$715",
+      "status": "Completed",
+      "imageUrl": "/images/truck.jpg",
+      "companyLogoUrl": "/images/truck.jpg",
+      "companyName": "Redline Transport Co.",
+      "rating": 4.6,
+      "reviewCount": 52,
+      "dateTime": "Mar 10, 2026 | 09:45 AM",
+      "pickupLocation": "WA, Harbor Ave Seattle, 33",
+      "dropoffLocation": "18B, Pine Street, Portland, USA",
+      "distanceAway": "6.7 km away",
+      "paid": false
     }
   ],
   "bookingDetails": [
@@ -166,10 +183,12 @@
       "escort1Place": "Front Escort",
       "escort2Place": "Left Escort",
       "paymentMethod": "Cash",
-      "permitImages": ["/images/permit-1.jpg", "/images/permit-2.jpg"],
+      "permitImages": [
+        "/images/permit-1.jpg",
+        "/images/permit-2.jpg"
+      ],
       "latitude": 31.5204,
       "longitude": 74.3587,
-
       "trailerDetails": {
         "mcNumber": "MC-845672",
         "dotNumber": "USDOT 2983745",
@@ -183,7 +202,6 @@
         "name": "Patriot Escort Services",
         "rating": 4.8,
         "reviewCount": 124
-
       }
     },
     {
@@ -206,7 +224,10 @@
       "escort1Place": "Front Escort",
       "escort2Place": "Rear Escort",
       "paymentMethod": "Card",
-      "permitImages": ["/images/permit-1.jpg", "/images/permit-2.jpg"],
+      "permitImages": [
+        "/images/permit-1.jpg",
+        "/images/permit-2.jpg"
+      ],
       "latitude": 31.5204,
       "longitude": 74.3587,
       "trailerDetails": {
@@ -266,7 +287,10 @@
       "escort1Place": "Front Escort",
       "escort2Place": "Not Required",
       "paymentMethod": "Cash",
-      "permitImages": ["/images/permit-1.jpg", "/images/permit-2.jpg"],
+      "permitImages": [
+        "/images/permit-1.jpg",
+        "/images/permit-2.jpg"
+      ],
       "latitude": 31.5204,
       "longitude": 74.3587,
       "trailerDetails": {
@@ -316,7 +340,10 @@
       "escort1Place": "Front Escort",
       "escort2Place": "Rear Escort",
       "paymentMethod": "Card",
-      "permitImages": ["/images/permit-1.jpg", "/images/permit-2.jpg"],
+      "permitImages": [
+        "/images/permit-1.jpg",
+        "/images/permit-2.jpg"
+      ],
       "routeImageUrl": null,
       "trailerDetails": {
         "mcNumber": "MC-981245",
@@ -343,14 +370,15 @@
             "imageUrl": "https://i.pravatar.cc/120?img=42"
           }
         ]
-      }
+      },
+      "paid": true
     },
     {
       "id": 5,
       "slug": "abc-logistics-5",
       "price": "$630",
       "status": "Cancelled",
-      "reason" :  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+      "reason": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
       "imageUrl": "/images/truck.jpg",
       "companyLogoUrl": "/images/company-logo.png",
       "companyName": "National Transit Group",
@@ -366,7 +394,10 @@
       "escort1Place": "Front Escort",
       "escort2Place": "Not Required",
       "paymentMethod": "Cash",
-      "permitImages": ["/images/permit-1.jpg", "/images/permit-2.jpg"],
+      "permitImages": [
+        "/images/permit-1.jpg",
+        "/images/permit-2.jpg"
+      ],
       "routeImageUrl": null,
       "trailerDetails": {
         "mcNumber": "MC-672491",
@@ -388,7 +419,7 @@
       "slug": "abc-logistics-6",
       "price": "$675",
       "status": "Reschedule",
-      "reason" :  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+      "reason": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
       "imageUrl": "/images/truck.jpg",
       "companyLogoUrl": "/images/company-logo.png",
       "companyName": "Vanguard Hauling",
@@ -396,7 +427,7 @@
       "rating": 4.8,
       "reviewCount": 143,
       "dateTime": "Mar 20, 2026 | 01:00 PM",
-       "previousDateTime": "Mar 19, 2026 | 03:30 PM",
+      "previousDateTime": "Mar 19, 2026 | 03:30 PM",
       "description": "Booking requires schedule adjustment due to route timing updates. Escort team and carrier details are already assigned.",
       "pickupLocation": "GA, Peachtree St Atlanta, 210",
       "dropoffLocation": "55K, Riverfront Way, Savannah, USA",
@@ -406,7 +437,10 @@
       "escort1Place": "Front Escort",
       "escort2Place": "Left Escort",
       "paymentMethod": "Card",
-      "permitImages": ["/images/permit-1.jpg", "/images/permit-2.jpg"],
+      "permitImages": [
+        "/images/permit-1.jpg",
+        "/images/permit-2.jpg"
+      ],
       "latitude": 31.5204,
       "longitude": 74.3587,
       "trailerDetails": {
@@ -444,7 +478,10 @@
       "escort1Place": "Front Escort",
       "escort2Place": "Left Escort",
       "paymentMethod": "Cash",
-      "permitImages": ["/images/permit-1.jpg", "/images/permit-2.jpg"],
+      "permitImages": [
+        "/images/permit-1.jpg",
+        "/images/permit-2.jpg"
+      ],
       "latitude": 31.5204,
       "longitude": 74.3587,
       "trailerDetails": {
@@ -454,6 +491,59 @@
         "registrationNumber": "REG-TX-98213476",
         "vinNumber": "Approx. 1HGCM82633A123456",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
+      }
+    },
+    {
+      "id": 8,
+      "slug": "abc-logistics-8",
+      "price": "$715",
+      "status": "Completed",
+      "imageUrl": "/images/truck.jpg",
+      "companyLogoUrl": "/images/company-logo.png",
+      "companyName": "Redline Transport Co.",
+      "phone": "+15557890123",
+      "rating": 4.6,
+      "reviewCount": 52,
+      "dateTime": "Mar 10, 2026 | 09:45 AM",
+      "pickupLocation": "WA, Harbor Ave Seattle, 33",
+      "dropoffLocation": "18B, Pine Street, Portland, USA",
+      "totalMile": "210",
+      "fares": "Per Day $690, Per Mile $2.90, Overnight $870",
+      "numberOfEscorts": 2,
+      "escort1Place": "Front Escort",
+      "escort2Place": "Rear Escort",
+      "paymentMethod": "Card",
+      "permitImages": [
+        "/images/permit-1.jpg",
+        "/images/permit-2.jpg"
+      ],
+      "routeImageUrl": null,
+      "paid": false,
+      "trailerDetails": {
+        "mcNumber": "MC-772104",
+        "dotNumber": "USDOT 6284731",
+        "licensePlateNumber": "CDL-A WA 9021847",
+        "registrationNumber": "REG-WA-38271094",
+        "vinNumber": "Approx. 2FMZA5H79HBK12345",
+        "description": "Trailer inspection and permit verification completed successfully before delivery closeout."
+      },
+      "escortCompany": {
+        "logoUrl": "/images/company-logo.png",
+        "name": "Cascade Pilot Car Services",
+        "rating": 4.6,
+        "reviewCount": 52,
+        "drivers": [
+          {
+            "name": "Marcus Bell",
+            "role": "Front Escort",
+            "imageUrl": "https://i.pravatar.cc/120?img=45"
+          },
+          {
+            "name": "Olivia Grant",
+            "role": "Rear Escort",
+            "imageUrl": "https://i.pravatar.cc/120?img=46"
+          }
+        ]
       }
     }
   ]

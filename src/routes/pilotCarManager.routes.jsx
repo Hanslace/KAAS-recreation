@@ -21,9 +21,9 @@ import ProtectedLayout from "@/components/shared/layouts/ProtectedLayout.jsx";
 
 
 // Bookings
-import BookingsPage from "@/app/pilot-car-manager/bookings/page.jsx";
-import BookingDetailsPage from "@/app/pilot-car-manager/bookings/[bookingId]/page.jsx";
-import BookingReschedulePage from "@/app/pilot-car-manager/bookings/reschedule/[bookingId]/page.jsx";
+import BookingsPage from "@/components/shared/pages/bookings";
+import BookingDetailPage from "@/components/shared/pages/bookingsDetail";
+import BookingReschedulePage from "@/components/shared/pages/rescheduleBooking.jsx";
 
 // Notifications
 import NotificationsPage from "@/components/shared/pages/notification";
@@ -54,7 +54,9 @@ import EditEscortPage from "@/app/pilot-car-manager/escorts/[escortId]/edit/page
 import AddEscortPage from "@/app/pilot-car-manager/escorts/add/page.jsx";
 import NotFound from "@/components/ui/NotFound";
 import ManagerDashboard from "@/app/pilot-car-manager/dashboard/page";
-
+import EarningsPage from "@/app/pilot-car-manager/earnings/page";
+import EarningDetailPage from "@/components/shared/pages/earningDetail";
+import DriversPage from "@/app/pilot-car-manager/driver/page";
 
 
 const sidebarLinks = [
@@ -116,15 +118,19 @@ export const pilotCarManagerRoutes = (
         <Route index element={<BookingsPage />} />
         {/* Static routes above dynamic param */}
         <Route path="reschedule/:bookingId" element={<BookingReschedulePage />} />
-        <Route path=":bookingId" element={<BookingDetailsPage />} />
+        <Route path=":bookingId" element={<BookingDetailPage />} />
       </Route>
 
       {/* Notifications */}
       <Route path="/notifications" element={<NotificationsPage />} />
 
-      {/* Payments */}
-      <Route path="/earnings" element={<></>} />
-      <Route path="/drivers" element={<></>} />
+      {/* Earnings */}
+      <Route path="/earnings">
+        <Route index element={<EarningsPage />} />
+        <Route path=":bookingId" element={<EarningDetailPage />} />
+      </Route>
+
+      <Route path="/drivers" element={<DriversPage/>} />
 
       {/* Profile */}
       <Route path="/profile">

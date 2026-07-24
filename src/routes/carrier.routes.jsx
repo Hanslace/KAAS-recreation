@@ -22,10 +22,10 @@ import DriverDetailPage from "@/app/carrier/home/[id]/page.jsx";
 import PreviousBookingsPage from "@/app/carrier/home/previous-bookings/page.jsx";
 
 // Bookings
-import BookingsPage from "@/app/carrier/bookings/page.jsx";
-import BookingDetailsPage from "@/app/carrier/bookings/[bookingId]/page.jsx";
-import BookingProfilePage from "@/app/carrier/bookings/profile/[escortId]/page.jsx";
-import BookingReschedulePage from "@/app/carrier/bookings/reschedule/[bookingId]/page.jsx";
+import BookingsPage from "@/components/shared/pages/bookings";
+import BookingDetailPage from "@/components/shared/pages/bookingsDetail";
+import BookingProfilePage from "@/app/carrier/profile/[escortId]/page.jsx";
+import BookingReschedulePage from "@/components/shared/pages/rescheduleBooking";
 
 // Notifications
 import NotificationsPage from "@/components/shared/pages/notification.jsx";
@@ -116,9 +116,9 @@ export const carrierRoutes = (
       <Route path="/bookings">
         <Route index element={<BookingsPage />} />
         {/* Static routes above dynamic param */}
-        <Route path="profile/:escortId" element={<BookingProfilePage />} />
+        
         <Route path="reschedule/:bookingId" element={<BookingReschedulePage />} />
-        <Route path=":bookingId" element={<BookingDetailsPage />} />
+        <Route path=":bookingId" element={<BookingDetailPage />} />
       </Route>
 
       {/* Notifications */}
@@ -129,8 +129,10 @@ export const carrierRoutes = (
 
       {/* Profile */}
       <Route path="/profile">
+        
         <Route index element={<ProfilePage />} />
         <Route path="edit" element={<EditProfilePage />} />
+        <Route path=":escortId" element={<BookingProfilePage />} />
       </Route>
 
       {/* Settings */}

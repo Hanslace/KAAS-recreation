@@ -57,7 +57,7 @@ const subscriptionColumns =
     },
   ];
 
-export default function BlankPage() {
+export default function Page() {
   const [selectedType, setSelectedType] = useState('all');
   const [selectedDuration, setSelectedDuration] = useState('all');
   const [searchValue, setSearchValue] = useState('');

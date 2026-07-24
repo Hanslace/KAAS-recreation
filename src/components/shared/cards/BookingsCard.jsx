@@ -22,7 +22,7 @@ export default function BookingsCard({ booking, selectable = false, selected = f
   const handleProfileClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    navigate(`/bookings/profile/${booking.slug}`);
+    navigate(`/profile/${booking.slug}`);
   };
 
   const companyInfo = (

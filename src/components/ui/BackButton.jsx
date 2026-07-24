@@ -46,7 +46,7 @@ export const BackButton= ({
   return (
     <button
       type="button"
-      onClick={() => navigate(-1)}
+      onClick={() => navigate('..')}
       className={buttonStyles}
       aria-label={typeof children === 'string' ? children : 'Go back'}
     >

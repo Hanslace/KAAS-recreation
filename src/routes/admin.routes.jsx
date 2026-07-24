@@ -14,8 +14,8 @@ import ProtectedLayout from "@/components/shared/layouts/ProtectedLayout.jsx";
 import DashboardPage from "@/app/admin/dashboard/page.jsx";
 
 // Bookings
-import BookingsPage from "@/app/admin/bookings/page.jsx";
-import BookingDetailsPage from "@/app/admin/bookings/[bookingId]/page.jsx";
+import BookingsPage from "@/components/shared/pages/bookings";
+import BookingDetailPage from "@/components/shared/pages/bookingsDetail";
 
 // Carrier management
 import CarrierManagementPage from "@/app/admin/carrier-management/page.jsx";
@@ -114,13 +114,13 @@ export const adminRoutes =  (
 
         <Route path="/bookings">
           <Route index element={<BookingsPage />} />
-          <Route path=":bookingId" element={<BookingDetailsPage />} />
+          <Route path=":bookingId" element={<BookingDetailPage />} />
         </Route>
 
         <Route path="/carrier-management">
           <Route index element={<CarrierManagementPage />} />
           <Route path=":carrierid" element={<CarrierDetailsPage />} />
-          <Route path=":carrierid/truck/:truckid" element={<TruckDetailsPage />} />
+          <Route path=":carrierid/truck/:truckId" element={<TruckDetailsPage />} />
         </Route>
 
         <Route path="/notifications" element={<NotificationsPage />} />

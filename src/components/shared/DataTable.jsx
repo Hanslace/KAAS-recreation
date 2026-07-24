@@ -15,6 +15,7 @@ const statusClasses = {
   Opened: 'bg-green-100 text-green-500',
   Completed: 'bg-green-100 text-green-500',
   Refunded: 'bg-red-100 text-red-500',
+  Paid: 'bg-green-100 text-green-500',
 };
 
 const PAGE_SIZE = 10;
@@ -165,6 +166,28 @@ export default function DataTable({ data, columns, path, pageSize = PAGE_SIZE })
                           />
                         ))}
                       </div>
+                    </td>
+                  );
+                }
+
+                if (column.type === 'availability') {
+                  return (
+                    <td
+                      key={String(column.key)}
+                      className={`${cellRounded}`}
+                    >
+                      {value ? (
+                        <span className="inline-flex items-center gap-1.5 text-black/70">
+                          <span
+                            className={`h-2 w-2 rounded-full ${
+                              String(value) === 'Online' ? 'bg-green-500' : 'bg-gray-400'
+                            }`}
+                          />
+                          {String(value)}
+                        </span>
+                      ) : (
+                        <span className="text-black/30">-</span>
+                      )}
                     </td>
                   );
                 }
