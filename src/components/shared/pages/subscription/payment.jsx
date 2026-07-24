@@ -41,6 +41,7 @@ export default function PaymentPage() {
   const { planId } = useParams();
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const role = import.meta.env.VITE_APP_ROLE ?? "admin";
 
   const [showSuccess, setShowSuccess] = useState(false);
 
@@ -189,7 +190,7 @@ export default function PaymentPage() {
         onDone={() => {
           setShowSuccess(false);
           if (pathname.startsWith("/sign-up")) {
-            navigate("/sign-up/add-vehicles");
+            navigate(role === "carrier" ? "/sign-up/add-vehicles" : "/sign-up/company-details");
           } else {
             navigate(-1);
           }

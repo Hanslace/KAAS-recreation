@@ -14,8 +14,8 @@ import ProtectedLayout from "@/components/shared/layouts/ProtectedLayout.jsx";
 import DashboardPage from "@/app/admin/dashboard/page.jsx";
 
 // Bookings
-import BookingsPage from "@/components/shared/pages/bookings";
-import BookingDetailPage from "@/components/shared/pages/bookingsDetail";
+import BookingsPage from "@/components/shared/pages/bookings/bookings";
+import BookingDetailPage from "@/components/shared/pages/bookings/bookingsDetail";
 
 // Carrier management
 import CarrierManagementPage from "@/app/admin/carrier-management/page.jsx";

@@ -1,4 +1,4 @@
-import OtpPage from "@/components/shared/pages/otp";
+import OtpPage from "@/components/shared/pages/auth/otp";
 
 export default function Page() {
 

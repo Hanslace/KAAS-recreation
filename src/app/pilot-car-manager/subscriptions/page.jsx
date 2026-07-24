@@ -1,4 +1,4 @@
-import PlansPage from "@/components/shared/pages/plans";
+import PlansPage from "@/components/shared/pages/subscription/plans";
 
 export default function SubscriptionPage() {
   return (

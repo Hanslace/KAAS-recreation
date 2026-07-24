@@ -7,6 +7,7 @@ import { useLocation, useNavigate, useParams } from 'react-router';
 import InputModal from '@/components/shared/modals/InputModal';
 import ConfirmationModal from '@/components/shared/modals/ConfirmationModal';
 import EditDeleteActions from '@/components/ui/EditDeleteActions';
+import EditButton from '@/components/ui/EditButton';
 import driversData from '@/data/company-drivers.json';
 
 
@@ -22,6 +23,7 @@ export default function DetailsLayout({
   logoAlt,
   children,
   manager = false,
+  mine = false 
 
 }) {
      const navigate = useNavigate();
@@ -56,84 +58,90 @@ export default function DetailsLayout({
 
   return (
     <div className='details-layout'>
-      <div className="flex flex-wrap justify-between gap-3">
-        <BackButton>Details</BackButton>
-        {role === 'pilot-car-manager' && status === 'Approved' && (
-          <>
-            <label className="flex items-center gap-2 cursor-pointer select-none">
-              <span className="font-bold text-black">Availability:</span>
+      {mine ? (
+        <h2 className=" main-heading font-bold text-black tracking-tight">
+          Profile
+        </h2>
+      ) : (
+        <div className="flex flex-wrap justify-between gap-3">
+          <BackButton>Details</BackButton>
+          {role === 'pilot-car-manager' && status === 'Approved' && (
+            <>
+              <label className="flex items-center gap-2 cursor-pointer select-none">
+                <span className="font-bold text-black">Availability:</span>
 
-              <button
-                type="button"
-                role="switch"
-                aria-checked={isAvailable}
-                onClick={() => setIsAvailable((previous) => !previous)}
-                className={`relative inline-flex h-[1.2em] w-[2.2em] shrink-0 items-center rounded-full transition-colors ${
-                  isAvailable ? 'bg-green-500' : 'bg-gray-200'
-                }`}
-              >
-                <span
-                  className={`inline-block h-[1em] w-[1em] transform rounded-full bg-white shadow transition-transform ${
-                    isAvailable ? 'translate-x-[1em]' : 'translate-x-[0.1em]'
+                <button
+                  type="button"
+                  role="switch"
+                  aria-checked={isAvailable}
+                  onClick={() => setIsAvailable((previous) => !previous)}
+                  className={`relative inline-flex h-[1.2em] w-[2.2em] shrink-0 items-center rounded-full transition-colors ${
+                    isAvailable ? 'bg-green-500' : 'bg-gray-200'
                   }`}
-                />
-              </button>
-            </label>
-          </>
-        )}
-        {role === 'admin' && (
-          <>
-            {status === 'Pending' && (
-              <div className="min-[26.56rem]:mx-0 mx-auto flex  gap-3">
-                <BrandButton onClick={() => navigate(-1)}>
-                  Approve
-                </BrandButton>
-
-                <BrandButton
-                  type="button"
-                  onClick={() => setReasonAction('cancel')}
-                  className="bg-black"
                 >
-                  Cancel
-                </BrandButton>
-              </div>
-            )}
+                  <span
+                    className={`inline-block h-[1em] w-[1em] transform rounded-full bg-white shadow transition-transform ${
+                      isAvailable ? 'translate-x-[1em]' : 'translate-x-[0.1em]'
+                    }`}
+                  />
+                </button>
+              </label>
+            </>
+          )}
+          {role === 'admin' && (
+            <>
+              {status === 'Pending' && (
+                <div className="min-[26.56rem]:mx-0 mx-auto flex  gap-3">
+                  <BrandButton onClick={() => navigate(-1)}>
+                    Approve
+                  </BrandButton>
 
-            {status === 'Approved' && (
-              <div className="min-[26.56rem]:mx-0 mx-auto flex w-fit gap-3">
-                <BrandButton
-                  type="button"
-                  onClick={() => setReasonAction('block')}
-                >
-                  Block
-                </BrandButton>
-
-                {manager && (
                   <BrandButton
-                    to={`/pilot-car-management/managers/${slugName}/escorts`}
+                    type="button"
+                    onClick={() => setReasonAction('cancel')}
                     className="bg-black"
                   >
-                    View Escorts
+                    Cancel
                   </BrandButton>
-                )}
-              </div>
-            )}
+                </div>
+              )}
 
-            {status === 'Deleted' && (
-              <div className="min-[26.56rem]:mx-0 mx-auto flex w-fit gap-3">
-                <BrandButton
-                  type="button"
-                  onClick={() => setRestoreOpen(true)}
-                >
-                  Restore
-                </BrandButton>
+              {status === 'Approved' && (
+                <div className="min-[26.56rem]:mx-0 mx-auto flex w-fit gap-3">
+                  <BrandButton
+                    type="button"
+                    onClick={() => setReasonAction('block')}
+                  >
+                    Block
+                  </BrandButton>
+
+                  {manager && (
+                    <BrandButton
+                      to={`/pilot-car-management/managers/${slugName}/escorts`}
+                      className="bg-black"
+                    >
+                      View Escorts
+                    </BrandButton>
+                  )}
+                </div>
+              )}
+
+              {status === 'Deleted' && (
+                <div className="min-[26.56rem]:mx-0 mx-auto flex w-fit gap-3">
+                  <BrandButton
+                    type="button"
+                    onClick={() => setRestoreOpen(true)}
+                  >
+                    Restore
+                  </BrandButton>
 
 
-              </div>
-            )}
-          </>
-        )}
-      </div>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      )}
 
       <section
         aria-labelledby={headingId}
@@ -147,17 +155,21 @@ export default function DetailsLayout({
             Personal Info
           </h2>
 
-          <div className='items-center flex gap-2'>
-            {role === 'pilot-car-manager' && currentDriver?.status === 'Approved' && (
-              <EditDeleteActions
-                label="account"
-                onDelete={() => setDeleteAccountOpen(true)}
-                onEdit={() => navigate(`${pathname}/edit`)}
-              />
-            )}
+          {mine ? (
+            <EditButton onEdit={() => navigate(`${pathname}/edit`)} label="profile" />
+          ) : (
+            <div className='items-center flex gap-2'>
+              {role === 'pilot-car-manager' && currentDriver?.status === 'Approved' && (
+                <EditDeleteActions
+                  label="account"
+                  onDelete={() => setDeleteAccountOpen(true)}
+                  onEdit={() => navigate(`${pathname}/edit`)}
+                />
+              )}
 
-            {status && <BrandPill>{status}</BrandPill>}
-          </div>
+              {status && <BrandPill>{status}</BrandPill>}
+            </div>
+          )}
         </div>
 
         <div className="relative flex flex-col items-center sm:items-start sm:flex-row gap-3 pb-3 after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-gray-100">

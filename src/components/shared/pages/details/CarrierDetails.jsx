@@ -28,12 +28,12 @@ const truckFields = [
 
 
 
-export default function CarrierDetailsContent() {
+export default function CarrierDetailsContent({ mine = false }) {
   const { id } = useParams();
 
-  const currentCarrier = carrierData.tableData.find(
-    (carrier) => carrier.slug === id,
-  );
+  const currentCarrier = mine
+    ? carrierData.tableData[0]
+    : carrierData.tableData.find((carrier) => carrier.slug === id);
 
   if (!currentCarrier) {
     return (
@@ -52,6 +52,7 @@ export default function CarrierDetailsContent() {
         email="abcllogisticsas@gmail.com"
         phone="0321 3213233"
         logoSrc="/images/company-logo.png"
+        mine
       >
 
       <InfoGrid
@@ -63,7 +64,7 @@ export default function CarrierDetailsContent() {
           ]}
         />
 
-      { status === "Approved" &&
+      { (status === "Approved" && !mine) &&
         <>
         <div className="mt-8 flex flex-col gap-4">
           <h2 className="main-heading font-bold text-black tracking-tight">

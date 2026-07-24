@@ -1,4 +1,4 @@
-import LoginPage from "@/components/shared/pages/login";
+import LoginPage from "@/components/shared/pages/auth/login";
 
 
 import { Link } from "react-router"; // Import the navigate for programmatic navigation

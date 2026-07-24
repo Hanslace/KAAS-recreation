@@ -1,4 +1,4 @@
-import ProfileFormPage from "@/components/shared/pages/profileForm";
+import ProfileFormPage from "@/components/shared/pages/forms/profileForm";
 import BackButton from "@/components/ui/BackButton";
 
 

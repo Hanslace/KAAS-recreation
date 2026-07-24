@@ -1,5 +1,5 @@
 import InfoGrid from '@/components/shared/InfoGrid';
-import { Icon } from '@iconify/react';
+import EditButton from '@/components/ui/EditButton';
 import { useNavigate } from 'react-router';
 
 
@@ -23,14 +23,7 @@ export default function ProfilePage({
                 >
                   Personal Info
                 </h2>
-                <button
-                  type="button"
-                  onClick={() => navigate('/profile/edit')}
-                  aria-label="Edit review"
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500 text-white transition duration-200 hover:scale-110 active:scale-95"
-                >
-                  <Icon icon="lucide:pencil" className="h-4 w-4" />
-                </button>
+                <EditButton onEdit={() => navigate('/profile/edit')} label="profile" />
                 
               </div>
       

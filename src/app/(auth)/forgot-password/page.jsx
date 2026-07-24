@@ -1,4 +1,4 @@
-import ForgotPasswordPage from "@/components/shared/pages/forgot-password";
+import ForgotPasswordPage from "@/components/shared/pages/auth/forgot-password";
 
 
 export default function CarrierForgotPasswordPage() {

@@ -1,4 +1,4 @@
-import OtpPage from "@/components/shared/pages/otp";
+import OtpPage from "@/components/shared/pages/auth/otp";
 
 export default function SignUpOtpPage() {
   const role = import.meta.env.VITE_APP_ROLE ?? "admin";

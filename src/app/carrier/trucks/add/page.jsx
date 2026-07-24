@@ -1,4 +1,4 @@
-import VehicleForm from "@/components/shared/pages/vehicleForm";
+import VehicleForm from "@/components/shared/pages/forms/vehicleForm";
 
 export default function Page() {
   return <VehicleForm mode="add" />;

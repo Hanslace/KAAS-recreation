@@ -22,7 +22,7 @@ const schema = z.object({
     .regex(/^[0-9]+$/, "DOT number must contain only digits"),
 });
 
-export default function DetailsPage() {
+export default function CompanyDetailsForm() {
   const navigate = useNavigate();
 
   const role = import.meta.env.VITE_APP_ROLE ?? "admin";
@@ -77,7 +77,7 @@ export default function DetailsPage() {
         licenseDocs,
         certificateDocs,
       });
-      navigate("/sign-up/create-profile");
+      navigate("/sign-up/add-vehicles");
     } catch (error) {
       console.error("Submission failed:", error);
     }

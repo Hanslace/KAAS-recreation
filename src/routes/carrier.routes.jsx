@@ -22,10 +22,10 @@ import DriverDetailPage from "@/app/carrier/home/[id]/page.jsx";
 import PreviousBookingsPage from "@/app/carrier/home/previous-bookings/page.jsx";
 
 // Bookings
-import BookingsPage from "@/components/shared/pages/bookings";
-import BookingDetailPage from "@/components/shared/pages/bookingsDetail";
+import BookingsPage from "@/components/shared/pages/bookings/bookings";
+import BookingDetailPage from "@/components/shared/pages/bookings/bookingsDetail";
 import BookingProfilePage from "@/app/carrier/profile/[escortId]/page.jsx";
-import BookingReschedulePage from "@/components/shared/pages/rescheduleBooking";
+import BookingReschedulePage from "@/components/shared/pages/bookings/rescheduleBooking";
 
 // Notifications
 import NotificationsPage from "@/components/shared/pages/notification.jsx";
@@ -33,8 +33,8 @@ import NotificationsPage from "@/components/shared/pages/notification.jsx";
 // Payments
 import PaymentsPage from "@/app/carrier/payments/page";
 
-import PlansPage from "@/components/shared/pages/plans.jsx";
-import PaymentPage from "@/components/shared/pages/payment.jsx";
+import PlansPage from "@/components/shared/pages/subscription/plans.jsx";
+import PaymentPage from "@/components/shared/pages/subscription/payment.jsx";
 
 // Profile
 import ProfilePage from "@/app/carrier/profile/page.jsx";
@@ -46,8 +46,8 @@ import SettingsContentPage from "@/components/shared/pages/settings/[slug]/page.
 import ChangePasswordPage from "@/components/shared/pages/settings/change-password/page.jsx";
 
 // Support
-import SupportPage from "@/components/shared/pages/support.jsx";
-import CreateTicketPage from "@/components/shared/pages/create-ticket.jsx";
+import SupportPage from "@/components/shared/pages/support/support.jsx";
+import CreateTicketPage from "@/components/shared/pages/support/create-ticket.jsx";
 
 // Trucks
 import TrucksPage from "@/app/carrier/trucks/page.jsx";

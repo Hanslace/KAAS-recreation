@@ -10,7 +10,7 @@ import ResetPasswordPage from "@/app/(auth)/forgot-password/reset/page.jsx";
 import SignUpPage from "@/app/(auth)/sign-up/page.jsx";
 import SignUpOtpPage from "@/app/(auth)/sign-up/otp/page";
 import RoleSelectPage from "@/app/(auth)/sign-up/role-select/page";
-import CompanyDetailsPage from "@/app/(auth)/sign-up/details/page";
+import CompanyDetailsPage from "@/app/(auth)/sign-up/company-details/page";
 import CreateProfilePage from "@/app/(auth)/sign-up/create-profile/page";
 import FaresPage from "@/app/(auth)/sign-up/fares/page";
 import AddVehiclesPage from "@/app/(auth)/sign-up/add-vehicles/page";
@@ -21,9 +21,9 @@ import ProtectedLayout from "@/components/shared/layouts/ProtectedLayout.jsx";
 
 
 // Bookings
-import BookingsPage from "@/components/shared/pages/bookings";
-import BookingDetailPage from "@/components/shared/pages/bookingsDetail";
-import BookingReschedulePage from "@/components/shared/pages/rescheduleBooking.jsx";
+import BookingsPage from "@/components/shared/pages/bookings/bookings";
+import BookingDetailPage from "@/components/shared/pages/bookings/bookingsDetail";
+import BookingReschedulePage from "@/components/shared/pages/bookings/rescheduleBooking.jsx";
 
 // Notifications
 import NotificationsPage from "@/components/shared/pages/notification";
@@ -31,8 +31,8 @@ import NotificationsPage from "@/components/shared/pages/notification";
 // Payments
 
 // Profile
-import ProfilePage from "@/app/carrier/profile/page.jsx";
-import EditProfilePage from "@/app/carrier/profile/edit/page.jsx";
+import ProfilePage from "@/app/pilot-car-manager/profile/page.jsx";
+import EditProfilePage from "@/app/pilot-car-manager/profile/edit/page.jsx";
 
 // Settings
 import SettingsPage from "@/components/shared/pages/settings/page.jsx";
@@ -40,12 +40,12 @@ import SettingsContentPage from "@/components/shared/pages/settings/[slug]/page.
 import ChangePasswordPage from "@/components/shared/pages/settings/change-password/page.jsx";
 
 // Subscriptions
-import PlansPage from "@/components/shared/pages/plans";
-import PaymentPage from "@/components/shared/pages/payment";
+import PlansPage from "@/components/shared/pages/subscription/plans";
+import PaymentPage from "@/components/shared/pages/subscription/payment";
 
 // Support
-import SupportPage from "@/components/shared/pages/support.jsx";
-import CreateTicketPage from "@/components/shared/pages/create-ticket.jsx";
+import SupportPage from "@/components/shared/pages/support/support.jsx";
+import CreateTicketPage from "@/components/shared/pages/support/create-ticket.jsx";
 
 // Escorts
 import EscortsPage from "@/app/pilot-car-manager/escorts/page.jsx";
@@ -94,7 +94,7 @@ export const pilotCarManagerRoutes = (
         <Route path="otp" element={<SignUpOtpPage />} />
         <Route path="create-profile" element={<CreateProfilePage />} />
         <Route path="role-select" element={<RoleSelectPage />} />
-        <Route path="details" element={<CompanyDetailsPage />} />
+        <Route path="company-details" element={<CompanyDetailsPage />} />
         <Route path="add-vehicles" element={<AddVehiclesPage />} />
         <Route path="fares" element={<FaresPage />} />
         <Route path="payment">

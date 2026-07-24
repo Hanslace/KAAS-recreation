@@ -3,19 +3,20 @@ import DetailsLayout from '@/components/shared/pages/details/DetailsLayout';
 import DocumentsSection from '@/components/shared/DocumentsSection';
 import InfoGrid from '@/components/shared/InfoGrid';
 import NotFound from '@/components/ui/NotFound';
-import { useParams } from 'react-router';
+import { useLocation, useParams } from 'react-router';
 
 import bookings from '@/data/data.json';
 import managerData from '@/data/managers.json';
 
 
 
-export default function ManagerDetailsContent() {
+export default function ManagerDetailsContent({ mine = false }) {
   const { id } = useParams();
+  const { pathname } = useLocation();
 
-  const currentManager = managerData.tableData.find(
-    (manager) => manager.slug === id,
-  );
+  const currentManager = mine
+    ? managerData.tableData[0]
+    : managerData.tableData.find((manager) => manager.slug === id);
 
   if (!currentManager) {
     return (
@@ -47,8 +48,10 @@ export default function ManagerDetailsContent() {
         '/images/company-logo.png'
       }
       manager
+      mine={mine}
     >
       <InfoGrid
+        
         fields={[
           {
             label: 'Address',
@@ -61,6 +64,7 @@ export default function ManagerDetailsContent() {
 
       <InfoGrid
         heading="Company Info"
+        editHref={mine ? `${pathname}/company-details` : undefined}
         fields={[
           {
             label: 'MC Number',
@@ -79,7 +83,7 @@ export default function ManagerDetailsContent() {
 
       <DocumentsSection />
 
-      {status === 'Cancelled' && (
+      {(status === 'Cancelled' && !mine) && (
         <div>
           <h3 className="main-heading font-bold tracking-tight text-black">
             Reason:
@@ -97,6 +101,7 @@ export default function ManagerDetailsContent() {
 
       <InfoGrid
         heading="Fares Info"
+        editHref={mine ? `${pathname}/fares` : undefined}
         fields={[
           {
             label: 'Per Day',
@@ -121,7 +126,7 @@ export default function ManagerDetailsContent() {
         ]}
       />
 
-      {status === 'Approved' && (
+      {(status === 'Approved'  && !mine) && (
         <div className="mt-8 flex flex-col gap-4">
           <h2 className="main-heading font-bold tracking-tight text-black">
             Booking History
