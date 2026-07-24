@@ -1,6 +1,6 @@
 import BookingsGrid from '@/components/shared/BookingsGrid';
 import InfoGrid from '@/components/shared/InfoGrid';
-import DetailsLayout from '@/components/DetailsLayout';
+import DetailsLayout from '@/components/DetailsContent';
 import NotFound from '@/components/ui/NotFound';
 import { useParams } from 'react-router';
 

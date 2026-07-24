@@ -1,5 +1,5 @@
 import BookingsGrid from '@/components/shared/BookingsGrid';
-import DetailsLayout from '@/components/DetailsLayout';
+import DetailsLayout from '@/components/DetailsContent';
 import DocumentsSection from '@/components/shared/DocumentsSection';
 import InfoGrid from '@/components/shared/InfoGrid';
 import NotFound from '@/components/ui/NotFound';

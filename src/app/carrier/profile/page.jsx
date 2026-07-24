@@ -1,5 +1,4 @@
 import InfoGrid from '@/components/shared/InfoGrid';
-import DetailsLayout from '@/components/DetailsLayout';
 import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router';
 
