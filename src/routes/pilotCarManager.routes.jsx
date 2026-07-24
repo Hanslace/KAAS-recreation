@@ -20,17 +20,11 @@ import PaymentPage from "@/app/(auth)/sign-up/payment/[planId]/page";
 // Protected layout
 import ProtectedLayout from "@/components/shared/layouts/ProtectedLayout.jsx";
 
-// Home
-import CarrierHome from "@/app/carrier/home/page.jsx";
-import BookDriverPage from "@/app/carrier/home/[id]/book/page.jsx";
-import DriverDetailPage from "@/app/carrier/home/[id]/page.jsx";
-import PreviousBookingsPage from "@/app/carrier/home/previous-bookings/page.jsx";
 
 // Bookings
-import BookingsPage from "@/app/carrier/bookings/page.jsx";
-import BookingDetailsPage from "@/app/carrier/bookings/[bookingId]/page.jsx";
-import BookingProfilePage from "@/app/carrier/bookings/profile/[escortId]/page.jsx";
-import BookingReschedulePage from "@/app/carrier/bookings/reschedule/[bookingId]/page.jsx";
+import BookingsPage from "@/app/pilot-car-manager/bookings/page.jsx";
+import BookingDetailsPage from "@/app/pilot-car-manager/bookings/[bookingId]/page.jsx";
+import BookingReschedulePage from "@/app/pilot-car-manager/bookings/reschedule/[bookingId]/page.jsx";
 
 // Notifications
 import NotificationsPage from "@/components/shared/pages/notification";
@@ -55,11 +49,11 @@ import SubscriptionPaymentPage from "@/app/carrier/subscriptions/[planId]/page.j
 import SupportPage from "@/app/carrier/support/page.jsx";
 import CreateTicketPage from "@/app/carrier/support/create-ticket/page.jsx";
 
-// Trucks
-import TrucksPage from "@/app/carrier/trucks/page.jsx";
-import TruckDetailsPage from "@/app/carrier/trucks/[truckId]/page.jsx";
-import EditTruckPage from "@/app/carrier/trucks/[truckId]/edit/page.jsx";
-import AddTruckPage from "@/app/carrier/trucks/add/page.jsx";
+// Escorts
+import EscortsPage from "@/app/pilot-car-manager/escorts/page.jsx";
+import EscortDetailsPage from "@/app/pilot-car-manager/escorts/[escortId]/page.jsx";
+import EditEscortPage from "@/app/pilot-car-manager/escorts/[escortId]/edit/page.jsx";
+import AddEscortPage from "@/app/pilot-car-manager/escorts/add/page.jsx";
 import NotFound from "@/components/ui/NotFound";
 import ManagerDashboard from "@/app/pilot-car-manager/dashboard/page";
 
@@ -68,7 +62,7 @@ import ManagerDashboard from "@/app/pilot-car-manager/dashboard/page";
 const sidebarLinks = [
   { name: 'Dashboard', href: '/dashboard', icon: 'ic:baseline-home', hasSubmenu: false },
   { name: 'Bookings', href: '/bookings', icon: 'uis:calendar', hasSubmenu: false },
-  { name: 'Escorts', href: '/escorts', icon: 'mdi:car-side', hasSubmenu: false },
+  { name: 'corts', href: '/escorts', icon: 'mdi:car-side', hasSubmenu: false },
   { name: 'Subscription', href: '/subscriptions', icon: 'material-symbols:subscriptions', hasSubmenu: false },
   { name: 'Drivers', href: '/drivers', icon: 'mdi:account-group', hasSubmenu: false },
   { name: 'Earnings', href: '/earnings', icon: 'solar:wallet-money-bold', hasSubmenu: false },
@@ -123,7 +117,6 @@ export const pilotCarManagerRoutes = (
       <Route path="/bookings">
         <Route index element={<BookingsPage />} />
         {/* Static routes above dynamic param */}
-        <Route path="profile/:escortId" element={<BookingProfilePage />} />
         <Route path="reschedule/:bookingId" element={<BookingReschedulePage />} />
         <Route path=":bookingId" element={<BookingDetailsPage />} />
       </Route>
@@ -160,14 +153,14 @@ export const pilotCarManagerRoutes = (
         <Route path="create-ticket" element={<CreateTicketPage />} />
       </Route>
 
-      {/* Trucks */}
-      <Route path="/trucks">
-        <Route index element={<TrucksPage />} />
+      {/* Escorts */}
+      <Route path="/escorts">
+        <Route index element={<EscortsPage />} />
         {/* Static route above dynamic param */}
-        <Route path="add" element={<AddTruckPage />} />
-        <Route path=":truckId">
-          <Route index element={<TruckDetailsPage />} />
-          <Route path="edit" element={<EditTruckPage />} />
+        <Route path="add" element={<AddEscortPage />} />
+        <Route path=":escortId">
+          <Route index element={<EscortDetailsPage />} />
+          <Route path="edit" element={<EditEscortPage />} />
         </Route>
       </Route>
     </Route>

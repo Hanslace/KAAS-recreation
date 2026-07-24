@@ -15,6 +15,7 @@ import FeedbackModal from "@/components/shared/modals/FeedbackModal";
 import SuccessModal from "@/components/shared/modals/SuccessModal";
 import ConfirmationModal from "@/components/shared/modals/ConfirmationModal";
 import DriverAssignmentModal from "@/components/shared/modals/DriverAssignmentModal";
+import PaymentModal from "@/components/shared/modals/PaymentModal";
 
 
 function RatingRow({
@@ -67,6 +68,7 @@ export default  function BookingDetailPage() {
   const [fareSuccessOpen, setFareSuccessOpen] = useState(false);
   const [assignDriverOpen, setAssignDriverOpen] = useState(false);
   const [driverAssignSuccessOpen, setDriverAssignSuccessOpen] = useState(false);
+  const [paymentModalOpen, setPaymentModalOpen] = useState(false);
 
   const booking = data.bookingDetails.find((item) => item.slug === bookingId);
 
@@ -96,9 +98,29 @@ export default  function BookingDetailPage() {
       <div className="flex flex-wrap justify-between gap-3">
         <BackButton>Details</BackButton>
         {role !== 'admin' && (
+          (role.startsWith("pilot-car") && (booking.status === 'Upcoming' || booking.status === 'Reschedule')) ? (
+            <div className="flex gap-3">
+              <BrandButton onClick={() => navigate("/bookings?tab=ongoing")}>
+                  Start Booking
+              </BrandButton>
+              <BrandButton className="bg-black" onClick={() => window.location.href = `tel:${booking.phone}`}>
+                  Call Now
+              </BrandButton>
+            </div>
+          ) : ((role==="pilot-car-manager" || role==="pilot-car-individual") && booking.status === 'Completed') ? (
+            <div className="flex gap-3">
+              <BrandButton className="w-[25ch] px-5" onClick={() => setPaymentModalOpen(true)}>
+                  Mark as Paid
+              </BrandButton>
+              <BrandButton className="bg-black w-[25ch] px-5" onClick={() => window.location.href = `tel:${booking.phone}`}>
+                  Call Now
+              </BrandButton>
+            </div>
+          ) : (
             <BrandButton onClick={() => window.location.href = `tel:${booking.phone}`}>
                 Call Now
             </BrandButton>
+          )
         )}
         
     </div>
@@ -399,6 +421,22 @@ export default  function BookingDetailPage() {
                 )}
 
               
+                {booking.status === 'Reschedule' && (
+                <div className="min-[26.56rem]:mx-0 mx-auto flex  gap-3">
+                    <BrandButton onClick={() => setReasonAction('cancel')} className="w-[25ch]">
+                    Cancel Booking
+                    </BrandButton>
+
+                    <BrandButton
+                    type="button"
+                    onClick={() => navigate(`/bookings?tabs=upcoming`)}
+                    className="bg-black w-[25ch]"
+                    >
+                    Accept
+                    </BrandButton>
+                </div>
+                )}
+
                 {booking.status === 'Upcoming' && (
                 <div className="min-[26.56rem]:mx-0 mx-auto flex  gap-3">
                     <BrandButton onClick={() => setReasonAction('cancel')} className="w-[25ch]">
@@ -473,6 +511,24 @@ export default  function BookingDetailPage() {
                     >
                     Reschedule Booking
                     </BrandButton>
+                </div>
+                )}
+
+                {booking.status === 'Reschedule' && (
+                <div className="min-[26.56rem]:mx-0 mx-auto flex  gap-3">
+                    <BrandButton
+                      type="button"
+                      onClick={() => navigate(`/bookings?tab=upcoming`)}
+                      className=" w-[25ch]"
+                      >
+                      Accept
+                    </BrandButton>
+                    
+                    <BrandButton className="bg-black w-[25ch]" onClick={() => setReasonAction('cancel')} >
+                    Cancel Booking
+                    </BrandButton>
+
+                    
                 </div>
                 )}
 
@@ -594,6 +650,16 @@ export default  function BookingDetailPage() {
         description="You have successfully assigned a driver."
         buttonText="Done"
         onDone={() => setDriverAssignSuccessOpen(false)}
+      />
+
+      <PaymentModal
+        open={paymentModalOpen}
+        onClose={() => setPaymentModalOpen(false)}
+        originalFare={booking.price}
+        onSubmit={({ option, fare }) => {
+          console.log("Marked as paid:", { option, fare });
+          setPaymentModalOpen(false);
+        }}
       />
 
       <ConfirmationModal

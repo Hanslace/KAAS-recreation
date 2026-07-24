@@ -91,6 +91,38 @@ export default function VehiclesPage() {
     });
   };
 
+  const ATTACHMENTS_LIMIT = 3;
+
+  const addAttachment = (id) => (file) => {
+    if (!file) return;
+    setDocs((prev) => {
+      const current = prev[id]?.attachments || [];
+      if (current.length >= ATTACHMENTS_LIMIT) return prev;
+      return {
+        ...prev,
+        [id]: {
+          ...prev[id],
+          attachments: [
+            ...current,
+            { attachmentId: crypto.randomUUID(), url: URL.createObjectURL(file), name: file.name },
+          ],
+        },
+      };
+    });
+  };
+
+  const removeAttachment = (id, attachmentId) => () => {
+    setDocs((prev) => {
+      const current = prev[id]?.attachments || [];
+      const doc = current.find((item) => item.attachmentId === attachmentId);
+      if (doc?.url) URL.revokeObjectURL(doc.url);
+      return {
+        ...prev,
+        [id]: { ...prev[id], attachments: current.filter((item) => item.attachmentId !== attachmentId) },
+      };
+    });
+  };
+
   const onSubmit = async (data) => {
     try {
       console.log("Validated Form Submission Data:", data);
@@ -107,6 +139,9 @@ export default function VehiclesPage() {
     const doc = docs[id];
     if (doc?.truck?.url) URL.revokeObjectURL(doc.truck.url);
     if (doc?.liability?.url) URL.revokeObjectURL(doc.liability.url);
+    doc?.attachments?.forEach((attachment) => {
+      if (attachment.url) URL.revokeObjectURL(attachment.url);
+    });
     setDocs((prev) => {
       const next = { ...prev };
       delete next[id];
@@ -128,7 +163,7 @@ export default function VehiclesPage() {
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className=" space-y-[1.5em]  md:overflow-y-auto flex flex-col md:flex-1 md:min-h-0 custom-scrollbar ">
-        <div className=" gap-[2.5em]  md:overflow-y-auto flex flex-col md:flex-1 md:min-h-0 custom-scrollbar md:pr-3">
+        <div className=" gap-[2.5em]  md:overflow-y-auto flex flex-col md:flex-1 md:min-h-0 custom-scrollbar md:pr-3 md:pt-1">
           {fields.map((field, index) => {
             const carrierErrors = errors.carriers?.[index] || {};
             const carrierDocs = docs[field.id] || {};
@@ -151,16 +186,20 @@ export default function VehiclesPage() {
                   </div>
                 )}
 
-                <UploadArea
-                  label={`Upload ${vehicleLabel} Photo`}
-                  onFileSelect={setDoc(field.id, "truck")}
-                />
-                {carrierDocs.truck && (
-                  <AttachmentImage
-                    src={carrierDocs.truck.url}
-                    alt={carrierDocs.truck.name}
-                    onRemove={removeDoc(field.id, "truck")}
-                  />
+                {!isPilotCar && (
+                  <>
+                    <UploadArea
+                      label={`Upload ${vehicleLabel} Photo`}
+                      onFileSelect={setDoc(field.id, "truck")}
+                    />
+                    {carrierDocs.truck && (
+                      <AttachmentImage
+                        src={carrierDocs.truck.url}
+                        alt={carrierDocs.truck.name}
+                        onRemove={removeDoc(field.id, "truck")}
+                      />
+                    )}
+                  </>
                 )}
 
                 <AuthInput
@@ -213,19 +252,48 @@ export default function VehiclesPage() {
                   {...register(`carriers.${index}.vinNumber`)}
                 />
 
-                <span className="font-bold auth-h2">Liability</span>
+                <span className="font-bold auth-h2">
+                  {isPilotCar ? "Attachments" : "Liability"}
+                </span>
 
-                <UploadArea
-                  label="Upload Liability Document"
-                  onFileSelect={setDoc(field.id, "liability")}
-                  iconPosition="left"
-                />
-                {carrierDocs.liability && (
-                  <AttachmentImage
-                    src={carrierDocs.liability.url}
-                    alt={carrierDocs.liability.name}
-                    onRemove={removeDoc(field.id, "liability")}
-                  />
+                {isPilotCar ? (
+                  <>
+                    {(carrierDocs.attachments?.length || 0) < ATTACHMENTS_LIMIT && (
+                      <UploadArea
+                        label="Upload Attachments"
+                        onFileSelect={addAttachment(field.id)}
+                        iconPosition="left"
+                      />
+                    )}
+
+                    {carrierDocs.attachments?.length > 0 && (
+                      <div className="flex flex-wrap gap-3">
+                        {carrierDocs.attachments.map((attachment) => (
+                          <AttachmentImage
+                            key={attachment.attachmentId}
+                            src={attachment.url}
+                            alt={attachment.name}
+                            onRemove={removeAttachment(field.id, attachment.attachmentId)}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <UploadArea
+                      label="Upload Liability Document"
+                      onFileSelect={setDoc(field.id, "liability")}
+                      iconPosition="left"
+                    />
+                    {carrierDocs.liability && (
+                      <AttachmentImage
+                        src={carrierDocs.liability.url}
+                        alt={carrierDocs.liability.name}
+                        onRemove={removeDoc(field.id, "liability")}
+                      />
+                    )}
+                  </>
                 )}
 
                 {/* Divider between carriers */}
